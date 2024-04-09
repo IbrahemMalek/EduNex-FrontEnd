@@ -1,0 +1,116 @@
+<div class="container d-flex justify-content-center" dir="rtl">
+    <div class="col-md-7 border border-gray rounded-4 px-4" style="margin-top: 150px;box-shadow: 0px 0px 20px whitesmoke;">
+        <div class="text-center mt-5">
+            <h2 class="text-second mb-4" style="color: rgb(255, 133, 0);">انشئ حسابك الآن</h2>
+            <h3 class="mb-6 text-main font-24-bold" style="color: rgb(32, 26, 217);">ادخل بياناتك بشكل صحيح للحصول علي افضل تجربة داخل الموقع</h3>
+        </div>
+     <form class="form-floating" action="" method="" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="row mt-5">
+            <div class="form-group">
+                <label class="d-block font-18-medium mb-3" for="fullName">الاسم ثلاثي باللغة العربية (كما هو بالبطاقه)</label>
+                <div class="input-group">
+                    <input type="text" name="fullName" class="form-control mb-3" style="width: 100%;" id="fullName" placeholder="اسم الطالب" aria-label="رقم تليفون الطالب" [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+                </div>
+            </div>
+            <div class="col">
+                <label class="d-block font-18-medium mb-3" for="studentPhoneNumber">رقم تليفون الطالب</label>
+                <input type="number" name="studentPhoneNumber" class="form-control mt-3" style="width: 100%;" id="studentPhoneNumber" placeholder="رقم الموبايل" aria-label="رقم تليفون الطالب" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+            </div>
+            <div class="col">
+                <label class="d-block font-18-medium mb-3" for="fatherPhoneNumber">رقم تليفون ولي الأمر</label>
+                <input type="number" name="fatherPhoneNumber" class="form-control mt-3" style="width: 100%;" id="fatherPhoneNumber" placeholder="رقم الموبايل" aria-label="رقم تليفون ولي الأمر" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label class="d-block font-18-medium mb-3" for="Religion">الديانة</label>
+                <select class="form-select" aria-label="Default select example" style="width: 100%;" id="Religion" name="Religion" aria-label="الديانة" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+                    <option value="" disabled selected hidden>اختر الديانة</option>
+                    <option value="Islam" class="mt-2">الإسلام</option>
+                    <option value="Christianity" class="mt-2">المسيحية</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="d-block font-18-medium mb-3" for="birthday">تاريخ الميلاد</label>
+                <input type="date" name="birthday" class="form-control mt-3" style="width: 100%;" id="birthday" placeholder="تاريخ الميلاد" aria-label="تاريخ الميلاد" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()" >
+            </div>
+        </div>
+        <div class="mt-3 mb-3">
+            <label class="d-block font-18-medium mb-3" for="Sex">الجنس</label>
+            <select class="form-select" aria-label="Default select example" style="width: 100%;" id="Sex" name="Sex" aria-label="الجنس" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+                <option value="" disabled selected hidden>اختر الجنس</option>
+                <option value="male" class="mt-2">ذكر</option>
+                <option value="female" class="mt-2">أنثى</option>
+            </select>
+         </div>
+         <div class="mt-3 mb-3">
+            <label class="d-block font-18-medium mb-3" for="Governorate">المحافظة</label>
+            <select class="form-select" aria-label="Default select example" style="width: 100%;" id="Governorate" name="governorate" aria-label="المحافظة" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+                <option value="" disabled selected hidden>اختر المحافظة</option>
+                <option value="cairo">القاهرة</option>
+                <option value="qalyubia ">القليوبية</option>
+                <option value="alexandria">الإسكندرية</option>
+                <option value="asyut">أسيوط</option>
+                <option value="aswan">أسوان</option>
+                <option value="beni_suef">بني سويف</option>
+                <option value="beheira">البحيرة</option>
+                <option value="damietta">دمياط</option>
+                <option value="gharbia">الغربية</option>
+                <option value="faiyum">الفيوم</option>
+                <option value="ismailia">الإسماعيلية</option>
+                <option value="giza">الجيزة</option>
+                <option value="luxor">الأقصر</option>
+                <option value="kafr_el_sheikh">كفر الشيخ</option>
+                <option value="minya">المنيا</option>
+                <option value="matruh">مطروح</option>
+                <option value="new_valley">الوادي الجديد</option>
+                <option value="monufia">المنوفية</option>
+                <option value="port_said">بورسعيد</option>
+                <option value="north_sinai">شمال سيناء</option>
+                <option value="qena">قنا</option>
+                <option value="sohag">سوهاج</option>
+                <option value="red_sea">البحر الأحمر</option>
+                <option value="suez">السويس</option>
+                <option value="south_sinai">جنوب سيناء</option>
+            </select>
+         </div>
+         <div class="mt-3 mb-3">
+            <label class="d-block font-18-medium mb-3" for="education">المرحلة التعليمية</label>
+            <select class="form-select" aria-label="Default select example" style="width: 100%;" id="education" name="education" aria-label="المرحلة التعليمية" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+                <option value="" disabled selected hidden>اختر المرحلة التعليمية</option>
+                <option value="First" >الصف الأول الثانوي</option>
+                <option value="second">الصف الثاني الثانوي</option>
+                <option value="third">الصف الثالث الثانوي</option>
+            </select>
+         </div>
+         <div class="col mt-3 mb-3">
+            <label class="d-block font-18-medium mb-3" for="address">العنوان التفصيلي</label>
+            <input type="text" name="address" class="form-control mt-3" style="width: 100%;" id="address" placeholder="العنوان التفصيلي" aria-label="العنوان التفصيلي" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <label class="d-block font-18-medium mb-3" for="password">كلمة السر</label>
+                <input type="password" name="password" class="form-control  mt-3" style="width: 100%;" id="password" placeholder="كلمة السر" aria-label="كلمة السر" required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+            </div>
+            <div class="col">
+                <label class="d-block font-18-medium mb-3" for="ConfirmPassword">تأكيد كلمة السر</label>
+                <input type="password" name="ConfirmPassword" class="form-control mt-3" style="width: 100%;" id="ConfirmPassword" placeholder="تأكيد كلمة السر" aria-label="تأكيد كلمة السر  " required [ngClass]="{'is-invalid': isInputFocused}" (focus)="onInputFocus()" (blur)="onInputBlur()">
+            </div>
+        </div>
+        <div class="mt-3 mb-3">
+            <input type="checkbox" id="Rebot" name="Rebot" style="transform: scale(1.1); width: 5%; height: 20px;" required>
+          <label for="Rebot" class="me-1">انا لست روبوت</label>
+       </div>
+       <div class="mt-3 mb-3">
+        <input type="checkbox" id="Rebot" name="Rebot" style="transform: scale(1.1); width: 5%; height: 20px;" required>
+        <label for="copyWrite" class="me-1">أوافق علي  <a [routerLink]="['/login']">الشروط والأحكام</a></label>
+     </div>
+     <div class="d-grid gap-2 text-center mt-3">
+        <button class="btn btn-primary rounded-5" type="submit" style="height: 50px; background-color: #6366f1;">إنشاء حساب</button>
+        <p>يوجد لديك حساب بالفعل؟ <a [routerLink]="['/login']" class="ms-1 text-second text-decoration-none" style="color: rgb(255, 133, 0);">ادخل إلى حسابك الآن</a></p>
+      </div>
+     </form>
+    </div>
+
+</div>
