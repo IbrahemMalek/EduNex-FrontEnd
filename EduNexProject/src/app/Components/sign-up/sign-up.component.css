@@ -1,9 +1,30 @@
 body{
-    font-family: taiawal,sans-serif;
+    
+    
+        font-family: "Cairo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:"slnt" 0;
+      
     font-weight: 500;
     font-size: 16px;
+    padding: 0;
+    margin: 0;
     
 }
 label{
     font-size: 18px;
+}
+.navImg {
+    background-image: linear-gradient(#0202aa,rgb(32, 26, 217));
+}
+
+.navImg img {
+    width: 100%;
+}
+.footImg img
+{
+    width: 100%;
+
 }
