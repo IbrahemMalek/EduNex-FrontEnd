@@ -1,0 +1,117 @@
+<div class="flex align-items-start">
+  <div>
+    <mat-accordion class="flex my-3">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel" expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            المادة
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option" class="flex flex-column sub-radio">
+          <mat-radio-button value="1" color="accent">Option 1</mat-radio-button>
+          <mat-radio-button value="2" color="accent">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex my-3">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            نوع الكورس
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option" class="flex flex-column sub-radio">
+          <mat-radio-button value="1" color="accent">Option 1</mat-radio-button>
+          <mat-radio-button value="2" color="accent">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex my-3">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            الصف الدراسي
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option" class="flex flex-column sub-radio">
+          <mat-radio-button value="1" color="accent">Option 1</mat-radio-button>
+          <mat-radio-button value="2" color="accent">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex my-3">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            أدني السعر
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-slider min="0" max="3000" step="100" color="accent" showTickMarks discrete style="direction: ltr;">
+          <input matSliderThumb>
+        </mat-slider>
+        <div class="flex justify-content-between">
+          <span class="price-text">EGP 0</span>
+          <span class="price-text">EGP 3000</span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex my-3">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            أعلي السعر
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-slider min="3000" max="6000" step="100" color="accent" showTickMarks discrete style="direction: ltr;">
+          <input matSliderThumb>
+        </mat-slider>
+        <div class="flex justify-content-between">
+          <span class="price-text">EGP 3000</span>
+          <span class="price-text">EGP 6000</span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="flex flex-wrap">
+    <ng-container *ngFor="let index of [0, 1, 2, 3, 4, 5, 6, 7]">
+      <mat-card class="example-card">
+        <img mat-card-image src="https://via.placeholder.com/325x225" alt="Sample Image">
+        <div color="accent" class="label">
+          <p>الإحصاء</p>
+        </div>
+        <div class="top-bottom-container">
+          <div class="top flex flex-column gap-2 profile">
+            <img class="rounded-picture" src="https://via.placeholder.com/75" alt="Profile Picture">
+            <span class="name">منه جاد</span>
+          </div>
+          <div class="bottom">
+            <h6 class="description">كورس مادة الاقتصاد</h6>
+            <div class="flex justify-content-between">
+              <div class="flex gap-2">
+                <img src="assets/image/boy.5g.svg" alt="boy">
+                <span class="category mt-0">الصف الثالث الثانوي</span>
+              </div>
+              <div class="flex gap-2">
+                <img src="assets/image/money.svg" alt="boy">
+                <span class="price mt-0">200</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>
+
+
+<app-custom-pagination></app-custom-pagination>

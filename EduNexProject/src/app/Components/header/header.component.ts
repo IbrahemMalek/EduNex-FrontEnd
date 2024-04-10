@@ -18,15 +18,11 @@ export class HeaderComponent implements OnInit {
   showFiller = false;
   isShowing: boolean = false;
 
+  constructor() { }
+
   toggleRightSidenav() {
     this.isShowing = !this.isShowing;
   }
-
-  // callMethods() {
-  //   this.toggleSidenav();
-  // }
-
-  constructor() { }
 
   ngOnInit(): void {
     this.applyTheme(this.theme.value);
@@ -34,10 +30,9 @@ export class HeaderComponent implements OnInit {
       this.applyTheme(currentTheme);
     });
   }
-
   private applyTheme(currentTheme: boolean | null): void {
-    if (currentTheme === null) { // Handle null value
-      currentTheme = false; // Set default value to false
+    if (currentTheme === null) {
+      currentTheme = false;
     }
 
     this.className = currentTheme ? this.darkClass : this.lightClass;

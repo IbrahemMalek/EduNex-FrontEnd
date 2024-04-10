@@ -1,14 +1,26 @@
+mat-sidenav-container {
+  margin-bottom: 5rem;
+  z-index: 2;
+}
 mat-toolbar {
   justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px -10px;
+  box-shadow: var(--border) 0px 4px 10px -10px;
   position: fixed;
   padding-left: 5rem;
   padding-right: 5rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom: 1px solid rgba(32, 26, 217, 0.15);
+}
+.mat-drawer {
+  box-shadow: -1px 0 1px 0 var(--border);
+  border-left: 1px solid rgba(32, 26, 217, 0.15);
 }
 mat-toolbar button {
   font-size: 14px;
   padding-inline: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
 }
 
 .toggle-checkbox {
@@ -39,7 +51,7 @@ mat-toolbar button {
   position: absolute;
   height: 1.3em;
   width: 1.3em;
-  top: 0.25rem;
+  top: 0.2rem;
   border-radius: 50%;
   background-color: #ffeccf;
   box-shadow: inset 0px 0px 0px 0.15em #ffbb52;
@@ -51,25 +63,17 @@ mat-toolbar button {
   background-color: #485367;
   box-shadow: inset 0px 0px 0px 0.1em white;
   transform: translateX(-2.25em);
-  -webkit-transform: translateX(-2.25em);
-  -moz-transform: translateX(-2.25em);
-  -ms-transform: translateX(-2.25em);
-  -o-transform: translateX(-2.25em);
 }
 
 .sun-icon {
   position: absolute;
-  height: 6em;
-  width: 6em;
   color: #ffbb52;
   left: -5rem;
-  top: 1rem;
+  top: 1.65rem;
 }
 
 .sun-icon-wrapper {
   position: absolute;
-  height: 6em;
-  width: 6em;
   opacity: 1;
   transform: translate(2em) rotate(15deg);
   transform-origin: 50% 50%;
@@ -83,17 +87,13 @@ mat-toolbar button {
 
 .moon-icon {
   position: absolute;
-  height: 6em;
-  width: 6em;
   color: white;
-  right: 11.65rem;
-  top: -2.15rem;
+  right: 12.25rem;
+  top: -2.95rem;
 }
 
 .moon-icon-wrapper {
   position: absolute;
-  height: 6em;
-  width: 6em;
   opacity: 0;
   transform: translate(11em) rotate(0deg);
   transform-origin: 50% 50%;
@@ -115,14 +115,15 @@ mat-toolbar button {
 mat-toolbar button.custom-button,
 mat-sidenav button.custom-button {
   color: #ffffff;
-  background-color: #5551e2;
+  background-color: #201ad9;
   border-radius: 20rem;
   transition: 0.3s;
   padding-inline: 1rem;
+  opacity: 1;
 }
 mat-toolbar button.custom-button:hover,
 mat-sidenav button.custom-button:hover {
-  background-color: #5651e2c1;
+  background-color: #201ad9c9;
 }
 
 .side-nav {
@@ -134,7 +135,9 @@ mat-sidenav button.custom-button:hover {
   width: 20rem;
 }
 mat-sidenav button {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  opacity: 0.75;
 }
 .side-btns button {
   width: 100%;
@@ -145,8 +148,26 @@ hr.style-one {
   margin-bottom: 2rem;
   border: 0;
   height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid var(--bgHeader);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
+}
+mat-sidenav {
+  z-index: 11;
+  position: fixed;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  z-index: 10; /* Ensure the overlay is above other content */
+  display: none;
+}
+
+.overlay.active {
+  display: block;
 }
 
 @media (max-width: 920px) {

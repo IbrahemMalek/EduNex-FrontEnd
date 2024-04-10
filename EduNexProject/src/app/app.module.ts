@@ -12,8 +12,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OverlayContainer } from '@angular/cdk/overlay'; // Remove this line
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { FooterComponent } from './Components/footer/footer.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { CoursesComponent } from './Components/courses/courses.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatCardModule} from '@angular/material/card';
+import { CustomPaginationComponent } from './Components/custom-pagination/custom-pagination.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,8 @@ import {MatButtonModule} from '@angular/material/button';
     SignUpComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    CoursesComponent,
+    CustomPaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,12 @@ import {MatButtonModule} from '@angular/material/button';
     MatSlideToggleModule,
     MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatPaginatorModule,
+    MatCardModule
   ],
   providers: [
     OverlayContainer, // Provide OverlayContainer here
