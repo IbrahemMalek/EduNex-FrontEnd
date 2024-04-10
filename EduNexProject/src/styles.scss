@@ -1,0 +1,89 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$indigo-palette: (
+  50: #fff,
+  100: #c5cae9,
+  200: #9fa8da,
+  300: #7986cb,
+  400: #5c6bc0,
+  500: #212121,
+  600: #3949ab,
+  700: #303f9f,
+  800: #283593,
+  900: #1a237e,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$light-primary: mat.define-palette($indigo-palette, 50);
+$light-accent: mat.define-palette(mat.$pink-palette, 'A200', 'A100', 'A400');
+$light-warn: mat.define-palette(mat.$red-palette);
+
+$dark-primary: mat.define-palette($indigo-palette, 500);
+$dark-accent: mat.define-palette(mat.$pink-palette, 'A200', 'A100', 'A400');
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-light-theme((color: (primary: $light-primary,
+        accent: $light-accent,
+        warn: $light-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+.theme-light {
+  @include mat.all-component-colors($light-theme);
+  background-color: #ffffff;
+  color: #2B3445;
+}
+
+.theme-dark {
+  @include mat.all-component-colors($dark-theme);
+  background-color: #121212;
+  color: #ffffff;
+}
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+html {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.1px;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+.flex{
+  display: flex;
+  align-items: center;
+}

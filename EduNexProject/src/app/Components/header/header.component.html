@@ -1,0 +1,82 @@
+<mat-sidenav-container class="example-container">
+  <!-- side bar -->
+  <mat-sidenav class="side-nav" #sidenav [opened]="isShowing" fixedTopGap="56" position="end">
+    <div class="flex">
+      <div style="flex-grow: 1;"></div>
+      <button class="close-btn toggle-btn" mat-icon-button (click)="toggleRightSidenav()">
+        <mat-icon>close</mat-icon>
+      </button>
+
+    </div>
+    <div style="padding-top:1rem;" class="side-btns">
+      <button mat-button routerLink="/">الرئيسية</button>
+      <button mat-button routerLink="/courses">الكروسات</button>
+      <button mat-button routerLink="/offers">العروض</button>
+      <button mat-button routerLink="/teachers">المدرسين</button>
+      <button mat-button routerLink="/about">عن الاكادمية</button>
+      <button mat-button routerLink="/exams">امتحانات عامة</button>
+      <button mat-button routerLink="/Parent">ولي الأمر</button>
+    </div>
+    <hr class="style-one">
+    <div class="flex" style="gap: 10px;">
+      <button mat-button routerLink="/login">
+        <div class="flex">
+          <i class="fa-regular fa-circle-user"></i>
+          &#160;
+          تسجيل الدخول
+        </div>
+      </button>
+
+      <button mat-button routerLink="/Parent" class="custom-button">اشترك الأن</button>
+    </div>
+  </mat-sidenav>
+
+  <!-- nav bar -->
+  <mat-sidenav-content style="height: 100dvh;">
+    <mat-toolbar color="primary" class="flex">
+      <div>Logo</div>
+      <div></div>
+
+      <div class="nav-items">
+        <button mat-button routerLink="/" color="title">الرئيسية</button>
+        <button mat-button routerLink="/courses">الكروسات</button>
+        <button mat-button routerLink="/offers">العروض</button>
+        <button mat-button routerLink="/teachers">المدرسين</button>
+        <button mat-button routerLink="/about">عن الاكادمية</button>
+        <button mat-button routerLink="/exams">امتحانات عامة</button>
+        <button mat-button routerLink="/Parent">ولي الأمر</button>
+      </div>
+
+      <div class="flex" style="gap: 5px;">
+        <label>
+          <input class='toggle-checkbox' type='checkbox' [formControl]="theme" />
+          <div class='toggle-slot'>
+            <div class='sun-icon-wrapper'>
+              <i class="fa fa-sun sun-icon"></i>
+            </div>
+            <div class='toggle-button'></div>
+            <div class='moon-icon-wrapper'>
+              <i class="fa fa-moon moon-icon"></i>
+            </div>
+          </div>
+        </label>
+
+        <button mat-button routerLink="/login">
+          <div class="flex">
+            <i class="fa-regular fa-circle-user"></i>
+            &#160;
+            تسجيل الدخول
+          </div>
+        </button>
+
+        <button mat-button routerLink="/Parent" class="custom-button">طالب جديد</button>
+
+        <button mat-icon-button aria-label="Toggle Right Sidebar" class="menu-btn toggle-btn"
+          (click)="toggleRightSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+      </div>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
