@@ -28,6 +28,9 @@ import { RecentClassesComponent } from './Components/Home/recent-classes/recent-
 import {MatChipsModule} from '@angular/material/chips';
 import { CourseCardComponent } from './Components/SharedComponents/course-card/course-card.component';
 import { TeacherCardComponent } from './Components/SharedComponents/teacher-card/teacher-card.component';
+import { RecentCoursesComponent } from './Components/Home/recent-courses/recent-courses.component';
+import { AboutAcademyComponent } from './Components/Home/about-academy/about-academy.component';
+import { AboutTeachersComponent } from './Components/Home/about-teachers/about-teachers.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { TeacherCardComponent } from './Components/SharedComponents/teacher-card
     RecentClassesComponent,
     CourseCardComponent,
     TeacherCardComponent,
+    RecentCoursesComponent,
+    AboutAcademyComponent,
+    AboutTeachersComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,7 @@ import { TeacherCardComponent } from './Components/SharedComponents/teacher-card
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
   ],
   providers: [
     OverlayContainer,

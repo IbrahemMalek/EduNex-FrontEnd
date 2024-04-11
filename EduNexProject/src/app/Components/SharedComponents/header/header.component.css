@@ -131,7 +131,7 @@ mat-toolbar button {
 mat-toolbar button.custom-button,
 mat-sidenav button.custom-button {
   color: #ffffff;
-  background-color: #201ad9;
+  background-color: var(--btn);
   border-radius: 20rem;
   transition: 0.3s;
   padding-inline: 1rem;
