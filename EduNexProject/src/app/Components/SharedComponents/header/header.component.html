@@ -6,7 +6,7 @@
       <div></div>
 
       <div class="nav-items">
-        <button mat-button routerLink="/" color="title">الرئيسية</button>
+        <button mat-button routerLink="/home" color="title">الرئيسية</button>
         <button mat-button routerLink="/courses">الكروسات</button>
         <button mat-button routerLink="/offers">العروض</button>
         <button mat-button routerLink="/teachers">المدرسين</button>
@@ -29,7 +29,7 @@
           </div>
         </label>
 
-        <button mat-button routerLink="/login">
+        <button mat-button routerLink="/login" class="disk">
           <div class="flex">
             <i class="fa-regular fa-circle-user"></i>
             &#160;
@@ -37,7 +37,7 @@
           </div>
         </button>
 
-        <button mat-button routerLink="/Parent" class="custom-button">طالب جديد</button>
+        <button mat-button routerLink="/Parent" class="custom-button disk">طالب جديد</button>
 
         <button mat-icon-button aria-label="Toggle Right Sidebar" class="menu-btn toggle-btn"
           (click)="toggleRightSidenav()">
@@ -50,7 +50,8 @@
 </mat-sidenav-container>
 
 <!-- side bar -->
-<mat-sidenav class="side-nav" #sidenav [opened]="isShowing" fixedTopGap="56" position="end">
+<mat-sidenav class="side-nav" #sidenav [opened]="isShowing" fixedTopGap="56" position="end"
+  [@openClose]="isShowing ? 'open' : 'closed'">
   <div class="flex">
     <div style="flex-grow: 1;"></div>
     <button class="close-btn toggle-btn" mat-icon-button (click)="toggleRightSidenav()">
@@ -59,7 +60,7 @@
 
   </div>
   <div style="padding-top:1rem;" class="side-btns">
-    <button mat-button routerLink="/">الرئيسية</button>
+    <button mat-button routerLink="/home">الرئيسية</button>
     <button mat-button routerLink="/courses">الكروسات</button>
     <button mat-button routerLink="/offers">العروض</button>
     <button mat-button routerLink="/teachers">المدرسين</button>

@@ -6,7 +6,7 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { LoginComponent } from './Components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './Components/header/header.component';
+import { HeaderComponent } from './Components/SharedComponents/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OverlayContainer } from '@angular/cdk/overlay';
@@ -23,6 +23,11 @@ import { CustomPaginationComponent } from './Components/custom-pagination/custom
 import { TeachersComponent } from './Components/teachers/teachers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { MainComponent } from './Components/Home/main/main.component';
+import { RecentClassesComponent } from './Components/Home/recent-classes/recent-classes.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { CourseCardComponent } from './Components/SharedComponents/course-card/course-card.component';
+import { TeacherCardComponent } from './Components/SharedComponents/teacher-card/teacher-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,10 @@ import {MatInputModule} from '@angular/material/input';
     CoursesComponent,
     CustomPaginationComponent,
     TeachersComponent,
+    MainComponent,
+    RecentClassesComponent,
+    CourseCardComponent,
+    TeacherCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +60,8 @@ import {MatInputModule} from '@angular/material/input';
     MatPaginatorModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule
   ],
   providers: [
     OverlayContainer,

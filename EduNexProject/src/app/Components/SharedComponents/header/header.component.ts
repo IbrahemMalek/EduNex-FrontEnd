@@ -7,6 +7,19 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        transform: 'translateX(0%)'
+      })),
+      state('closed', style({
+        transform: 'translateX(100%)'
+      })),
+      transition('open <=> closed', [
+        animate('0.3s')
+      ]),
+    ]),
+  ]
 })
 export class HeaderComponent implements OnInit {
   theme = new FormControl(false);
@@ -48,5 +61,3 @@ export class HeaderComponent implements OnInit {
   }
 
 }
-
-
