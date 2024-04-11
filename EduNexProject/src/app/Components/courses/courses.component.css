@@ -4,12 +4,31 @@
 .custom-expansion-panel {
   box-shadow: var(--border) 0px 0px 0px 1px !important;
   border-radius: 10px !important;
-  width: 200px;
+  width: 225px;
   background-color: var(--bg);
 }
 .price-text {
   font-weight: 500;
   font-size: 14px;
+}
+
+/* card */
+.mat-card-wrapper {
+  perspective: 1000px;
+}
+
+.example-card {
+  max-width: 350px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: var(--border) 0px 0px 0px 1px;
+  background-color: var(--bg);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.example-card:hover {
+  transform: rotateY(-5deg) rotateX(10deg);
+  cursor: pointer;
 }
 
 .top-bottom-container {
@@ -34,10 +53,6 @@
   border-radius: 50%;
   border: 2px solid var(--border2);
   z-index: 1;
-}
-
-.theme-dark .rounded-picture {
-  border-color: var(--active) !important;
 }
 .name {
   font-size: 16px;
@@ -80,23 +95,4 @@
   margin: auto;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-
-/* card */
-.mat-card-wrapper {
-  perspective: 1000px;
-}
-
-.example-card {
-  max-width: 350px;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: var(--border) 0px 0px 0px 1px;
-  background-color: var(--bg);
-  transition: transform 0.5s, box-shadow 0.5s;
-}
-
-.example-card:hover {
-  transform: rotateY(-5deg) rotateX(10deg);
-  cursor: pointer;
 }

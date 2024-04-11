@@ -9,17 +9,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './Components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { OverlayContainer } from '@angular/cdk/overlay'; // Remove this line
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CoursesComponent } from './Components/courses/courses.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { CustomPaginationComponent } from './Components/custom-pagination/custom-pagination.component';
+import { TeachersComponent } from './Components/teachers/teachers.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { CustomPaginationComponent } from './Components/custom-pagination/custom
     HeaderComponent,
     CoursesComponent,
     CustomPaginationComponent,
+    TeachersComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,10 +49,12 @@ import { CustomPaginationComponent } from './Components/custom-pagination/custom
     MatRadioModule,
     MatSliderModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
-    OverlayContainer, // Provide OverlayContainer here
+    OverlayContainer,
   ],
   bootstrap: [AppComponent]
 })
