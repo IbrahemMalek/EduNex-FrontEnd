@@ -2,6 +2,27 @@ mat-sidenav-container {
   margin-bottom: 5rem;
   z-index: 2;
 }
+mat-sidenav {
+  z-index: 12;
+  position: fixed !important;
+  border-left: 1px solid var(--border);
+  background-color: var(--bg);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
 mat-toolbar {
   justify-content: space-between;
   box-shadow: var(--border) 0px 4px 10px -10px;
@@ -11,10 +32,6 @@ mat-toolbar {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom: 1px solid rgba(32, 26, 217, 0.15);
-}
-.mat-drawer {
-  box-shadow: -1px 0 1px 0 var(--border);
-  border-left: 1px solid rgba(32, 26, 217, 0.15);
 }
 mat-toolbar button {
   font-size: 14px;
@@ -131,7 +148,6 @@ mat-sidenav button.custom-button:hover {
   border-top-left-radius: 10px !important;
   border-bottom-left-radius: 10px !important;
   padding-top: 5rem;
-  /* padding-inline: 5rem; */
   width: 20rem;
 }
 mat-sidenav button {
@@ -150,24 +166,6 @@ hr.style-one {
   height: 0;
   border-top: 2px solid var(--bgHeader);
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
-}
-mat-sidenav {
-  z-index: 11;
-  position: fixed;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
-  z-index: 10; /* Ensure the overlay is above other content */
-  display: none;
-}
-
-.overlay.active {
-  display: block;
 }
 
 @media (max-width: 920px) {
