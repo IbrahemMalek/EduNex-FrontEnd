@@ -31,8 +31,9 @@
             <h3 class="mb-6 text-main font-24-bold" style="color: rgb(32, 26, 217);">ادخل بياناتك بشكل صحيح للحصول علي افضل تجربة داخل الموقع</h3>
         </div>
 
-
+        
      <form class="form-floating" action="" method="" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
         <div class="row mt-5">
             <mat-form-field appearance="fill" class="w-100">
                 <mat-label>الأسم ثلاثي باللغة العربية (كما هو بالبطاقه)</mat-label>
@@ -199,7 +200,7 @@
                 <mat-label>كلمة السر</mat-label>
                 <input matInput type="password" name="password" formControlName="password" placeholder="كلمة السر" aria-label="كلمة السر" required>
                 <i class="fa-solid fa-lock"></i>
-                <mat-error *ngIf="password?.touched">
+                <mat-error *ngIf="password?.touched && password?.errors">
                   <span *ngIf="password?.errors?.['required']" class="text-danger">كلمة المرور مطلوبة</span>
                   <span *ngIf="password?.errors?.['minlength']" class="text-danger">كلمة المرور يجب أن تكون أكثر من 8 أحرف</span>
                 </mat-error>
@@ -210,14 +211,13 @@
                 <mat-label>تأكيد كلمة السر</mat-label>
                 <input matInput type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="تأكيد كلمة السر" aria-label="تأكيد كلمة السر" required>
                 <i class="fa-solid fa-lock"></i>
-                <mat-error *ngIf="ConfirmPassword?.touched">
-                  <span *ngIf="ConfirmPassword?.errors?.['required']" class="text-danger">تأكيد كلمة المرور مطلوبة</span>
-                  <span *ngIf="ConfirmPassword?.errors?.['minlength']" class="text-danger">كلمة المرور يجب أن تكون أكثر من 8 أحرف</span>
-                  <span *ngIf="signupForm.errors?.['unMatchedPassword']" class="text-danger">كلمة المرور ليست متطابقة</span>
-                </mat-error>
+                <mat-error *ngIf="signupForm.get('ConfirmPassword')?.hasError('unMatchedPassword')">
+                    <span class="text-danger">كلمة المرور غير متطابقة</span>
+                  </mat-error>
               </mat-form-field>
             </div>
           </div>
+          
           
         <div class="mt-3 mb-3">
             <input type="checkbox" id="Rebot" formControlName="Rebot" style="transform: scale(1.1); width: 5%; height: 20px;" required>

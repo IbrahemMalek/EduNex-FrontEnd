@@ -2,13 +2,18 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export function passwordMatched(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    let password = control.get('password');
-    let confirmPassword = control.get('ConfirmPassword');
+    const password = control.get('password');
+    const confirmPassword = control.get('ConfirmPassword');
 
     if (!password || !confirmPassword || !password.value || !confirmPassword.value) {
       return null;
     }
 
-    return password.value === confirmPassword.value ? null : { 'unMatchedPassword': { 'pass': password.value, 'confirm': confirmPassword.value } };
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setErrors({ unMatchedPassword: true }); // Set error directly on the control
+      return { 'unMatchedPassword': true };
+    } else {
+      return null;
+    }
   };
 }

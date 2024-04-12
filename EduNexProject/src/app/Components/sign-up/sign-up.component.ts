@@ -14,8 +14,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = this.fb.group({
-      fullName: ['', [Validators.required,Validators.pattern('^(?!\d).{8,}$')]],
-      // fullName: ['', [Validators.required, Validators.pattern('^[\u0600-\u06FF\s]+$')]]
+      fullName: ['', [Validators.required, Validators.pattern('^(?!\d).{8,}$')]],
       studentPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
       fatherPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
       Religion: ['', Validators.required],
@@ -24,12 +23,13 @@ export class SignUpComponent implements OnInit {
       Governorate: ['', Validators.required],
       education: ['', Validators.required],
       address: ['', Validators.required],
-      password: ['', [Validators.required,Validators.minLength(8)]],
-      ConfirmPassword: ['', [Validators.required,Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      ConfirmPassword: ['',],
       Rebot: [false, Validators.required],
-  Rebot2: [false, Validators.required]
-    },{validators: passwordMatched()});
+      Rebot2: [false, Validators.required]
+    },{validators: passwordMatched()}); // Apply custom validator here
   }
+  
   get fullName()
   {
     return this.signupForm.get('fullName')
