@@ -31,24 +31,54 @@
         <div class="col-md-7 border border-gray rounded-4 px-4" style="margin-top: 150px;box-shadow: 0px 0px 20px whitesmoke;margin-bottom: 60px;">
             <div class="text-center mt-5">
                 <h2 class="text-second mb-4" style="color: rgb(255, 133, 0);"> تسجيل الدخول</h2>
-                <h3 class="mb-6 text-main font-24-bold" style="color: rgb(32, 26, 217);"> داخل علي حسابك بادخال رقم الهاتف وكلمة المرور المسجل بهم من قبل</h3>
+                <h3 class="mb-6 text-main font-24-bold" style="color: rgb(32, 26, 217);"> أدخل علي حسابك بادخال رقم الهاتف وكلمة المرور المسجل بهم من قبل</h3>
             </div>
     
     
          <form class="form-floating" action="" method="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="row mt-5">
                 <div class="col">
-                    <label class="d-block font-18-medium mb-3" for="studentPhoneNumber">رقم تليفون الطالب</label>
-                    <input type="text" name="studentPhoneNumber" formControlName="studentPhoneNumber" class="form-control mt-3" style="width: 100%;" id="studentPhoneNumber" placeholder="رقم الموبايل" aria-label="رقم تليفون الطالب" required >
-                   
-                    <div *ngIf="studentPhoneNumber?.touched ||studentPhoneNumber?.errors?.['pattern']">
-                        <p *ngIf="studentPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب ان يكون من 11 رقم يبدء 010أو011أو012أو015</p>
-                        <p *ngIf="studentPhoneNumber?.errors?.['required']" class="text-danger"> رقم الهاتف مطلوب </p>
-                      </div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>رقم تليفون الطالب</mat-label>
+                        <input matInput
+                               type="text"
+                               name="studentPhoneNumber"
+                               formControlName="studentPhoneNumber"
+                               id="studentPhoneNumber"
+                               placeholder="رقم الموبايل"
+                               aria-label="رقم تليفون الطالب"
+                               required>
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <mat-error *ngIf="studentPhoneNumber?.touched && studentPhoneNumber?.invalid">
+                            <span *ngIf="studentPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب أن يكون من 11 رقم ويبدأ بـ 010 أو 011 أو 012 أو 015</span>
+                            <span *ngIf="studentPhoneNumber?.errors?.['required']" class="text-danger">رقم الهاتف مطلوب</span>
+                        </mat-error>
+                    </mat-form-field>
                 </div>
             </div>
-           
-    
+            
+
+            <div class="row mt-3">
+                <div class="col">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>كلمة السر</mat-label>
+                        <input matInput
+                               type="password"
+                               name="password"
+                               formControlName="password"
+                               id="password"
+                               placeholder="كلمة السر"
+                               aria-label="كلمة السر"
+                               required>
+                        <mat-icon matSuffix>lock</mat-icon>
+                        <mat-error *ngIf="password?.touched && password?.invalid">
+                            <span *ngIf="password?.errors?.['required']" class="text-danger"> كلمة المرور مطلوبة</span>
+                            <span *ngIf="password?.errors?.['minlength']" class="text-danger"> كلمة المرور يجب أن تكون أكثر من 8 أحرف</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+<!--     
             <div class="row mt-3">
                 <div class="col">
                     <label class="d-block font-18-medium mb-3" for="password">كلمة السر</label>
@@ -59,7 +89,7 @@
                         <p *ngIf="password?.errors?.['minlength']" class="text-danger"> كلمةالمرور يجب ان تكون أكثر من 8 أحرف</p>
                       </div>
                 </div>
-                </div>
+            </div> -->
             
          <div class="d-grid gap-2 text-center mt-3 mb-5">
             <button class="btn btn-primary rounded-5" type="submit" style="height: 55px; background-color: rgb(32, 26, 217);font-size: 18px;font-weight: 500;"> تسجيل الدخول</button>

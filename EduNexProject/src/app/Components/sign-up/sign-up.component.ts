@@ -10,7 +10,6 @@ import { passwordMatched } from 'src/app/CustomFormValidation/CrossfiledValidati
 export class SignUpComponent implements OnInit {
   isInputFocused: boolean = false;
   signupForm!: FormGroup;
-
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
