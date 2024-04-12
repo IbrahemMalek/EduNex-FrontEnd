@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     this.signupForm = this.fb.group({
       fullName: ['', [Validators.required,Validators.pattern('^(?!\d).{8,}$')]],
+      // fullName: ['', [Validators.required, Validators.pattern('^[\u0600-\u06FF\s]+$')]]
       studentPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
       fatherPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
       Religion: ['', Validators.required],
@@ -27,7 +28,7 @@ export class SignUpComponent implements OnInit {
       password: ['', [Validators.required,Validators.minLength(8)]],
       ConfirmPassword: ['', [Validators.required,Validators.minLength(8)]],
       Rebot: [false, Validators.required],
-      Rebot2: [false, Validators.required]
+  Rebot2: [false, Validators.required]
     },{validators: passwordMatched()});
   }
   get fullName()
