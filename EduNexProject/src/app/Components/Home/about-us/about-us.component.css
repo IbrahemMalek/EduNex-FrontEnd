@@ -1,10 +1,11 @@
 section {
   background-color: #2d2d2d;
+  /* background-color: #909090; */
 }
-.img-about:first-of-type {
-  margin-bottom: -1rem;
+svg:first-of-type {
+  margin-bottom: -2rem;
 }
-.img-about:last-of-type {
+svg:last-of-type {
   margin-top: -1rem;
 }
 

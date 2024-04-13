@@ -27,8 +27,6 @@ export class SideScrollButtonsComponent implements AfterViewInit {
   private updateButtonVisibility(): void {
     const container = document.querySelector(`.${this.sectionName}`) as HTMLElement;
     if (container) {
-      console.log(container.scrollLeft)
-      console.log(container.scrollWidth - container.clientWidth)
       this.showRightButton = container.scrollLeft < 0;
       this.showLeftButton = container.scrollLeft > -(container.scrollWidth - container.clientWidth);
     }

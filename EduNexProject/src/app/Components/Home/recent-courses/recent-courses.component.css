@@ -3,7 +3,7 @@ section {
 }
 .custom-checkbox-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .custom-checkbox {
@@ -48,10 +48,5 @@ section {
   section {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-  }
-}
-@media (max-width: 460px) {
-  .custom-checkbox-container {
-    justify-content: center;
   }
 }

@@ -1,5 +1,37 @@
 <mat-sidenav-container class="example-container">
-  <!-- nav bar -->
+  <!-- Side nav goes here -->
+  <mat-sidenav #sidenav [opened]="isShowing" fixedTopGap="56" position="end"
+    [@openClose]="isShowing ? 'open' : 'closed'">
+    <!-- Side nav content -->
+    <div class="flex">
+      <div style="flex-grow: 1;"></div>
+      <button class="close-btn toggle-btn" mat-icon-button (click)="toggleRightSidenav()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div style="padding-top:1rem;" class="side-btns">
+      <button mat-button routerLink="/home">الرئيسية</button>
+      <button mat-button routerLink="/courses">الكورسات</button>
+      <!-- <button mat-button routerLink="/offers">العروض</button> -->
+      <button mat-button routerLink="/teachers">المدرسين</button>
+      <button mat-button routerLink="/about">عن المنصة</button>
+      <!-- <button mat-button routerLink="/exams">امتحانات عامة</button> -->
+      <button mat-button routerLink="/Parent">ولي الأمر</button>
+    </div>
+    <hr>
+    <div class="flex gap-2">
+      <button mat-button routerLink="/login">
+        <div class="flex">
+          <i class="fa-regular fa-circle-user"></i>
+          &#160;
+          تسجيل الدخول
+        </div>
+      </button>
+      <button mat-button routerLink="/Parent" class="custom-button btn-gradient">اشترك الأن</button>
+    </div>
+  </mat-sidenav>
+
+  <!-- Header -->
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="flex">
       <div>Logo</div>
@@ -43,42 +75,8 @@
           (click)="toggleRightSidenav()">
           <mat-icon>menu</mat-icon>
         </button>
-
       </div>
     </mat-toolbar>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- side bar -->
-<mat-sidenav class="side-nav" #sidenav [opened]="isShowing" fixedTopGap="56" position="end"
-  [@openClose]="isShowing ? 'open' : 'closed'">
-  <div class="flex">
-    <div style="flex-grow: 1;"></div>
-    <button class="close-btn toggle-btn" mat-icon-button (click)="toggleRightSidenav()">
-      <mat-icon>close</mat-icon>
-    </button>
-
-  </div>
-  <div style="padding-top:1rem;" class="side-btns">
-    <button mat-button routerLink="/home">الرئيسية</button>
-    <button mat-button routerLink="/courses">الكورسات</button>
-    <!-- <button mat-button routerLink="/offers">العروض</button> -->
-    <button mat-button routerLink="/teachers">المدرسين</button>
-    <button mat-button routerLink="/about">عن المنصة</button>
-    <!-- <button mat-button routerLink="/exams">امتحانات عامة</button> -->
-    <button mat-button routerLink="/Parent">ولي الأمر</button>
-  </div>
-  <hr class="style-one">
-  <div class="flex gap-2">
-    <button mat-button routerLink="/login">
-      <div class="flex">
-        <i class="fa-regular fa-circle-user"></i>
-        &#160;
-        تسجيل الدخول
-      </div>
-    </button>
-
-    <button mat-button routerLink="/Parent" class="custom-button btn-gradient">اشترك الأن</button>
-  </div>
-</mat-sidenav>
 <div class="overlay" [class.active]="isShowing" (click)="toggleRightSidenav()"></div>

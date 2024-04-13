@@ -1,6 +1,6 @@
-import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatDrawer } from '@angular/material/sidenav';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -24,14 +24,15 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class HeaderComponent implements OnInit {
   theme = new FormControl(false);
   @HostBinding('class') className = '';
-  @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild('sidenav') sidenav!: MatDrawer;
+  @ViewChild('overlay') overlay!: ElementRef;
 
   darkClass = 'theme-dark';
   lightClass = 'theme-light';
   showFiller = false;
   isShowing: boolean = false;
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   toggleRightSidenav() {
     this.isShowing = !this.isShowing;
@@ -42,7 +43,15 @@ export class HeaderComponent implements OnInit {
     this.theme.valueChanges.subscribe((currentTheme) => {
       this.applyTheme(currentTheme);
     });
+
+    // Add click event listener to overlay to close side nav
+    this.renderer.listen('document', 'click', (event) => {
+      if (this.isShowing && !this.overlay.nativeElement.contains(event.target) && !this.sidenav.opened) {
+        this.toggleRightSidenav();
+      }
+    });
   }
+
   private applyTheme(currentTheme: boolean | null): void {
     if (currentTheme === null) {
       currentTheme = false;
