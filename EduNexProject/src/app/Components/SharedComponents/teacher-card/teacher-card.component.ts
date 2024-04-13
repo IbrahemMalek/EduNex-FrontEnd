@@ -16,8 +16,8 @@ export class TeacherCardComponent {
       const cardRect = card.getBoundingClientRect();
       const mouseX = event.clientX - cardRect.left;
       const mouseY = event.clientY - cardRect.top;
-      const shadowX = (mouseX - cardRect.width / 2) / 35;
-      const shadowY = (mouseY - cardRect.height / 2) / 35;
+      const shadowX = (mouseX - cardRect.width / 2) / 25;
+      const shadowY = (mouseY - cardRect.height / 2) / 25;
       card.style.transform = `rotateX(${-shadowY}deg) rotateY(${shadowX}deg)`;
       // card.style.boxShadow = `${shadowX}px ${shadowY}px 0px 1px var(--border), var(--border) 0px 0px 0px 1px`;
     }

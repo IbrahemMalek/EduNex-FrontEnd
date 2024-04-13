@@ -28,26 +28,13 @@ section {
 .carousel {
   width: 100%;
 }
-.scroll-section {
+.scroll-section-r-courses {
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.scroll-section::-webkit-scrollbar {
+.scroll-section-r-courses::-webkit-scrollbar {
   display: none;
-}
-.scroll-btn {
-  position: absolute;
-  z-index: 2;
-  color: var(--btn);
-}
-
-.scroll-btn:first-of-type {
-  right: 0;
-}
-
-.scroll-btn:last-of-type {
-  left: 0;
 }
 
 .custom-button {
@@ -59,20 +46,20 @@ section {
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   opacity: 1;
-  /* margin-right: 50%; */
+  transition: 0.3s;
 }
 .custom-button:hover {
-  background-color: #201ad9c9;
+  opacity: 0.75;
 }
 
-@media (max-width: 460px) {
-  .scroll-btn {
-    display: none;
-  }
-}
 @media (min-width: 460px) {
   section {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+}
+@media (max-width: 460px) {
+  .custom-checkbox-container {
+    justify-content: center;
   }
 }

@@ -10,9 +10,14 @@
       </button>
     </div>
   </div>
-  <div class="flex flex-wrap">
-    <ng-container *ngFor="let course of filteredCourses">
-      <app-course-card [course]="course" [@fadeInOut]></app-course-card>
+  <div class="flex scroll-section-r-classes">
+
+    <app-side-scroll-buttons [sectionName]="'scroll-section-r-classes'"></app-side-scroll-buttons>
+
+    <ng-container *ngFor="let course of filteredCourses let i = index">
+      <div class="card-container" [@fadeInOut]>
+        <app-course-card [course]="course"></app-course-card>
+      </div>
     </ng-container>
   </div>
 </section>

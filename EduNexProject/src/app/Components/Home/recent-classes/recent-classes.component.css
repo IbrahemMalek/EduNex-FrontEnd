@@ -21,3 +21,25 @@
   background-color: var(--btn);
   color: white;
 }
+section {
+  position: relative;
+}
+.scroll-section-r-classes {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-section-r-classes::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 460px) {
+  section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+@media (max-width: 460px) {
+  .custom-checkbox-container {
+    justify-content: center;
+  }
+}

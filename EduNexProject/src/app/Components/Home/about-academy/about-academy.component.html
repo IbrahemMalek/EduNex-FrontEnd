@@ -1,1 +1,41 @@
-<p>about-academy works!</p>
+<img src="assets/image/wave-top.svg" alt="" class="w-100 img-about mt-5">
+<section class="d-flex flex-column">
+  <div style="margin-left: auto;">
+    <h6 style="color: orange;">تعرف علي</h6>
+    <h3 style="color:white; font-weight: 700; font-size: 36px;">EduNex</h3>
+  </div>
+
+  <div class="custom-checkbox-container flex gap-3 my-3 flex-wrap" style="margin-left: auto;">
+    <button mat-button *ngFor="let option of options; let i = index" class="custom-checkbox"
+      [class.checked]="option.selected" (click)="toggleOption(i)">
+      <span>{{ option.label }}</span>
+    </button>
+  </div>
+  <div class="d-flex">
+    <!-- <section class="col-7"> -->
+      <div class="flex scroll-about-section">
+        <app-side-scroll-buttons [sectionName]="'scroll-about-section'"></app-side-scroll-buttons>
+
+        <ng-container *ngFor="let card of chosenCards.slice(currentIndex, currentIndex + cardsToShow); let i = index">
+          <div class="card-container" [@fadeInOut]>
+            <ng-container *ngIf="isCourse(card)">
+              <app-course-card [course]="card"></app-course-card>
+            </ng-container>
+            <ng-container *ngIf="isTeacher(card)">
+              <app-teacher-card [teacher]="card"></app-teacher-card>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    <!-- </section> -->
+    <!-- <section class="col-5 imgs-containter">
+      <img src="assets/image/circle.svg" alt="" class="w-100">
+      <img src="assets/image/circle_out.svg" alt="">
+      <img src="assets/image/note.svg" alt="">
+      <img src="assets/image/mail.svg" alt="">
+      <img src="assets/image/dots.svg" alt="">
+      <img src="assets/image/setting.svg" alt="">
+    </section> -->
+  </div>
+</section>
+<img src="assets/image/wave-top.svg" alt="" class="w-100 img-about mb-5 fa-rotate-180">

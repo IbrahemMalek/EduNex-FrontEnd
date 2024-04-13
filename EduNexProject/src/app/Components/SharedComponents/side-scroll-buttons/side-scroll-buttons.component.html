@@ -1,0 +1,9 @@
+<button mat-icon-button class="scroll-btn right" [ngClass]="{ 'white': sectionName === 'scroll-about-section' }"
+  (click)="scrollCards(1)" *ngIf="showRightButton">
+  <mat-icon>keyboard_arrow_right</mat-icon>
+</button>
+
+<button mat-icon-button class="scroll-btn left" [ngClass]="{ 'white': sectionName === 'scroll-about-section' }"
+  (click)="scrollCards(-1)" *ngIf="showLeftButton">
+  <mat-icon>keyboard_arrow_left</mat-icon>
+</button>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ITeacher } from 'src/app/Model/iTeacher';
-import { StaticDataService } from '../../Services/static-data.service';
+import { StaticDataService } from '../Services/static-data.service';
 
 @Component({
   selector: 'app-teachers',

@@ -1,5 +1,5 @@
 export interface ITeacher {
   name: string;
-  category: string;
+  subject: string;
   imageUrl: string;
 }

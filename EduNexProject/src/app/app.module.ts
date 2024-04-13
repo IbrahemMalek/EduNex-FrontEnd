@@ -31,6 +31,10 @@ import { TeacherCardComponent } from './Components/SharedComponents/teacher-card
 import { RecentCoursesComponent } from './Components/Home/recent-courses/recent-courses.component';
 import { AboutAcademyComponent } from './Components/Home/about-academy/about-academy.component';
 import { AboutTeachersComponent } from './Components/Home/about-teachers/about-teachers.component';
+import { SideScrollButtonsComponent } from './Components/SharedComponents/side-scroll-buttons/side-scroll-buttons.component';
+import { AboutUsComponent } from './Components/Home/about-us/about-us.component';
+import { ClassRankComponent } from './Components/Home/class-rank/class-rank.component';
+import { ContactUsComponent } from './Components/Home/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { AboutTeachersComponent } from './Components/Home/about-teachers/about-t
     RecentCoursesComponent,
     AboutAcademyComponent,
     AboutTeachersComponent,
+    SideScrollButtonsComponent,
+    AboutUsComponent,
+    ClassRankComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

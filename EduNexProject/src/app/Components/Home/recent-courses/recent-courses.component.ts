@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ICourse } from 'src/app/Model/iCourse';
-import { StaticDataService } from '../../../Services/static-data.service';
+import { StaticDataService } from '../../Services/static-data.service';
 import { trigger, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -10,7 +10,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(-100%)' }),
+        style({ opacity: 0, transform: 'translateX(-200%)' }),
         animate('300ms', style({ opacity: 1, transform: 'translateX(0)' }))
       ]),
     ])
@@ -41,28 +41,16 @@ export class RecentCoursesComponent {
   filterCourses() {
     if (this.options[0].selected) {
       // Show latest courses
-      this.filteredCourses = this.courses.slice(0, 16);
+      this.filteredCourses = this.courses.slice(8, 16);
     } else if (this.options[1].selected) {
       // Show courses related to 'المواد الفلسفية'
-      this.filteredCourses = this.courses.slice(3, 13);
+      this.filteredCourses = this.courses.slice(0, 8);
     } else if (this.options[2].selected) {
       // Show courses related to 'تعويضات السنتر'
-      this.filteredCourses = this.courses.slice(6, 16);
+      this.filteredCourses = this.courses.slice(8, 16);
     } else {
       // Show courses related to 'مادة الجغرافيا'
-      this.filteredCourses = this.courses.slice(8, 18);
-    }
-  }
-
-  scrollCards(direction: number) {
-    const container = document.querySelector('.scroll-section') as HTMLElement;
-    if (container) {
-      const scrollAmount = 600;
-      const newPosition = container.scrollLeft + scrollAmount * direction;
-      container.scrollTo({
-        left: newPosition,
-        behavior: 'smooth'
-      });
+      this.filteredCourses = this.courses.slice(0, 8);
     }
   }
 

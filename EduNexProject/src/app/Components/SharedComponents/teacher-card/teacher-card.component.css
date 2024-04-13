@@ -1,5 +1,6 @@
 .example-card {
-  max-width: 350px;
+  width: 325px;
+  height: 405px;
   margin: 15px;
   border-radius: 10px;
   position: relative;

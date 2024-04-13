@@ -11,20 +11,14 @@
     </div>
   </div>
 
-  <div class="flex scroll-section">
-    <button mat-icon-button class="scroll-btn" (click)="scrollCards(1)">
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
+  <div class="flex scroll-section-r-courses">
+    <app-side-scroll-buttons [sectionName]="'scroll-section-r-courses'"></app-side-scroll-buttons>
 
     <ng-container *ngFor="let course of filteredCourses.slice(currentIndex, currentIndex + cardsToShow); let i = index">
       <div class="card-container" [@fadeInOut]>
         <app-course-card [course]="course"></app-course-card>
       </div>
     </ng-container>
-
-    <button mat-icon-button class="scroll-btn" (click)="scrollCards(-1)">
-      <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
   </div>
 
   <div class="flex justify-content-center">

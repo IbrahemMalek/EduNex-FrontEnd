@@ -151,3 +151,22 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+
+
+@keyframes beating {
+  0% {
+    transform: scale(0.9);
+}
+  50% {
+    transform: scale(1);
+}
+  100% {
+    transform: scale(0.9);
+}
+}
+
+.beating-animation {
+  animation: beating 3s infinite;
+}

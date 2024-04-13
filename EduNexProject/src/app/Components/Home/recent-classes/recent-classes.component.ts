@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StaticDataService } from '../../../Services/static-data.service';
+import { StaticDataService } from '../../Services/static-data.service';
 import { ICourse } from 'src/app/Model/iCourse';
 import { trigger, style, transition, animate } from '@angular/animations';
 
