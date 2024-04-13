@@ -52,6 +52,10 @@ mat-toolbar button {
   width: 0;
 }
 
+.toggle-checkbox:checked + .toggle-slot .moon-icon {
+  color: #fff; /* Change moon color when checked */
+}
+
 .toggle-slot {
   position: relative;
   height: 1.875em;

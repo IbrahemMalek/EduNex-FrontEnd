@@ -49,8 +49,9 @@
 
       <div class="flex" style="gap: 5px;">
         <label>
-          <input class='toggle-checkbox' type='checkbox' [formControl]="theme" />
-          <div class='toggle-slot'>
+          <input #toggleCheckbox class='toggle-checkbox' type='checkbox' [formControl]="theme"
+          [checked]="theme.value"/>
+                  <div class='toggle-slot'>
             <div class='sun-icon-wrapper'>
               <i class="fa fa-sun sun-icon"></i>
             </div>

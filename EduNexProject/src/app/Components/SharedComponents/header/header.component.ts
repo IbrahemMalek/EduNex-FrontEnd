@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   @HostBinding('class') className = '';
   @ViewChild('sidenav') sidenav!: MatDrawer;
   @ViewChild('overlay') overlay!: ElementRef;
+  @ViewChild('toggleCheckbox') toggleCheckbox!: ElementRef<HTMLInputElement>;
 
   darkClass = 'theme-dark';
   lightClass = 'theme-light';
@@ -39,23 +40,37 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.applyTheme(this.theme.value);
+    const savedTheme = localStorage.getItem('themePreference');
+
+    const currentTheme = savedTheme === 'dark';
+
+    this.applyTheme(currentTheme);
+
     this.theme.valueChanges.subscribe((currentTheme) => {
       this.applyTheme(currentTheme);
     });
 
-    // Add click event listener to overlay to close side nav
     this.renderer.listen('document', 'click', (event) => {
       if (this.isShowing && !this.overlay.nativeElement.contains(event.target) && !this.sidenav.opened) {
         this.toggleRightSidenav();
       }
     });
+
+
+  }
+
+  ngAfterViewInit(): void {
+    if (localStorage.getItem('themePreference') === 'dark') {
+      this.toggleCheckbox.nativeElement.checked = true;
+    }
   }
 
   private applyTheme(currentTheme: boolean | null): void {
     if (currentTheme === null) {
       currentTheme = false;
     }
+
+    localStorage.setItem('themePreference', currentTheme ? 'dark' : 'light');
 
     this.className = currentTheme ? this.darkClass : this.lightClass;
     const bodyElement = document.getElementsByTagName('body')[0];

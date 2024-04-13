@@ -1,5 +1,4 @@
-// side-scroll-buttons.component.ts
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-side-scroll-buttons',
@@ -10,6 +9,8 @@ export class SideScrollButtonsComponent implements AfterViewInit {
   @Input() sectionName!: string;
   showLeftButton = false;
   showRightButton = false;
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit(): void {
     this.updateButtonVisibility();
@@ -22,6 +23,8 @@ export class SideScrollButtonsComponent implements AfterViewInit {
     window.addEventListener('scroll', () => {
       this.updateButtonVisibility();
     });
+
+    this.cdr.detectChanges();
   }
 
   private updateButtonVisibility(): void {
@@ -29,6 +32,7 @@ export class SideScrollButtonsComponent implements AfterViewInit {
     if (container) {
       this.showRightButton = container.scrollLeft < 0;
       this.showLeftButton = container.scrollLeft > -(container.scrollWidth - container.clientWidth);
+      this.cdr.detectChanges();
     }
   }
 
