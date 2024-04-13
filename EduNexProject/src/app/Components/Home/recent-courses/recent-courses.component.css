@@ -21,7 +21,7 @@ section {
 }
 
 .custom-checkbox.checked {
-  background-color: var(--btn);
+  background-image: var(--btn);
   color: white;
 }
 
@@ -38,18 +38,10 @@ section {
 }
 
 .custom-button {
-  color: #ffffff;
-  background-color: var(--btn);
   border-radius: 20rem;
-  transition: 0.3s;
   padding-inline: 1rem;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
-  opacity: 1;
-  transition: 0.3s;
-}
-.custom-button:hover {
-  opacity: 0.75;
 }
 
 @media (min-width: 460px) {

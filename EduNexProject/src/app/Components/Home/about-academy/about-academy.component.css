@@ -2,10 +2,10 @@ section {
   background-color: #2d2d2d;
 }
 .img-about:first-of-type {
-  margin-bottom: -1px;
+  margin-bottom: -1rem;
 }
 .img-about:last-of-type {
-  margin-top: -1px;
+  margin-top: -1rem;
 }
 
 section {
@@ -22,11 +22,14 @@ section {
   background-color: #cccccc0c;
   cursor: pointer;
   transition: 0.3s;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .custom-checkbox.checked {
   background-color: #cccccc4d;
-  border-bottom: 2px solid var(--btn);
+  border-bottom: 3px solid transparent;
+  border-image: var(--btn) 1;
   color: white;
 }
 

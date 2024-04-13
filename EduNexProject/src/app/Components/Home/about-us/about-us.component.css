@@ -2,10 +2,10 @@ section {
   background-color: #2d2d2d;
 }
 .img-about:first-of-type {
-  margin-bottom: -1px;
+  margin-bottom: -1rem;
 }
 .img-about:last-of-type {
-  margin-top: -2px;
+  margin-top: -1rem;
 }
 
 @media (max-width: 460px) {
