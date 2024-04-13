@@ -2,10 +2,10 @@ section {
   background-color: #2d2d2d;
 }
 svg:first-of-type {
-  margin-bottom: -2rem;
+  margin-bottom: -7.5vw;
 }
 svg:last-of-type {
-  margin-top: -1rem;
+  margin-top: -7.5vw;
 }
 .cards-container{
   margin-bottom: 5rem;
