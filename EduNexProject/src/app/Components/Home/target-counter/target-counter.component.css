@@ -7,12 +7,14 @@ svg:first-of-type {
 svg:last-of-type {
   margin-top: -7.5vw;
 }
-.cards-container{
+.cards-container {
   margin-bottom: 5rem;
   margin-top: 5rem;
 }
-.cards-container img{
-width: 5rem;
+.cards-container svg {
+  width: 5rem;
+  height: 5rem;
+  margin:0;
 }
 .custom-button {
   color: #ffffff;
