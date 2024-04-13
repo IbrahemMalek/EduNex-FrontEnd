@@ -1,13 +1,19 @@
 section {
   background-color: #2d2d2d;
 }
-.img-about:first-of-type {
-  margin-bottom: -1rem;
+svg:first-of-type {
+  margin-bottom: -2rem;
 }
-.img-about:last-of-type {
+svg:last-of-type {
   margin-top: -1rem;
 }
-
+.cards-container{
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+}
+.cards-container img{
+width: 5rem;
+}
 .custom-button {
   color: #ffffff;
   background-color: var(--btn);

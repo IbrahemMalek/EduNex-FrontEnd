@@ -1,6 +1,6 @@
-import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatDrawer } from '@angular/material/sidenav';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -24,29 +24,53 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class HeaderComponent implements OnInit {
   theme = new FormControl(false);
   @HostBinding('class') className = '';
-  @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild('sidenav') sidenav!: MatDrawer;
+  @ViewChild('overlay') overlay!: ElementRef;
+  @ViewChild('toggleCheckbox') toggleCheckbox!: ElementRef<HTMLInputElement>;
 
   darkClass = 'theme-dark';
   lightClass = 'theme-light';
   showFiller = false;
   isShowing: boolean = false;
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   toggleRightSidenav() {
     this.isShowing = !this.isShowing;
   }
 
   ngOnInit(): void {
-    this.applyTheme(this.theme.value);
+    const savedTheme = localStorage.getItem('themePreference');
+
+    const currentTheme = savedTheme === 'dark';
+
+    this.applyTheme(currentTheme);
+
     this.theme.valueChanges.subscribe((currentTheme) => {
       this.applyTheme(currentTheme);
     });
+
+    this.renderer.listen('document', 'click', (event) => {
+      if (this.isShowing && !this.overlay.nativeElement.contains(event.target) && !this.sidenav.opened) {
+        this.toggleRightSidenav();
+      }
+    });
+
+
   }
+
+  ngAfterViewInit(): void {
+    if (localStorage.getItem('themePreference') === 'dark') {
+      this.toggleCheckbox.nativeElement.checked = true;
+    }
+  }
+
   private applyTheme(currentTheme: boolean | null): void {
     if (currentTheme === null) {
       currentTheme = false;
     }
+
+    localStorage.setItem('themePreference', currentTheme ? 'dark' : 'light');
 
     this.className = currentTheme ? this.darkClass : this.lightClass;
     const bodyElement = document.getElementsByTagName('body')[0];

@@ -1,14 +1,18 @@
 mat-sidenav-container {
+  position: relative;
+  z-index: 11;
   margin-bottom: 5rem;
-  z-index: 3;
 }
+
 mat-sidenav {
-  z-index: 12;
-  position: fixed !important;
+  position: fixed;
   border-left: 1px solid var(--border);
   background-color: var(--bg);
   right: 0;
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
 }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -32,6 +36,7 @@ mat-toolbar {
   border-bottom-right-radius: 10px;
   border-bottom: 1px solid rgba(32, 26, 217, 0.15);
 }
+
 mat-toolbar button {
   font-size: 14px;
   padding-inline: 0.5rem;
@@ -45,6 +50,10 @@ mat-toolbar button {
   cursor: pointer;
   height: 0;
   width: 0;
+}
+
+.toggle-checkbox:checked + .toggle-slot .moon-icon {
+  color: #fff; /* Change moon color when checked */
 }
 
 .toggle-slot {
@@ -132,8 +141,6 @@ mat-toolbar button.custom-button,
 mat-sidenav button.custom-button {
   border-radius: 20rem;
   padding-inline: 1rem;
-  background-image: var(--btn);
-  color: #ffffff;
 }
 
 .side-nav {
@@ -152,12 +159,15 @@ mat-sidenav button {
   width: 100%;
   text-align: right;
 }
-hr.style-one {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+hr {
   border: 0;
-  height: 0;
-  border-top: 2px solid var(--bgHeader);
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--bgHeader),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 @media (max-width: 920px) {

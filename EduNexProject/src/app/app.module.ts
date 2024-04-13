@@ -22,10 +22,10 @@ import { MatCardModule } from '@angular/material/card';
 import { CustomPaginationComponent } from './Components/custom-pagination/custom-pagination.component';
 import { TeachersComponent } from './Components/teachers/teachers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MainComponent } from './Components/Home/main/main.component';
 import { RecentClassesComponent } from './Components/Home/recent-classes/recent-classes.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { CourseCardComponent } from './Components/SharedComponents/course-card/course-card.component';
 import { TeacherCardComponent } from './Components/SharedComponents/teacher-card/teacher-card.component';
 import { RecentCoursesComponent } from './Components/Home/recent-courses/recent-courses.component';
@@ -34,11 +34,10 @@ import { AboutTeachersComponent } from './Components/Home/about-teachers/about-t
 import { SideScrollButtonsComponent } from './Components/SharedComponents/side-scroll-buttons/side-scroll-buttons.component';
 import { AboutUsComponent } from './Components/Home/about-us/about-us.component';
 import { ClassRankComponent } from './Components/Home/class-rank/class-rank.component';
-import { ContactUsComponent } from './Components/Home/contact-us/contact-us.component';
-import { MatOptionModule } from '@angular/material/core';
-
+import { QuestionsComponent } from './Components/Home/questions/questions.component';
+import { TargetCounterComponent } from './Components/Home/target-counter/target-counter.component';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
  
@@ -60,7 +59,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     SideScrollButtonsComponent,
     AboutUsComponent,
     ClassRankComponent,
-    ContactUsComponent,
+    QuestionsComponent,
+    TargetCounterComponent,
   ],
   imports: [
     BrowserModule,

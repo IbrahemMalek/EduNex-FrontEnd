@@ -64,7 +64,7 @@
 }
 .label {
   position: absolute;
-  background-color: var(--btn);
+  background-image: var(--btn);
   color: white;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -78,9 +78,7 @@
   padding-bottom: 0.25rem;
 }
 
-
 .filter-container {
   display: flex;
   flex-wrap: wrap;
-
 }

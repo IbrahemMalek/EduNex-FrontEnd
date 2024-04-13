@@ -72,10 +72,6 @@ html {
   direction: rtl;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 *,
 *:after,
 *:before {
@@ -104,6 +100,8 @@ body {
 
   --btn: linear-gradient(120deg, #7F00FF, #E312FF);
 
+  --wave: #E312FF;
+
   --title: rgb(39, 39, 42);
   --subtitle: rgb(82, 82, 91);
 
@@ -122,6 +120,8 @@ body {
   --active: rgba(0, 0, 0, 0.04);
 
   --btn: linear-gradient(120deg, #2D388A, #00AEEF);
+
+  --wave: #00AEEF;
 
   --title: rgb(244, 244, 255);
   --subtitle: rgb(161, 161, 170);
@@ -172,17 +172,14 @@ body {
   animation: beating 3s infinite;
 }
 
-// .btn-gradient {
-//   background-color: linear-gradient(#7F00FF, #E312FF);
-// }
 .custom-button,
 custom-checkbox.checked {
-  color: #ffffff;
-  background-image: var(--btn);
+  color: #ffffff !important;
+  background-image: var(--btn) !important;
   opacity: 1;
   transition: 0.3s;
 }
 
 .custom-button:hover {
-  opacity: 0.75;
+  // opacity: 0.75;
 }

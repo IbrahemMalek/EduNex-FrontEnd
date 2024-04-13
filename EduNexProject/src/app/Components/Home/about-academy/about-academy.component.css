@@ -1,15 +1,13 @@
 section {
+  /* background-image: var(--btn); */
   background-color: #2d2d2d;
-}
-.img-about:first-of-type {
-  margin-bottom: -1rem;
-}
-.img-about:last-of-type {
-  margin-top: -1rem;
-}
-
-section {
   position: relative;
+}
+svg:first-of-type {
+  margin-bottom: -2rem;
+}
+svg:last-of-type {
+  margin-top: -2rem;
 }
 
 .custom-checkbox {
