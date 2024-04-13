@@ -5,9 +5,6 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { CoursesComponent } from './Components/courses/courses.component';
 import { TeachersComponent } from './Components/teachers/teachers.component';
 import { MainComponent } from './Components/Home/main/main.component';
-import { AboutUsComponent } from './Components/about-us/about-us.component';
-
- 
 
 const routes: Routes = [
 
@@ -16,7 +13,8 @@ const routes: Routes = [
   { path: "courses", component: CoursesComponent },
   { path: "teachers", component: TeachersComponent },
   { path: "home", component: MainComponent },
-  {path:"about",component:AboutUsComponent},
+  { path: "", component: LoginComponent },
+  { path: "**", component: LoginComponent }
 ];
 
 @NgModule({

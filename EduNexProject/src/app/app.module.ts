@@ -21,7 +21,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { CustomPaginationComponent } from './Components/custom-pagination/custom-pagination.component';
 import { TeachersComponent } from './Components/teachers/teachers.component';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MainComponent } from './Components/Home/main/main.component';
 import { RecentClassesComponent } from './Components/Home/recent-classes/recent-classes.component';
@@ -35,10 +35,10 @@ import { SideScrollButtonsComponent } from './Components/SharedComponents/side-s
 import { AboutUsComponent } from './Components/Home/about-us/about-us.component';
 import { ClassRankComponent } from './Components/Home/class-rank/class-rank.component';
 import { ContactUsComponent } from './Components/Home/contact-us/contact-us.component';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatOptionModule } from '@angular/material/core';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
  
@@ -46,7 +46,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     AppComponent,
     SignUpComponent,
     LoginComponent,
-
     HeaderComponent,
     CoursesComponent,
     CustomPaginationComponent,
@@ -62,25 +61,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     AboutUsComponent,
     ClassRankComponent,
     ContactUsComponent,
-
   ],
   imports: [
     BrowserModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    MatIconModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    
-
     MatToolbarModule,
     MatSlideToggleModule,
     MatSidenavModule,
@@ -94,10 +83,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
+    MatOptionModule
   ],
   providers: [
     OverlayContainer,
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ],
   bootstrap: [AppComponent]
 })
