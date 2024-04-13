@@ -3,10 +3,10 @@ section {
   /* background-color: #909090; */
 }
 svg:first-of-type {
-  margin-bottom: -2rem;
+  margin-bottom: -7.5vw;
 }
 svg:last-of-type {
-  margin-top: -1rem;
+  margin-top: -7.5vw;
 }
 
 @media (max-width: 460px) {

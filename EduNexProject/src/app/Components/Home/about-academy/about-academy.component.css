@@ -4,12 +4,11 @@ section {
   position: relative;
 }
 svg:first-of-type {
-  margin-bottom: -2rem;
+  margin-bottom: -7.5vw;
 }
 svg:last-of-type {
-  margin-top: -2rem;
+  margin-top: -7.5vw;
 }
-
 .custom-checkbox {
   display: inline-block;
   padding-left: 6rem;
