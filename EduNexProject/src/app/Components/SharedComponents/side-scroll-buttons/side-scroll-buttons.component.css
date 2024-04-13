@@ -1,0 +1,21 @@
+.scroll-btn.white {
+  color: white;
+}
+.scroll-btn {
+  position: absolute;
+  z-index: 2;
+  color: var(--btn);
+}
+
+.right {
+  right: 0;
+}
+
+.left {
+  left: 0;
+}
+@media (max-width: 460px) {
+  .scroll-btn {
+    display: none;
+  }
+}

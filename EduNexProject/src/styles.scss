@@ -1,1 +1,195 @@
+
 @import '~@angular/material/prebuilt-themes/your-chosen-theme';
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+$indigo-palette: (
+  50: #fff,
+  100: #201AD9,
+  200: #201AD9,
+  300: #4E49FF,
+  400: #5c6bc0,
+  500: #212121,
+  600: #4E49FF,
+  700: #303f9f,
+  800: #283593,
+  900: #1a237e,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$light-primary: mat.define-palette($indigo-palette, 50);
+$light-accent: mat.define-palette($indigo-palette, 100);
+$light-warn: mat.define-palette(mat.$red-palette);
+
+$dark-primary: mat.define-palette($indigo-palette, 500);
+$dark-accent: mat.define-palette($indigo-palette, 600);
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-light-theme((color: (primary: $light-primary,
+        accent: $light-accent,
+        warn: $light-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+.theme-light {
+  @include mat.all-component-colors($light-theme);
+  background-color: #ffffff;
+  color: #2B3445;
+}
+
+.theme-dark {
+  @include mat.all-component-colors($dark-theme);
+  background-color: #121212;
+  color: #ffffff;
+}
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+html {
+  letter-spacing: 0.1px;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  // font-family: "Tajawal", sans-serif;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+:root {
+  --secondary: rgb(255, 255, , 255);
+
+  --border: rgba(202, 202, 202, 0.4);
+  --border2: rgb(66, 66, 66);
+
+  --active: rgba(255, 255, 255, 0.04);
+
+  --btn: linear-gradient(120deg, #7F00FF, #E312FF);
+
+  --title: rgb(39, 39, 42);
+  --subtitle: rgb(82, 82, 91);
+
+  --bgHeader: rgb(253, 253, 253);
+  --bg: #212121;
+
+  --icon-hover: #333;
+}
+
+.theme-light {
+  --secondary: rgb(24, 24, , 27);
+
+  --border: rgba(63, 63, 70, 0.12);
+  --border2: rgb(244, 244, 255);
+
+  --active: rgba(0, 0, 0, 0.04);
+
+  --btn: linear-gradient(120deg, #2D388A, #00AEEF);
+
+  --title: rgb(244, 244, 255);
+  --subtitle: rgb(161, 161, 170);
+
+  --bgHeader: rgb(39, 39, 42);
+  --bg: #fff;
+
+  --icon-hover: #d4d4d8;
+}
+
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+  border: 7px solid var(--border2);
+  box-shadow: inset 0 0 0px 1px var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+
+@keyframes beating {
+  0% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+.beating-animation {
+  animation: beating 3s infinite;
+}
+
+// .btn-gradient {
+//   background-color: linear-gradient(#7F00FF, #E312FF);
+// }
+.custom-button,
+custom-checkbox.checked {
+  color: #ffffff;
+  background-image: var(--btn);
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.custom-button:hover {
+  opacity: 0.75;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

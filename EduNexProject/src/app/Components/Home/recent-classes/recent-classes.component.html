@@ -1,0 +1,23 @@
+<section>
+  <div class="text-center flex justify-content-between flex-column">
+    <h6 style="color: orange;">تعرف علي</h6>
+    <h3 style="color:var(--btn); font-weight: 700;">أحدث الحصص</h3>
+
+    <div class="custom-checkbox-container flex gap-3 my-3">
+      <button mat-button *ngFor="let option of options; let i = index" class="custom-checkbox custom-button"
+        [class.checked]="option.selected" (click)="toggleOption(i)">
+        <span>{{ option.label }}</span>
+      </button>
+    </div>
+  </div>
+  <div class="flex scroll-section-r-classes">
+
+    <app-side-scroll-buttons [sectionName]="'scroll-section-r-classes'"></app-side-scroll-buttons>
+
+    <ng-container *ngFor="let course of filteredCourses let i = index">
+      <div class="card-container" [@fadeInOut]>
+        <app-course-card [course]="course"></app-course-card>
+      </div>
+    </ng-container>
+  </div>
+</section>

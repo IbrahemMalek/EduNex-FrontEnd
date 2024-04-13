@@ -1,0 +1,58 @@
+.custom-checkbox-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-checkbox span {
+  font-size: 14px;
+}
+
+.custom-checkbox.checked {
+  background-color: var(--btn);
+  color: white;
+}
+section {
+  position: relative;
+}
+
+.scroll-section-a-teachers {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-section-a-teachers::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-button {
+  color: #ffffff;
+  background-color: var(--btn);
+  border-radius: 20rem;
+  transition: 0.3s;
+  padding-inline: 1rem;
+  padding-bottom: 0.65rem;
+  padding-top: 0.65rem;
+  opacity: 1;
+  transition: 0.3s;
+}
+.custom-button:hover {
+  opacity: 0.75;
+}
+
+
+@media (min-width: 460px) {
+  section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
