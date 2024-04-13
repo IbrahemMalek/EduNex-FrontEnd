@@ -43,7 +43,10 @@ mat-toolbar button {
   border-radius: 0.5rem;
   font-weight: 500;
 }
-
+mat-toolbar button.active {
+  background-image: var(--btn);
+  color: white;
+}
 .toggle-checkbox {
   position: absolute;
   opacity: 0;

@@ -55,8 +55,6 @@ export class HeaderComponent implements OnInit {
         this.toggleRightSidenav();
       }
     });
-
-
   }
 
   ngAfterViewInit(): void {
