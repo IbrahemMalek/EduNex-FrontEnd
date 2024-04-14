@@ -1,0 +1,28 @@
+svg {
+  margin-bottom: -3.5vw;
+}
+
+footer {
+  background-color: #2d2d2d;
+  min-height: 5rem;
+}
+
+.social-icons button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.social-icons button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.social-icons button .mat-icon {
+  /* font-size: 27px; */
+  color: white;
+}
+
+.social-icons button:hover .mat-icon {
+  opacity: 1;
+}

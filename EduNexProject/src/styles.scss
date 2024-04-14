@@ -3,12 +3,12 @@
 
 $indigo-palette: (
   50: #fff,
-  100: #201AD9,
+  100: #00AEEF,
   200: #201AD9,
   300: #4E49FF,
   400: #5c6bc0,
   500: #212121,
-  600: #4E49FF,
+  600: #7F00FF,
   700: #303f9f,
   800: #283593,
   900: #1a237e,
@@ -191,7 +191,7 @@ custom-checkbox.checked {
   0% {
     transform: translateY(100px);
     opacity: 0;
-}
+  }
 
   100% {
     transform: translateY(0);
@@ -203,7 +203,7 @@ custom-checkbox.checked {
   0% {
     transform: translateX(-100%);
     opacity: 0;
-}
+  }
 
   100% {
     transform: translateX(0);
@@ -215,7 +215,7 @@ custom-checkbox.checked {
   0% {
     transform: translateX(100%);
     opacity: 0;
-}
+  }
 
   100% {
     transform: translateX(0);

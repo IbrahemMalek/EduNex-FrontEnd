@@ -24,8 +24,8 @@ export class AppearFromLeftDirective implements OnInit {
       const rect = element.getBoundingClientRect();
 
       if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-        this.renderer.removeClass(element, 'hidden'); // Remove hidden class before applying animation class
-        this.renderer.addClass(element, 'slide-from-left'); // Apply animation class
+        this.renderer.removeClass(element, 'hidden');
+        this.renderer.addClass(element, 'slide-from-left');
         this.animationApplied = true;
       }
     }
