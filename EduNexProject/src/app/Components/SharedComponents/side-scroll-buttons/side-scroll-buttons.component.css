@@ -5,6 +5,7 @@
   position: absolute;
   z-index: 2;
   color: var(--btn);
+  top: 50%;
 }
 
 .right {
