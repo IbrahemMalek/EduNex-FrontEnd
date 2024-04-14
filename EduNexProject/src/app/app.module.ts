@@ -40,7 +40,7 @@ import { TargetCounterComponent } from './Components/Home/target-counter/target-
 import { ScrollAnimationDirective } from './Directive/scroll-animation.directive';
 import { AppearFromLeftDirective } from './Directive/appear-from-left.directive';
 import { AppearFromRightDirective } from './Directive/appear-from-right.directive';
-import { FooterComponent } from './Components/footer/footer.component';
+import { FooterComponent } from './Components/SharedComponents/footer/footer.component';
 import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll-to-top-button/scroll-to-top-button.component';
 
 @NgModule({

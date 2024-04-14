@@ -44,9 +44,10 @@
 .custom-button-2 {
   opacity: 1;
   transition: 0.3s;
-  position: relative;
+  border: 2px solid var(--wave2);
+    /* position: relative; */
 }
-.custom-button-2::before {
+/* .custom-button-2::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -55,7 +56,7 @@
   background: var(--btn);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
-}
+} */
 @media (max-width: 460px) {
   .custom-checkbox-container {
     justify-content: center;

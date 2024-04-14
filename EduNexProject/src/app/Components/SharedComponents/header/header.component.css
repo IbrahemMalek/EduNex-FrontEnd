@@ -56,7 +56,7 @@ mat-toolbar button.active {
 }
 
 .toggle-checkbox:checked + .toggle-slot .moon-icon {
-  color: #fff; /* Change moon color when checked */
+  color: #fff;
 }
 
 .toggle-slot {
@@ -156,7 +156,6 @@ mat-sidenav button.custom-button {
 mat-sidenav button {
   border-radius: 0.5rem;
   font-weight: 500;
-  opacity: 0.75;
 }
 .side-btns button {
   width: 100%;

@@ -10,13 +10,13 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('openClose', [
       state('open', style({
-        transform: 'translateX(0%)'
+        transform: 'translate3d(0,0,0)'
       })),
       state('closed', style({
-        transform: 'translateX(100%)'
+        transform: 'translate3d(100%, 0, 0)'
       })),
       transition('open <=> closed', [
-        animate('0.3s')
+        animate('400ms ease-in-out')
       ]),
     ]),
   ]
@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
 
   darkClass = 'theme-dark';
   lightClass = 'theme-light';
-  showFiller = false;
   isShowing: boolean = false;
 
   constructor(private renderer: Renderer2) { }
@@ -41,7 +40,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     const savedTheme = localStorage.getItem('themePreference');
-
     const currentTheme = savedTheme === 'dark';
 
     this.applyTheme(currentTheme);
@@ -50,11 +48,13 @@ export class HeaderComponent implements OnInit {
       this.applyTheme(currentTheme);
     });
 
-    this.renderer.listen('document', 'click', (event) => {
-      if (this.isShowing && !this.overlay.nativeElement.contains(event.target) && !this.sidenav.opened) {
-        this.toggleRightSidenav();
-      }
-    });
+    if (this.overlay && this.sidenav) {
+      this.renderer.listen('document', 'click', (event) => {
+        if (this.isShowing && !this.overlay.nativeElement.contains(event.target) && !this.sidenav.opened) {
+          this.toggleRightSidenav();
+        }
+      });
+    }
   }
 
   ngAfterViewInit(): void {
@@ -81,5 +81,4 @@ export class HeaderComponent implements OnInit {
       bodyElement.classList.remove(this.darkClass);
     }
   }
-
 }

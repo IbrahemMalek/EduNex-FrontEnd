@@ -40,7 +40,7 @@
 
 .scroll-top svg.progress-circle path {
   stroke: var(--wave2);
-  stroke-width: 8;
+  stroke-width: 6;
   transition: 0.4s;
 }
 

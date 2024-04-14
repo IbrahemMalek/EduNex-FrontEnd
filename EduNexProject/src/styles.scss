@@ -178,10 +178,12 @@ html {
 custom-checkbox.checked {
   color: #ffffff !important;
   background-image: var(--btn) !important;
-  opacity: 1;
+  scale: 1;
   transition: 0.3s;
 }
-
+.custom-button:hover{
+  scale: 0.97;
+}
 .hidden {
   opacity: 0;
 }
