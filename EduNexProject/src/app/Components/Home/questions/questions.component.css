@@ -33,22 +33,29 @@
   padding-bottom: 0.85rem;
   padding-top: 0.85rem;
 }
-.custom-button {
-  color: #ffffff;
-  background-color: var(--btn);
+.custom-button,
+.custom-button-2 {
   border-radius: 20rem;
-  transition: 0.3s;
   padding-inline: 1.25rem;
   padding-bottom: 0.65rem;
   padding-top: 0.65rem;
-  opacity: 1;
-  transition: 0.3s;
   margin: 0;
 }
-.custom-button:hover {
-  opacity: 0.75;
+.custom-button-2 {
+  opacity: 1;
+  transition: 0.3s;
+  position: relative;
 }
-
+.custom-button-2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20rem;
+  padding: 3px;
+  background: var(--btn);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
 @media (max-width: 460px) {
   .custom-checkbox-container {
     justify-content: center;

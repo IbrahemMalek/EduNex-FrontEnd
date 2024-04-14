@@ -84,7 +84,7 @@
     </div>
     <div class="d-flex">
       <!-- <section class="col-7"> -->
-      <div class="flex scroll-about-section">
+      <div class="flex scroll-about-section hidden" AppearFromRight>
         <app-side-scroll-buttons [sectionName]="'scroll-about-section'"></app-side-scroll-buttons>
 
         <ng-container *ngFor="let card of chosenCards.slice(currentIndex, currentIndex + cardsToShow); let i = index">

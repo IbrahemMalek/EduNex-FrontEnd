@@ -182,6 +182,56 @@ custom-checkbox.checked {
   transition: 0.3s;
 }
 
-.custom-button:hover {
-  // opacity: 0.75;
+.hidden {
+  opacity: 0;
+}
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s forwards;
+  -webkit-animation: slideIn 1s forwards;
+}
+
+.slide-from-left {
+  animation: slideFromLeft 1s forwards;
+}
+
+.slide-from-right {
+  animation: slideFromRight 1s forwards;
 }

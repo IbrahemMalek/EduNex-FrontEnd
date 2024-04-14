@@ -12,7 +12,8 @@ button.box-shadow {
 }
 
 button.active {
-  background-color: rgba(0, 0, 0, 0.04);
-  background-color: var(--btn);
+  /* background-color: rgba(0, 0, 0, 0.04); */
+  /* background-color: var(--wave1); */
+  background-image: var(--btn);
   color: white;
 }

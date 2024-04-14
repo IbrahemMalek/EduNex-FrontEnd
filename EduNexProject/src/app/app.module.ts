@@ -20,7 +20,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
-import { CustomPaginationComponent } from './Components/custom-pagination/custom-pagination.component';
+import { CustomPaginationComponent } from './Components/SharedComponents/custom-pagination/custom-pagination.component';
 import { TeachersComponent } from './Components/teachers/teachers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -37,6 +37,9 @@ import { AboutUsComponent } from './Components/Home/about-us/about-us.component'
 import { ClassRankComponent } from './Components/Home/class-rank/class-rank.component';
 import { QuestionsComponent } from './Components/Home/questions/questions.component';
 import { TargetCounterComponent } from './Components/Home/target-counter/target-counter.component';
+import { ScrollAnimationDirective } from './Directive/scroll-animation.directive';
+import { AppearFromLeftDirective } from './Directive/appear-from-left.directive';
+import { AppearFromRightDirective } from './Directive/appear-from-right.directive';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { TargetCounterComponent } from './Components/Home/target-counter/target-
     ClassRankComponent,
     QuestionsComponent,
     TargetCounterComponent,
+    ScrollAnimationDirective,
+    AppearFromLeftDirective,
+    AppearFromRightDirective,
   ],
   imports: [
     BrowserModule,

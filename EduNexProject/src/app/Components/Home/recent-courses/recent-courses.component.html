@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="flex scroll-section-r-courses">
+  <div class="flex scroll-section-r-courses hidden" AppearFromRight>
     <app-side-scroll-buttons [sectionName]="'scroll-section-r-courses'"></app-side-scroll-buttons>
 
     <ng-container *ngFor="let course of filteredCourses.slice(currentIndex, currentIndex + cardsToShow); let i = index">
