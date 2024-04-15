@@ -47,7 +47,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // Save data in DB
+      // use
       console.log(this.loginForm.value);
     } else {
       this.loginForm.markAllAsTouched();

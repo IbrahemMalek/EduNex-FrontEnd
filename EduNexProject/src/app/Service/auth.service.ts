@@ -14,6 +14,10 @@ export class AuthService{
 
   signUp(data:IuserData):Observable<any>
   {
-    return this.httpClient.post(`link`,data);
+    return this.httpClient.post(`link signup`,data);
+  }
+  login(data:object):Observable<any>
+  {
+    return this.httpClient.post(`link signin`,data);
   }
 }

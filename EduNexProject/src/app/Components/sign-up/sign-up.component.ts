@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
 import { passwordMatched } from 'src/app/CustomFormValidation/CrossfiledValidation';
 import { AuthService } from 'src/app/Service/auth.service';
 
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 export class SignUpComponent implements OnInit {
   isInputFocused: boolean = false;
   signupForm!: FormGroup;
-  constructor(private fb: FormBuilder,private authService:AuthService) {}
+  constructor(private fb: FormBuilder,private authService:AuthService,private router:Router) {}
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -93,15 +94,25 @@ export class SignUpComponent implements OnInit {
   //   this.isInputFocused = false;
   // }
 
+  errorMeg:string='';
   onSubmit() {
     if (this.signupForm.valid) {
       // Save data in DB
       console.log(this.signupForm.value);
-     this.authService.signUp(this.signupForm.value).subscribe(
-      {
-        next:(data)=>console.log(data),
-        error:(err)=>console.log(err)
-      })
+    //  this.authService.signUp(this.signupForm.value).subscribe(
+    //   {
+    //     next:(data)=>{
+    //       if(data.message==='success')
+    //         {
+    //           //go to login
+    //           this.router.navigate(['/login'])
+    //         }
+    //     },
+    //     error:(err)=>{
+    //       this.errorMeg=err.error.errors.msg;
+    //       console.log(err);
+    //        }
+    //     })
     } else {
       this.signupForm.markAllAsTouched();
       console.log("errorrrrr404");
