@@ -14,6 +14,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CoursesComponent } from './Components/courses/courses.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatRadioModule } from '@angular/material/radio';
@@ -42,6 +43,10 @@ import { AppearFromLeftDirective } from './Directive/appear-from-left.directive'
 import { AppearFromRightDirective } from './Directive/appear-from-right.directive';
 import { FooterComponent } from './Components/SharedComponents/footer/footer.component';
 import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll-to-top-button/scroll-to-top-button.component';
+import { LoadingBarComponent } from './Components/SharedComponents/loading-bar/loading-bar.component';
+import { CourseDetailsComponent } from './Components/course-details/course-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -69,6 +74,8 @@ import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll
     AppearFromRightDirective,
     FooterComponent,
     ScrollToTopButtonComponent,
+    LoadingBarComponent,
+    CourseDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +96,10 @@ import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressBarModule,
     MatChipsModule,
+    HttpClientModule,
+    MatButtonToggleModule,
   ],
   providers: [
     OverlayContainer,

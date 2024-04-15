@@ -81,4 +81,6 @@ export class HeaderComponent implements OnInit {
       bodyElement.classList.remove(this.darkClass);
     }
   }
+
+
 }

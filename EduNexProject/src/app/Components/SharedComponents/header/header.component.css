@@ -200,20 +200,10 @@ hr {
   .main-content {
     padding: 16px;
   }
-
-  mat-toolbar {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }
 
 @media (min-width: 920px) {
   .menu-btn {
     display: none;
-  }
-
-  mat-toolbar {
-    padding-left: 5rem;
-    padding-right: 5rem;
   }
 }

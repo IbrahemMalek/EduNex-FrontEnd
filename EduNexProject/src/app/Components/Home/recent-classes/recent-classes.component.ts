@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StaticDataService } from '../../Services/static-data.service';
 import { ICourse } from 'src/app/Model/iCourse';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({
   selector: 'app-recent-classes',
@@ -24,7 +24,7 @@ export class RecentClassesComponent implements OnInit {
     { label: 'أشهر الحصص', selected: false },
   ];
 
-  constructor(private staticData: StaticDataService) { }
+  constructor(private dynamicData: DynamicDataService) { }
 
   toggleOption(index: number) {
     this.options.forEach((option, i) => {
@@ -43,8 +43,12 @@ export class RecentClassesComponent implements OnInit {
     }
   }
 
+  getAll() {
+    this.dynamicData.getAllCourses().subscribe(courses => this.courses = courses);
+  }
+
   ngOnInit(): void {
-    this.courses = this.staticData.getAllCourses();
+    this.getAll();
     this.filterCourses();
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ITeacher } from 'src/app/Model/iTeacher';
-import { StaticDataService } from '../../Services/static-data.service';
+import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({
   selector: 'app-about-teachers',
@@ -10,9 +10,13 @@ import { StaticDataService } from '../../Services/static-data.service';
 export class AboutTeachersComponent {
   teachers: ITeacher[] = [];
 
-  constructor(private staticData: StaticDataService) { }
+  constructor(private dynamicData: DynamicDataService) { }
 
-  ngOnInit(): void {
-    this.teachers = this.staticData.getAllTeachers();
+  getAll() {
+    this.dynamicData.getAllTeachers().subscribe(teachers => this.teachers = teachers);
   }
+  ngOnInit(): void {
+    this.getAll()
+  }
+
 }

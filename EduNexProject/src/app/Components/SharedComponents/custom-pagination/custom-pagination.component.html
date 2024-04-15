@@ -2,7 +2,7 @@
 
 <div class="custom-pagination my-5">
   <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 1">
-    <mat-icon>chevron_left</mat-icon>
+    <mat-icon>chevron_right</mat-icon>
   </button>
   <ng-container *ngFor="let page of getPageNumbers()">
     <button class="box-shadow mx-1" mat-raised-button (click)="goToPage(page)" [class.active]="page === currentPage">
@@ -10,6 +10,6 @@
     </button>
   </ng-container>
   <button mat-icon-button (click)="nextPage()" [disabled]="currentPage === totalPages">
-    <mat-icon>chevron_right</mat-icon>
+    <mat-icon>chevron_left</mat-icon>
   </button>
 </div>

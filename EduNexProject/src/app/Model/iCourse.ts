@@ -1,4 +1,5 @@
 export interface ICourse {
+  id:number;
   imageUrl: string;
   subject: string;
   profilePictureUrl: string;

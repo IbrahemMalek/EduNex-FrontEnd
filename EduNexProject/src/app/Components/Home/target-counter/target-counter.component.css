@@ -13,6 +13,7 @@ svg:last-of-type {
   margin-bottom: 5rem;
   margin-top: 5rem;
   z-index: 1;
+  font-size: 35px;
 }
 .cards-container svg {
   width: 5rem;

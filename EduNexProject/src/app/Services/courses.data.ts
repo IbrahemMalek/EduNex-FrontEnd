@@ -1,5 +1,6 @@
 export const courseData = [
   {
+    id: 1,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الإحصاء',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -9,6 +10,7 @@ export const courseData = [
     price: 200,
   },
   {
+    id: 2,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الفيزياء',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -18,6 +20,7 @@ export const courseData = [
     price: 250,
   },
   {
+    id: 3,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الكيمياء',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -27,6 +30,7 @@ export const courseData = [
     price: 220,
   },
   {
+    id: 4,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الرياضيات',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -36,6 +40,7 @@ export const courseData = [
     price: 180,
   },
   {
+    id: 5,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'اللغة العربية',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -45,6 +50,7 @@ export const courseData = [
     price: 210,
   },
   {
+    id: 6,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الجغرافيا',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -54,6 +60,7 @@ export const courseData = [
     price: 230,
   },
   {
+    id: 7,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'التاريخ',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -63,6 +70,7 @@ export const courseData = [
     price: 190,
   },
   {
+    id: 8,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'اللغة الإنجليزية',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -72,6 +80,7 @@ export const courseData = [
     price: 240,
   },
   {
+    id: 9,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الإحصاء',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -81,6 +90,7 @@ export const courseData = [
     price: 200,
   },
   {
+    id: 10,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الفيزياء',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -90,6 +100,7 @@ export const courseData = [
     price: 250,
   },
   {
+    id: 11,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الكيمياء',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -99,6 +110,7 @@ export const courseData = [
     price: 220,
   },
   {
+    id: 12,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الرياضيات',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -108,6 +120,7 @@ export const courseData = [
     price: 180,
   },
   {
+    id: 13,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'اللغة العربية',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -117,6 +130,7 @@ export const courseData = [
     price: 210,
   },
   {
+    id: 14,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'الجغرافيا',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -126,6 +140,7 @@ export const courseData = [
     price: 230,
   },
   {
+    id: 15,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'التاريخ',
     profilePictureUrl: 'https://via.placeholder.com/75',
@@ -135,6 +150,7 @@ export const courseData = [
     price: 190,
   },
   {
+    id: 16,
     imageUrl: 'https://via.placeholder.com/325x225',
     subject: 'اللغة الإنجليزية',
     profilePictureUrl: 'https://via.placeholder.com/75',
