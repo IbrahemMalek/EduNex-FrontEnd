@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { passwordMatched } from 'src/app/CustomFormValidation/CrossfiledValidation';
+import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,7 +11,7 @@ import { passwordMatched } from 'src/app/CustomFormValidation/CrossfiledValidati
 export class SignUpComponent implements OnInit {
   isInputFocused: boolean = false;
   signupForm!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private authService:AuthService) {}
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -96,6 +97,11 @@ export class SignUpComponent implements OnInit {
     if (this.signupForm.valid) {
       // Save data in DB
       console.log(this.signupForm.value);
+     this.authService.signUp(this.signupForm.value).subscribe(
+      {
+        next:(data)=>console.log(data),
+        error:(err)=>console.log(err)
+      })
     } else {
       this.signupForm.markAllAsTouched();
       console.log("errorrrrr404");
