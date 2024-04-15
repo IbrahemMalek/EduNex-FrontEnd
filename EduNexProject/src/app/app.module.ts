@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -43,10 +43,12 @@ import { AppearFromLeftDirective } from './Directive/appear-from-left.directive'
 import { AppearFromRightDirective } from './Directive/appear-from-right.directive';
 import { FooterComponent } from './Components/SharedComponents/footer/footer.component';
 import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll-to-top-button/scroll-to-top-button.component';
-import { LoadingBarComponent } from './Components/SharedComponents/loading-bar/loading-bar.component';
 import { CourseDetailsComponent } from './Components/course-details/course-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     AppearFromRightDirective,
     FooterComponent,
     ScrollToTopButtonComponent,
-    LoadingBarComponent,
     CourseDetailsComponent,
   ],
   imports: [
@@ -100,9 +101,13 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatChipsModule,
     HttpClientModule,
     MatButtonToggleModule,
+    LoadingBarModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
   ],
   providers: [
     OverlayContainer,
+    importProvidersFrom(LoadingBarHttpClientModule),
   ],
   bootstrap: [AppComponent]
 })

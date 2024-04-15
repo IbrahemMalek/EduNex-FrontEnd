@@ -2,6 +2,7 @@ import { Component, HostBinding, OnInit, ViewChild, ElementRef, Renderer2 } from
 import { FormControl } from '@angular/forms';
 import { MatDrawer } from '@angular/material/sidenav';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-header',
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit {
   lightClass = 'theme-light';
   isShowing: boolean = false;
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2 ,public loader: LoadingBarService) { }
 
   toggleRightSidenav() {
     this.isShowing = !this.isShowing;
@@ -55,6 +56,8 @@ export class HeaderComponent implements OnInit {
         }
       });
     }
+
+    console.log(this.loader.value$)
   }
 
   ngAfterViewInit(): void {

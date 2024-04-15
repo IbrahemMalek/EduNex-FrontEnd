@@ -87,4 +87,5 @@
 
 <div class="overlay" [class.active]="isShowing" (click)="toggleRightSidenav()"></div>
 
-<app-loading-bar></app-loading-bar>
+<ngx-loading-bar [color]="'var(--btn)'" [height]="'3px'" [includeSpinner]="false"
+  [value]="(loader.value$ | async) ?? 0"></ngx-loading-bar>

@@ -1,6 +1,6 @@
 <section>
-  <div class="container flex justify-content-between py-5 center">
-    <div class="text-white">
+  <div class="flex justify-content-between center">
+    <div class="container text-white py-5 text-container">
       <h6 style="color: orange;">{{course?.grade}}</h6>
       <h3 style="font-weight: 700;">{{course?.description}}</h3>
       <h5 style="font-weight: 700;">{{course?.teacher}}</h5>
@@ -44,6 +44,10 @@
       </div>
     </div>
   </div>
+
+  <img mat-card-image src="assets/image/header-star.png" alt="Sample Image">
+  <img mat-card-image src="assets/image/header-star.png" alt="Sample Image">
+
 </section>
 
 
@@ -57,49 +61,46 @@
   </div>
 
   <div class="course" *ngIf="options[0].selected" [@fadeInOut]>
-    <h3 class="my-5" style="font-weight: 700;">محتوي الكورس</h3>
+    <h3 class="mb-4" style="font-weight: 700;">محتوي الكورس</h3>
     <mat-accordion class="flex my-2" *ngFor="let item of [1,2,3]">
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-        class="custom-expansion-panel">
+      <mat-expansion-panel [expanded]="false" class="custom-expansion-panel">
         <mat-expansion-panel-header>
           <mat-panel-title style="font-weight: 500;" class="flex justify-content-between px-2">
-            <span>الحصه الاولي</span> <span>أشتري الأن :{{course?.price}} ج.م</span>
+            <span>الحصة الأولى</span> <span>اشترِ الآن: {{ course?.price }} ج.م</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <ng-container>
-          <button mat-button class="flex gap-2 d-block">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
-              <path fill="none"
-                d="M11 23a1 1 0 0 1-1-1V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788l-12 6A1.001 1.001 0 0 1 11 23" />
-              <path fill="currentColor"
-                d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m7.447 14.895l-12 6A1 1 0 0 1 10 22V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788" />
-            </svg>
-            المقدمه
+          <button mat-button class="d-flex justify-content-start gap-2">
+            <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+            <span>المقدمة</span>
           </button>
-          <button mat-button class="flex gap-2 d-block py-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
-              <path fill="none"
-                d="M11 23a1 1 0 0 1-1-1V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788l-12 6A1.001 1.001 0 0 1 11 23" />
-              <path fill="currentColor"
-                d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m7.447 14.895l-12 6A1 1 0 0 1 10 22V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788" />
-            </svg>
-            الشرح
+          <button mat-button class="d-flex justify-content-start gap-2 py-1">
+            <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+            <span>الشرح</span>
           </button>
-          <button mat-button class="flex gap-2 d-block py-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
-              <path fill="none"
-                d="M11 23a1 1 0 0 1-1-1V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788l-12 6A1.001 1.001 0 0 1 11 23" />
-              <path fill="currentColor"
-                d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m7.447 14.895l-12 6A1 1 0 0 1 10 22V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788" />
-            </svg>
-            الحل
+          <button mat-button class="d-flex justify-content-start gap-2 py-1">
+            <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+            <span>الحل</span>
           </button>
         </ng-container>
       </mat-expansion-panel>
     </mat-accordion>
+
   </div>
-  <div class="teacher" *ngIf="options[1].selected" [@fadeInOut]>
-    <p>hello</p>
+  <div class="teacher d-flex gap-3 mt-4" *ngIf="options[1].selected" [@fadeInOut]>
+    <!-- <img mat-card-image [src]="teacher?.imageUrl" alt="Sample Image" class="align-self-center"> -->
+    <img mat-card-image src="https://via.placeholder.com/225" alt="Sample Image" class="mt-4">
+    <div>
+      <h3 style="font-weight: 700;" class="mb-4">أ. {{teacher?.name}}</h3>
+      <p>
+        مدرّس متخصص في علوم الحاسوب وتطوير البرمجيات، لديه خبرة تزيد عن ١٥ عامًا في المجال. شارك في تأسيس العديد من
+        الشركات الناشئة وعمل في شركات تقنية عالمية بارزة. يحمل خبرة غنية في تدريس مواد علوم الحاسوب في الجامعات الرائدة
+        مثل جامعة القاهرة وجامعة النيل، وله مساهمات مهمة في البحث العلمي في مجال تطوير الذكاء الاصطناعي وتعلم الآلة.
+        يشغل
+        حاليًا منصب مدير تطوير البرمجيات في شركة عالمية رائدة في مجال تكنولوجيا المعلومات، وقد حصل على شهادات معتمدة من
+        شركات تقنية كبيرة مثل مايكروسوفت وأمازون وغيرها.
+      </p>
+    </div>
   </div>
 
   <mat-card class="example-card mt-4">

@@ -1,5 +1,19 @@
 section {
   background-color: #2d2d2d;
+  position: relative;
+}
+section img:first-of-type {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  height: 100%;
+}
+section img:last-of-type {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  height: 100%;
+  rotate: 180deg;
 }
 img {
   width: 300px;
@@ -16,7 +30,38 @@ img {
 .cards-container p {
   margin: 0;
 }
+/*
+#radius-shape-1 {
+  position: absolute;
+  height: 220px;
+  width: 220px;
+  right: -8vw;
+  top: 2rem;
+  background: var(--btn);
+  overflow: hidden;
+} */
 
+/* #radius-shape-2 {
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  --mask: radial-gradient(
+        35.74px at 50% calc(100% + 16.5px),
+        #0000 calc(99% - 3px),
+        #f0f0f0 calc(101% - 3px) 99%,
+        #0000 101%
+      )
+      calc(50% - 60px) calc(50% - 16.5px + 0.5px) / 120px 33px,
+    radial-gradient(
+        35.74px at 50% -16.5px,
+        #0000 calc(99% - 3px),
+        #f0f0f0 calc(101% - 3px) 99%,
+        #0000 101%
+      )
+      50% calc(50% + 16.5px) / 120px 33px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+} */
 .example-card {
   position: absolute;
   left: 6vw;
@@ -86,14 +131,30 @@ img {
   box-shadow: var(--border) 0px 0px 0px 1px !important;
   border-radius: 10px !important;
   background-image: var(--bg);
+}
+
+.custom-expansion-panel,
+.teacher p {
   width: 60%;
 }
+
+.teacher p {
+  opacity: 0.75;
+  line-height: 2;
+}
+.teacher img {
+  border-radius: 50%;
+  height: 225px;
+  width: 225px;
+}
+
 .custom-expansion-panel button {
   margin-inline: 1.5rem;
   width: 90%;
   text-align: right;
   border-radius: 10px;
 }
+
 @media (max-width: 460px) {
   .cards-container {
     flex-direction: column-reverse;
@@ -103,7 +164,7 @@ img {
     text-align: center;
   }
 }
-@media (max-width: 920px) {
+@media (max-width: 990px) {
   .animated-img {
     display: none;
   }
@@ -111,7 +172,22 @@ img {
     position: static;
     margin-inline: auto;
   }
-  .custom-expansion-panel {
+  .custom-expansion-panel,
+  .teacher p {
     width: 100%;
+  }
+  .teacher {
+    flex-direction: column;
+  }
+  .teacher img {
+    margin-top: 3rem;
+    margin-bottom: 0rem;
+    margin-inline: auto;
+  }
+}
+@media (min-width: 990px) {
+  .teacher,
+  .course {
+    min-height: 75dvh;
   }
 }
