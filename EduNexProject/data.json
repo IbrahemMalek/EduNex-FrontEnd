@@ -164,26 +164,26 @@
   "teachers": [
     {
       "id": 1,
-      "name": "نادر جورج",
-      "subject": "علم نفس",
+      "name": "منه جاد",
+      "subject": "الإحصاء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
       "id": 2,
       "name": "أحمد علي",
-      "subject": "علم الفيزياء",
+      "subject": "الفيزياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
       "id": 3,
       "name": "محمد أحمد",
-      "subject": "علم الكيمياء",
+      "subject": "الكيمياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
       "id": 4,
       "name": "سارة عمر",
-      "subject": "رياضيات",
+      "subject": "الرياضيات",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
@@ -212,26 +212,26 @@
     },
     {
       "id": 9,
-      "name": "نادر جورج",
-      "subject": "علم نفس",
+      "name": "منه جاد",
+      "subject": "الإحصاء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
       "id": 10,
       "name": "أحمد علي",
-      "subject": "علم الفيزياء",
+      "subject": "الفيزياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
       "id": 11,
       "name": "محمد أحمد",
-      "subject": "علم الكيمياء",
+      "subject": "الكيمياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
       "id": 12,
       "name": "سارة عمر",
-      "subject": "رياضيات",
+      "subject": "الرياضيات",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
@@ -259,6 +259,105 @@
       "imageUrl": "https://via.placeholder.com/325x405"
     }
   ],
+  "lessons": [
+    {
+      "title": "مقدمة في الإحصاء",
+      "url": "https://example.com/lesson9",
+      "teacher": "منه جاد",
+      "subject": "الإحصاء"
+    },
+    {
+      "title": "قوانين نيوتن للحركة",
+      "url": "https://example.com/lesson10",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "title": "تفاعلات كيميائية",
+      "url": "https://example.com/lesson11",
+      "teacher": "محمد أحمد",
+      "subject": "الكيمياء"
+    },
+    {
+      "title": "أساسيات الجبر",
+      "url": "https://example.com/lesson12",
+      "teacher": "سارة عمر",
+      "subject": "الرياضيات"
+    },
+    {
+      "title": "قواعد اللغة العربية",
+      "url": "https://example.com/lesson13",
+      "teacher": "أحمد سعيد",
+      "subject": "اللغة العربية"
+    },
+    {
+      "title": "جغرافيا العالم",
+      "url": "https://example.com/lesson14",
+      "teacher": "ليلى محمود",
+      "subject": "الجغرافيا"
+    },
+    {
+      "title": "تاريخ الحضارات",
+      "url": "https://example.com/lesson15",
+      "teacher": "محمد خالد",
+      "subject": "التاريخ"
+    },
+    {
+      "title": "أدب إنجليزي",
+      "url": "https://example.com/lesson16",
+      "teacher": "مريم يوسف",
+      "subject": "اللغة الإنجليزية"
+    },
+    {
+      "title": "مراجعة الإحصاء",
+      "url": "https://example.com/lesson17",
+      "teacher": "منه جاد",
+      "subject": "الإحصاء"
+    },
+    {
+      "title": "حركة الأجسام",
+      "url": "https://example.com/lesson18",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "title": "التفاعلات العضوية",
+      "url": "https://example.com/lesson19",
+      "teacher": "محمد أحمد",
+      "subject": "الكيمياء"
+    },
+    {
+      "title": "الجبر الخطي",
+      "url": "https://example.com/lesson20",
+      "teacher": "سارة عمر",
+      "subject": "الرياضيات"
+    },
+    {
+      "title": "النحو العربي",
+      "url": "https://example.com/lesson21",
+      "teacher": "أحمد سعيد",
+      "subject": "اللغة العربية"
+    },
+    {
+      "title": "المناخ والتضاريس",
+      "url": "https://example.com/lesson22",
+      "teacher": "ليلى محمود",
+      "subject": "الجغرافيا"
+    },
+    {
+      "title": "الثورات والتطورات التاريخية",
+      "url": "https://example.com/lesson23",
+      "teacher": "محمد خالد",
+      "subject": "التاريخ"
+    },
+    {
+      "title": "أدب أمريكي",
+      "url": "https://example.com/lesson24",
+      "teacher": "مريم يوسف",
+      "subject": "اللغة الإنجليزية"
+    }
+  ],
+
   "total": 100,
   "skip": 0,
   "limit": 30

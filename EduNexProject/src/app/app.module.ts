@@ -26,7 +26,6 @@ import { TeachersComponent } from './Components/teachers/teachers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MainComponent } from './Components/Home/main/main.component';
-import { RecentClassesComponent } from './Components/Home/recent-classes/recent-classes.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { CourseCardComponent } from './Components/SharedComponents/course-card/course-card.component';
 import { TeacherCardComponent } from './Components/SharedComponents/teacher-card/teacher-card.component';
@@ -43,12 +42,18 @@ import { AppearFromLeftDirective } from './Directive/appear-from-left.directive'
 import { AppearFromRightDirective } from './Directive/appear-from-right.directive';
 import { FooterComponent } from './Components/SharedComponents/footer/footer.component';
 import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll-to-top-button/scroll-to-top-button.component';
-import { CourseDetailsComponent } from './Components/course-details/course-details.component';
+import { CourseDetailsComponent } from './Components/CourseDetails/course-details/course-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { CarouselHeaderComponent } from './Components/Home/carousel-header/carousel-header.component';
+import { CourseDetailsCardComponent } from './Components/CourseDetails/course-details-card/course-details-card.component';
+import { CourseDetailsHeaderComponent } from './Components/CourseDetails/course-details-header/course-details-header.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { SubscriptionDialogComponent } from './Components/CourseDetails/subscription-dialog/subscription-dialog.component';
+import { LessonDialogComponent } from './Components/CourseDetails/lesson-dialog/lesson-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +65,6 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     CustomPaginationComponent,
     TeachersComponent,
     MainComponent,
-    RecentClassesComponent,
     CourseCardComponent,
     TeacherCardComponent,
     RecentCoursesComponent,
@@ -77,6 +81,11 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     FooterComponent,
     ScrollToTopButtonComponent,
     CourseDetailsComponent,
+    CarouselHeaderComponent,
+    CourseDetailsHeaderComponent,
+    CourseDetailsCardComponent,
+    SubscriptionDialogComponent,
+    LessonDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,6 +113,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     LoadingBarModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
+    MatDialogModule
   ],
   providers: [
     OverlayContainer,

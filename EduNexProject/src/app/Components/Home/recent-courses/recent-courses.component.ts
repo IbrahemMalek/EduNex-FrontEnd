@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICourse } from 'src/app/Model/iCourse';
+import { ICourse } from 'src/app/Model/icourse';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 

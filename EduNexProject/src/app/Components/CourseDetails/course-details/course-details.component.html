@@ -1,0 +1,61 @@
+<app-course-details-header [course]="course"></app-course-details-header>
+
+<section class="container">
+
+  <div class="custom-checkbox-container flex flex-wrap gap-2 my-3">
+    <button mat-button *ngFor="let opt of options; let i = index" class="custom-checkbox" [class.checked]="opt.selected"
+      (click)="toggleOption(i)">
+      <span>{{ opt.label }}</span>
+    </button>
+  </div>
+
+  <div class="course" *ngIf="options[0].selected" [@fadeInOut]>
+    <div class="flex gap-1">
+      <h3 class="m-0" style="font-weight: 700;">محتوي الكورس</h3>
+      <button mat-icon-button (click)="openDialog()"><mat-icon>note_add</mat-icon></button>
+    </div>
+
+    <mat-accordion class="flex my-2" *ngFor="let lesson of lessons; let i = index">
+      <mat-expansion-panel class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;" class="flex justify-content-between px-2">
+            <span>{{lesson.title}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-container>
+          <button mat-button class="d-flex justify-content-start gap-2">
+            <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+            <span>المقدمة</span>
+          </button>
+          <button mat-button class="d-flex justify-content-start gap-2 py-1">
+            <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+            <span>الشرح</span>
+          </button>
+          <button mat-button class="d-flex justify-content-start gap-2 py-1">
+            <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+            <span>الحل</span>
+          </button>
+        </ng-container>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="teacher d-flex gap-3 mt-4" *ngIf="options[1].selected" [@fadeInOut]>
+    <!-- <img mat-card-image [src]="teacher?.imageUrl" alt="Sample Image" class="align-self-center"> -->
+    <img mat-card-image src="https://via.placeholder.com/225" alt="Sample Image" class="mt-4">
+    <div>
+      <h3 style="font-weight: 700;" class="mb-4">أ. {{teacher?.name}}</h3>
+      <p>
+        مدرّس متخصص في علوم الحاسوب وتطوير البرمجيات، لديه خبرة تزيد عن ١٥ عامًا في المجال. شارك في تأسيس العديد من
+        الشركات الناشئة وعمل في شركات تقنية عالمية بارزة. يحمل خبرة غنية في تدريس مواد علوم الحاسوب في الجامعات الرائدة
+        مثل جامعة القاهرة وجامعة النيل، وله مساهمات مهمة في البحث العلمي في مجال تطوير الذكاء الاصطناعي وتعلم الآلة.
+        يشغل
+        حاليًا منصب مدير تطوير البرمجيات في شركة عالمية رائدة في مجال تكنولوجيا المعلومات، وقد حصل على شهادات معتمدة من
+        شركات تقنية كبيرة مثل مايكروسوفت وأمازون وغيرها.
+      </p>
+    </div>
+  </div>
+
+  <app-course-details-card [course]="course"></app-course-details-card>
+
+</section>

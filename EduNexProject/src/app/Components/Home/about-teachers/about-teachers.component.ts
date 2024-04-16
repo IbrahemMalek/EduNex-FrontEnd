@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ITeacher } from 'src/app/Model/iTeacher';
+import { ITeacher } from 'src/app/Model/iteacher';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({

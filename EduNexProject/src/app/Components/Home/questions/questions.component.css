@@ -1,5 +1,6 @@
 .shadow1 {
-  box-shadow: var(--border) 0px 0px 3px 3px;
+  /* box-shadow: var(--border) 0px 0px 3px 3px; */
+  box-shadow: var(--border) 0px 2px 8px 0px;
 }
 .card-input-section {
   background-image: var(--btn);
