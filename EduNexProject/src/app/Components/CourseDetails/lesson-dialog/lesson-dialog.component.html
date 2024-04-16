@@ -4,13 +4,12 @@
     <button mat-icon-button (click)="onNoClick()"> <mat-icon>close</mat-icon></button>
   </div>
   <div class="flex flex-column justify-content-center">
-    <h3 style="font-weight: 700;" class="mb-5">مرحبا أ. {{ data.name }}</h3>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>أسم الحصة</mat-label>
-        <input matInput placeholder="الحصة الأولي" [(ngModel)]="lessonTitle" [ngModelOptions]="{ standalone: true }">
-      </mat-form-field>
-    </form>
+    <h3>مرحباً <span>أ.</span> {{ data.name }}</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>أسم الحصة</mat-label>
+      <input matInput [(ngModel)]="lessonTitle" [ngModelOptions]="{ standalone: true }">
+      <mat-icon matSuffix>library_add</mat-icon>
+    </mat-form-field>
     <button mat-button class="custom-button" (click)="onSubmit()">أضف الحصة</button>
   </div>
 </div>

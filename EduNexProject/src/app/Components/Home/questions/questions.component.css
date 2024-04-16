@@ -22,6 +22,7 @@
 ::ng-deep .mdc-notched-outline__trailing {
   border-color: white !important;
 }
+
 .card-input-section input::placeholder {
   color: white;
 }
@@ -46,7 +47,7 @@
   opacity: 1;
   transition: 0.3s;
   border: 2px solid var(--wave2);
-    /* position: relative; */
+  /* position: relative; */
 }
 /* .custom-button-2::before {
   content: "";
