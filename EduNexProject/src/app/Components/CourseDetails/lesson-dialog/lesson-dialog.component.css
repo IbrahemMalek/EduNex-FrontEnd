@@ -21,3 +21,9 @@ h3 {
 mat-label {
   color: var(--bgHeader);
 }
+
+.e-dialog.e-schedule-dialog {
+  border: 2px;
+  border-radius: 20px;
+  padding: 10px;
+}

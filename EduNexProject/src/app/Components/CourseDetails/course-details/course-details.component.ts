@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { ICourse } from 'src/app/Model/icourse';
-import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
+import { ICourse } from 'src/app/Model/icourse';
 import { ITeacher } from 'src/app/Model/iteacher';
 import { ILesson } from 'src/app/Model/ilesson';
 import { LessonDialogComponent } from '../lesson-dialog/lesson-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { ILessonContent } from 'src/app/Model/ilesson-content';
 
 @Component({
   selector: 'app-course-details',
@@ -33,6 +34,19 @@ export class CourseDetailsComponent implements OnInit {
   courseID: number = 0;
   showDetails: boolean = false;
   lessons: ILesson[] = [];
+  lessonContact: ILessonContent[] = [];
+  private lessonIdCounter: number = 1;
+
+  options = [
+    { label: 'محتوي الكورس', selected: true },
+    { label: 'عن المعلم', selected: false },
+  ];
+
+  lessonsOptions = [
+    { title: 'المقدمة' },
+    { title: 'الشرح' },
+    { title: 'الحل' },
+  ];
 
   constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog) {
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -62,11 +76,6 @@ export class CourseDetailsComponent implements OnInit {
     this.getCourseById();
   }
 
-  options = [
-    { label: 'محتوي الكورس', selected: true },
-    { label: 'عن المعلم', selected: false },
-  ];
-
   toggleOption(index: number) {
     this.options.forEach((option, i) => {
       option.selected = i === index;
@@ -87,31 +96,28 @@ export class CourseDetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((lessonTitle: string) => {
       if (lessonTitle) {
-        this.lessons.push({
-          title: lessonTitle,
-          url: '',
-          teacher: this.teacher?.name ?? 'Unknown Teacher',
-          subject: this.teacher?.subject ?? 'Unknown Subject',
-        });
-
-        const container = document.querySelector('.container');
-        container?.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+        this.addLessonWithContent(lessonTitle);
       }
     });
   }
 
-  addAccordion(): void {
+  addLessonWithContent(lessonTitle: string): void {
     const newLesson: ILesson = {
-      title: 'New Lesson',
+      id: this.generateLessonId(),
+      title: lessonTitle,
       url: '',
       teacher: this.teacher?.name ?? 'Unknown Teacher',
       subject: this.teacher?.subject ?? 'Unknown Subject',
     };
 
+    // Add the lesson to the server
     this.dynamicData.addLesson(newLesson).subscribe(
       (addedLesson: ILesson) => {
         console.log('Lesson added:', addedLesson);
         this.lessons.push(addedLesson);
+
+        // Call addAccordion with the lesson ID and title
+        this.addAccordion(addedLesson.id, lessonTitle);
 
         const container = document.querySelector('.container');
         container?.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
@@ -121,5 +127,60 @@ export class CourseDetailsComponent implements OnInit {
       }
     );
   }
+
+
+  addAccordion(lessonId: number, lessonTitle: string): void {
+    const newLessonContent: any = {
+      lessonId: lessonId,
+      title: lessonTitle,
+    };
+
+    // Add the lesson content to the server
+    this.dynamicData.addLessonContent(newLessonContent).subscribe(
+      (addedContent: any) => {
+        console.log('Lesson content added:', addedContent);
+        // You can perform further actions if needed
+      },
+      (error) => {
+        console.error('Failed to add lesson content:', error);
+      }
+    );
+  }
+
+
+  addLessonContent(lessonId: number, title: string): void {
+    const newLessonContent: any = {
+      lessonId: lessonId,
+      title: title,
+    };
+
+    this.dynamicData.addLessonContent(newLessonContent).subscribe(
+      (addedContent: any) => {
+        console.log('Lesson content added:', addedContent);
+      },
+      (error) => {
+        console.error('Failed to add lesson content:', error);
+      }
+    );
+  }
+
+
+  private generateLessonId(): number {
+    return this.lessonIdCounter++;
+  }
+
+  deleteLesson(lessonId: number): void {
+    this.lessons = this.lessons.filter((lesson: ILesson) => lesson.id !== lessonId);
+
+    this.dynamicData.deleteLessonById(lessonId).subscribe(
+      () => {
+        console.log(`Lesson with ID ${lessonId} deleted successfully`);
+      },
+      (error) => {
+        console.error(`Failed to delete lesson with ID ${lessonId}:`, error);
+      }
+    );
+  }
+
 
 }

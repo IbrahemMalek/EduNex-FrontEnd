@@ -39,13 +39,21 @@
         <div></div>
 
         <div class="nav-items flex gap-1">
-          <button mat-button routerLink="/home" color="title" routerLinkActive="active">الرئيسية</button>
-          <button mat-button routerLink="/courses" routerLinkActive="active">الكورسات</button>
-          <!-- <button mat-button routerLink="/offers">العروض</button> -->
-          <button mat-button routerLink="/teachers" routerLinkActive="active">المدرسين</button>
-          <button mat-button routerLink="/about" routerLinkActive="active">عن المنصة</button>
-          <!-- <button mat-button routerLink="/exams">امتحانات عامة</button> -->
-          <button mat-button routerLink="/Parent" routerLinkActive="active">ولي الأمر</button>
+          <button  routerLink="/home" color="title" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">الرئيسية</button>
+          <button  routerLink="/courses" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">الكورسات</button>
+          <!-- <button  routerLink="/offers">العروض</button> -->
+          <button  class="unset-button" routerLink="/teachers" routerLinkActive="active"
+            (click)="moveMarker($event.target)">المدرسين</button>
+          <button  routerLink="/about" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">عن
+            المنصة</button>
+          <!-- <button  routerLink="/exams">امتحانات عامة</button> -->
+          <button  routerLink="/Parent" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">ولي
+            الأمر</button>
+          <div id="marker"></div>
         </div>
 
         <div class="flex" style="gap: 5px;">

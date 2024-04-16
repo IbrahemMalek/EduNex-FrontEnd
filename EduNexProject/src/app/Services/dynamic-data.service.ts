@@ -30,6 +30,8 @@ export class DynamicDataService {
     return this.httpClient.post("http://localhost:2000/courses", courseData);
   }
 
+
+
   getAllTeachers(): Observable<any> {
     return this.httpClient.get("http://localhost:2000/teachers");
   }
@@ -46,6 +48,8 @@ export class DynamicDataService {
     return this.httpClient.post("http://localhost:2000/teachers", teacherData);
   }
 
+
+
   getAllLessons(): Observable<any> {
     return this.httpClient.get("http://localhost:2000/lessons");
   }
@@ -60,5 +64,23 @@ export class DynamicDataService {
 
   addLesson(lessonData: any): Observable<any> {
     return this.httpClient.post("http://localhost:2000/lessons", lessonData);
+  }
+
+
+
+  getAllLessonContents(): Observable<any> {
+    return this.httpClient.get("http://localhost:2000/lessonContent");
+  }
+
+  getLessonContentById(TID: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:2000/lessonContent/${TID}`);
+  }
+
+  deleteLessonContentById(TID: number): Observable<void> {
+    return this.httpClient.delete<void>(`http://localhost:2000/lessonContent/${TID}`);
+  }
+
+  addLessonContent(lessonData: any): Observable<any> {
+    return this.httpClient.post("http://localhost:2000/lessonContent", lessonData);
   }
 }

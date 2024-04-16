@@ -107,6 +107,8 @@ html {
   --wave3: #50d5b7;
   --wave4: #067d68;
 
+  --wave2Shadow: #E312FF22;
+
   --title: rgb(39, 39, 42);
   --subtitle: rgb(82, 82, 91);
 
@@ -128,6 +130,8 @@ html {
 
   --wave1: #2D388A;
   --wave2: #00AEEF;
+
+  --wave2Shadow: #00AEEF22;
 
   --title: rgb(244, 244, 255);
   --subtitle: rgb(161, 161, 170);
@@ -191,11 +195,12 @@ custom-checkbox.checked {
   background: linear-gradient(90deg, var(--wave3, #f6d365), var(--wave4, #fda085) 51%, var(--wave3, #f6d365)) var(--x, 0)/ 200% !important;
   scale: 1;
   transition: 0.3s;
-  border-radius: 20rem ;
-  width: 150px ;
+  border-radius: 20rem;
+  width: 150px;
 }
 
-.custom-button:hover,.green-button:hover {
+.custom-button:hover,
+.green-button:hover {
   scale: 0.995;
   --x: 100%;
 }

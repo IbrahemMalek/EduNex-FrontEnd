@@ -51,9 +51,11 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { CarouselHeaderComponent } from './Components/Home/carousel-header/carousel-header.component';
 import { CourseDetailsCardComponent } from './Components/CourseDetails/course-details-card/course-details-card.component';
 import { CourseDetailsHeaderComponent } from './Components/CourseDetails/course-details-header/course-details-header.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { SubscriptionDialogComponent } from './Components/CourseDetails/subscription-dialog/subscription-dialog.component';
 import { LessonDialogComponent } from './Components/CourseDetails/lesson-dialog/lesson-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,9 @@ import { LessonDialogComponent } from './Components/CourseDetails/lesson-dialog/
     LoadingBarModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatMenuModule
   ],
   providers: [
     OverlayContainer,

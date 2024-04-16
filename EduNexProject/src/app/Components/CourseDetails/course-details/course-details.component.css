@@ -45,6 +45,7 @@ section {
   opacity: 0.75;
   line-height: 2;
 }
+
 .teacher img {
   border-radius: 50%;
   height: 225px;
@@ -57,11 +58,18 @@ section {
   text-align: right;
   border-radius: 10px;
 }
-/* .custom-button {
-  border-radius: 20rem;
-  padding-inline: 2rem;
-} */
 
+.align-right {
+  text-align: right;
+}
+
+.add-lesson-content {
+  width: 50px !important;
+}
+
+mat-panel-title span{
+  min-width: 150px;
+}
 @media (max-width: 460px) {
   .cards-container {
     flex-direction: column-reverse;

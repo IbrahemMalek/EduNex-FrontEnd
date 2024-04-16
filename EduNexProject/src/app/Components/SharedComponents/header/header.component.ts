@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   lightClass = 'theme-light';
   isShowing: boolean = false;
 
-  constructor(private renderer: Renderer2 ,public loader: LoadingBarService) { }
+  constructor(private renderer: Renderer2, public loader: LoadingBarService) { }
 
   toggleRightSidenav() {
     this.isShowing = !this.isShowing;
@@ -56,7 +56,16 @@ export class HeaderComponent implements OnInit {
         }
       });
     }
+
+    // Move marker to the button with the 'active' class
+    setTimeout(() => {
+      const activeButton = document.querySelector('.nav-items button.active') as HTMLElement;
+      if (activeButton) {
+        this.moveMarker(activeButton);
+      }
+    });
   }
+
 
   ngAfterViewInit(): void {
     if (localStorage.getItem('themePreference') === 'dark') {
@@ -83,5 +92,15 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  moveMarker(target: EventTarget | null): void {
+    const marker = document.getElementById('marker');
+    if (marker && target instanceof HTMLElement) {
+      const rect = target.getBoundingClientRect();
+      const offsetX = rect.left + window.pageXOffset;
+      const targetWidth = target.offsetWidth;
+      marker.style.width = targetWidth + 'px';
+      marker.style.left = offsetX + 'px';
+    }
+  }
 
 }

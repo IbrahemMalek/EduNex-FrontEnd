@@ -1,7 +1,7 @@
 {
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الإحصاء",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -11,7 +11,7 @@
       "price": 200
     },
     {
-      "id": 2,
+      "id": "2",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الفيزياء",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -21,7 +21,7 @@
       "price": 250
     },
     {
-      "id": 3,
+      "id": "3",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الكيمياء",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -31,7 +31,7 @@
       "price": 220
     },
     {
-      "id": 4,
+      "id": "4",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الرياضيات",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -41,7 +41,7 @@
       "price": 180
     },
     {
-      "id": 5,
+      "id": "5",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "اللغة العربية",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -51,7 +51,7 @@
       "price": 210
     },
     {
-      "id": 6,
+      "id": "6",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الجغرافيا",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -61,7 +61,7 @@
       "price": 230
     },
     {
-      "id": 7,
+      "id": "7",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "التاريخ",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -71,7 +71,7 @@
       "price": 190
     },
     {
-      "id": 8,
+      "id": "8",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "اللغة الإنجليزية",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -81,7 +81,7 @@
       "price": 240
     },
     {
-      "id": 9,
+      "id": "9",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الإحصاء",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -91,7 +91,7 @@
       "price": 200
     },
     {
-      "id": 10,
+      "id": "10",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الفيزياء",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -101,7 +101,7 @@
       "price": 250
     },
     {
-      "id": 11,
+      "id": "11",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الكيمياء",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -111,7 +111,7 @@
       "price": 220
     },
     {
-      "id": 12,
+      "id": "12",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الرياضيات",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -121,7 +121,7 @@
       "price": 180
     },
     {
-      "id": 13,
+      "id": "13",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "اللغة العربية",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -131,7 +131,7 @@
       "price": 210
     },
     {
-      "id": 14,
+      "id": "14",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "الجغرافيا",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -141,7 +141,7 @@
       "price": 230
     },
     {
-      "id": 15,
+      "id": "15",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "التاريخ",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -151,7 +151,7 @@
       "price": 190
     },
     {
-      "id": 16,
+      "id": "16",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "اللغة الإنجليزية",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -163,97 +163,97 @@
   ],
   "teachers": [
     {
-      "id": 1,
+      "id": "1",
       "name": "منه جاد",
       "subject": "الإحصاء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "أحمد علي",
       "subject": "الفيزياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "محمد أحمد",
       "subject": "الكيمياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "سارة عمر",
       "subject": "الرياضيات",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "أحمد سعيد",
       "subject": "اللغة العربية",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "ليلى محمود",
       "subject": "الجغرافيا",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "محمد خالد",
       "subject": "التاريخ",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "مريم يوسف",
       "subject": "اللغة الإنجليزية",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "منه جاد",
       "subject": "الإحصاء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "أحمد علي",
       "subject": "الفيزياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "محمد أحمد",
       "subject": "الكيمياء",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "سارة عمر",
       "subject": "الرياضيات",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "أحمد سعيد",
       "subject": "اللغة العربية",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "ليلى محمود",
       "subject": "الجغرافيا",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "محمد خالد",
       "subject": "التاريخ",
       "imageUrl": "https://via.placeholder.com/325x405"
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "مريم يوسف",
       "subject": "اللغة الإنجليزية",
       "imageUrl": "https://via.placeholder.com/325x405"
@@ -261,103 +261,230 @@
   ],
   "lessons": [
     {
-      "title": "مقدمة في الإحصاء",
-      "url": "https://example.com/lesson9",
-      "teacher": "منه جاد",
-      "subject": "الإحصاء"
-    },
-    {
-      "title": "قوانين نيوتن للحركة",
-      "url": "https://example.com/lesson10",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "title": "تفاعلات كيميائية",
-      "url": "https://example.com/lesson11",
-      "teacher": "محمد أحمد",
-      "subject": "الكيمياء"
-    },
-    {
-      "title": "أساسيات الجبر",
-      "url": "https://example.com/lesson12",
-      "teacher": "سارة عمر",
-      "subject": "الرياضيات"
-    },
-    {
-      "title": "قواعد اللغة العربية",
-      "url": "https://example.com/lesson13",
-      "teacher": "أحمد سعيد",
-      "subject": "اللغة العربية"
-    },
-    {
-      "title": "جغرافيا العالم",
-      "url": "https://example.com/lesson14",
-      "teacher": "ليلى محمود",
-      "subject": "الجغرافيا"
-    },
-    {
-      "title": "تاريخ الحضارات",
-      "url": "https://example.com/lesson15",
-      "teacher": "محمد خالد",
-      "subject": "التاريخ"
-    },
-    {
-      "title": "أدب إنجليزي",
-      "url": "https://example.com/lesson16",
-      "teacher": "مريم يوسف",
-      "subject": "اللغة الإنجليزية"
-    },
-    {
-      "title": "مراجعة الإحصاء",
-      "url": "https://example.com/lesson17",
-      "teacher": "منه جاد",
-      "subject": "الإحصاء"
-    },
-    {
-      "title": "حركة الأجسام",
-      "url": "https://example.com/lesson18",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
+      "id": "11",
       "title": "التفاعلات العضوية",
       "url": "https://example.com/lesson19",
       "teacher": "محمد أحمد",
       "subject": "الكيمياء"
     },
     {
+      "id": "12",
       "title": "الجبر الخطي",
       "url": "https://example.com/lesson20",
       "teacher": "سارة عمر",
       "subject": "الرياضيات"
     },
     {
+      "id": "13",
       "title": "النحو العربي",
       "url": "https://example.com/lesson21",
       "teacher": "أحمد سعيد",
       "subject": "اللغة العربية"
     },
     {
+      "id": "14",
       "title": "المناخ والتضاريس",
       "url": "https://example.com/lesson22",
       "teacher": "ليلى محمود",
       "subject": "الجغرافيا"
     },
     {
+      "id": "15",
       "title": "الثورات والتطورات التاريخية",
       "url": "https://example.com/lesson23",
       "teacher": "محمد خالد",
       "subject": "التاريخ"
     },
     {
+      "id": "16",
       "title": "أدب أمريكي",
       "url": "https://example.com/lesson24",
       "teacher": "مريم يوسف",
       "subject": "اللغة الإنجليزية"
+    },
+    {
+      "id": 1,
+      "title": "1",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 1,
+      "title": "الحصه الاولي",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 1,
+      "title": "dd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 2,
+      "title": "dd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 3,
+      "title": "ddd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 4,
+      "title": "ddd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 5,
+      "title": "dd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 6,
+      "title": "ddd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 7,
+      "title": "dd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 8,
+      "title": "ddddd",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 9,
+      "title": "sds",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 10,
+      "title": "hgpwi",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 1,
+      "title": "2",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 2,
+      "title": "2",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
+    },
+    {
+      "id": 1,
+      "title": "3",
+      "url": "",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء"
     }
   ],
-
+  "lessonContent": [
+    {
+      "id": "13c1",
+      "lessonId": 1,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "30db",
+      "lessonId": 1,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "2d07",
+      "lessonId": 1,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "f783",
+      "lessonId": 2,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "a520",
+      "lessonId": 3,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "5668",
+      "lessonId": 4,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "67b8",
+      "lessonId": 5,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "c0f4",
+      "lessonId": 6,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "83e7",
+      "lessonId": 7,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "b6c9",
+      "lessonId": 8,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "611b",
+      "lessonId": 9,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "527e",
+      "lessonId": 10,
+      "title": "Lesson Content Title"
+    },
+    {
+      "id": "ff05",
+      "lessonId": 2,
+      "title": "2"
+    },
+    {
+      "id": "1a02",
+      "lessonId": 1,
+      "title": "2"
+    },
+    {
+      "id": "279d",
+      "lessonId": 1,
+      "title": "3"
+    }
+  ],
   "total": 100,
   "skip": 0,
   "limit": 30
