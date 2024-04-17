@@ -60,6 +60,7 @@ export class ContentDialogComponent {
         this.dynamicData.editLesson(lessonId, updatedLesson).subscribe(
           () => {
             console.log(`Lesson content with ID ${contentId} updated successfully`);
+            window.location.reload();
           },
           (error) => {
             console.error(`Failed to update lesson content with ID ${contentId}:`, error);
