@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 import { ICourse } from 'src/app/Model/icourse';
-import { ITeacher } from 'src/app/Model/iteacher';
 import { ILesson } from 'src/app/Model/ilesson';
 import { LessonDialogComponent } from '../Dialog/lesson-dialog/lesson-dialog.component';
 import { ILessonContent } from 'src/app/Model/ilesson-content';
@@ -31,8 +30,6 @@ import { ConfirmationDialogComponent } from '../Dialog/confirmation-dialog/confi
 export class CourseDetailsComponent implements OnInit {
   panelOpenState = false;
   course: ICourse | null = null;
-  teacher: ITeacher | null = null;
-  teachers: ITeacher[] = [];
   courseID: number = 0;
   showDetails: boolean = false;
   lessons: ILesson[] = [];
@@ -52,25 +49,12 @@ export class CourseDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog) {
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+
   }
 
   getCourseById() {
     this.dynamicData.getCourseById(this.courseID).subscribe(course => {
       this.course = course;
-      this.getTeacherByName();
-      this.getLessonsByTeacher();
-    });
-  }
-
-  getTeacherByName() {
-    this.dynamicData.getAllTeachers().subscribe((teachers: ITeacher[]) => {
-      this.teacher = teachers.find((teacher: ITeacher) => teacher.name.toLowerCase() === this.course?.teacher.toLowerCase()) ?? null;
-    });
-  }
-
-  getLessonsByTeacher() {
-    this.dynamicData.getAllLessons().subscribe((lessons: ILesson[]) => {
-      this.lessons = lessons.filter((lesson: ILesson) => lesson.teacher.toLowerCase() === this.teacher?.name.toLowerCase());
     });
   }
 
@@ -95,12 +79,13 @@ export class CourseDetailsComponent implements OnInit {
       autoFocus: false,
       data: {
         confirmButtonText: 'أضف الحصة',
-        name: this.teacher?.name,
+        courseId: this.course?.id,
+        name: this.course?.teacher,
       }
     });
   }
 
-  //add lesson
+  //edit lesson
   editLessonDialog(lessonId?: number, initialLessonTitle?: string): void {
     this.dialog.open(LessonDialogComponent, {
       height: '300px',
@@ -109,7 +94,8 @@ export class CourseDetailsComponent implements OnInit {
       autoFocus: false,
       data: {
         confirmButtonText: 'تعديل الأسم',
-        name: this.teacher?.name,
+        courseId: this.course?.id,
+        name: this.course?.teacher,
         initialLessonId: lessonId,
         initialLessonTitle: initialLessonTitle,
       }
@@ -129,20 +115,6 @@ export class CourseDetailsComponent implements OnInit {
     });
   }
 
-  //delete content
-  openDeleteContentConfirmationDialog(lessonId: number, contentId: number): void {
-    this.dialog.open(ConfirmationDialogComponent, {
-      height: '200px',
-      width: '600px',
-      data: {
-        message: 'هل أنت متأكد أنك تريد مسح هذا المحتوى؟',
-        confirmButtonText: 'أمسح المحتوى',
-        lessonId: lessonId,
-        contentId: contentId,
-      }
-    });
-  }
-
   //add content
   addContentDialog(contentTitle: string, lessonId: number): void {
     if (contentTitle !== 'أمتحان') {
@@ -154,7 +126,8 @@ export class CourseDetailsComponent implements OnInit {
         data: {
           confirmButtonText: 'أضف الملفات',
           operation: 'add',
-          name: this.teacher?.name,
+          courseId:this.course?.id,
+          name: this.course?.teacher,
           lessonId: lessonId,
           contentTitle: contentTitle,
         }
@@ -172,7 +145,8 @@ export class CourseDetailsComponent implements OnInit {
         data: {
           confirmButtonText: 'تعديل الملفات',
           operation: 'edit',
-          name: this.teacher?.name,
+          courseId:this.course?.id,
+          name: this.course?.teacher,
           lessonId: lessonId,
           contentId: content.id,
           contentTitle: content.title,
@@ -181,5 +155,19 @@ export class CourseDetailsComponent implements OnInit {
         }
       });
     }
+  }
+
+  //delete content
+  openDeleteContentConfirmationDialog(lessonId: number, contentId: number): void {
+    this.dialog.open(ConfirmationDialogComponent, {
+      height: '200px',
+      width: '600px',
+      data: {
+        message: 'هل أنت متأكد أنك تريد مسح هذا المحتوى؟',
+        confirmButtonText: 'أمسح المحتوى',
+        lessonId: lessonId,
+        contentId: contentId,
+      }
+    });
   }
 }

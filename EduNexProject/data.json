@@ -8,7 +8,26 @@
       "teacher": "منه جاد",
       "description": "كورس مادة الاقتصاد",
       "grade": "الصف الثالث الثانوي",
-      "price": 200
+      "price": 200,
+      "lesson": [
+        {
+          "id": "1",
+          "title": "مقدمة في الإحصاء",
+          "content": [
+            {
+              "id": "271998",
+              "title": "الحل",
+              "videoUrl": null,
+              "pdfUrl": "نظرية التطور.pdf"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "الإحصاء المتقدم",
+          "content": []
+        }
+      ]
     },
     {
       "id": "2",
@@ -72,86 +91,6 @@
     },
     {
       "id": "8",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "اللغة الإنجليزية",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "مريم يوسف",
-      "description": "كورس مادة اللغة الإنجليزية",
-      "grade": "الصف الثالث الثانوي",
-      "price": 240
-    },
-    {
-      "id": "9",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "الإحصاء",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "منه جاد",
-      "description": "كورس مادة الاقتصاد",
-      "grade": "الصف الثالث الثانوي",
-      "price": 200
-    },
-    {
-      "id": "10",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "الفيزياء",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "أحمد علي",
-      "description": "كورس مادة الفيزياء",
-      "grade": "الصف الثالث الثانوي",
-      "price": 250
-    },
-    {
-      "id": "11",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "الكيمياء",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "محمد أحمد",
-      "description": "كورس مادة الكيمياء",
-      "grade": "الصف الثالث الثانوي",
-      "price": 220
-    },
-    {
-      "id": "12",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "الرياضيات",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "سارة عمر",
-      "description": "كورس مادة الرياضيات",
-      "grade": "الصف الثالث الثانوي",
-      "price": 180
-    },
-    {
-      "id": "13",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "اللغة العربية",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "أحمد سعيد",
-      "description": "كورس مادة اللغة العربية",
-      "grade": "الصف الثالث الثانوي",
-      "price": 210
-    },
-    {
-      "id": "14",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "الجغرافيا",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "ليلى محمود",
-      "description": "كورس مادة الجغرافيا",
-      "grade": "الصف الثالث الثانوي",
-      "price": 230
-    },
-    {
-      "id": "15",
-      "imageUrl": "https://via.placeholder.com/325x225",
-      "subject": "التاريخ",
-      "profilePictureUrl": "https://via.placeholder.com/75",
-      "teacher": "محمد خالد",
-      "description": "كورس مادة التاريخ",
-      "grade": "الصف الثالث الثانوي",
-      "price": 190
-    },
-    {
-      "id": "16",
       "imageUrl": "https://via.placeholder.com/325x225",
       "subject": "اللغة الإنجليزية",
       "profilePictureUrl": "https://via.placeholder.com/75",
@@ -257,208 +196,6 @@
       "name": "مريم يوسف",
       "subject": "اللغة الإنجليزية",
       "imageUrl": "https://via.placeholder.com/325x405"
-    }
-  ],
-  "lessons": [
-    {
-      "id": "1",
-      "title": "مقدمة في الإحصاء",
-      "url": "https://example.com/lesson9",
-      "teacher": "منه جاد",
-      "subject": "الإحصاء",
-      "content": []
-    },
-    {
-      "id": "2",
-      "title": "قوانين نيوتن للحركة",
-      "url": "https://example.com/lesson10",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء",
-      "content": []
-    },
-    {
-      "id": "3",
-      "title": "تفاعلات كيميائية",
-      "url": "https://example.com/lesson11",
-      "teacher": "محمد أحمد",
-      "subject": "الكيمياء",
-      "content": []
-    },
-    {
-      "id": "4",
-      "title": "أساسيات الجبر",
-      "url": "https://example.com/lesson12",
-      "teacher": "سارة عمر",
-      "subject": "الرياضيات",
-      "content": []
-    },
-    {
-      "id": "5",
-      "title": "قواعد اللغة العربية",
-      "url": "https://example.com/lesson13",
-      "teacher": "أحمد سعيد",
-      "subject": "اللغة العربية",
-      "content": []
-    },
-    {
-      "id": "6",
-      "title": "جغرافيا العالم",
-      "url": "https://example.com/lesson14",
-      "teacher": "ليلى محمود",
-      "subject": "الجغرافيا",
-      "content": []
-    },
-    {
-      "id": "7",
-      "title": "تاريخ الحضارات",
-      "url": "https://example.com/lesson15",
-      "teacher": "محمد خالد",
-      "subject": "التاريخ",
-      "content": []
-    },
-    {
-      "id": "8",
-      "title": "أدب إنجليزي",
-      "url": "https://example.com/lesson16",
-      "teacher": "مريم يوسف",
-      "subject": "اللغة الإنجليزية",
-      "content": []
-    },
-    {
-      "id": "9",
-      "title": "مراجعة الإحصاء",
-      "teacher": "منه جاد",
-      "subject": "Unknown Subject",
-      "content": []
-    },
-    {
-      "id": "10",
-      "title": "حركة الأجسام",
-      "url": "https://example.com/lesson18",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء",
-      "content": []
-    },
-    {
-      "id": "11",
-      "title": "التفاعلات العضوية",
-      "url": "https://example.com/lesson19",
-      "teacher": "محمد أحمد",
-      "subject": "الكيمياء",
-      "content": []
-    },
-    {
-      "id": "12",
-      "title": "الجبر الخطي",
-      "url": "https://example.com/lesson20",
-      "teacher": "سارة عمر",
-      "subject": "الرياضيات",
-      "content": [
-        {
-          "id": "825275",
-          "title": "الحل"
-        },
-        {
-          "id": "278575",
-          "title": "الحل",
-          "videoUrl": "[Cimawbas]Khaled.Nour.E03.mp4"
-        },
-        {
-          "id": "42624",
-          "title": "الحل",
-          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4",
-          "pdfUrl": "نظرية التطور.pdf"
-        },
-        {
-          "id": "257230",
-          "title": "الحل",
-          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4"
-        }
-      ]
-    },
-    {
-      "id": "13",
-      "title": "النحو العربي",
-      "url": "https://example.com/lesson21",
-      "teacher": "أحمد سعيد",
-      "subject": "اللغة العربية",
-      "content": []
-    },
-    {
-      "id": "14",
-      "title": "المناخ والتضاريس",
-      "url": "https://example.com/lesson22",
-      "teacher": "ليلى محمود",
-      "subject": "الجغرافيا",
-      "content": []
-    },
-    {
-      "id": "15",
-      "title": "الثورات والتطورات التاريخية",
-      "url": "https://example.com/lesson23",
-      "teacher": "محمد خالد",
-      "subject": "التاريخ",
-      "content": []
-    },
-    {
-      "id": "16",
-      "title": "أدب أمريكي",
-      "url": "https://example.com/lesson24",
-      "teacher": "مريم يوسف",
-      "subject": "اللغة الإنجليزية",
-      "content": []
-    },
-    {
-      "id": "b838",
-      "title": "1",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "Unknown Subject",
-      "content": []
-    },
-    {
-      "id": "1a54",
-      "title": "",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "Unknown Subject",
-      "content": [
-        {
-          "id": "502250",
-          "title": "الحل",
-          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4",
-          "pdfUrl": "نظرية التطور.pdf"
-        },
-        {
-          "id": "979992",
-          "title": "الشرح",
-          "videoUrl": "[Cimawbas]Khaled.Nour.E03.mp4",
-          "pdfUrl": "نظرية التطور.pdf"
-        }
-      ]
-    },
-    {
-      "id": "7ceb",
-      "title": "الحصه الأولي",
-      "teacher": "منه جاد",
-      "subject": "Unknown Subject",
-      "content": [
-        {
-          "id": "312039",
-          "title": "الحل"
-        },
-        {
-          "id": "483013",
-          "title": "الحل",
-          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4"
-        },
-        {
-          "id": "649837",
-          "title": "الحل",
-          "videoUrl": "[Cimawbas]Khaled.Nour.E03.mp4",
-          "pdfUrl": "نظرية التطور.pdf"
-        }
-      ]
     }
   ],
   "total": 100,

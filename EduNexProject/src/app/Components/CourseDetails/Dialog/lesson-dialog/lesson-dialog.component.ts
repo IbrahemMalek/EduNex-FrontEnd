@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ICourse } from 'src/app/Model/icourse';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({
@@ -22,43 +23,70 @@ export class LessonDialogComponent {
 
   onSubmit(): void {
     this.dialogRef.close(this.lessonTitle);
-
     if (this.data.initialLessonTitle) {
-      const lessonId = this.data.initialLessonId;
-      const updatedLesson: any = {
-        id: lessonId,
-        title: this.lessonTitle,
-        teacher: this.data.name ?? 'Unknown Teacher',
-        subject: this.data.subject ?? 'Unknown Subject',
-        content: this.data.initialLessonContent ?? []
-      };
+      const courseId = this.data.courseId;
+      this.dynamicData.getCourseById(courseId).subscribe((course: ICourse) => {
+        const updatedCourse: ICourse = { ...course };
 
-      this.dynamicData.editLesson(lessonId, updatedLesson)
-        .subscribe(
+        if (updatedCourse.lesson) {
+          const lessonToUpdate = updatedCourse.lesson.find(lesson => lesson.id === this.data.initialLessonId);
+
+          if (lessonToUpdate) {
+            lessonToUpdate.title = this.lessonTitle;
+          } else {
+            console.error(`Lesson with ID ${this.data.initialLessonId} not found in course.`);
+            return;
+          }
+        } else {
+          console.error(`Lesson array not found in course with ID ${courseId}.`);
+          return;
+        }
+
+        this.dynamicData.editCourse(courseId, updatedCourse).subscribe(
           () => {
-            console.log(`Lesson with ID ${lessonId} updated successfully`);
+            console.log(`Course with ID ${courseId} updated successfully`);
             window.location.reload();
           },
           (error) => {
-            console.error(`Failed to update lesson with ID ${lessonId}:`, error);
+            console.error(`Failed to update course with ID ${courseId}:`, error);
           }
         );
-    } else {
-      this.dynamicData.addLesson({
-        title: this.lessonTitle,
-        url: '',
-        teacher: this.data.name ?? 'Unknown Teacher',
-        subject: this.data.subject ?? 'Unknown Subject',
-        content: [],
-      }).subscribe(
-        (addedLesson: any) => {
-          console.log('Lesson added:', addedLesson);
-          window.location.reload();
-        },
-        (error) => {
-          console.error('Failed to add lesson:', error);
-        }
-      );
+      });
     }
+    else {
+      const courseId = this.data.courseId;
+      this.dynamicData.getCourseById(courseId).subscribe((course: ICourse) => {
+        const updatedCourse: ICourse = { ...course };
+
+        if (updatedCourse.lesson) {
+          const newLessonId = this.generateUniqueId();
+
+          const newLesson: any = {
+            id: `${newLessonId}`,
+            title: this.lessonTitle,
+            content: []
+          };
+
+          updatedCourse.lesson.push(newLesson);
+
+          this.dynamicData.editCourse(courseId, updatedCourse).subscribe(
+            () => {
+              console.log(`Course with ID ${courseId} updated successfully with new lesson.`);
+              window.location.reload();
+            },
+            (error) => {
+              console.error(`Failed to update course with ID ${courseId}:`, error);
+            }
+          );
+        } else {
+          console.error(`Lesson array not found in course with ID ${courseId}.`);
+          return;
+        }
+      });
+    }
+
+  }
+  private generateUniqueId(): number {
+    return Math.floor(Math.random() * 1000000);
   }
 }

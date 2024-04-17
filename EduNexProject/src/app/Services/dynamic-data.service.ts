@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILesson } from '../Model/ilesson';
+import { ICourse } from '../Model/icourse';
 
 @Injectable({
   providedIn: 'root'
@@ -14,22 +15,25 @@ export class DynamicDataService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAllCourses(): Observable<any> {
-    return this.httpClient.get("http://localhost:2000/courses");
+  getAllCourses(): Observable<ICourse[]> {
+    return this.httpClient.get<ICourse[]>("http://localhost:2000/courses");
   }
 
-  getCourseById(CID: number): Observable<any> {
-    return this.httpClient.get(`http://localhost:2000/courses/${CID}`);
+  getCourseById(courseId: number): Observable<ICourse> {
+    return this.httpClient.get<ICourse>(`http://localhost:2000/courses/${courseId}`);
   }
 
-  deleteCourseById(CID: number): Observable<void> {
-    return this.httpClient.delete<void>(`http://localhost:2000/courses/${CID}`);
+  deleteCourseById(courseId: number): Observable<void> {
+    return this.httpClient.delete<void>(`http://localhost:2000/courses/${courseId}`);
   }
 
-  addCourse(courseData: any): Observable<any> {
-    return this.httpClient.post("http://localhost:2000/courses", courseData);
+  addCourse(courseData: ICourse): Observable<ICourse> {
+    return this.httpClient.post<ICourse>("http://localhost:2000/courses", courseData);
   }
 
+  editCourse(courseId: number, updatedCourse: ICourse): Observable<void> {
+    return this.httpClient.put<void>(`http://localhost:2000/courses/${courseId}`, updatedCourse);
+  }
 
 
   getAllTeachers(): Observable<any> {

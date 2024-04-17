@@ -55,9 +55,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SubscriptionDialogComponent } from './Components/CourseDetails/Dialog/subscription-dialog/subscription-dialog.component';
 import { LessonDialogComponent } from './Components/CourseDetails/Dialog/lesson-dialog/lesson-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { ContentDialogComponent } from './Components/CourseDetails/Dialog/content-dialog/content-dialog.component';
 import { ConfirmationDialogComponent } from './Components/CourseDetails/Dialog/confirmation-dialog/confirmation-dialog.component';
+import { AddExamComponent } from './Components/Exam/add-exam/add-exam.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { ConfirmationDialogComponent } from './Components/CourseDetails/Dialog/c
     LessonDialogComponent,
     ContentDialogComponent,
     ConfirmationDialogComponent,
+    AddExamComponent,
   ],
   imports: [
     BrowserModule,

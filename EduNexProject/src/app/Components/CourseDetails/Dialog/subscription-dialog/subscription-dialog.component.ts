@@ -14,7 +14,6 @@ export class SubscriptionDialogComponent {
   ) { }
 
   onNoClick(): void {
-    // this.data.onClose();
     this.dialogRef.close();
   }
 }

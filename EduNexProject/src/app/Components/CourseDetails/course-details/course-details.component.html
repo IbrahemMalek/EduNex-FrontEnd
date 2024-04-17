@@ -15,7 +15,7 @@
       <button mat-icon-button (click)="openLessonDialog()"><mat-icon>note_add</mat-icon></button>
     </div>
 
-    <mat-accordion class="flex my-2" *ngFor="let lesson of lessons; let i = index">
+    <mat-accordion class="flex my-2" *ngFor="let lesson of course?.lesson; let i = index">
       <mat-expansion-panel class="custom-expansion-panel">
         <mat-expansion-panel-header>
           <mat-panel-title style="font-weight: 500;" class="flex container">
@@ -24,11 +24,12 @@
               <mat-icon>add_circle</mat-icon>
             </button>
             <mat-menu #menu="matMenu" class="lesson-menu" AppearFromRight>
-              <button mat-menu-item *ngFor="let lessonsOption of lessonsOptions"
-                (click)="addContentDialog(lessonsOption.title, lesson.id)" style="direction: rtl;">
-                {{ lessonsOption.title }}
+              <button mat-menu-item *ngFor="let lessonOption of lessonsOptions"
+                (click)="addContentDialog(lessonOption.title, lesson.id)" style="direction: rtl;">
+                {{ lessonOption.title }}
               </button>
             </mat-menu>
+
           </mat-panel-title>
         </mat-expansion-panel-header>
 
@@ -40,12 +41,12 @@
             </button>
 
             <div *ngIf="content" class="flex">
-              <button mat-icon-button class="width-50 m-0" style="color: red;"
+              <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
                 (click)="openDeleteContentConfirmationDialog(lesson.id, content.id)">
                 <mat-icon>close</mat-icon>
               </button>
 
-              <button mat-icon-button class="width-50 m-0" style="color: green;"
+              <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
                 (click)="editContentDialog(lesson.id, content)">
                 <mat-icon>edit</mat-icon>
               </button>
@@ -55,11 +56,11 @@
 
 
       </mat-expansion-panel>
-      <button mat-icon-button style="color: red;" class="delete-button"
+      <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
         (click)="openDeleteConfirmationDialog(lesson.id)">
         <mat-icon>close</mat-icon>
       </button>
-      <button mat-icon-button class="width-50 m-0" style="color: green;"
+      <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
         (click)="editLessonDialog(lesson.id, lesson.title)">
         <mat-icon>edit</mat-icon>
       </button>
@@ -70,7 +71,7 @@
     <!-- <img mat-card-image [src]="teacher?.imageUrl" alt="Sample Image" class="align-self-center"> -->
     <img mat-card-image src="https://via.placeholder.com/225" alt="Sample Image" class="mt-4">
     <div>
-      <h3 style="font-weight: 700;" class="mb-4">أ. {{teacher?.name}}</h3>
+      <h3 style="font-weight: 700;" class="mb-4">أ. {{course?.teacher}}</h3>
       <p>
         مدرّس متخصص في علوم الحاسوب وتطوير البرمجيات، لديه خبرة تزيد عن ١٥ عامًا في المجال. شارك في تأسيس العديد من
         الشركات الناشئة وعمل في شركات تقنية عالمية بارزة. يحمل خبرة غنية في تدريس مواد علوم الحاسوب في الجامعات الرائدة
