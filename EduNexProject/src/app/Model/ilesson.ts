@@ -1,7 +1,9 @@
+import { ILessonContent } from "./ilesson-content";
+
 export interface ILesson {
-  id:number;
+  id: number;
   title: string;
   teacher: string;
   subject: string;
-  url: string;
+  content: ILessonContent[];
 }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ICourse } from 'src/app/Model/icourse';
 import { MatDialog } from '@angular/material/dialog';
-import { SubscriptionDialogComponent } from '../subscription-dialog/subscription-dialog.component';
+import { SubscriptionDialogComponent } from '../Dialog/subscription-dialog/subscription-dialog.component';
 
 @Component({
   selector: 'app-course-details-card',

@@ -58,29 +58,16 @@ export class DynamicDataService {
     return this.httpClient.get(`http://localhost:2000/lessons/${TID}`);
   }
 
-  deleteLessonById(TID: number): Observable<void> {
-    return this.httpClient.delete<void>(`http://localhost:2000/lessons/${TID}`);
+  deleteLessonById(LID: number): Observable<void> {
+    return this.httpClient.delete<void>(`http://localhost:2000/lessons/${LID}`);
   }
 
   addLesson(lessonData: any): Observable<any> {
     return this.httpClient.post("http://localhost:2000/lessons", lessonData);
   }
 
-
-
-  getAllLessonContents(): Observable<any> {
-    return this.httpClient.get("http://localhost:2000/lessonContent");
+  editLesson(LID: number, updatedContent: ILesson): Observable<void> {
+    return this.httpClient.put<void>(`http://localhost:2000/lessons/${LID}`, updatedContent);
   }
 
-  getLessonContentById(TID: number): Observable<any> {
-    return this.httpClient.get(`http://localhost:2000/lessonContent/${TID}`);
-  }
-
-  deleteLessonContentById(TID: number): Observable<void> {
-    return this.httpClient.delete<void>(`http://localhost:2000/lessonContent/${TID}`);
-  }
-
-  addLessonContent(lessonData: any): Observable<any> {
-    return this.httpClient.post("http://localhost:2000/lessonContent", lessonData);
-  }
 }

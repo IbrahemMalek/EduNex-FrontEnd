@@ -52,10 +52,12 @@ import { CarouselHeaderComponent } from './Components/Home/carousel-header/carou
 import { CourseDetailsCardComponent } from './Components/CourseDetails/course-details-card/course-details-card.component';
 import { CourseDetailsHeaderComponent } from './Components/CourseDetails/course-details-header/course-details-header.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { SubscriptionDialogComponent } from './Components/CourseDetails/subscription-dialog/subscription-dialog.component';
-import { LessonDialogComponent } from './Components/CourseDetails/lesson-dialog/lesson-dialog.component';
+import { SubscriptionDialogComponent } from './Components/CourseDetails/Dialog/subscription-dialog/subscription-dialog.component';
+import { LessonDialogComponent } from './Components/CourseDetails/Dialog/lesson-dialog/lesson-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import { ContentDialogComponent } from './Components/CourseDetails/Dialog/content-dialog/content-dialog.component';
+import { ConfirmationDialogComponent } from './Components/CourseDetails/Dialog/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import {MatMenuModule} from '@angular/material/menu';
     CourseDetailsCardComponent,
     SubscriptionDialogComponent,
     LessonDialogComponent,
+    ContentDialogComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

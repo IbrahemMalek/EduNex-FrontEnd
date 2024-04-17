@@ -261,228 +261,204 @@
   ],
   "lessons": [
     {
+      "id": "1",
+      "title": "مقدمة في الإحصاء",
+      "url": "https://example.com/lesson9",
+      "teacher": "منه جاد",
+      "subject": "الإحصاء",
+      "content": []
+    },
+    {
+      "id": "2",
+      "title": "قوانين نيوتن للحركة",
+      "url": "https://example.com/lesson10",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء",
+      "content": []
+    },
+    {
+      "id": "3",
+      "title": "تفاعلات كيميائية",
+      "url": "https://example.com/lesson11",
+      "teacher": "محمد أحمد",
+      "subject": "الكيمياء",
+      "content": []
+    },
+    {
+      "id": "4",
+      "title": "أساسيات الجبر",
+      "url": "https://example.com/lesson12",
+      "teacher": "سارة عمر",
+      "subject": "الرياضيات",
+      "content": []
+    },
+    {
+      "id": "5",
+      "title": "قواعد اللغة العربية",
+      "url": "https://example.com/lesson13",
+      "teacher": "أحمد سعيد",
+      "subject": "اللغة العربية",
+      "content": []
+    },
+    {
+      "id": "6",
+      "title": "جغرافيا العالم",
+      "url": "https://example.com/lesson14",
+      "teacher": "ليلى محمود",
+      "subject": "الجغرافيا",
+      "content": []
+    },
+    {
+      "id": "7",
+      "title": "تاريخ الحضارات",
+      "url": "https://example.com/lesson15",
+      "teacher": "محمد خالد",
+      "subject": "التاريخ",
+      "content": []
+    },
+    {
+      "id": "8",
+      "title": "أدب إنجليزي",
+      "url": "https://example.com/lesson16",
+      "teacher": "مريم يوسف",
+      "subject": "اللغة الإنجليزية",
+      "content": []
+    },
+    {
+      "id": "9",
+      "title": "مراجعة الإحصاء",
+      "teacher": "منه جاد",
+      "subject": "Unknown Subject",
+      "content": []
+    },
+    {
+      "id": "10",
+      "title": "حركة الأجسام",
+      "url": "https://example.com/lesson18",
+      "teacher": "أحمد علي",
+      "subject": "الفيزياء",
+      "content": []
+    },
+    {
       "id": "11",
       "title": "التفاعلات العضوية",
       "url": "https://example.com/lesson19",
       "teacher": "محمد أحمد",
-      "subject": "الكيمياء"
+      "subject": "الكيمياء",
+      "content": []
     },
     {
       "id": "12",
       "title": "الجبر الخطي",
       "url": "https://example.com/lesson20",
       "teacher": "سارة عمر",
-      "subject": "الرياضيات"
+      "subject": "الرياضيات",
+      "content": [
+        {
+          "id": "825275",
+          "title": "الحل"
+        },
+        {
+          "id": "278575",
+          "title": "الحل",
+          "videoUrl": "[Cimawbas]Khaled.Nour.E03.mp4"
+        },
+        {
+          "id": "42624",
+          "title": "الحل",
+          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4",
+          "pdfUrl": "نظرية التطور.pdf"
+        },
+        {
+          "id": "257230",
+          "title": "الحل",
+          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4"
+        }
+      ]
     },
     {
       "id": "13",
       "title": "النحو العربي",
       "url": "https://example.com/lesson21",
       "teacher": "أحمد سعيد",
-      "subject": "اللغة العربية"
+      "subject": "اللغة العربية",
+      "content": []
     },
     {
       "id": "14",
       "title": "المناخ والتضاريس",
       "url": "https://example.com/lesson22",
       "teacher": "ليلى محمود",
-      "subject": "الجغرافيا"
+      "subject": "الجغرافيا",
+      "content": []
     },
     {
       "id": "15",
       "title": "الثورات والتطورات التاريخية",
       "url": "https://example.com/lesson23",
       "teacher": "محمد خالد",
-      "subject": "التاريخ"
+      "subject": "التاريخ",
+      "content": []
     },
     {
       "id": "16",
       "title": "أدب أمريكي",
       "url": "https://example.com/lesson24",
       "teacher": "مريم يوسف",
-      "subject": "اللغة الإنجليزية"
+      "subject": "اللغة الإنجليزية",
+      "content": []
     },
     {
-      "id": 1,
+      "id": "b838",
       "title": "1",
       "url": "",
       "teacher": "أحمد علي",
-      "subject": "الفيزياء"
+      "subject": "Unknown Subject",
+      "content": []
     },
     {
-      "id": 1,
-      "title": "الحصه الاولي",
+      "id": "1a54",
+      "title": "",
       "url": "",
       "teacher": "أحمد علي",
-      "subject": "الفيزياء"
+      "subject": "Unknown Subject",
+      "content": [
+        {
+          "id": "502250",
+          "title": "الحل",
+          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4",
+          "pdfUrl": "نظرية التطور.pdf"
+        },
+        {
+          "id": "979992",
+          "title": "الشرح",
+          "videoUrl": "[Cimawbas]Khaled.Nour.E03.mp4",
+          "pdfUrl": "نظرية التطور.pdf"
+        }
+      ]
     },
     {
-      "id": 1,
-      "title": "dd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 2,
-      "title": "dd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 3,
-      "title": "ddd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 4,
-      "title": "ddd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 5,
-      "title": "dd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 6,
-      "title": "ddd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 7,
-      "title": "dd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 8,
-      "title": "ddddd",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 9,
-      "title": "sds",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 10,
-      "title": "hgpwi",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 1,
-      "title": "2",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 2,
-      "title": "2",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    },
-    {
-      "id": 1,
-      "title": "3",
-      "url": "",
-      "teacher": "أحمد علي",
-      "subject": "الفيزياء"
-    }
-  ],
-  "lessonContent": [
-    {
-      "id": "13c1",
-      "lessonId": 1,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "30db",
-      "lessonId": 1,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "2d07",
-      "lessonId": 1,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "f783",
-      "lessonId": 2,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "a520",
-      "lessonId": 3,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "5668",
-      "lessonId": 4,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "67b8",
-      "lessonId": 5,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "c0f4",
-      "lessonId": 6,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "83e7",
-      "lessonId": 7,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "b6c9",
-      "lessonId": 8,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "611b",
-      "lessonId": 9,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "527e",
-      "lessonId": 10,
-      "title": "Lesson Content Title"
-    },
-    {
-      "id": "ff05",
-      "lessonId": 2,
-      "title": "2"
-    },
-    {
-      "id": "1a02",
-      "lessonId": 1,
-      "title": "2"
-    },
-    {
-      "id": "279d",
-      "lessonId": 1,
-      "title": "3"
+      "id": "7ceb",
+      "title": "الحصه الأولي",
+      "teacher": "منه جاد",
+      "subject": "Unknown Subject",
+      "content": [
+        {
+          "id": "312039",
+          "title": "الحل"
+        },
+        {
+          "id": "483013",
+          "title": "الحل",
+          "videoUrl": "WhatsApp Video 2024-04-13 at 01.46.55_a4e4f593.mp4"
+        },
+        {
+          "id": "649837",
+          "title": "الحل",
+          "videoUrl": "[Cimawbas]Khaled.Nour.E03.mp4",
+          "pdfUrl": "نظرية التطور.pdf"
+        }
+      ]
     }
   ],
   "total": 100,

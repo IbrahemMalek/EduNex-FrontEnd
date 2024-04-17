@@ -1,5 +1,5 @@
 export interface ILessonContent {
-  lessonId: number;
+  id: number;
   title: string;
   videoUrl?: string;
   pdfUrl?: string;

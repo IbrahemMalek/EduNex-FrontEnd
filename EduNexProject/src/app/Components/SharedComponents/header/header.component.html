@@ -5,7 +5,7 @@
     <!-- Side nav content -->
     <div class="flex">
       <div style="flex-grow: 1;"></div>
-      <button class="close-btn toggle-btn" mat-icon-button (click)="toggleRightSidenav()">
+      <button class="close-btn toggle-btn" mat-icon-button (click)="toggleRightSidenav()" style="color: red;">
         <mat-icon>close</mat-icon>
       </button>
     </div>
@@ -39,18 +39,18 @@
         <div></div>
 
         <div class="nav-items flex gap-1">
-          <button  routerLink="/home" color="title" class="unset-button" routerLinkActive="active"
+          <button routerLink="/home" color="title" class="unset-button" routerLinkActive="active"
             (click)="moveMarker($event.target)">الرئيسية</button>
-          <button  routerLink="/courses" class="unset-button" routerLinkActive="active"
+          <button routerLink="/courses" class="unset-button" routerLinkActive="active"
             (click)="moveMarker($event.target)">الكورسات</button>
           <!-- <button  routerLink="/offers">العروض</button> -->
-          <button  class="unset-button" routerLink="/teachers" routerLinkActive="active"
+          <button class="unset-button" routerLink="/teachers" routerLinkActive="active"
             (click)="moveMarker($event.target)">المدرسين</button>
-          <button  routerLink="/about" class="unset-button" routerLinkActive="active"
+          <button routerLink="/about" class="unset-button" routerLinkActive="active"
             (click)="moveMarker($event.target)">عن
             المنصة</button>
           <!-- <button  routerLink="/exams">امتحانات عامة</button> -->
-          <button  routerLink="/Parent" class="unset-button" routerLinkActive="active"
+          <button routerLink="/Parent" class="unset-button" routerLinkActive="active"
             (click)="moveMarker($event.target)">ولي
             الأمر</button>
           <div id="marker"></div>

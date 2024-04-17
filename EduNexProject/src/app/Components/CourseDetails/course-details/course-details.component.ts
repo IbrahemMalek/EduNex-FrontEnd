@@ -6,8 +6,10 @@ import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 import { ICourse } from 'src/app/Model/icourse';
 import { ITeacher } from 'src/app/Model/iteacher';
 import { ILesson } from 'src/app/Model/ilesson';
-import { LessonDialogComponent } from '../lesson-dialog/lesson-dialog.component';
+import { LessonDialogComponent } from '../Dialog/lesson-dialog/lesson-dialog.component';
 import { ILessonContent } from 'src/app/Model/ilesson-content';
+import { ContentDialogComponent } from '../Dialog/content-dialog/content-dialog.component';
+import { ConfirmationDialogComponent } from '../Dialog/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-course-details',
@@ -35,7 +37,6 @@ export class CourseDetailsComponent implements OnInit {
   showDetails: boolean = false;
   lessons: ILesson[] = [];
   lessonContact: ILessonContent[] = [];
-  private lessonIdCounter: number = 1;
 
   options = [
     { label: 'محتوي الكورس', selected: true },
@@ -46,6 +47,7 @@ export class CourseDetailsComponent implements OnInit {
     { title: 'المقدمة' },
     { title: 'الشرح' },
     { title: 'الحل' },
+    { title: 'أمتحان' },
   ];
 
   constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog) {
@@ -62,19 +64,20 @@ export class CourseDetailsComponent implements OnInit {
 
   getTeacherByName() {
     this.dynamicData.getAllTeachers().subscribe((teachers: ITeacher[]) => {
-      this.teacher = teachers.find((teacher: ITeacher) => teacher.name === this.course?.teacher) ?? null;
+      this.teacher = teachers.find((teacher: ITeacher) => teacher.name.toLowerCase() === this.course?.teacher.toLowerCase()) ?? null;
     });
   }
 
   getLessonsByTeacher() {
     this.dynamicData.getAllLessons().subscribe((lessons: ILesson[]) => {
-      this.lessons = lessons.filter((lesson: ILesson) => lesson.teacher === this.teacher?.name);
+      this.lessons = lessons.filter((lesson: ILesson) => lesson.teacher.toLowerCase() === this.teacher?.name.toLowerCase());
     });
   }
 
   ngOnInit(): void {
     this.getCourseById();
   }
+
 
   toggleOption(index: number) {
     this.options.forEach((option, i) => {
@@ -83,104 +86,100 @@ export class CourseDetailsComponent implements OnInit {
     this.showDetails = !this.showDetails;
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(LessonDialogComponent, {
+  //add lesson
+  openLessonDialog(): void {
+    this.dialog.open(LessonDialogComponent, {
       height: '300px',
       width: '400px',
       panelClass: 'dialog-container',
       autoFocus: false,
       data: {
+        confirmButtonText: 'أضف الحصة',
         name: this.teacher?.name,
       }
     });
+  }
 
-    dialogRef.afterClosed().subscribe((lessonTitle: string) => {
-      if (lessonTitle) {
-        this.addLessonWithContent(lessonTitle);
+  //add lesson
+  editLessonDialog(lessonId?: number, initialLessonTitle?: string): void {
+    this.dialog.open(LessonDialogComponent, {
+      height: '300px',
+      width: '400px',
+      panelClass: 'dialog-container',
+      autoFocus: false,
+      data: {
+        confirmButtonText: 'تعديل الأسم',
+        name: this.teacher?.name,
+        initialLessonId: lessonId,
+        initialLessonTitle: initialLessonTitle,
       }
     });
   }
 
-  addLessonWithContent(lessonTitle: string): void {
-    const newLesson: ILesson = {
-      id: this.generateLessonId(),
-      title: lessonTitle,
-      url: '',
-      teacher: this.teacher?.name ?? 'Unknown Teacher',
-      subject: this.teacher?.subject ?? 'Unknown Subject',
-    };
-
-    // Add the lesson to the server
-    this.dynamicData.addLesson(newLesson).subscribe(
-      (addedLesson: ILesson) => {
-        console.log('Lesson added:', addedLesson);
-        this.lessons.push(addedLesson);
-
-        // Call addAccordion with the lesson ID and title
-        this.addAccordion(addedLesson.id, lessonTitle);
-
-        const container = document.querySelector('.container');
-        container?.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
-      },
-      (error) => {
-        console.error('Failed to add lesson:', error);
+  //delete lesson
+  openDeleteConfirmationDialog(lessonId: number): void {
+    this.dialog.open(ConfirmationDialogComponent, {
+      height: '200px',
+      width: '500px',
+      data: {
+        message: 'هل أنت متأكد أنك تريد مسح الحصة؟',
+        confirmButtonText: 'أمسح الحصة',
+        lessonId: lessonId,
       }
-    );
+    });
   }
 
-
-  addAccordion(lessonId: number, lessonTitle: string): void {
-    const newLessonContent: any = {
-      lessonId: lessonId,
-      title: lessonTitle,
-    };
-
-    // Add the lesson content to the server
-    this.dynamicData.addLessonContent(newLessonContent).subscribe(
-      (addedContent: any) => {
-        console.log('Lesson content added:', addedContent);
-        // You can perform further actions if needed
-      },
-      (error) => {
-        console.error('Failed to add lesson content:', error);
+  //delete content
+  openDeleteContentConfirmationDialog(lessonId: number, contentId: number): void {
+    this.dialog.open(ConfirmationDialogComponent, {
+      height: '200px',
+      width: '600px',
+      data: {
+        message: 'هل أنت متأكد أنك تريد مسح هذا المحتوى؟',
+        confirmButtonText: 'أمسح المحتوى',
+        lessonId: lessonId,
+        contentId: contentId,
       }
-    );
+    });
   }
 
-
-  addLessonContent(lessonId: number, title: string): void {
-    const newLessonContent: any = {
-      lessonId: lessonId,
-      title: title,
-    };
-
-    this.dynamicData.addLessonContent(newLessonContent).subscribe(
-      (addedContent: any) => {
-        console.log('Lesson content added:', addedContent);
-      },
-      (error) => {
-        console.error('Failed to add lesson content:', error);
-      }
-    );
+  //add content
+  addContentDialog(contentTitle: string, lessonId: number): void {
+    if (contentTitle !== 'أمتحان') {
+      this.dialog.open(ContentDialogComponent, {
+        height: '350px',
+        width: '400px',
+        panelClass: 'dialog-container',
+        autoFocus: false,
+        data: {
+          confirmButtonText: 'أضف الملفات',
+          operation: 'add',
+          name: this.teacher?.name,
+          lessonId: lessonId,
+          contentTitle: contentTitle,
+        }
+      });
+    }
   }
-
-
-  private generateLessonId(): number {
-    return this.lessonIdCounter++;
+  //edit content
+  editContentDialog(lessonId: number, content: ILessonContent): void {
+    if (content.title !== 'أمتحان') {
+      this.dialog.open(ContentDialogComponent, {
+        height: '350px',
+        width: '400px',
+        panelClass: 'dialog-container',
+        autoFocus: false,
+        data: {
+          confirmButtonText: 'تعديل الملفات',
+          operation: 'edit',
+          name: this.teacher?.name,
+          lessonId: lessonId,
+          contentId: content.id,
+          contentTitle: content.title,
+          videoUrl: content.videoUrl,
+          pdfUrl: content.pdfUrl,
+        }
+      });
+    }
   }
-
-  deleteLesson(lessonId: number): void {
-    this.lessons = this.lessons.filter((lesson: ILesson) => lesson.id !== lessonId);
-
-    this.dynamicData.deleteLessonById(lessonId).subscribe(
-      () => {
-        console.log(`Lesson with ID ${lessonId} deleted successfully`);
-      },
-      (error) => {
-        console.error(`Failed to delete lesson with ID ${lessonId}:`, error);
-      }
-    );
-  }
-
-
 }

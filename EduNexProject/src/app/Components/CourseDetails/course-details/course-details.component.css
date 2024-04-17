@@ -1,5 +1,5 @@
 section {
-  margin-top: -8vw;
+  margin-top: -2vw;
 }
 .custom-checkbox-container {
   display: flex;
@@ -7,9 +7,7 @@ section {
 
 .custom-checkbox {
   display: inline-block;
-  width: 300px;
-  padding-left: 6rem;
-  padding-right: 6rem;
+  width: 29.5%;
   padding-top: 0.75rem;
   padding-bottom: 2.25rem;
   background-color: rgba(204, 204, 204, 0.7);
@@ -59,11 +57,7 @@ section {
   border-radius: 10px;
 }
 
-.align-right {
-  text-align: right;
-}
-
-.add-lesson-content {
+.width-50 {
   width: 50px !important;
 }
 
@@ -89,6 +83,9 @@ mat-panel-title span{
   .teacher p {
     width: 100%;
   }
+  .custom-checkbox {
+    width: 45%;
+  }
   .teacher {
     flex-direction: column;
   }
@@ -101,6 +98,6 @@ mat-panel-title span{
 @media (min-width: 990px) {
   .teacher,
   .course {
-    min-height: 75dvh;
+    min-height: 60dvh;
   }
 }
