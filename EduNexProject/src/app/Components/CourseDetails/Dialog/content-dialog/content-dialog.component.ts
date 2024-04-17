@@ -11,6 +11,7 @@ import { ICourse } from 'src/app/Model/icourse';
 export class ContentDialogComponent {
   videoFile: File | null = null;
   pdfFile: File | null = null;
+  contentType: string = '';
 
   @ViewChild('videoInput') videoInput!: ElementRef<HTMLInputElement>;
   @ViewChild('pdfInput') pdfInput!: ElementRef<HTMLInputElement>;
@@ -51,6 +52,7 @@ export class ContentDialogComponent {
           const contentToUpdate = lessonToUpdate.content?.find(content => content.id === contentId);
           if (contentToUpdate) {
             const updatedContent = { ...contentToUpdate };
+            updatedContent.title = this.contentType;
             updatedContent.videoUrl = this.videoFile?.name ?? updatedContent.videoUrl;
             updatedContent.pdfUrl = this.pdfFile?.name ?? updatedContent.pdfUrl;
 
@@ -91,7 +93,7 @@ export class ContentDialogComponent {
 
     const newContent: any = {
       id: `${newContentId}`,
-      title: this.data.contentTitle,
+      title: this.contentType,
       videoUrl: this.videoFile ? this.videoFile.name : null,
       pdfUrl: this.pdfFile ? this.pdfFile.name : null
     };

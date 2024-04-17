@@ -28,6 +28,9 @@ import { ConfirmationDialogComponent } from '../Dialog/confirmation-dialog/confi
   ]
 })
 export class CourseDetailsComponent implements OnInit {
+  someMethod() {
+    throw new Error('Method not implemented.');
+  }
   panelOpenState = false;
   course: ICourse | null = null;
   courseID: number = 0;
@@ -41,11 +44,12 @@ export class CourseDetailsComponent implements OnInit {
   ];
 
   lessonsOptions = [
-    { title: 'المقدمة' },
-    { title: 'الشرح' },
-    { title: 'الحل' },
+    { title: 'ملف' },
+    { title: 'فيديو' },
+    { title: 'واجب' },
     { title: 'أمتحان' },
   ];
+  someProperty: any;
 
   constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog) {
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -117,7 +121,7 @@ export class CourseDetailsComponent implements OnInit {
 
   //add content
   addContentDialog(contentTitle: string, lessonId: number): void {
-    if (contentTitle !== 'أمتحان') {
+    if (contentTitle !== 'أمتحان' && contentTitle !== 'واجب') {
       this.dialog.open(ContentDialogComponent, {
         height: '350px',
         width: '400px',
@@ -126,17 +130,18 @@ export class CourseDetailsComponent implements OnInit {
         data: {
           confirmButtonText: 'أضف الملفات',
           operation: 'add',
-          courseId:this.course?.id,
+          courseId: this.course?.id,
+          contentTitle: contentTitle,
           name: this.course?.teacher,
           lessonId: lessonId,
-          contentTitle: contentTitle,
         }
       });
     }
   }
+
   //edit content
   editContentDialog(lessonId: number, content: ILessonContent): void {
-    if (content.title !== 'أمتحان') {
+    if (content.title !== 'أمتحان' && content.title !== 'واجب') {
       this.dialog.open(ContentDialogComponent, {
         height: '350px',
         width: '400px',
@@ -145,11 +150,12 @@ export class CourseDetailsComponent implements OnInit {
         data: {
           confirmButtonText: 'تعديل الملفات',
           operation: 'edit',
-          courseId:this.course?.id,
+          courseId: this.course?.id,
           name: this.course?.teacher,
           lessonId: lessonId,
+          content: content,
           contentId: content.id,
-          contentTitle: content.title,
+          contentTitle: content.videoUrl ? 'فيديو' : 'ملف',
           videoUrl: content.videoUrl,
           pdfUrl: content.pdfUrl,
         }

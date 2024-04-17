@@ -48,7 +48,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-import { CarouselHeaderComponent } from './Components/Home/carousel-header/carousel-header.component';
 import { CourseDetailsCardComponent } from './Components/CourseDetails/course-details-card/course-details-card.component';
 import { CourseDetailsHeaderComponent } from './Components/CourseDetails/course-details-header/course-details-header.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -59,6 +58,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ContentDialogComponent } from './Components/CourseDetails/Dialog/content-dialog/content-dialog.component';
 import { ConfirmationDialogComponent } from './Components/CourseDetails/Dialog/confirmation-dialog/confirmation-dialog.component';
 import { AddExamComponent } from './Components/Exam/add-exam/add-exam.component';
+import { HeroComponent } from './Components/Home/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +86,6 @@ import { AddExamComponent } from './Components/Exam/add-exam/add-exam.component'
     FooterComponent,
     ScrollToTopButtonComponent,
     CourseDetailsComponent,
-    CarouselHeaderComponent,
     CourseDetailsHeaderComponent,
     CourseDetailsCardComponent,
     SubscriptionDialogComponent,
@@ -94,6 +93,7 @@ import { AddExamComponent } from './Components/Exam/add-exam/add-exam.component'
     ContentDialogComponent,
     ConfirmationDialogComponent,
     AddExamComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,

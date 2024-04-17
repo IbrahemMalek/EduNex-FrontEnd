@@ -188,10 +188,6 @@ custom-checkbox.checked {
   background: linear-gradient(90deg, var(--wave1, #f6d365), var(--wave2, #fda085) 51%, var(--wave1, #f6d365)) var(--x, 0)/ 200% !important;
   scale: 1;
   transition: 0.4s;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -ms-transition: 0.4s;
-  -o-transition: 0.4s;
 }
 
 .green-button {
@@ -207,6 +203,12 @@ custom-checkbox.checked {
 .green-button:hover {
   scale: 0.995;
   --x: 100%;
+}
+
+.custom-button:disabled,
+.green-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .hidden {

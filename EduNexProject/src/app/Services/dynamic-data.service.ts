@@ -51,27 +51,4 @@ export class DynamicDataService {
   addTeacher(teacherData: any): Observable<any> {
     return this.httpClient.post("http://localhost:2000/teachers", teacherData);
   }
-
-
-
-  getAllLessons(): Observable<any> {
-    return this.httpClient.get("http://localhost:2000/lessons");
-  }
-
-  getLessonById(TID: number): Observable<any> {
-    return this.httpClient.get(`http://localhost:2000/lessons/${TID}`);
-  }
-
-  deleteLessonById(LID: number): Observable<void> {
-    return this.httpClient.delete<void>(`http://localhost:2000/lessons/${LID}`);
-  }
-
-  addLesson(lessonData: any): Observable<any> {
-    return this.httpClient.post("http://localhost:2000/lessons", lessonData);
-  }
-
-  editLesson(LID: number, updatedContent: ILesson): Observable<void> {
-    return this.httpClient.put<void>(`http://localhost:2000/lessons/${LID}`, updatedContent);
-  }
-
 }

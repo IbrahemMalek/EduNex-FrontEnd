@@ -12,12 +12,15 @@ h3 {
   text-align: right;
 }
 
-/* input[type="file"]:focus {
-    border-color: var(--bgHeader);
-    box-shadow: none;
-    outline: none;
-} */
-
 mat-label {
   color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__leading {
+  border-color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__notch {
+  border-color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: var(--bgHeader) !important;
 }
