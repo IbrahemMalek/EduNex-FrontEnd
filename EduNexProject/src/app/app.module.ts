@@ -40,7 +40,6 @@ import { TargetCounterComponent } from './Components/Home/target-counter/target-
 import { ScrollAnimationDirective } from './Directive/scroll-animation.directive';
 import { AppearFromLeftDirective } from './Directive/appear-from-left.directive';
 import { AppearFromRightDirective } from './Directive/appear-from-right.directive';
-import { FooterComponent } from './Components/SharedComponents/footer/footer.component';
 import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll-to-top-button/scroll-to-top-button.component';
 import { CourseDetailsComponent } from './Components/CourseDetails/course-details/course-details.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -62,9 +61,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DataTimePickerComponent } from './Components/Exam/data-time-picker/data-time-picker.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { MatListModule } from '@angular/material/list';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
- 
+
   declarations: [
     AppComponent,
     SignUpComponent,
@@ -99,6 +100,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     HeroComponent,
     CreateExamComponent,
     DataTimePickerComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -138,8 +140,11 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     OverlayContainer,
     importProvidersFrom(LoadingBarHttpClientModule),
     MatNativeDateModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule
   ],
   bootstrap: [AppComponent]
 })
