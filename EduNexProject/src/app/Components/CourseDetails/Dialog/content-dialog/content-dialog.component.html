@@ -16,7 +16,7 @@
         </mat-form-field>
       </mat-card-content>
 
-      <mat-card-content *ngIf="data.contentTitle !== 'ملف'">
+      <mat-card-content *ngIf="data.contentTitle !== 'file'">
         <mat-form-field style="width: 100%;" appearance="outline">
           <mat-label>ملف الفيديو</mat-label>
           <button mat-icon-button matPrefix (click)="videoInput.click()">
@@ -29,7 +29,7 @@
         </mat-form-field>
       </mat-card-content>
 
-      <mat-card-content *ngIf="data.contentTitle !== 'فيديو'">
+      <mat-card-content *ngIf="data.contentTitle !== 'video'">
         <mat-form-field style="width: 100%;" appearance="outline">
           <mat-label>ملف PDF</mat-label>
           <button mat-icon-button matPrefix (click)="pdfInput.click()">

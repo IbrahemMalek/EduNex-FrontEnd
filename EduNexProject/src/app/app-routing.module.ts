@@ -9,7 +9,7 @@ import { CourseDetailsComponent } from './Components/CourseDetails/course-detail
 import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
 
 const routes: Routes = [
-  { path: "createExam", component: CreateExamComponent },
+  { path: "course/:id/lesson/:id/exam/:id", component: CreateExamComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
   { path: "courses", component: CoursesComponent },
