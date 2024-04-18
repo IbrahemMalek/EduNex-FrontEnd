@@ -57,8 +57,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { ContentDialogComponent } from './Components/CourseDetails/Dialog/content-dialog/content-dialog.component';
 import { ConfirmationDialogComponent } from './Components/CourseDetails/Dialog/confirmation-dialog/confirmation-dialog.component';
-import { AddExamComponent } from './Components/Exam/add-exam/add-exam.component';
 import { HeroComponent } from './Components/Home/hero/hero.component';
+import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
 
 @NgModule({
   declarations: [
@@ -92,8 +92,8 @@ import { HeroComponent } from './Components/Home/hero/hero.component';
     LessonDialogComponent,
     ContentDialogComponent,
     ConfirmationDialogComponent,
-    AddExamComponent,
     HeroComponent,
+    CreateExamComponent,
   ],
   imports: [
     BrowserModule,

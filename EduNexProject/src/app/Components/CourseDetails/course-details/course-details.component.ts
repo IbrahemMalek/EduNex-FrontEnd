@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 import { ICourse } from 'src/app/Model/icourse';
@@ -51,7 +51,7 @@ export class CourseDetailsComponent implements OnInit {
   ];
   someProperty: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog) {
+  constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog, private router: Router) {
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('id'));
 
   }
@@ -136,6 +136,8 @@ export class CourseDetailsComponent implements OnInit {
           lessonId: lessonId,
         }
       });
+    } else {
+      this.router.navigate(['/', 'createExam'])
     }
   }
 
@@ -160,6 +162,8 @@ export class CourseDetailsComponent implements OnInit {
           pdfUrl: content.pdfUrl,
         }
       });
+    } else {
+      this.router.navigate(['/', 'createExam'])
     }
   }
 

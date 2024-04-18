@@ -1,11 +1,18 @@
 .hero {
   /* background-color: var(--bg); */
-  overflow: hidden;
+  /* overflow: hidden; */
+  min-height: calc(85dvh);
 }
 .main-btn {
   padding: 0.4rem 1rem;
   color: var(--bg);
-  background: linear-gradient(90deg, var(--wave1, #f6d365), var(--wave2, #fda085) 51%, var(--wave1, #f6d365)) var(--x, 0)/ 200%;
+  background: linear-gradient(
+      90deg,
+      var(--wave1, #f6d365),
+      var(--wave2, #fda085) 51%,
+      var(--wave1, #f6d365)
+    )
+    var(--x, 0) / 200%;
   scale: 1;
   transition: 0.4s;
 }
@@ -13,7 +20,7 @@
   scale: 0.995;
   --x: 100%;
 }
-.lh-base{
+.lh-base {
   text-align: justify;
   text-justify: inter-word;
 }

@@ -21,6 +21,9 @@ h3 {
 mat-label {
   color: var(--bgHeader);
 }
+input{
+  direction: rtl;
+}
 
 .e-dialog.e-schedule-dialog {
   border: 2px;

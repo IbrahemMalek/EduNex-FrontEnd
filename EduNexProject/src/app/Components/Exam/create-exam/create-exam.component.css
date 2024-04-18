@@ -1,15 +1,23 @@
-.custom-button {
-  border-radius: 20rem;
-  padding-inline: 2rem;
+.ltr {
+  direction: ltr;
+}
+.ltr input{
+  direction: rtl;
 }
 
-h3 {
-  font-weight: 700;
-  margin-bottom: 2.5rem;
+h1,h3{
+  font-weight:700;
 }
 
-.form {
-  text-align: right;
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--bgHeader),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 mat-label {
@@ -24,7 +32,6 @@ mat-label {
 ::ng-deep .mdc-notched-outline__trailing {
   border-color: var(--bgHeader) !important;
 }
-
-input{
-  direction: rtl;
+mat-form-field {
+  width: 500px;
 }

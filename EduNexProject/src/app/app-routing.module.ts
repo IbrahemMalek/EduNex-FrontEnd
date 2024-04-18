@@ -6,8 +6,10 @@ import { CoursesComponent } from './Components/courses/courses.component';
 import { TeachersComponent } from './Components/teachers/teachers.component';
 import { MainComponent } from './Components/Home/main/main.component';
 import { CourseDetailsComponent } from './Components/CourseDetails/course-details/course-details.component';
+import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
 
 const routes: Routes = [
+  { path: "createExam", component: CreateExamComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
   { path: "courses", component: CoursesComponent },
