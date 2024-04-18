@@ -1,254 +1,219 @@
-<nav class="navImg">
-    <div class="navDiv" style="width: 100%;height: 100px;position: relative;" >
-        <div style="position: absolute;top: 60%;left: 45%;">
-            <h2 style="color: white;">إنشاء حساب</h2>
-        </div>
-        <div class="" style="position: absolute; top: 20px;left: 250px;">
-            <i class="fa-solid fa-star-of-life fa-spin slow-spin" style="font-size: 25px;color:rgba(255, 132, 0, 0.667);"></i>
-        </div>
-        <div class="" style="position: absolute; top: 80px;left: 180px;">
-            <i class="fa-solid fa-star-of-life fa-spin slow-spin" style="font-size: 25px;color:rgb(180, 180, 180);"></i>
-        </div>
-        <div class="" style="position: absolute; top: 50px;left: 450px;">
-            <i class="fa-solid fa-braille" style="font-size: 35px;color:rgba(180, 180, 180, 0.649);"></i>
-        </div>
-
-        <div class="slow-cloudLeft" style="position: absolute; top: 40px;">
-            <img src="assets\image\cloud-1.AphNZpYm.svg">
-        </div>
-        <div class="hidde">
-            <div class="slow-cloud" style="position: absolute; top: 10px;right: 0px;">
-                <img src="assets\image\cloud-3.imrtNh-m.svg">
-            </div>
-        </div>
-        <img src="assets\image\wave-bottom-blue.q00BsZDG .svg" style="padding-top: 90px;">
+<section class="container d-flex justify-content-center" dir="rtl">
+  <div class="col-md-7 px-4">
+    <div class="text-center mt-5">
+      <h1 class="text-second mb-4" style="color: rgb(255, 133, 0);">انشئ حسابك الآن</h1>
+      <h3 class="mb-6 text-main font-24-bold">ادخل بياناتك بشكل صحيح للحصول علي افضل
+        تجربة داخل الموقع</h3>
     </div>
-</nav>
-<div class="container d-flex justify-content-center" dir="rtl">
-    <div class="col-md-7 border border-gray rounded-4 px-4" style="margin-top: 150px;box-shadow: 0px 0px 20px whitesmoke;margin-bottom: 60px;">
-        <div class="text-center mt-5">
-            <h2 class="text-second mb-4" style="color: rgb(255, 133, 0);">انشئ حسابك الآن</h2>
-            <h3 class="mb-6 text-main font-24-bold" style="color: rgb(32, 26, 217);">ادخل بياناتك بشكل صحيح للحصول علي افضل تجربة داخل الموقع</h3>
-        </div>
 
-        
-     <form class="form-floating" action="" method="" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-        <div class="row mt-5">
-            <mat-form-field appearance="fill" class="w-100">
-                <mat-label>الأسم ثلاثي باللغة العربية (كما هو بالبطاقه)</mat-label>
-                <input matInput
-                       type="text"
-                       name="fullName"
-                       formControlName="fullName"
-                       id="fullName"
-                       placeholder="اسم الطالب"
-                       aria-label="رقم تليفون الطالب">
-                       <i class="fa-regular fa-user"></i>
-                <mat-error *ngIf="fullName?.touched && fullName?.invalid">
-                    <span *ngIf="fullName?.errors?.['pattern']" class="text-danger">الأسم يجب أن يكون 8 حروف على الأقل ولا يحتوي على أرقام</span>
-                    <span *ngIf="fullName?.errors?.['required']" class="text-danger">الأسم مطلوب</span>
-                </mat-error>
-            </mat-form-field>
-          
-            <mat-form-field appearance="fill" class="w-100">
-                <mat-label>رقم تليفون الطالب</mat-label>
-                <input matInput
-                       type="text"
-                       name="studentPhoneNumber"
-                       formControlName="studentPhoneNumber"
-                       id="studentPhoneNumber"
-                       placeholder="رقم الموبايل"
-                       aria-label="رقم تليفون الطالب">
-                       <i class="fa-solid fa-mobile-screen-button"></i>
-                <mat-error *ngIf="studentPhoneNumber?.touched && studentPhoneNumber?.invalid">
-                  <span *ngIf="studentPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب أن يكون من 11 رقم يبدأ بـ 010 أو 011 أو 012 أو 015</span>
-                  <span *ngIf="studentPhoneNumber?.errors?.['required']" class="text-danger">رقم الهاتف مطلوب</span>
-                </mat-error>
-              </mat-form-field>
-              
-      
-            <mat-form-field appearance="fill" class="w-100">
-                <mat-label>رقم تليفون ولي الأمر</mat-label>
-                <input matInput
-                       type="text"
-                       name="fatherPhoneNumber"
-                       formControlName="fatherPhoneNumber"
-                       id="fatherPhoneNumber"
-                       placeholder="رقم الموبايل"
-                       aria-label="رقم تليفون ولي الأمر">
-                       <i class="fa-solid fa-mobile-screen-button"></i>
-                <mat-error *ngIf="fatherPhoneNumber?.touched && fatherPhoneNumber?.invalid">
-                  <span *ngIf="fatherPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب أن يكون من 11 رقم يبدأ بـ 010 أو 011 أو 012 أو 015</span>
-                  <span *ngIf="fatherPhoneNumber?.errors?.['required']" class="text-danger">رقم الهاتف مطلوب</span>
-                </mat-error>
-              </mat-form-field>
+    <form class="form-floating" action="" method="" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-       
-              
-            
-        </div>
-        <div class="row mt-3">
-         
-            <div class="col">
-                <mat-form-field appearance="fill" style="width: 100%;">
-                  <mat-label>الديانة</mat-label>
-                  <mat-select formControlName="Religion" placeholder="اختر الديانة" aria-label="الديانة" required>
-                    <mat-option disabled selected hidden>اختر الديانة</mat-option>
-                    <mat-option value="Islam">الإسلام</mat-option>
-                    <mat-option value="Christianity">المسيحية</mat-option>
-                  </mat-select>
-                  <i class="fa-solid fa-star-and-crescent"></i>
-                  <mat-error *ngIf="Religion?.touched && Religion?.invalid">الديانة مطلوبة</mat-error>
-                </mat-form-field>
-              </div>
-          
-            <div class="col">
-                <mat-form-field appearance="fill" style="width: 100%;height:100px;">
-                    <mat-label>تاريخ الميلاد</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="birthday" placeholder="تاريخ الميلاد" aria-label="تاريخ الميلاد" required>
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-                <div *ngIf="signupForm.get('birthday')?.touched">
-                    <p *ngIf="signupForm.get('birthday')?.errors?.['required']" class="text-danger"> تاريخ الميلاد مطلوب</p>
-                </div>
-            </div>
-            
-        </div>
-        <div class="mt-3 mb-3">
-              <div class="col">
-                <mat-form-field appearance="fill" style="width: 100%;">
-                  <mat-label>الجنس</mat-label>
-                  <mat-select formControlName="Sex" placeholder="اختر الجنس" aria-label="الجنس" required>
-                    <mat-option value="" disabled selected hidden>اختر الجنس</mat-option>
-                    <mat-option value="male">ذكر</mat-option>
-                    <mat-option value="female">أنثى</mat-option>
-                  </mat-select>
-                  <i class="fa-solid fa-mars-and-venus"></i>
-                  <mat-error *ngIf="Sex?.touched && Sex?.invalid"> يجب تحديد الجنس</mat-error>
-                </mat-form-field>
-              </div>
-              
-         </div>
-        
-         <div class="mt-3 mb-3">
-            <mat-form-field appearance="fill" style="width: 100%;">
-              <mat-label>المحافظة</mat-label>
-              <mat-select formControlName="Governorate" placeholder="اختر المحافظة" aria-label="المحافظة" required [ngClass]="{'is-invalid': isInputFocused}" id="Governorate" name="Governorate">
-                <mat-option value="" disabled selected hidden>اختر المحافظة</mat-option>
-                <mat-option value="cairo">القاهرة</mat-option>
-                <mat-option value="qalyubia">القليوبية</mat-option>
-                <mat-option value="alexandria">الإسكندرية</mat-option>
-                <mat-option value="asyut">أسيوط</mat-option>
-                <mat-option value="aswan">أسوان</mat-option>
-                <mat-option value="beni_suef">بني سويف</mat-option>
-                <mat-option value="beheira">البحيرة</mat-option>
-                <mat-option value="damietta">دمياط</mat-option>
-                <mat-option value="gharbia">الغربية</mat-option>
-                <mat-option value="faiyum">الفيوم</mat-option>
-                <mat-option value="ismailia">الإسماعيلية</mat-option>
-                <mat-option value="giza">الجيزة</mat-option>
-                <mat-option value="luxor">الأقصر</mat-option>
-                <mat-option value="kafr_el_sheikh">كفر الشيخ</mat-option>
-                <mat-option value="minya">المنيا</mat-option>
-                <mat-option value="matruh">مطروح</mat-option>
-                <mat-option value="new_valley">الوادي الجديد</mat-option>
-                <mat-option value="monufia">المنوفية</mat-option>
-                <mat-option value="port_said">بورسعيد</mat-option>
-                <mat-option value="north_sinai">شمال سيناء</mat-option>
-                <mat-option value="qena">قنا</mat-option>
-                <mat-option value="sohag">سوهاج</mat-option>
-                <mat-option value="red_sea">البحر الأحمر</mat-option>
-                <mat-option value="suez">السويس</mat-option>
-                <mat-option value="south_sinai">جنوب سيناء</mat-option>
-              </mat-select>
-              <i class="fa-solid fa-location-dot"></i>
-              <mat-error *ngIf="Governorate?.touched && Governorate?.invalid">يجب تحديد المحافظة</mat-error>
-            </mat-form-field>
-          </div>
-          
-        
-         <div class="mt-3 mb-3">
-            <mat-form-field appearance="fill" style="width: 100%;">
-              <mat-label>المرحلة التعليمية</mat-label>
-              <mat-select formControlName="education" placeholder="اختر المرحلة التعليمية" aria-label="المرحلة التعليمية" required id="education" name="education">
-                <mat-option value="" disabled selected hidden>اختر المرحلة التعليمية</mat-option>
-                <mat-option value="First">الصف الأول الثانوي</mat-option>
-                <mat-option value="second">الصف الثاني الثانوي</mat-option>
-                <mat-option value="third">الصف الثالث الثانوي</mat-option>
-              </mat-select>
-              <i class="fa-solid fa-user-graduate"></i>
-              <mat-error *ngIf="education?.touched && education?.invalid">يجب تحديد المرحلة التعليمية</mat-error>
-            </mat-form-field>
-          </div>
-         <div class="col mt-3 mb-3">
-          
-            
-              <mat-form-field appearance="fill" style="width: 100%;">
-                <mat-label>العنوان التفصيلي</mat-label>
-                <input matInput name="address" formControlName="address" placeholder="العنوان التفصيلي" aria-label="العنوان التفصيلي" required>
-                <i class="fa-solid fa-map-location"></i>
-                <mat-error *ngIf="address?.touched && address?.errors?.['required']">العنوان مطلوب</mat-error>
-              </mat-form-field>
-              
-        </div>
+      <div class="row mt-5">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>الأسم ثلاثي باللغة العربية (كما هو بالبطاقه)</mat-label>
+          <input matInput type="text" name="fullName" formControlName="fullName" id="fullName"
+            aria-label="رقم تليفون الطالب">
+          <mat-icon matSuffix> <i class="fa-regular fa-user"></i></mat-icon>
+          <mat-error *ngIf="fullName?.touched && fullName?.invalid">
+            <span *ngIf="fullName?.errors?.['pattern']" class="text-danger">الأسم يجب أن يكون 8 حروف على الأقل ولا يحتوي
+              على أرقام</span>
+            <span *ngIf="fullName?.errors?.['required']" class="text-danger">الأسم مطلوب</span>
+          </mat-error>
+        </mat-form-field>
 
-        <div class="row mt-3">
-            <div class="col">
-              <mat-form-field appearance="fill" style="width: 100%;">
-                <mat-label>كلمة السر</mat-label>
-                <input matInput type="password" name="password" formControlName="password" placeholder="كلمة السر" aria-label="كلمة السر" required>
-                <i class="fa-solid fa-lock"></i>
-                <mat-error *ngIf="password?.touched && password?.errors">
-                  <span *ngIf="password?.errors?.['required']" class="text-danger">كلمة المرور مطلوبة</span>
-                  <span *ngIf="password?.errors?.['minlength']" class="text-danger">كلمة المرور يجب أن تكون أكثر من 8 أحرف</span>
-                </mat-error>
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field appearance="fill" style="width: 100%;">
-                <mat-label>تأكيد كلمة السر</mat-label>
-                <input matInput type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="تأكيد كلمة السر" aria-label="تأكيد كلمة السر" required>
-                <i class="fa-solid fa-lock"></i>
-                <mat-error *ngIf="signupForm.get('ConfirmPassword')?.hasError('unMatchedPassword')">
-                    <span class="text-danger">كلمة المرور غير متطابقة</span>
-                  </mat-error>
-              </mat-form-field>
-            </div>
-          </div>
-          
-          
-        <div class="mt-3 mb-3">
-            <input type="checkbox" id="Rebot" formControlName="Rebot" style="transform: scale(1.1); width: 5%; height: 20px;" required>
-            <label for="Rebot" class="me-1">أنا لست روبوت</label>
-                 
-            <div *ngIf="signupForm.get('Rebot')?.touched">
-                <p *ngIf="signupForm.get('Rebot')?.errors?.['required']" class="text-danger">مطلوب</p>
-            </div>
-        </div>
-        
-        <div class="mt-3 mb-3">
-            <input type="checkbox" id="Rebot2" formControlName="Rebot2" style="transform: scale(1.1); width: 5%; height: 20px;" required>
-            <label for="Rebot2" class="me-1">أوافق على <a [routerLink]="['/login']">الشروط والأحكام</a></label>
-                
-            <div *ngIf="signupForm.get('Rebot2')?.touched">
-                <p *ngIf="signupForm.get('Rebot2')?.errors?.['required']" class="text-danger">مطلوب</p>
-            </div>
-        </div>
-        
-     <div class="d-grid gap-2 text-center mt-3 mb-3">
-        <button class="btn btn-primary rounded-5" type="submit" style="height: 55px; background-color: #6366f1;font-size: 18px;font-weight: 500;">إنشاء حساب</button>
-        <p>يوجد لديك حساب بالفعل؟ <a [routerLink]="['/login']" class="ms-1 text-second text-decoration-none" style="color: rgb(255, 133, 0);">ادخل إلى حسابك الآن</a></p>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>رقم تليفون الطالب</mat-label>
+          <input matInput type="text" name="studentPhoneNumber" formControlName="studentPhoneNumber"
+            id="studentPhoneNumber" aria-label="رقم تليفون الطالب">
+          <mat-icon matSuffix> <i class="fa-solid fa-mobile-screen-button"></i></mat-icon>
+          <mat-error *ngIf="studentPhoneNumber?.touched && studentPhoneNumber?.invalid">
+            <span *ngIf="studentPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب أن يكون من 11 رقم
+              يبدأ بـ 010 أو 011 أو 012 أو 015</span>
+            <span *ngIf="studentPhoneNumber?.errors?.['required']" class="text-danger">رقم الهاتف مطلوب</span>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>رقم تليفون ولي الأمر</mat-label>
+          <input matInput type="text" name="fatherPhoneNumber" formControlName="fatherPhoneNumber"
+            id="fatherPhoneNumber" aria-label="رقم تليفون ولي الأمر">
+          <mat-icon matSuffix> <i class="fa-solid fa-mobile-screen-button"></i></mat-icon>
+          <mat-error *ngIf="fatherPhoneNumber?.touched && fatherPhoneNumber?.invalid">
+            <span *ngIf="fatherPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب أن يكون من 11 رقم
+              يبدأ بـ 010 أو 011 أو 012 أو 015</span>
+            <span *ngIf="fatherPhoneNumber?.errors?.['required']" class="text-danger">رقم الهاتف مطلوب</span>
+          </mat-error>
+        </mat-form-field>
+
+
+
+
       </div>
-     </form>
-    </div>
-    
-</div>
+      <div class="row mt-3">
 
-<footer class="footImg col" style="width: 100%;">
-    <div>
-        <img src="assets\image\wave-top.kvwTliOj.svg" >
-    </div>
-</footer>
+        <div class="col">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>الديانة</mat-label>
+            <mat-select formControlName="Religion" aria-label="الديانة" required>
+              <mat-option disabled selected hidden>اختر الديانة</mat-option>
+              <mat-option value="Islam">الإسلام</mat-option>
+              <mat-option value="Christianity">المسيحية</mat-option>
+            </mat-select>
+            <mat-icon matSuffix> <i class="fa-solid fa-star-and-crescent"></i></mat-icon>
+            <mat-error *ngIf="Religion?.touched && Religion?.invalid">الديانة مطلوبة</mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>تاريخ الميلاد</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthday" aria-label="تاريخ الميلاد" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-icon matSuffix> <i class="fa-solid fa-calendar-days"></i></mat-icon>
+          </mat-form-field>
+
+          <div *ngIf="signupForm.get('birthday')?.touched">
+            <p *ngIf="signupForm.get('birthday')?.errors?.['required']" class="text-danger"> تاريخ الميلاد مطلوب</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="mt-3 mb-3">
+        <div class="col">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>الجنس</mat-label>
+            <mat-select formControlName="Sex" aria-label="الجنس" required>
+              <mat-option value="" disabled selected hidden>اختر الجنس</mat-option>
+              <mat-option value="male">ذكر</mat-option>
+              <mat-option value="female">أنثى</mat-option>
+            </mat-select>
+            <mat-icon matSuffix><i class="fa-solid fa-mars-and-venus"></i></mat-icon>
+            <mat-error *ngIf="Sex?.touched && Sex?.invalid"> يجب تحديد الجنس</mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="mt-3 mb-3">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>المحافظة</mat-label>
+          <mat-select formControlName="Governorate" aria-label="المحافظة" required
+            [ngClass]="{'is-invalid': isInputFocused}" id="Governorate" name="Governorate">
+            <mat-option value="" disabled selected hidden>اختر المحافظة</mat-option>
+            <mat-option value="cairo">القاهرة</mat-option>
+            <mat-option value="qalyubia">القليوبية</mat-option>
+            <mat-option value="alexandria">الإسكندرية</mat-option>
+            <mat-option value="asyut">أسيوط</mat-option>
+            <mat-option value="aswan">أسوان</mat-option>
+            <mat-option value="beni_suef">بني سويف</mat-option>
+            <mat-option value="beheira">البحيرة</mat-option>
+            <mat-option value="damietta">دمياط</mat-option>
+            <mat-option value="gharbia">الغربية</mat-option>
+            <mat-option value="faiyum">الفيوم</mat-option>
+            <mat-option value="ismailia">الإسماعيلية</mat-option>
+            <mat-option value="giza">الجيزة</mat-option>
+            <mat-option value="luxor">الأقصر</mat-option>
+            <mat-option value="kafr_el_sheikh">كفر الشيخ</mat-option>
+            <mat-option value="minya">المنيا</mat-option>
+            <mat-option value="matruh">مطروح</mat-option>
+            <mat-option value="new_valley">الوادي الجديد</mat-option>
+            <mat-option value="monufia">المنوفية</mat-option>
+            <mat-option value="port_said">بورسعيد</mat-option>
+            <mat-option value="north_sinai">شمال سيناء</mat-option>
+            <mat-option value="qena">قنا</mat-option>
+            <mat-option value="sohag">سوهاج</mat-option>
+            <mat-option value="red_sea">البحر الأحمر</mat-option>
+            <mat-option value="suez">السويس</mat-option>
+            <mat-option value="south_sinai">جنوب سيناء</mat-option>
+          </mat-select>
+          <mat-icon matSuffix><i class="fa-solid fa-location-dot"></i></mat-icon>
+          <mat-error *ngIf="Governorate?.touched && Governorate?.invalid">يجب تحديد المحافظة</mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div class="mt-3 mb-3">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>المرحلة التعليمية</mat-label>
+          <mat-select formControlName="education" aria-label="المرحلة التعليمية" required id="education"
+            name="education">
+            <mat-option value="" disabled selected hidden>اختر المرحلة التعليمية</mat-option>
+            <mat-option value="First">الصف الأول الثانوي</mat-option>
+            <mat-option value="second">الصف الثاني الثانوي</mat-option>
+            <mat-option value="third">الصف الثالث الثانوي</mat-option>
+          </mat-select>
+          <mat-icon matSuffix><i class="fa-solid fa-user-graduate"></i></mat-icon>
+          <mat-error *ngIf="education?.touched && education?.invalid">يجب تحديد المرحلة التعليمية</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col mt-3 mb-3">
+
+
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>العنوان التفصيلي</mat-label>
+          <input matInput name="address" formControlName="address" aria-label="العنوان التفصيلي" required>
+          <mat-icon matSuffix><i class="fa-solid fa-map-location"></i></mat-icon>
+          <mat-error *ngIf="address?.touched && address?.errors?.['required']">العنوان مطلوب</mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="row mt-3">
+        <div class="col">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>كلمة السر</mat-label>
+            <input matInput type="password" name="password" formControlName="password" aria-label="كلمة السر" required>
+            <mat-icon matSuffix><i class="fa-solid fa-lock"></i></mat-icon>
+            <mat-error *ngIf="password?.touched && password?.errors">
+              <span *ngIf="password?.errors?.['required']" class="text-danger">كلمة المرور مطلوبة</span>
+              <span *ngIf="password?.errors?.['minlength']" class="text-danger">كلمة المرور يجب أن تكون أكثر من 8
+                أحرف</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>تأكيد كلمة السر</mat-label>
+            <input matInput type="password" name="ConfirmPassword" formControlName="ConfirmPassword"
+              aria-label="تأكيد كلمة السر" required>
+            <mat-icon matSuffix><i class="fa-solid fa-lock"></i></mat-icon>
+            <mat-error *ngIf="signupForm.get('ConfirmPassword')?.hasError('unMatchedPassword')">
+              <span class="text-danger">كلمة المرور غير متطابقة</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="mt-3 mb-3">
+        <input type="checkbox" id="Rebot" formControlName="Rebot"
+          style="transform: scale(1.1); width: 5%; height: 20px;" required>
+        <label for="Rebot" class="me-1">أنا لست روبوت</label>
+
+        <div *ngIf="signupForm.get('Rebot')?.touched">
+          <p *ngIf="signupForm.get('Rebot')?.errors?.['required']" class="text-danger">مطلوب</p>
+        </div>
+      </div>
+
+      <div class="mt-3 mb-3">
+        <input type="checkbox" id="Rebot2" formControlName="Rebot2"
+          style="transform: scale(1.1); width: 5%; height: 20px;" required>
+        <label for="Rebot2" class="me-1">أوافق على <a [routerLink]="['/login']">الشروط والأحكام</a></label>
+
+        <div *ngIf="signupForm.get('Rebot2')?.touched">
+          <p *ngIf="signupForm.get('Rebot2')?.errors?.['required']" class="text-danger">مطلوب</p>
+        </div>
+      </div>
+
+      <div class="d-grid gap-3 text-center my-5">
+        <button mat-button class="rounded-5 custom-button" type="submit">إنشاء حساب</button>
+        <p>يوجد لديك حساب بالفعل؟ <a [routerLink]="['/login']" class="ms-1 text-second text-decoration-none"
+            style="color: rgb(255, 133, 0);">ادخل إلى حسابك الآن</a></p>
+      </div>
+    </form>
+  </div>
+
+</section>

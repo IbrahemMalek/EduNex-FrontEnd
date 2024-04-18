@@ -1,10 +1,10 @@
-<section class="container flex flex-column justify-content-between">
+<section class="container flex flex-column">
   <h1 class="my-5">قم بأنشاء الامتحان </h1>
   <hr>
   <form [formGroup]="examForm" (ngSubmit)="onSubmit()" class="container flex flex-column">
     <h3 class="my-3">بيانات الامتحان</h3>
 
-    <mat-card-content class="ltr flex flex-wrap justify-content-center gap-3">
+    <mat-card-content class="ltr">
       <mat-form-field appearance="outline">
         <mat-label>العنوان</mat-label>
         <input matInput type="text" formControlName="title">
@@ -46,7 +46,7 @@
       <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">
         <hr>
         <h3 class="my-3">بيانات السؤال رقم {{i+1}}</h3>
-        <mat-card-content class="ltr flex flex-wrap justify-content-center gap-3">
+        <mat-card-content class="ltr">
 
           <mat-form-field appearance="outline">
             <mat-label>رأس السؤال</mat-label>
@@ -64,7 +64,7 @@
             <div *ngFor="let answer of answers(i).controls; let j = index" [formGroupName]="j">
               <h3 class="my-3 text-end">بيانات أجابه السؤال رقم {{i+1}}</h3>
 
-              <mat-card-content class="ltr flex flex-wrap justify-content-center gap-3">
+              <mat-card-content class="ltr">
                 <ng-container *ngIf="isMultipleChoiceQuestion(i)">
                   <mat-form-field appearance="outline">
                     <mat-label>الإجابة</mat-label>
@@ -106,7 +106,8 @@
         </mat-card-content>
         <div class="flex gap-2">
           <button mat-button type="button" (click)="addAnswer(i)"
-            [hidden]="((isTrueFalseQuestion(i) || isEssayQuestion(i)) && this.answers(i).length > 0) || this.answers(i).length > 3">إضافة إجابة</button>
+            [hidden]="((isTrueFalseQuestion(i) || isEssayQuestion(i)) && this.answers(i).length > 0) || this.answers(i).length > 3">إضافة
+            إجابة</button>
           <button mat-button type="button" (click)="removeQuestion(i)">حذف السؤال</button>
         </div>
       </div>
@@ -114,7 +115,7 @@
 
     <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
       <div class="flex gap-3 align-items-baseline">
-        <mat-form-field appearance="outline" class="ltr flex flex-wrap justify-content-center gap-3">
+        <mat-form-field appearance="outline" class="ltr">
           <mat-label>نوع السؤال</mat-label>
           <mat-select formControlName="questionType" #questionType>
             <mat-option value="multipleChoice">اختيار من متعدد</mat-option>

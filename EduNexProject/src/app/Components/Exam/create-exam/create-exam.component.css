@@ -1,16 +1,16 @@
-body {
-  background-image: var(--btn);
-}
-
 section.container {
-  /* background: #33475B22; */
   border-radius: 10px;
   padding-bottom: 5rem;
-  box-shadow: var(--border) 0px 2px 8px 0px;
+  box-shadow: var(--border) 0px 1px 3px 0px, var(--border) 0px 0px 0px 1px;
+  background-color: var(--bg);
 }
 
 .ltr {
   direction: ltr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 .ltr input {
   direction: rtl;
@@ -19,16 +19,23 @@ section.container {
 h1,
 h3 {
   font-weight: 700;
+  width: fit-content;
 }
 h1 {
-  color: var(--btn);
+  background: var(--btn);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h3 {
+  margin-left: auto;
   background-image: var(--btn);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 50% 2px;
   transition: 0.5s;
 }
-h1:hover {
+h3:hover {
   background-size: 100% 2px;
 }
 hr {
@@ -40,27 +47,6 @@ hr {
     var(--bgHeader),
     rgba(0, 0, 0, 0)
   );
-}
-
-mat-label {
-  color: var(--bgHeader) !important;
-}
-::ng-deep .mdc-notched-outline__leading {
-  border-color: var(--bgHeader) !important;
-}
-::ng-deep .mdc-notched-outline__notch {
-  border-color: var(--bgHeader) !important;
-}
-::ng-deep .mdc-notched-outline__trailing {
-  border-color: var(--bgHeader) !important;
-}
-/* @media (min-width: 1200px) {
-  mat-form-field {
-    width: 500px;
-  }
-} */
-mat-form-field {
-  width: calc(25dvw + 150px);
 }
 
 button {
@@ -89,4 +75,86 @@ button:active {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+mat-form-field {
+  width: calc(25dvw + 150px);
+}
+/* Change the border color */
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline__leading,
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline__notch,
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline__trailing {
+  border-color: var(--bgHeader) !important;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+/* Change the border width */
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  border-width: 1.5px !important;
+}
+
+/* Change the border focused color */
+::ng-deep
+  .mdc-text-field--outlined:not(
+    .mdc-text-field--disabled
+  ).mdc-text-field--focused
+  .mdc-notched-outline__leading,
+::ng-deep
+  .mdc-text-field--outlined:not(
+    .mdc-text-field--disabled
+  ).mdc-text-field--focused
+  .mdc-notched-outline__notch,
+::ng-deep
+  .mdc-text-field--outlined:not(
+    .mdc-text-field--disabled
+  ).mdc-text-field--focused
+  .mdc-notched-outline__trailing {
+  border-color: var(--wave2) !important;
+}
+
+/* Change the border hover color */
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(
+    .mdc-text-field--focused
+  ):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(
+    .mdc-text-field--focused
+  ):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(
+    .mdc-text-field--focused
+  ):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  border-color: var(--wave2) !important;
+}
+
+mat-form-field mat-label {
+  color: var(--bgHeader);
 }
