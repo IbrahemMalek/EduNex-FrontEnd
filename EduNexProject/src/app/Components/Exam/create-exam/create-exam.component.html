@@ -45,7 +45,7 @@
     <div formArrayName="questions">
       <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">
         <hr>
-        <h3 class="my-3" style="margin-right:-2rem;">بيانات السؤال رقم {{i+1}}</h3>
+        <h3 class="my-3">بيانات السؤال رقم {{i+1}}</h3>
         <mat-card-content class="ltr flex flex-wrap justify-content-center gap-3">
 
           <mat-form-field appearance="outline">
