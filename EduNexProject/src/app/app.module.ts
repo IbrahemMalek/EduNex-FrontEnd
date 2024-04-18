@@ -46,8 +46,7 @@ import { CourseDetailsComponent } from './Components/CourseDetails/course-detail
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
-import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+
 import { CourseDetailsCardComponent } from './Components/CourseDetails/course-details-card/course-details-card.component';
 import { CourseDetailsHeaderComponent } from './Components/CourseDetails/course-details-header/course-details-header.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -62,8 +61,11 @@ import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.c
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DataTimePickerComponent } from './Components/Exam/data-time-picker/data-time-picker.component';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
+ 
   declarations: [
     AppComponent,
     SignUpComponent,
@@ -101,6 +103,8 @@ import { DataTimePickerComponent } from './Components/Exam/data-time-picker/data
   ],
   imports: [
     BrowserModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,

@@ -35,18 +35,6 @@
           ]
         },
         {
-          "id": "2",
-          "title": "الإحصاء المتقدم",
-          "content": [
-            {
-              "id": "965363",
-              "title": "1",
-              "videoUrl": null,
-              "pdfUrl": null
-            }
-          ]
-        },
-        {
           "id": "880418",
           "title": "الحصه الاولي",
           "content": [
@@ -63,6 +51,11 @@
               "pdfUrl": null
             }
           ]
+        },
+        {
+          "id": "620420",
+          "title": "الحصة الاخيرة",
+          "content": []
         }
       ]
     },
@@ -315,7 +308,9 @@
       "imageUrl": "https://via.placeholder.com/325x405"
     }
   ],
-  "total": 100,
-  "skip": 0,
-  "limit": 30
+  "metadata": {
+    "total": 100,
+    "skip": 0,
+    "limit": 30
+  }
 }
