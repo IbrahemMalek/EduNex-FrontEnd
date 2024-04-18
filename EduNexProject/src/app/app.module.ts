@@ -59,6 +59,9 @@ import { ContentDialogComponent } from './Components/CourseDetails/Dialog/conten
 import { ConfirmationDialogComponent } from './Components/CourseDetails/Dialog/confirmation-dialog/confirmation-dialog.component';
 import { HeroComponent } from './Components/Home/hero/hero.component';
 import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DataTimePickerComponent } from './Components/Exam/data-time-picker/data-time-picker.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +97,7 @@ import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.c
     ConfirmationDialogComponent,
     HeroComponent,
     CreateExamComponent,
+    DataTimePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,7 +127,9 @@ import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.c
     LoadingBarRouterModule,
     MatDialogModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   providers: [
     OverlayContainer,
