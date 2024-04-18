@@ -46,7 +46,6 @@ import { CourseDetailsComponent } from './Components/CourseDetails/course-detail
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-
 import { CourseDetailsCardComponent } from './Components/CourseDetails/course-details-card/course-details-card.component';
 import { CourseDetailsHeaderComponent } from './Components/CourseDetails/course-details-header/course-details-header.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -138,6 +137,9 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
   providers: [
     OverlayContainer,
     importProvidersFrom(LoadingBarHttpClientModule),
+    MatNativeDateModule,
+    HttpClientModule
+    
   ],
   bootstrap: [AppComponent]
 })
