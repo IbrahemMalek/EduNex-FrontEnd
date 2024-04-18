@@ -42,6 +42,38 @@ mat-toolbar button {
   padding-inline: 0.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
+  position: relative;
+  /* width: 120px; */
+}
+
+.unset-button {
+  all: unset;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+}
+.unset-button.active {
+  color: red var(--bgHeader) !important;
+}
+.unset-button:hover {
+  color: var(--wave2);
+}
+
+/* mat-toolbar button.active { */
+/* background-image: var(--btn); */
+/* color: white; */
+/* } */
+
+#marker {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  border-bottom: 3px solid var(--wave2);
+  width: 60px;
+  background: linear-gradient(0deg, var(--wave2Shadow), transparent);
+  transition: 0.5s;
+  filter: drop-shadow(0 5px 25px var(--wave2));
+  pointer-events: none;
 }
 
 .toggle-checkbox {
@@ -53,7 +85,7 @@ mat-toolbar button {
 }
 
 .toggle-checkbox:checked + .toggle-slot .moon-icon {
-  color: #fff; /* Change moon color when checked */
+  color: #fff;
 }
 
 .toggle-slot {
@@ -153,7 +185,6 @@ mat-sidenav button.custom-button {
 mat-sidenav button {
   border-radius: 0.5rem;
   font-weight: 500;
-  opacity: 0.75;
 }
 .side-btns button {
   width: 100%;
@@ -198,20 +229,10 @@ hr {
   .main-content {
     padding: 16px;
   }
-
-  mat-toolbar {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }
 
 @media (min-width: 920px) {
   .menu-btn {
     display: none;
-  }
-
-  mat-toolbar {
-    padding-left: 5rem;
-    padding-right: 5rem;
   }
 }

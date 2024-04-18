@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ICourse } from 'src/app/Model/iCourse';
-import { StaticDataService } from '../../Services/static-data.service';
+import { Component, OnInit } from '@angular/core';
+import { ICourse } from 'src/app/Model/icourse';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({
   selector: 'app-recent-courses',
@@ -16,7 +16,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
     ])
   ]
 })
-export class RecentCoursesComponent {
+export class RecentCoursesComponent implements OnInit {
   courses: ICourse[] = [];
   filteredCourses: ICourse[] = [];
   options = [
@@ -28,7 +28,7 @@ export class RecentCoursesComponent {
   currentIndex = 0;
   cardsToShow = 18;
 
-  constructor(private staticData: StaticDataService) { }
+  constructor(private dynamicData: DynamicDataService) { }
 
   toggleOption(index: number) {
     this.options.forEach((option, i) => {
@@ -54,8 +54,14 @@ export class RecentCoursesComponent {
     }
   }
 
+  getAll() {
+    this.dynamicData.getAllCourses().subscribe(courses => {
+      this.courses = courses;
+      this.filterCourses();
+    });
+  }
+
   ngOnInit(): void {
-    this.courses = this.staticData.getAllCourses();
-    this.filterCourses();
+    this.getAll();
   }
 }

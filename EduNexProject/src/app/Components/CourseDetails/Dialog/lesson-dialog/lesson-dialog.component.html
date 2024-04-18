@@ -1,0 +1,16 @@
+<div class="dialog-container">
+  <div class="flex justify-content-between">
+    <div></div>
+    <button mat-icon-button (click)="onNoClick()" style="color: red;"> <mat-icon>close</mat-icon></button>
+  </div>
+  <div class="flex flex-column justify-content-center">
+    <h3>مرحباً <span>أ.</span> {{ data.name }}</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>أسم الحصة</mat-label>
+      <input matInput [(ngModel)]="lessonTitle" [ngModelOptions]="{ standalone: true }"
+        [ngModel]="data.initialLessonTitle">
+      <mat-icon matSuffix>library_add</mat-icon>
+    </mat-form-field>
+    <button mat-button class="custom-button" (click)="onSubmit()">{{ data.confirmButtonText }}</button>
+  </div>
+</div>

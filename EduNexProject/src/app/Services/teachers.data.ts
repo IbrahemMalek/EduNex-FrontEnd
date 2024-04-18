@@ -1,0 +1,98 @@
+export const teacherData = [
+  {
+    id: 1,
+    name: 'نادر جورج',
+    subject: 'علم نفس',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 2,
+    name: 'أحمد علي',
+    subject: 'علم الفيزياء',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 3,
+    name: 'محمد أحمد',
+    subject: 'علم الكيمياء',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 4,
+    name: 'سارة عمر',
+    subject: 'رياضيات',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 5,
+    name: 'أحمد سعيد',
+    subject: 'اللغة العربية',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 6,
+    name: 'ليلى محمود',
+    subject: 'الجغرافيا',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 7,
+    name: 'محمد خالد',
+    subject: 'التاريخ',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 8,
+    name: 'مريم يوسف',
+    subject: 'اللغة الإنجليزية',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 9,
+    name: 'نادر جورج',
+    subject: 'علم نفس',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 10,
+    name: 'أحمد علي',
+    subject: 'علم الفيزياء',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 11,
+    name: 'محمد أحمد',
+    subject: 'علم الكيمياء',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 12,
+    name: 'سارة عمر',
+    subject: 'رياضيات',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 13,
+    name: 'أحمد سعيد',
+    subject: 'اللغة العربية',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 14,
+    name: 'ليلى محمود',
+    subject: 'الجغرافيا',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 15,
+    name: 'محمد خالد',
+    subject: 'التاريخ',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+  {
+    id: 16,
+    name: 'مريم يوسف',
+    subject: 'اللغة الإنجليزية',
+    imageUrl: 'https://via.placeholder.com/325x405',
+  },
+];

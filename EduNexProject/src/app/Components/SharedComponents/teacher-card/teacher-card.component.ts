@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ITeacher } from 'src/app/Model/iTeacher';
+import { ITeacher } from 'src/app/Model/iteacher';
 
 
 @Component({

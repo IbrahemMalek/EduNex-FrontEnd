@@ -1,0 +1,30 @@
+.custom-button {
+  border-radius: 20rem;
+  padding-inline: 2rem;
+}
+
+h3 {
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.form {
+  text-align: right;
+}
+
+mat-label {
+  color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__leading {
+  border-color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__notch {
+  border-color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: var(--bgHeader) !important;
+}
+
+input{
+  direction: rtl;
+}

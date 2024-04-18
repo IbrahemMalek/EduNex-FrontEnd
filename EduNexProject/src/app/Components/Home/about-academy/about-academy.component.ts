@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ICourse } from 'src/app/Model/iCourse';
-import { ITeacher } from 'src/app/Model/iTeacher';
-import { StaticDataService } from 'src/app/Components/Services/static-data.service';
+import { ICourse } from 'src/app/Model/icourse';
+import { ITeacher } from 'src/app/Model/iteacher';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({
   selector: 'app-about-academy',
@@ -21,14 +21,28 @@ export class AboutAcademyComponent {
   courses: ICourse[] = [];
   teachers: ITeacher[] = [];
   chosenCards: (ICourse | ITeacher)[] = [];
+
   options = [
     { label: 'أشهر الكورسات', selected: true },
     { label: 'أشهر المدسين', selected: false },
   ];
+
   currentIndex = 0;
   cardsToShow = 18;
 
-  constructor(private staticData: StaticDataService) { }
+  constructor(private dynamicData: DynamicDataService) { }
+
+  isCourse(card: any): card is ICourse {
+    return !card.hasOwnProperty('name')
+  }
+
+  isTeacher(card: any): card is ITeacher {
+    return card.hasOwnProperty('name')
+  }
+
+  ngOnInit(): void {
+    this.getAll();
+  }
 
   toggleOption(index: number) {
     this.options.forEach((option, i) => {
@@ -40,26 +54,20 @@ export class AboutAcademyComponent {
 
   filterCourses() {
     if (this.options[0].selected) {
-      // Show courses
       this.chosenCards = this.courses;
     } else if (this.options[1].selected) {
-      // Show teachers
       this.chosenCards = this.teachers;
     }
   }
 
-  isCourse(card: any): card is ICourse {
-    return !card.hasOwnProperty('name')
-  }
-
-  isTeacher(card: any): card is ITeacher {
-    return card.hasOwnProperty('name')
-  }
-
-  ngOnInit(): void {
-    this.courses = this.staticData.getAllCourses();
-    this.teachers = this.staticData.getAllTeachers();
-    this.chosenCards = this.courses;
-    this.filterCourses();
+  getAll() {
+    this.dynamicData.getAllTeachers().subscribe(teachers => {
+      this.teachers = teachers;
+      this.filterCourses();
+    });
+    this.dynamicData.getAllCourses().subscribe(courses => {
+      this.courses = courses;
+      this.filterCourses();
+    });
   }
 }

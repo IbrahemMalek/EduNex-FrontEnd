@@ -2,14 +2,18 @@ section {
   background-color: #2d2d2d;
 }
 svg:first-of-type {
-  margin-bottom: -7.5vw;
+  margin-bottom: -12vw;
+  z-index: 0;
 }
 svg:last-of-type {
-  margin-top: -7.5vw;
+  margin-top: -12vw;
+  z-index: 0;
 }
 .cards-container {
   margin-bottom: 5rem;
   margin-top: 5rem;
+  z-index: 1;
+  font-size: 35px;
 }
 .cards-container svg {
   width: 5rem;

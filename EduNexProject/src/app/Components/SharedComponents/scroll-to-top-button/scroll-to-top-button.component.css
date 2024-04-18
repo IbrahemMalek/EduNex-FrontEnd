@@ -1,0 +1,56 @@
+.scroll-top {
+  position: fixed;
+  z-index: 50;
+  padding: 0;
+  right: 30px;
+  bottom: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  border: none;
+  box-shadow: inset 0 0 0 2px #ccc;
+  color: #ccc;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.scroll-top.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top .icon-tabler-arrow-up {
+  position: absolute;
+  stroke-width: 3px;
+  stroke: var(--wave2);
+}
+
+.scroll-top svg path {
+  fill: none;
+}
+
+.scroll-top svg.progress-circle path {
+  stroke: var(--wave2);
+  stroke-width: 6;
+  transition: 0.4s;
+}
+
+.scroll-top:hover {
+  color: var(--wave1);
+  transition: color 0.3s ease;
+}
+
+.scroll-top:hover .progress-circle path,
+.scroll-top:hover .icon-tabler-arrow-up {
+  stroke: var(--wave1);
+  transition: stroke 0.3s ease;
+}

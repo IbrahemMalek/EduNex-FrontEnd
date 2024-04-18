@@ -11,15 +11,17 @@
     </div>
   </div>
 
-  <div class="flex scroll-section-r-courses">
-    <app-side-scroll-buttons [sectionName]="'scroll-section-r-courses'"></app-side-scroll-buttons>
+ <section>
+  <app-side-scroll-buttons [sectionName]="'scroll-section-r-courses'"></app-side-scroll-buttons>
 
-    <ng-container *ngFor="let course of filteredCourses.slice(currentIndex, currentIndex + cardsToShow); let i = index">
-      <div class="card-container" [@fadeInOut]>
-        <app-course-card [course]="course"></app-course-card>
-      </div>
-    </ng-container>
-  </div>
+   <div class="flex scroll-section-r-courses hidden" AppearFromRight>
+     <ng-container *ngFor="let course of filteredCourses.slice(currentIndex, currentIndex + cardsToShow); let i = index">
+       <div class="card-container" [@fadeInOut]>
+         <app-course-card [course]="course"></app-course-card>
+       </div>
+     </ng-container>
+   </div>
+ </section>
 
   <div class="flex justify-content-center">
     <button mat-button class="custom-button my-3">مشاهدة الكورسات</button>

@@ -1,7 +1,7 @@
 // courses.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ICourse } from 'src/app/Model/iCourse';
-import { StaticDataService } from '../Services/static-data.service';
+import { ICourse } from 'src/app/Model/icourse';
+import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,9 +13,13 @@ export class CoursesComponent implements OnInit {
 
   courses: ICourse[] = [];
 
-  constructor(private staticData: StaticDataService) { }
+  constructor(private dynamicData: DynamicDataService) { }
 
-  ngOnInit(): void {
-    this.courses = this.staticData.getAllCourses();
+  getAll() {
+    this.dynamicData.getAllCourses().subscribe(courses => this.courses = courses);
   }
+  ngOnInit(): void {
+    this.getAll()
+  }
+
 }

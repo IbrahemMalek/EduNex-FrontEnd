@@ -3,12 +3,12 @@
 
 $indigo-palette: (
   50: #fff,
-  100: #201AD9,
+  100: #00AEEF,
   200: #201AD9,
   300: #4E49FF,
   400: #5c6bc0,
   500: #212121,
-  600: #4E49FF,
+  600: #7F00FF,
   700: #303f9f,
   800: #283593,
   900: #1a237e,
@@ -98,10 +98,16 @@ html {
 
   --active: rgba(255, 255, 255, 0.04);
 
-  --btn: linear-gradient(120deg, #7F00FF, #E312FF);
+  --btn: linear-gradient(120deg, #c73866, #efa858);
 
-  --wave1: #7F00FF;
-  --wave2: #E312FF;
+  --btn1: linear-gradient(120deg, #50d5b7, #067d68);
+
+  --wave1: #c73866;
+  --wave2: #efa858;
+  --wave3: #50d5b7;
+  --wave4: #067d68;
+
+  --wave2Shadow: #efa85822;
 
   --title: rgb(39, 39, 42);
   --subtitle: rgb(82, 82, 91);
@@ -124,6 +130,8 @@ html {
 
   --wave1: #2D388A;
   --wave2: #00AEEF;
+
+  --wave2Shadow: #00AEEF22;
 
   --title: rgb(244, 244, 255);
   --subtitle: rgb(161, 161, 170);
@@ -154,8 +162,6 @@ html {
 }
 
 
-
-
 @keyframes beating {
   0% {
     transform: scale(0.9);
@@ -177,11 +183,83 @@ html {
 .custom-button,
 custom-checkbox.checked {
   color: #ffffff !important;
-  background-image: var(--btn) !important;
-  opacity: 1;
-  transition: 0.3s;
+  background: linear-gradient(90deg, var(--wave1, #f6d365), var(--wave2, #fda085) 51%, var(--wave1, #f6d365)) var(--x, 0)/ 200% !important;
+  scale: 1;
+  transition: 0.4s;
 }
 
-.custom-button:hover {
-  // opacity: 0.75;
+.green-button {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, var(--wave3, #f6d365), var(--wave4, #fda085) 51%, var(--wave3, #f6d365)) var(--x, 0)/ 200% !important;
+  scale: 1;
+  transition: 0.4s;
+  border-radius: 20rem;
+  width: 150px;
 }
+
+.custom-button:hover,
+.green-button:hover {
+  scale: 0.995;
+  --x: 100%;
+}
+
+.custom-button:disabled,
+.green-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s forwards;
+  -webkit-animation: slideIn 1s forwards;
+}
+
+.slide-from-left {
+  animation: slideFromLeft 1s forwards;
+}
+
+.slide-from-right {
+  animation: slideFromRight 1s forwards;
+}
+

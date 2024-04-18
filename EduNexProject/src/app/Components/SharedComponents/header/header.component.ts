@@ -2,6 +2,7 @@ import { Component, HostBinding, OnInit, ViewChild, ElementRef, Renderer2 } from
 import { FormControl } from '@angular/forms';
 import { MatDrawer } from '@angular/material/sidenav';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +11,13 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('openClose', [
       state('open', style({
-        transform: 'translateX(0%)'
+        transform: 'translate3d(0,0,0)'
       })),
       state('closed', style({
-        transform: 'translateX(100%)'
+        transform: 'translate3d(100%, 0, 0)'
       })),
       transition('open <=> closed', [
-        animate('0.3s')
+        animate('400ms ease-in-out')
       ]),
     ]),
   ]
@@ -30,10 +31,9 @@ export class HeaderComponent implements OnInit {
 
   darkClass = 'theme-dark';
   lightClass = 'theme-light';
-  showFiller = false;
   isShowing: boolean = false;
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2, public loader: LoadingBarService) { }
 
   toggleRightSidenav() {
     this.isShowing = !this.isShowing;
@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     const savedTheme = localStorage.getItem('themePreference');
-
     const currentTheme = savedTheme === 'dark';
 
     this.applyTheme(currentTheme);
@@ -50,14 +49,23 @@ export class HeaderComponent implements OnInit {
       this.applyTheme(currentTheme);
     });
 
-    this.renderer.listen('document', 'click', (event) => {
-      if (this.isShowing && !this.overlay.nativeElement.contains(event.target) && !this.sidenav.opened) {
-        this.toggleRightSidenav();
+    if (this.overlay && this.sidenav) {
+      this.renderer.listen('document', 'click', (event) => {
+        if (this.isShowing && !this.overlay.nativeElement.contains(event.target) && !this.sidenav.opened) {
+          this.toggleRightSidenav();
+        }
+      });
+    }
+
+    // Move marker to the button with the 'active' class
+    setTimeout(() => {
+      const activeButton = document.querySelector('.nav-items button.active') as HTMLElement;
+      if (activeButton) {
+        this.moveMarker(activeButton);
       }
     });
-
-
   }
+
 
   ngAfterViewInit(): void {
     if (localStorage.getItem('themePreference') === 'dark') {
@@ -81,6 +89,17 @@ export class HeaderComponent implements OnInit {
     } else {
       bodyElement.classList.add(this.lightClass);
       bodyElement.classList.remove(this.darkClass);
+    }
+  }
+
+  moveMarker(target: EventTarget | null): void {
+    const marker = document.getElementById('marker');
+    if (marker && target instanceof HTMLElement) {
+      const rect = target.getBoundingClientRect();
+      const offsetX = rect.left + window.pageXOffset;
+      const targetWidth = target.offsetWidth;
+      marker.style.width = targetWidth + 'px';
+      marker.style.left = offsetX + 'px';
     }
   }
 
