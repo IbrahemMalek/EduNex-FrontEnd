@@ -43,12 +43,6 @@ export class CourseDetailsComponent implements OnInit {
     { label: 'عن المعلم', selected: false },
   ];
 
-  lessonsOptions = [
-    { title: 'ملف' },
-    { title: 'فيديو' },
-    { title: 'واجب' },
-    { title: 'أمتحان' },
-  ];
   someProperty: any;
 
   constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog, private router: Router) {
@@ -121,50 +115,42 @@ export class CourseDetailsComponent implements OnInit {
 
   //add content
   addContentDialog(contentTitle: string, lessonId: number): void {
-    if (contentTitle !== 'أمتحان' && contentTitle !== 'واجب') {
-      this.dialog.open(ContentDialogComponent, {
-        height: '350px',
-        width: '400px',
-        panelClass: 'dialog-container',
-        autoFocus: false,
-        data: {
-          confirmButtonText: 'أضف الملفات',
-          operation: 'add',
-          courseId: this.course?.id,
-          contentTitle: contentTitle,
-          name: this.course?.teacher,
-          lessonId: lessonId,
-        }
-      });
-    } else {
-      this.router.navigate(['/', 'createExam'])
-    }
+    this.dialog.open(ContentDialogComponent, {
+      height: '350px',
+      width: '400px',
+      panelClass: 'dialog-container',
+      autoFocus: false,
+      data: {
+        confirmButtonText: 'أضف الملفات',
+        operation: 'add',
+        courseId: this.course?.id,
+        contentTitle: contentTitle,
+        name: this.course?.teacher,
+        lessonId: lessonId,
+      }
+    });
   }
 
   //edit content
   editContentDialog(lessonId: number, content: ILessonContent): void {
-    if (content.title !== 'أمتحان' && content.title !== 'واجب') {
-      this.dialog.open(ContentDialogComponent, {
-        height: '350px',
-        width: '400px',
-        panelClass: 'dialog-container',
-        autoFocus: false,
-        data: {
-          confirmButtonText: 'تعديل الملفات',
-          operation: 'edit',
-          courseId: this.course?.id,
-          name: this.course?.teacher,
-          lessonId: lessonId,
-          content: content,
-          contentId: content.id,
-          contentTitle: content.videoUrl ? 'فيديو' : 'ملف',
-          videoUrl: content.videoUrl,
-          pdfUrl: content.pdfUrl,
-        }
-      });
-    } else {
-      this.router.navigate(['/', 'createExam'])
-    }
+    this.dialog.open(ContentDialogComponent, {
+      height: '350px',
+      width: '400px',
+      panelClass: 'dialog-container',
+      autoFocus: false,
+      data: {
+        confirmButtonText: 'تعديل الملفات',
+        operation: 'edit',
+        courseId: this.course?.id,
+        name: this.course?.teacher,
+        lessonId: lessonId,
+        content: content,
+        contentId: content.id,
+        contentTitle: content.videoUrl ? 'video' : 'file',
+        videoUrl: content.videoUrl,
+        pdfUrl: content.pdfUrl,
+      }
+    });
   }
 
   //delete content

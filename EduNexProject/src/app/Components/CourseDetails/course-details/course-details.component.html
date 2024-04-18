@@ -24,9 +24,20 @@
               <mat-icon>add_circle</mat-icon>
             </button>
             <mat-menu #menu="matMenu" class="lesson-menu" AppearFromRight>
-              <button mat-menu-item *ngFor="let lessonOption of lessonsOptions"
-                (click)="addContentDialog(lessonOption.title, lesson.id)" style="direction: rtl;">
-                {{ lessonOption.title }}
+
+              <button mat-menu-item (click)="addContentDialog('file', lesson.id)" style="direction: rtl;">
+                ملف
+              </button>
+              <button mat-menu-item (click)="addContentDialog('video', lesson.id)" style="direction: rtl;">
+                فيديو
+              </button>
+              <button mat-menu-item [routerLink]="['/course', courseID, 'lesson', lesson.id, 'exam', 1]"
+                style="direction: rtl;">
+                أمتحان
+              </button>
+              <button mat-menu-item [routerLink]="['/course', courseID, 'lesson', lesson.id, 'exam', 2]"
+                style="direction: rtl;">
+                واجب
               </button>
 
             </mat-menu>
