@@ -11,57 +11,16 @@
       "price": 200,
       "lesson": [
         {
-          "id": "1",
-          "title": "مقدمة في الإحصاء",
-          "content": [
-            {
-              "id": "271998",
-              "title": "الحل",
-              "videoUrl": null,
-              "pdfUrl": "نظرية التطور.pdf"
-            },
-            {
-              "id": "95829",
-              "title": "dddd",
-              "videoUrl": null,
-              "pdfUrl": "نظرية التطور.pdf"
-            },
-            {
-              "id": "167134",
-              "title": "222",
-              "videoUrl": "RPReplayFinal1710633664.mp4",
-              "pdfUrl": null
-            }
-          ]
-        },
-        {
-          "id": "880418",
-          "title": "الحصه الاولي",
-          "content": [
-            {
-              "id": "303029",
-              "title": "الشرح",
-              "videoUrl": "RPReplayFinal1710633664.mp4",
-              "pdfUrl": "نظرية التطور.pdf"
-            },
-            {
-              "id": "906584",
-              "title": "ggg",
-              "videoUrl": "RPReplayFinal1710633664.mp4",
-              "pdfUrl": null
-            },
-            {
-              "id": "645912",
-              "title": "حماده",
-              "videoUrl": null,
-              "pdfUrl": "نظرية التطور.pdf"
-            }
-          ]
-        },
-        {
           "id": "620420",
           "title": "الحصة الاخيرة",
-          "content": []
+          "content": [
+            {
+              "id": "202279",
+              "title": "22",
+              "videoUrl": "RPReplayFinal1710633664.mp4",
+              "pdfUrl": null
+            }
+          ]
         }
       ]
     },
@@ -73,7 +32,8 @@
       "teacher": "أحمد علي",
       "description": "كورس مادة الفيزياء",
       "grade": "الصف الثالث الثانوي",
-      "price": 250
+      "price": 250,
+      "lesson": []
     },
     {
       "id": "3",
@@ -83,7 +43,8 @@
       "teacher": "محمد أحمد",
       "description": "كورس مادة الكيمياء",
       "grade": "الصف الثالث الثانوي",
-      "price": 220
+      "price": 220,
+      "lesson": []
     },
     {
       "id": "4",
@@ -93,7 +54,8 @@
       "teacher": "سارة عمر",
       "description": "كورس مادة الرياضيات",
       "grade": "الصف الثالث الثانوي",
-      "price": 180
+      "price": 180,
+      "lesson": []
     },
     {
       "id": "5",
@@ -103,7 +65,8 @@
       "teacher": "أحمد سعيد",
       "description": "كورس مادة اللغة العربية",
       "grade": "الصف الثالث الثانوي",
-      "price": 210
+      "price": 210,
+      "lesson": []
     },
     {
       "id": "6",
@@ -113,7 +76,8 @@
       "teacher": "ليلى محمود",
       "description": "كورس مادة الجغرافيا",
       "grade": "الصف الثالث الثانوي",
-      "price": 230
+      "price": 230,
+      "lesson": []
     },
     {
       "id": "7",
@@ -123,7 +87,8 @@
       "teacher": "محمد خالد",
       "description": "كورس مادة التاريخ",
       "grade": "الصف الثالث الثانوي",
-      "price": 190
+      "price": 190,
+      "lesson": []
     },
     {
       "id": "8",
@@ -133,7 +98,8 @@
       "teacher": "مريم يوسف",
       "description": "كورس مادة اللغة الإنجليزية",
       "grade": "الصف الثالث الثانوي",
-      "price": 240
+      "price": 240,
+      "lesson": []
     },
     {
       "id": "9",
@@ -143,7 +109,21 @@
       "teacher": "فاطمة عبد الرحمن",
       "description": "كورس مادة الفلسفة",
       "grade": "الصف الثالث الثانوي",
-      "price": 210
+      "price": 210,
+      "lesson": [
+        {
+          "id": "863137",
+          "title": "r",
+          "content": [
+            {
+              "id": "918465",
+              "title": "rr",
+              "videoUrl": "RPReplayFinal1710633664.mp4",
+              "pdfUrl": null
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "10",
@@ -153,7 +133,8 @@
       "teacher": "عمر محمود",
       "description": "كورس مادة علم النفس",
       "grade": "الصف الثالث الثانوي",
-      "price": 230
+      "price": 230,
+      "lesson": []
     },
     {
       "id": "11",
@@ -163,7 +144,8 @@
       "teacher": "سلمى علي",
       "description": "كورس مادة الفنون",
       "grade": "الصف الثالث الثانوي",
-      "price": 190
+      "price": 190,
+      "lesson": []
     },
     {
       "id": "12",
@@ -173,7 +155,8 @@
       "teacher": "علي خالد",
       "description": "كورس مادة العلوم السياسية",
       "grade": "الصف الثالث الثانوي",
-      "price": 240
+      "price": 240,
+      "lesson": []
     },
     {
       "id": "13",
@@ -183,7 +166,8 @@
       "teacher": "نور أحمد",
       "description": "كورس مادة علم الأحياء",
       "grade": "الصف الثالث الثانوي",
-      "price": 220
+      "price": 220,
+      "lesson": []
     },
     {
       "id": "14",
@@ -193,7 +177,8 @@
       "teacher": "محمد علي",
       "description": "كورس مادة الإنجليزية",
       "grade": "الصف الثالث الثانوي",
-      "price": 260
+      "price": 260,
+      "lesson": []
     },
     {
       "id": "15",
@@ -203,7 +188,8 @@
       "teacher": "أماني محمد",
       "description": "كورس مادة العلوم الاجتماعية",
       "grade": "الصف الثالث الثانوي",
-      "price": 200
+      "price": 200,
+      "lesson": []
     },
     {
       "id": "16",
@@ -213,7 +199,8 @@
       "teacher": "يوسف عبد الرحمن",
       "description": "كورس مادة الحاسب الآلي",
       "grade": "الصف الثالث الثانوي",
-      "price": 250
+      "price": 250,
+      "lesson": []
     }
   ],
   "teachers": [
@@ -312,6 +299,60 @@
       "name": "مريم يوسف",
       "subject": "اللغة الإنجليزية",
       "imageUrl": "https://via.placeholder.com/325x405"
+    }
+  ],
+  "exams": [
+    {
+      "id": "1",
+      "title": "Exam 1",
+      "startDateTime": "2024-04-17T18:59:04.863Z",
+      "endDateTime": "2024-04-17T18:59:04.863Z",
+      "duration": 60,
+      "type": "exam",
+      "questions": [
+        {
+          "questionId": 1,
+          "header": "Question 1",
+          "type": "singleChoice",
+          "points": 10,
+          "answers": []
+        },
+        {
+          "questionId": 2,
+          "header": "Question 2",
+          "type": "singleChoice",
+          "points": 10,
+          "answers": []
+        },
+        {
+          "questionId": 3,
+          "header": "Question 3",
+          "type": "multipleChoice",
+          "points": 10,
+          "answers": []
+        },
+        {
+          "questionId": 4,
+          "header": "Question 4",
+          "type": "multipleChoice",
+          "points": 10,
+          "answers": []
+        },
+        {
+          "questionId": 5,
+          "header": "Question 5",
+          "type": "trueFalse",
+          "points": 10,
+          "answers": []
+        },
+        {
+          "questionId": 6,
+          "header": "Question 6",
+          "type": "trueFalse",
+          "points": 10,
+          "answers": []
+        }
+      ]
     }
   ],
   "metadata": {

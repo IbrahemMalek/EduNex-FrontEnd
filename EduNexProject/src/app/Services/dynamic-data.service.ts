@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILesson } from '../Model/ilesson';
 import { ICourse } from '../Model/icourse';
+import { IExam } from '../Model/iexam';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class DynamicDataService {
   constructor(private httpClient: HttpClient) {
   }
 
+  // course
   getAllCourses(): Observable<ICourse[]> {
     return this.httpClient.get<ICourse[]>("http://localhost:2000/courses");
   }
@@ -35,7 +37,7 @@ export class DynamicDataService {
     return this.httpClient.put<void>(`http://localhost:2000/courses/${courseId}`, updatedCourse);
   }
 
-
+  // teacher
   getAllTeachers(): Observable<any> {
     return this.httpClient.get("http://localhost:2000/teachers");
   }
@@ -51,4 +53,27 @@ export class DynamicDataService {
   addTeacher(teacherData: any): Observable<any> {
     return this.httpClient.post("http://localhost:2000/teachers", teacherData);
   }
+
+
+  // exam
+  getAllExams(): Observable<IExam[]> {
+    return this.httpClient.get<IExam[]>("http://localhost:2000/exams");
+  }
+
+  getExamById(examId: number): Observable<IExam> {
+    return this.httpClient.get<IExam>(`http://localhost:2000/exams/${examId}`);
+  }
+
+  deleteExamById(examId: number): Observable<void> {
+    return this.httpClient.delete<void>(`http://localhost:2000/exams/${examId}`);
+  }
+
+  addExam(courseData: IExam): Observable<IExam> {
+    return this.httpClient.post<IExam>("http://localhost:2000/exams", courseData);
+  }
+
+  editExam(examId: number, updatedExam: IExam): Observable<void> {
+    return this.httpClient.put<void>(`http://localhost:2000/exams/${examId}`, updatedExam);
+  }
+
 }

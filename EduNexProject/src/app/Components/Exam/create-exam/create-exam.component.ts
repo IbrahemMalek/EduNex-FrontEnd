@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { IExam } from 'src/app/Model/iexam';
+import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({
   selector: 'app-create-exam',
@@ -8,108 +11,194 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CreateExamComponent implements OnInit {
   examForm!: FormGroup;
+  activeSection: string = 'questionSettings';
+  questionIndex: number = 0;
+  examID: number = 1;
+  exam!: IExam;
+  questions: any[] = [];
 
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.examForm = this.fb.group({
-      title: ['', Validators.required],
-      startDateTime: ['', Validators.required],
-      endDateTime: ['', Validators.required],
-      duration: ['', Validators.required],
-      type: ['', Validators.required],
-      questionType: [''],
-      questions: this.fb.array([
-      ])
-    });
-  }
-
-  createQuestion(questionType: string): FormGroup | void {
-    if (questionType && questionType != null) {
-      return this.fb.group({
-        header: ['', Validators.required],
-        questionType: [questionType, Validators.required],
-        points: ['', Validators.required],
-        answers: this.fb.array([
-          this.createAnswer()
-        ])
-      });
-    }
-  }
-
-  createAnswer(): FormGroup {
-    return this.fb.group({
-      header: [''],
-      body: [''],
-      isCorrect: [false]
-    });
-  }
-
-  addQuestion(questionType: string): void {
-    const newQuestion = this.createQuestion(questionType);
-    this.questions.push(newQuestion);
-  }
-
-
-  removeQuestion(index: number): void {
-    this.questions.removeAt(index);
-  }
-
-  addAnswer(questionIndex: number): void {
-    const questionType = this.questions.at(questionIndex).get('questionType')?.value;
-    if ((questionType === 'trueFalse' || questionType === 'essay') && this.answers(questionIndex).length > 0) {
-      return;
-    }
-    const answerGroup = this.createAnswer();
-    this.answers(questionIndex).push(answerGroup);
-  }
-
-  removeAnswer(questionIndex: number, answerIndex: number): void {
-    this.answers(questionIndex).removeAt(answerIndex);
-  }
-
-  get questions(): FormArray {
+  get questionsControls(): FormArray {
     return this.examForm.get('questions') as FormArray;
   }
 
-  answers(questionIndex: number): FormArray {
-    return this.questions.at(questionIndex).get('answers') as FormArray;
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService) { }
+
+  ngOnInit(): void {
+    this.examForm = this.fb.group({
+      examId: [this.questionIndex],
+      title: ['', Validators.required],
+      startDate: [new Date(), Validators.required],
+      endDate: [new Date(), Validators.required],
+      startTime: [0, Validators.required],
+      endTime: [0, Validators.required],
+      duration: [0, Validators.required],
+      type: ['', Validators.required],
+      points: [0, Validators.required],
+      header: ['', Validators.required],
+      questions: this.fb.array([]),
+    });
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      const startDate = params['startDate'] ? new Date(params['startDate']) : new Date();
+      const endDate = params['endDate'] ? new Date(params['endDate']) : new Date();
+
+      this.examForm.patchValue({
+        title: params['title'] || '',
+        startTime: params['startTime'] || '',
+        endTime: params['endTime'] || '',
+        startDate: startDate,
+        endDate: endDate,
+        duration: params['duration'] || ''
+      });
+    });
+
+    this.getExamById();
   }
+
+
+  getExamById() {
+    this.dynamicData.getExamById(this.examID).subscribe(exam => {
+      this.exam = exam;
+      this.questions = exam.questions;
+      this.setQuestionsFormArray();
+    });
+  }
+
+  setQuestionsFormArray(): void {
+    const questionsFormArray = this.examForm.get('questions') as FormArray;
+    this.questions.forEach(question => {
+      questionsFormArray.push(this.createQuestionFormGroup(question));
+    });
+  }
+
+  createQuestionFormGroup(question: any): FormGroup {
+    const answersArray = question.answers.map((answer: any) => this.createAnswerFormGroup(answer));
+    return this.fb.group({
+      questionId: [question?.questionId || 0],
+      header: [question?.header || '', Validators.required],
+      type: [question?.type || '', Validators.required],
+      points: [question?.points || 0, Validators.required],
+      answers: this.fb.array(answersArray)
+    });
+  }
+
+
+  createAnswerFormGroup(answer: any): FormGroup {
+    return this.fb.group({
+      answerId: [answer?.answerId || 0],
+      header: [answer?.header || '', Validators.required],
+      isCorrect: [answer?.isCorrect || null]
+    });
+  }
+
+  addQuestion(): void {
+    const questionsFormArray = this.examForm.get('questions') as FormArray;
+    questionsFormArray.push(this.createQuestionFormGroup({}));
+  }
+
+  removeQuestion(index: number): void {
+    const questionsFormArray = this.examForm.get('questions') as FormArray;
+    questionsFormArray.removeAt(index);
+  }
+
+  addAnswer(): void {
+    const questionType = this.examForm.get('type')?.value;
+    const answersLength = this.getAnswersControls()?.length || 0;
+
+    const answerFormArray = this.getAnswersControls() || this.createAnswerFormArray();
+    if (!answerFormArray) {
+      console.error('Error: Answers FormArray is not initialized.');
+      return;
+    }
+
+    if (
+      (questionType === 'multipleChoice' || questionType === 'oneChoice') && answersLength < 4 ||
+      (questionType === 'trueFalse' && answersLength < 1)
+    ) {
+      answerFormArray.push(this.createAnswerFormGroup({}));
+    }
+  }
+
+  private createAnswerFormArray(): FormArray {
+    return this.fb.array([]);
+  }
+
+  removeAnswer(answerIndex: number): void {
+    const answerFormArray = this.getAnswersControls();
+    answerFormArray?.removeAt(answerIndex);
+  }
+
+  getAnswersControls(): FormArray | undefined {
+    if (this.questionIndex === -1) {
+      console.error('No question selected.');
+      return;
+    }
+    const questionsFormArray = this.examForm.get('questions') as FormArray;
+    const questionControl = questionsFormArray.at(this.questionIndex);
+    if (!questionControl) {
+      // console.error(`Question index ${this.questionIndex} is out of bounds.`);
+      return;
+    }
+    let answersArray = questionControl.get('answers') as FormArray;
+    if (!answersArray) {
+      answersArray = this.createAnswerFormArray();
+      questionControl.patchValue({ answers: answersArray });
+    }
+    return answersArray;
+  }
+
+  getQuestionFormGroup(index: number): FormGroup {
+    return this.questionsControls.at(index) as FormGroup;
+  }
+
 
   onSubmit(): void {
     if (this.examForm.valid) {
       console.log(this.examForm.value);
-    } else {
     }
   }
 
-  isMultipleChoiceQuestion(questionIndex: number): boolean {
-    return this.questions.at(questionIndex).get('questionType')?.value === 'multipleChoice';
+  range(start: number, end: number): number[] {
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
   }
 
-  isEssayQuestion(questionIndex: number): boolean {
-    return this.questions.at(questionIndex).get('questionType')?.value === 'essay';
-  }
+  handleAnswerSelection(selectedAnswerIndex: number, isTrueAnswer: boolean): void {
+    const questionType = this.examForm.get('type')?.value;
 
-  isTrueFalseQuestion(questionIndex: number): boolean {
-    return this.questions.at(questionIndex).get('questionType')?.value === 'trueFalse';
-  }
+    if (questionType === 'oneChoice') {
+      const answerFormArray = this.getAnswersControls();
+      if (!answerFormArray) {
+        console.error('Error: Answers FormArray is not initialized.');
+        return;
+      }
 
-  onQuestionTypeChange(type: string, questionIndex: number): void {
-    const question = this.questions.at(questionIndex);
-    const answers = question.get('answers') as FormArray;
-    if (type === 'multipleChoice') {
-      answers.controls.forEach((answer) => {
-        answer.get('body')?.setValidators([Validators.required]);
-        answer.get('isCorrect')?.setValidators([Validators.required]);
-      });
-    } else if (type === 'essay') {
-      answers.controls.forEach((answer) => {
-        answer.get('body')?.clearValidators();
-        answer.get('isCorrect')?.clearValidators();
-      });
+      const answersLength = answerFormArray.length;
+      for (let i = 0; i < answersLength; i++) {
+        const answerFormGroup = answerFormArray.at(i) as FormGroup;
+        const isCorrectControl = answerFormGroup.get('isCorrect');
+        if (isCorrectControl && i === selectedAnswerIndex) {
+          isCorrectControl.patchValue(isTrueAnswer);
+        } else if (isCorrectControl) {
+          if (isTrueAnswer) {
+            isCorrectControl.patchValue(false);
+          }
+        }
+      }
     }
-    question.patchValue({ questionType: type });
+  }
+
+  handleQuestionIndexClicked(index: number): void {
+    // console.log('Question index clicked:', index);
+    this.questionIndex = index;
+  }
+
+  onAddQuestionClicked(): void {
+    this.questions.push({});
+  }
+
+  onSaveClicked(): void {
+    console.log(this.examForm.value.questions);
   }
 
 }
+

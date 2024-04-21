@@ -60,12 +60,15 @@ import { HeroComponent } from './Components/Home/hero/hero.component';
 import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { DataTimePickerComponent } from './Components/Exam/data-time-picker/data-time-picker.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { ExamDialogComponent } from './Components/CourseDetails/Dialog/exam-dialog/exam-dialog.component';
+import { QuestionControllerComponent } from './Components/Exam/question-controller/question-controller.component';
+import { ExamControllerComponent } from './Components/Exam/exam-controller/exam-controller.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
- 
+
   declarations: [
     AppComponent,
     SignUpComponent,
@@ -99,7 +102,9 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     ConfirmationDialogComponent,
     HeroComponent,
     CreateExamComponent,
-    DataTimePickerComponent,
+    ExamDialogComponent,
+    QuestionControllerComponent,
+    ExamControllerComponent,
   ],
   imports: [
     BrowserModule,
@@ -134,6 +139,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     MatMenuModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    CommonModule,
   ],
   providers: [
     OverlayContainer,

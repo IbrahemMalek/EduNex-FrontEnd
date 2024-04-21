@@ -6,6 +6,7 @@
 h3 {
   font-weight: 700;
   margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 ::ng-deep .mdc-notched-outline__leading {
@@ -21,9 +22,7 @@ h3 {
 mat-label {
   color: var(--bgHeader);
 }
-input{
-  direction: rtl;
-}
+
 
 .e-dialog.e-schedule-dialog {
   border: 2px;

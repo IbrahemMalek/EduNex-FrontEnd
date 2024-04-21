@@ -1,0 +1,67 @@
+section {
+  border-radius: 10px;
+  box-shadow: var(--border) 0px 1px 3px 0px, var(--border) 0px 0px 0px 1px;
+  background-color: var(--bg);
+  width: 250px;
+  height: 300px;
+}
+div {
+  overflow-y: auto;
+}
+.circle-button {
+  height: 2.75rem;
+  width: 2.75rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  background-color: var(--bg);
+  color: var(--wave2);
+  transition: background-color 0.2s, transform 0.1s;
+  outline: none;
+}
+
+.circle-button:active {
+  background-color: var(--bgHeader);
+  transform: scale(0.9);
+}
+
+.circle-button:hover {
+  background-color: var(--border);
+}
+
+.selected {
+  background-color: var(--border);
+}
+
+.add-question {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  background-image: var(--btn);
+  font-weight: 700;
+  color: white !important;
+  box-shadow: 0 9px var(--wave1);
+  transition: 0.3;
+  width: 80%;
+}
+
+.add-question:hover {
+  box-shadow: 0 4px var(--wave1);
+  top: 2px;
+}
+
+.add-question:active {
+  box-shadow: none;
+  top: 6px;
+}
+
+/*
+.form-button-2:disabled {
+  cursor: auto;
+} */
+
+/* .form-button-2:active {
+  border-width: 4px 0 0;
+  background: none;
+} */

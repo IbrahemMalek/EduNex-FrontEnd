@@ -1,9 +1,9 @@
 <section class="container d-flex justify-content-center" dir="rtl">
   <div class="col-md-7 px-4">
     <div class="text-center mt-5">
-      <h1 class="text-second mb-4" style="color: rgb(255, 133, 0);">انشئ حسابك الآن</h1>
-      <h3 class="mb-6 text-main font-24-bold">ادخل بياناتك بشكل صحيح للحصول علي افضل
-        تجربة داخل الموقع</h3>
+      <h3 class="text-second mb-4" style="color: rgb(255, 133, 0); font-weight: 700;">انشئ حسابك الآن</h3>
+      <h6 class="mb-6 text-main font-24-bold">ادخل بياناتك بشكل صحيح للحصول علي افضل
+        تجربة داخل الموقع</h6>
     </div>
 
 
@@ -48,8 +48,6 @@
         </mat-form-field>
 
 
-
-
       </div>
       <div class="row mt-3">
 
@@ -72,7 +70,6 @@
             <input matInput [matDatepicker]="picker" formControlName="birthday" aria-label="تاريخ الميلاد" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-            <mat-icon matSuffix> <i class="fa-solid fa-calendar-days"></i></mat-icon>
           </mat-form-field>
 
           <div *ngIf="signupForm.get('birthday')?.touched">

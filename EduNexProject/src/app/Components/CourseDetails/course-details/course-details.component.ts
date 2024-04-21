@@ -9,6 +9,7 @@ import { LessonDialogComponent } from '../Dialog/lesson-dialog/lesson-dialog.com
 import { ILessonContent } from 'src/app/Model/ilesson-content';
 import { ContentDialogComponent } from '../Dialog/content-dialog/content-dialog.component';
 import { ConfirmationDialogComponent } from '../Dialog/confirmation-dialog/confirmation-dialog.component';
+import { ExamDialogComponent } from '../Dialog/exam-dialog/exam-dialog.component';
 
 @Component({
   selector: 'app-course-details',
@@ -71,7 +72,6 @@ export class CourseDetailsComponent implements OnInit {
   //add lesson
   openLessonDialog(): void {
     this.dialog.open(LessonDialogComponent, {
-      height: '300px',
       width: '400px',
       panelClass: 'dialog-container',
       autoFocus: false,
@@ -86,7 +86,6 @@ export class CourseDetailsComponent implements OnInit {
   //edit lesson
   editLessonDialog(lessonId?: number, initialLessonTitle?: string): void {
     this.dialog.open(LessonDialogComponent, {
-      height: '300px',
       width: '400px',
       panelClass: 'dialog-container',
       autoFocus: false,
@@ -103,11 +102,10 @@ export class CourseDetailsComponent implements OnInit {
   //delete lesson
   openDeleteConfirmationDialog(lessonId: number): void {
     this.dialog.open(ConfirmationDialogComponent, {
-      height: '200px',
       width: '500px',
       data: {
-        message: 'هل أنت متأكد أنك تريد مسح الحصة؟',
-        confirmButtonText: 'أمسح الحصة',
+        message: 'هل أنت متأكد أنك تريد حذف الحصة؟',
+        confirmButtonText: 'حذف الحصة',
         lessonId: lessonId,
       }
     });
@@ -116,7 +114,6 @@ export class CourseDetailsComponent implements OnInit {
   //add content
   addContentDialog(contentTitle: string, lessonId: number): void {
     this.dialog.open(ContentDialogComponent, {
-      height: '350px',
       width: '400px',
       panelClass: 'dialog-container',
       autoFocus: false,
@@ -134,7 +131,6 @@ export class CourseDetailsComponent implements OnInit {
   //edit content
   editContentDialog(lessonId: number, content: ILessonContent): void {
     this.dialog.open(ContentDialogComponent, {
-      height: '350px',
       width: '400px',
       panelClass: 'dialog-container',
       autoFocus: false,
@@ -156,13 +152,27 @@ export class CourseDetailsComponent implements OnInit {
   //delete content
   openDeleteContentConfirmationDialog(lessonId: number, contentId: number): void {
     this.dialog.open(ConfirmationDialogComponent, {
-      height: '200px',
       width: '600px',
       data: {
-        message: 'هل أنت متأكد أنك تريد مسح هذا المحتوى؟',
-        confirmButtonText: 'أمسح المحتوى',
+        message: 'هل أنت متأكد أنك تريد حذف هذا المحتوى؟',
+        confirmButtonText: 'حذف المحتوى',
         lessonId: lessonId,
         contentId: contentId,
+      }
+    });
+  }
+
+  //addExam / Work
+  openExamDialog(examType: string, courseID: number, lessonId: number, contentId: number): void {
+    this.dialog.open(ExamDialogComponent, {
+      width: '600px',
+      data: {
+        header: examType == 'exam' ? 'بيانات الامتحان' : 'بيانات الواجب',
+        confirmButtonText: examType == 'exam' ? 'أضف الامتحان' : 'أضف لاواجب',
+        lessonId: lessonId,
+        contentId: contentId,
+        courseID: courseID,
+        examType: examType,
       }
     });
   }

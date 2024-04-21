@@ -31,11 +31,10 @@
               <button mat-menu-item (click)="addContentDialog('video', lesson.id)" style="direction: rtl;">
                 فيديو
               </button>
-              <button mat-menu-item [routerLink]="['/course', courseID, 'lesson', lesson.id, 'exam', 1]"
-                style="direction: rtl;">
-                أمتحان
+              <button mat-menu-item (click)="openExamDialog('exam', courseID, lesson.id, 1)" style="direction: rtl;">
+                امتحان
               </button>
-              <button mat-menu-item [routerLink]="['/course', courseID, 'lesson', lesson.id, 'exam', 2]"
+              <button mat-menu-item (click)="openExamDialog('homeWork', courseID, lesson.id, 2)"
                 style="direction: rtl;">
                 واجب
               </button>
@@ -55,7 +54,7 @@
             <div *ngIf="content" class="flex">
               <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
                 (click)="openDeleteContentConfirmationDialog(lesson.id, content.id)">
-                <mat-icon>close</mat-icon>
+                <mat-icon>delete</mat-icon>
               </button>
 
               <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
@@ -70,7 +69,7 @@
       </mat-expansion-panel>
       <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
         (click)="openDeleteConfirmationDialog(lesson.id)">
-        <mat-icon>close</mat-icon>
+        <mat-icon>delete</mat-icon>
       </button>
       <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
         (click)="editLessonDialog(lesson.id, lesson.title)">

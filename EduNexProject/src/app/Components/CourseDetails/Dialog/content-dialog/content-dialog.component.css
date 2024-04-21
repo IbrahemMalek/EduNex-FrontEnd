@@ -24,7 +24,3 @@ mat-label {
 ::ng-deep .mdc-notched-outline__trailing {
   border-color: var(--bgHeader) !important;
 }
-
-input{
-  direction: rtl;
-}

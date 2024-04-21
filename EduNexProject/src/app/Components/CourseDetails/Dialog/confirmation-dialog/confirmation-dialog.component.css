@@ -1,4 +1,8 @@
-.custom-button {
+.red-button {
   border-radius: 20rem !important;
-  padding-inline: 2rem !important;
+  /* padding-inline: 2rem !important; */
+  /* min-width: 12rem; */
+}
+h3{
+  text-align: center;
 }
