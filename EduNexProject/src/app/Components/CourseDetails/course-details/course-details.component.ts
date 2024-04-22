@@ -162,8 +162,8 @@ export class CourseDetailsComponent implements OnInit {
     });
   }
 
-  //addExam / Work
-  openExamDialog(examType: string, courseID: number, lessonId: number, contentId: number): void {
+  //addExam / homeWork
+  openExamDialog(examType: string, course: ICourse, lessonId: number, contentId: number): void {
     this.dialog.open(ExamDialogComponent, {
       width: '600px',
       data: {
@@ -171,7 +171,9 @@ export class CourseDetailsComponent implements OnInit {
         confirmButtonText: examType == 'exam' ? 'أضف الامتحان' : 'أضف لاواجب',
         lessonId: lessonId,
         contentId: contentId,
-        courseID: courseID,
+        courseID: course.id,
+        courseTitle: course.description,
+        grade: course.grade,
         examType: examType,
       }
     });

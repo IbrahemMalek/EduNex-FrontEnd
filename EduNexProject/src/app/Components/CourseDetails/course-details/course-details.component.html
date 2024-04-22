@@ -31,11 +31,11 @@
               <button mat-menu-item (click)="addContentDialog('video', lesson.id)" style="direction: rtl;">
                 فيديو
               </button>
-              <button mat-menu-item (click)="openExamDialog('exam', courseID, lesson.id, 1)" style="direction: rtl;">
+              <button mat-menu-item (click)="openExamDialog('exam', course!, lesson.id, i)" style="direction: rtl;"
+                *ngIf="course">
                 امتحان
               </button>
-              <button mat-menu-item (click)="openExamDialog('homeWork', courseID, lesson.id, 2)"
-                style="direction: rtl;">
+              <button mat-menu-item (click)="openExamDialog('homeWork', course!, lesson.id, i)" style="direction: rtl;">
                 واجب
               </button>
 

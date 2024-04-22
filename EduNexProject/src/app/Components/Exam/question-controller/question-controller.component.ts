@@ -1,23 +1,33 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormArray, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-question-controller',
   templateUrl: './question-controller.component.html',
   styleUrls: ['./question-controller.component.css']
 })
-export class QuestionControllerComponent {
+export class QuestionControllerComponent implements OnInit {
 
-  @Input() questions: any[] = [];
+  @Input() examForm: FormGroup | undefined;
   @Output() questionIndexClicked: EventEmitter<number> = new EventEmitter<number>();
-  @Output() addQuestionClicked: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() addQuestionClicked: EventEmitter<any> = new EventEmitter<any>();
 
   questionIndex: number = 0;
+  formSubmitted: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
-  onAddQuestionClick(): void {
-    if (this.questions.length < 16) {
+  ngOnInit(): void {
+    this.onAddQuestionClicked();
+  }
+
+  get questionsArray(): FormArray {
+    return this.examForm?.get('questions') as FormArray;
+  }
+
+  onAddQuestionClicked(): void {
+    const questionsArray = this.examForm?.get('questions') as FormArray | null;
+    if (questionsArray && questionsArray.controls.length < 12) {
       this.addQuestionClicked.emit();
     }
   }
@@ -25,5 +35,17 @@ export class QuestionControllerComponent {
   sendIndexToParent(index: number): void {
     this.questionIndex = index;
     this.questionIndexClicked.emit(index);
+  }
+
+  isQuestionInvalid(index: number): boolean {
+    const questionControl = this.questionsArray.at(index);
+    return this.formSubmitted && questionControl?.invalid;
+  }
+
+  handleSubmit(): void {
+    this.formSubmitted = true;
+    if (this.examForm?.valid) {
+      this.formSubmitted = false;
+    }
   }
 }

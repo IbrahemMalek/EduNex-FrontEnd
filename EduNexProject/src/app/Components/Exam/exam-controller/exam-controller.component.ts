@@ -8,7 +8,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ExamControllerComponent implements OnInit {
 
   @Output() sectionChange: EventEmitter<string> = new EventEmitter<string>();
-  @Output() saveClicked: EventEmitter<void> = new EventEmitter<void>();
 
   activeSection: string = '';
 
@@ -17,11 +16,7 @@ export class ExamControllerComponent implements OnInit {
     this.sectionChange.emit(section);
   }
 
-  onSaveClicked(): void {
-    this.saveClicked.emit();
-  }
-
   ngOnInit(): void {
-    this.setActiveSection('questionSettings')
+    this.setActiveSection('questionSettings');
   }
 }

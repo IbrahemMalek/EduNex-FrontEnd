@@ -91,7 +91,7 @@ mat-error {
   color: red !important;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 690px) {
   .column {
     flex-direction: column-reverse;
   }

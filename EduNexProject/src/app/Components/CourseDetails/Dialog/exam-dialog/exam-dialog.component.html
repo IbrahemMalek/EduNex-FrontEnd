@@ -1,4 +1,4 @@
-<form [formGroup]="contentForm" class="pt-1 pb-4">
+<form [formGroup]="contentForm" class="pt-1 pb-4" (ngSubmit)="onYesClick($event)">
   <div class="flex justify-content-between">
     <div></div>
     <button mat-icon-button (click)="onNoClick()" style="color: red;">
@@ -18,12 +18,12 @@
           العنوان مطلوب
         </mat-error>
         <mat-error *ngIf="contentForm.get('title')?.hasError('pattern')">
-          العنوان يجب أن يحتوي على أحرف وأرقام فقط
+          العنوان يجب أن يحتوي على أسماء عربية وأرقام فقط
         </mat-error>
       </mat-form-field>
 
       <!-- Start Date Errors -->
-      <div class="flex gap-3">
+      <div class="flex gap-3 column">
         <mat-form-field appearance="outline">
           <mat-label>تاريخ البدء</mat-label>
           <input matInput [matDatepicker]="startDatePicker" placeholder="تاريخ البدء" formControlName="startDate">
@@ -31,6 +31,9 @@
           <mat-datepicker #startDatePicker></mat-datepicker>
           <mat-error *ngIf="contentForm.get('startDate')?.hasError('required')">
             تاريخ البدء مطلوب
+          </mat-error>
+          <mat-error *ngIf="contentForm.errors?.['dateMismatch']">
+            تاريخ البدء يجب أن يكون قبل تاريخ الانتهاء
           </mat-error>
         </mat-form-field>
 
@@ -45,7 +48,7 @@
       </div>
 
       <!-- End Date Errors -->
-      <div class="flex gap-3">
+      <div class="flex gap-3 column">
         <mat-form-field appearance="outline">
           <mat-label>تاريخ الانتهاء</mat-label>
           <input matInput [matDatepicker]="endDatePicker" placeholder="تاريخ الانتهاء" formControlName="endDate">
@@ -53,6 +56,9 @@
           <mat-datepicker #endDatePicker></mat-datepicker>
           <mat-error *ngIf="contentForm.get('endDate')?.hasError('required')">
             تاريخ الانتهاء مطلوب
+          </mat-error>
+          <mat-error *ngIf="contentForm.errors?.['dateMismatch']">
+            تاريخ البدء يجب أن يكون قبل تاريخ الانتهاء
           </mat-error>
         </mat-form-field>
 
@@ -74,15 +80,16 @@
         <mat-error *ngIf="contentForm.get('duration')?.hasError('required')">
           المدة مطلوبة
         </mat-error>
-        <mat-error *ngIf="contentForm.errors?.['dateMismatch']">
-          تاريخ البدء يجب أن يكون قبل تاريخ الانتهاء
+        <mat-error *ngIf="contentForm.get('duration')?.hasError('min')">
+          المدة يجب أن تكون على الأقل 5 دقائق
         </mat-error>
-        <mat-error *ngIf="contentForm.errors?.['durationMismatch']">
-          المدة يجب أن تكون أطول من فترة الامتحان
+        <mat-error *ngIf="contentForm.get('duration')?.hasError('max')">
+          المدة يجب أن لا تتجاوز 180 دقيقة
         </mat-error>
       </mat-form-field>
+
     </mat-card-content>
 
-    <button mat-button class="green-button mt-3" (click)="onYesClick()">{{ data.confirmButtonText }}</button>
+    <button mat-button class="green-button mt-3">{{ data.confirmButtonText }}</button>
   </div>
 </form>

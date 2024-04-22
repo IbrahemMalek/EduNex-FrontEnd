@@ -16,8 +16,9 @@ div {
   border: 3px solid var(--border);
   background-color: var(--bg);
   color: var(--wave2);
-  transition: background-color 0.2s, transform 0.1s;
+  transition: 0.3s;
   outline: none;
+  font-weight: 700;
 }
 
 .circle-button:active {
@@ -31,8 +32,13 @@ div {
 
 .selected {
   background-color: var(--border);
+  color: var(--bgHeader);
 }
 
+.invalid{
+  background-color: brown;
+  color: white;
+}
 .add-question {
   outline: none;
   border: none;
@@ -44,6 +50,8 @@ div {
   box-shadow: 0 9px var(--wave1);
   transition: 0.3;
   width: 80%;
+  margin-top: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .add-question:hover {

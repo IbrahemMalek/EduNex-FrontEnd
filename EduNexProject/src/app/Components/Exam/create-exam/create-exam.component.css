@@ -35,18 +35,6 @@
   font-weight: 700;
 }
 
-.ltr {
-  direction: ltr;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.ltr input {
-  direction: rtl;
-}
-
 h5 {
   font-weight: 700;
 }
@@ -55,28 +43,29 @@ h5 span {
   color: var(--wave2);
 }
 
-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    var(--bgHeader),
-    rgba(0, 0, 0, 0)
-  );
+#triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 35px solid var(--wave2);
+  border-right: 20px solid transparent;
+  rotate: 90deg;
+  margin-bottom: -2.25rem;
+  margin-right: -1.25rem;
 }
 
-.add {
-  border: 2px solid green;
-  color: green;
+#triangle-topright {
+  width: 0;
+  height: 0;
+  border-top: 35px solid var(--wave2);
+  border-left: 20px solid transparent;
+  rotate: 90deg;
+  margin-bottom: -0.15rem;
+  margin-right: -1.25rem;
 }
+
 .close {
   color: red;
 }
-
-/* .close:active {
-  transform: scale(0.9);
-} */
 
 .mat-icon {
   height: 26px !important;
@@ -121,6 +110,12 @@ label::after {
 .disabled-label {
   text-decoration: line-through;
   text-decoration-color: red;
+}
+
+.counter {
+  margin-top: 8px; /* Adjust as needed */
+  font-size: 14px; /* Adjust as needed */
+  color: #333; /* Adjust color as needed */
 }
 
 /* Change the border color */
@@ -207,6 +202,16 @@ mat-card-content {
 form.container {
   gap: 2rem;
 }
+
+mat-error {
+  color: red !important;
+}
+
+::ng-deep .snackbar {
+  background-color: brown !important;
+  color: white !important;
+}
+
 @media (min-width: 992px) {
   .column {
     flex-direction: column;

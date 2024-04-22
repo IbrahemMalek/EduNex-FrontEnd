@@ -66,6 +66,7 @@ import { ExamDialogComponent } from './Components/CourseDetails/Dialog/exam-dial
 import { QuestionControllerComponent } from './Components/Exam/question-controller/question-controller.component';
 import { ExamControllerComponent } from './Components/Exam/exam-controller/exam-controller.component';
 import { CommonModule } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
 
@@ -140,6 +141,7 @@ import { CommonModule } from '@angular/common';
     MatNativeDateModule,
     MatDatepickerModule,
     CommonModule,
+    MatSnackBarModule
   ],
   providers: [
     OverlayContainer,
