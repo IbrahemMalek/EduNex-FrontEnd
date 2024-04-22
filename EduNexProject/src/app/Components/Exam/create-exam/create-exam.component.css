@@ -63,6 +63,15 @@ h5 span {
   margin-right: -1.25rem;
 }
 
+/* #book-mark-tail {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background-color: var(--wave2);
+  top: 2rem;
+  left: -1.25rem;
+} */
+
 .close {
   color: red;
 }
@@ -235,6 +244,10 @@ mat-error {
  */
   .column-mobile {
     flex-direction: column;
+  }
+  .answer {
+    align-items: center !important;
+    gap: 1rem;
   }
   .truefalse {
     margin-bottom: 2rem;

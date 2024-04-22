@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 import { ICourse } from 'src/app/Model/icourse';
 import { ILesson } from 'src/app/Model/ilesson';
@@ -15,18 +14,6 @@ import { ExamDialogComponent } from '../Dialog/exam-dialog/exam-dialog.component
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
   styleUrls: ['./course-details.component.css'],
-  animations: [
-    trigger('fadeInOut', [
-      state('in', style({ opacity: 1 })),
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate(300)
-      ]),
-      transition(':leave', [
-        animate(300, style({ opacity: 0 }))
-      ])
-    ])
-  ]
 })
 export class CourseDetailsComponent implements OnInit {
   someMethod() {
@@ -43,8 +30,6 @@ export class CourseDetailsComponent implements OnInit {
     { label: 'محتوي الكورس', selected: true },
     { label: 'عن المعلم', selected: false },
   ];
-
-  someProperty: any;
 
   constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog, private router: Router) {
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -163,19 +148,26 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   //addExam / homeWork
-  openExamDialog(examType: string, course: ICourse, lessonId: number, contentId: number): void {
+  openExamDialog(examType: string, course: ICourse, lesson: ILesson, contentId: number): void {
     this.dialog.open(ExamDialogComponent, {
       width: '600px',
       data: {
         header: examType == 'exam' ? 'بيانات الامتحان' : 'بيانات الواجب',
         confirmButtonText: examType == 'exam' ? 'أضف الامتحان' : 'أضف لاواجب',
-        lessonId: lessonId,
+        lessonId: lesson.id,
+        lessonTitle: lesson.title,
         contentId: contentId,
         courseID: course.id,
         courseTitle: course.description,
         grade: course.grade,
         examType: examType,
       }
+    });
+  }
+
+  passLesson(lesson: any): void {
+    this.router.navigate(['/lesson', lesson.id], {
+      state: { lesson: lesson }
     });
   }
 }

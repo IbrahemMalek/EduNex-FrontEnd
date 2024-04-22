@@ -22,7 +22,7 @@ export class ExamDialogComponent {
 
   ngOnInit(): void {
     this.contentForm = new FormGroup({
-      title: new FormControl('', [Validators.required, Validators.pattern(/^[\u0600-\u06FF\s0-9]+$/)]),
+      title: new FormControl('', [Validators.required, Validators.pattern(/^[\u0600-\u06FF\u0750-\u077F\s0-9a-zA-Z]+$/)]),
       startTime: new FormControl('', Validators.required),
       endTime: new FormControl('', Validators.required),
       startDate: new FormControl('', Validators.required),
@@ -31,7 +31,7 @@ export class ExamDialogComponent {
     });
   }
 
-  // Separate validation functions
+  // Separated validation functions
   isAnyValueMissing(control: AbstractControl): boolean {
     return !control.get('startDate')?.value || !control.get('startTime')?.value ||
       !control.get('endDate')?.value || !control.get('endTime')?.value ||
@@ -113,6 +113,7 @@ export class ExamDialogComponent {
         duration: formData.duration,
         grade: this.data.grade,
         courseTitle: this.data.courseTitle,
+        lessonTitle: this.data.lessonTitle,
       }
     });
   }

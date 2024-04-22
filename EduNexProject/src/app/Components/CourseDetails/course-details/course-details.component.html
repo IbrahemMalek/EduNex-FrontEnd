@@ -9,7 +9,7 @@
     </button>
   </div>
 
-  <div class="course" *ngIf="options[0].selected" [@fadeInOut]>
+  <div class="course" *ngIf="options[0].selected">
     <div class="flex gap-1">
       <h3 class="m-0" style="font-weight: 700;">محتوي الكورس</h3>
       <button mat-icon-button (click)="openLessonDialog()"><mat-icon>note_add</mat-icon></button>
@@ -31,11 +31,11 @@
               <button mat-menu-item (click)="addContentDialog('video', lesson.id)" style="direction: rtl;">
                 فيديو
               </button>
-              <button mat-menu-item (click)="openExamDialog('exam', course!, lesson.id, i)" style="direction: rtl;"
+              <button mat-menu-item (click)="openExamDialog('exam', course!, lesson, i)" style="direction: rtl;"
                 *ngIf="course">
                 امتحان
               </button>
-              <button mat-menu-item (click)="openExamDialog('homeWork', course!, lesson.id, i)" style="direction: rtl;">
+              <button mat-menu-item (click)="openExamDialog('homeWork', course!, lesson, i)" style="direction: rtl;">
                 واجب
               </button>
 
@@ -46,7 +46,8 @@
 
         <ng-container *ngFor="let content of lesson.content">
           <div class="flex">
-            <button mat-button class="d-flex justify-content-start gap-2">
+            <button mat-button class="d-flex justify-content-start gap-2" [routerLink]="['/lesson', content.id]"
+              (click)="passLesson(lesson)">
               <mat-icon style="color: var(--wave2);">airplay</mat-icon>
               <span>{{ content.title }}</span>
             </button>
@@ -78,7 +79,7 @@
     </mat-accordion>
   </div>
 
-  <div class="teacher d-flex gap-3 mt-4" *ngIf="options[1].selected" [@fadeInOut]>
+  <div class="teacher d-flex gap-3 mt-4" *ngIf="options[1].selected">
     <!-- <img mat-card-image [src]="teacher?.imageUrl" alt="Sample Image" class="align-self-center"> -->
     <img mat-card-image src="https://via.placeholder.com/225" alt="Sample Image" class="mt-4">
     <div>

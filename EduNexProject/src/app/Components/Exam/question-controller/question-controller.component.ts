@@ -8,12 +8,12 @@ import { FormArray, FormGroup } from '@angular/forms';
 })
 export class QuestionControllerComponent implements OnInit {
 
+  @Input() formSubmitted!: boolean;
   @Input() examForm: FormGroup | undefined;
   @Output() questionIndexClicked: EventEmitter<number> = new EventEmitter<number>();
   @Output() addQuestionClicked: EventEmitter<any> = new EventEmitter<any>();
 
   questionIndex: number = 0;
-  formSubmitted: boolean = false;
 
   constructor() { }
 
@@ -39,13 +39,7 @@ export class QuestionControllerComponent implements OnInit {
 
   isQuestionInvalid(index: number): boolean {
     const questionControl = this.questionsArray.at(index);
-    return this.formSubmitted && questionControl?.invalid;
+    return (this.formSubmitted && questionControl?.touched) && (questionControl?.invalid);
   }
 
-  handleSubmit(): void {
-    this.formSubmitted = true;
-    if (this.examForm?.valid) {
-      this.formSubmitted = false;
-    }
-  }
 }

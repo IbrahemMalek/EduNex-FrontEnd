@@ -67,6 +67,7 @@ import { QuestionControllerComponent } from './Components/Exam/question-controll
 import { ExamControllerComponent } from './Components/Exam/exam-controller/exam-controller.component';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LessonContentComponent } from './Components/lesson-content/lesson-content.component';
 
 @NgModule({
 
@@ -106,6 +107,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ExamDialogComponent,
     QuestionControllerComponent,
     ExamControllerComponent,
+    LessonContentComponent,
   ],
   imports: [
     BrowserModule,

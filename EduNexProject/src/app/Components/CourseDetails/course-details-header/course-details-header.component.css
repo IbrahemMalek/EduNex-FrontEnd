@@ -1,8 +1,6 @@
 section {
   background-color: #2d2d2d;
   position: relative;
-  /* background-image: url("../../../assets/image/header-star.png"); */
-  /* background-repeat: no-repeat; */
   margin-top: -1vw;
 }
 svg:first-of-type {

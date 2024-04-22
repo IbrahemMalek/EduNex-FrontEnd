@@ -1,10 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
-import { QuestionControllerComponent } from '../question-controller/question-controller.component';
-
 @Component({
   selector: 'app-create-exam',
   templateUrl: './create-exam.component.html',
@@ -18,26 +16,24 @@ export class CreateExamComponent implements OnInit {
   questionIndex: number = 0;
   questions: any[] = [];
   selectedValue: number = 10;
-  grade!: string;
   courseTitle!: string;
+  lessonTitle!: string;
   questionsControls!: FormArray;
 
-  @ViewChild(QuestionControllerComponent) questionController!: QuestionControllerComponent;
+  formSubmitted: boolean = false;
+  // @Output() formSubmit: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.examForm = this.fb.group({
       examId: [this.questionIndex],
-      title: ['', [Validators.required, Validators.pattern(/^[\u0600-\u06FF\s0-9]+$/)]],
+      title: ['', [Validators.required, Validators.pattern(/^[\u0600-\u06FF\u0750-\u077F\s0-9a-zA-Z]+$/)]],
       startDate: [new Date(), Validators.required],
       endDate: [new Date(), Validators.required],
       startTime: [0, Validators.required],
       endTime: [0, Validators.required],
       duration: [0, [Validators.required, Validators.min(5), Validators.max(180)]],
-      type: ['', Validators.required],
-      points: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
-      header: ['', [Validators.required, Validators.pattern(/^[\u0600-\u06FF\s0-9]+$/)]],
       questions: this.fb.array([]),
     });
 
@@ -64,8 +60,8 @@ export class CreateExamComponent implements OnInit {
         duration: params['duration'] || ''
       });
 
-      this.grade = params['grade'] || '';
       this.courseTitle = params['courseTitle'] || '';
+      this.lessonTitle = params['lessonTitle'] || '';
     });
   }
 
@@ -91,14 +87,16 @@ export class CreateExamComponent implements OnInit {
       return;
     }
 
-    const answersControls = answersFormArray.controls;
-    console.log(answersControls);
+    // const answersControls = answersFormArray.controls;
+    // console.log(answersControls);
   }
 
 
   handleQuestionIndexClicked(index: number): void {
-    this.activeQuestions[index] = !this.activeQuestions[index];
-    this.activeQuestionIndex = this.activeQuestionIndex === index ? -1 : index;
+    if (index != this.activeQuestionIndex) {
+      this.activeQuestions[index] = !this.activeQuestions[index];
+      this.activeQuestionIndex = this.activeQuestionIndex === index ? -1 : index;
+    }
   }
 
   getAnswersForActiveQuestion(): FormArray | undefined {
@@ -129,16 +127,21 @@ export class CreateExamComponent implements OnInit {
   createQuestionFormGroup(): FormGroup {
     return this.fb.group({
       points: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
-      header: ['', [Validators.required, Validators.pattern(/^[\u0600-\u06FF\s0-9]+$/)]],
+      header: ['', [Validators.required, Validators.pattern(/^[\u0600-\u06FF\u0750-\u077F\s0-9a-zA-Z]+$/)]],
       type: ['', Validators.required],
       answers: this.fb.array([])
     });
   }
 
-  createAnswerFormGroup(answer: any): FormGroup {
+  createAnswerFormGroup(answer: any, questionType: string, index: number): FormGroup {
+    let headerValue = '';
+    if (questionType === 'trueFalse') {
+      headerValue = index === 0 ? 'صح' : 'خطأ';
+    }
+
     return this.fb.group({
       answerId: [answer?.answerId || 0],
-      header: [answer?.header || '', Validators.required],
+      header: [headerValue, Validators.required],
       isCorrect: [answer?.isCorrect || null, Validators.required]
     }) as FormGroup;
   }
@@ -163,22 +166,26 @@ export class CreateExamComponent implements OnInit {
 
     const questionType = activeQuestionFormGroup.get('type')?.value;
 
-    if (questionType) {
-      const answersFormArray = activeQuestionFormGroup.get('answers') as FormArray;
+    if (!questionType) {
+      console.error('Question type not found.');
+      return;
+    }
 
-      if (!answersFormArray) {
-        console.error('Answers form array not found.');
-        return;
-      }
+    const answersFormArray = activeQuestionFormGroup.get('answers') as FormArray;
 
-      if (!this.isAnswersLimitReached(questionIndex)) {
-        answersFormArray.push(this.createAnswerFormGroup({}));
-      } else {
-        console.error('Maximum number of answers reached.');
-        return;
-      }
+    if (!answersFormArray) {
+      console.error('Answers form array not found.');
+      return;
+    }
+
+    if (!this.isAnswersLimitReached(questionIndex)) {
+      answersFormArray.push(this.createAnswerFormGroup({}, questionType, answersFormArray.length));
+    } else {
+      console.error('Maximum number of answers reached.');
+      return;
     }
   }
+
 
   isAnswersLimitReached(questionIndex: number): boolean {
     const questionFormGroup = this.getQuestionFormGroup(questionIndex);
@@ -191,7 +198,7 @@ export class CreateExamComponent implements OnInit {
 
     return (
       (questionType === 'multipleChoice' || questionType === 'oneChoice') && answersLength >= 4 ||
-      (questionType === 'trueFalse' && answersLength >= 1)
+      (questionType === 'trueFalse' && answersLength >= 2)
     );
   }
 
@@ -260,7 +267,7 @@ export class CreateExamComponent implements OnInit {
     const questionFormGroup = this.getQuestionFormGroup(questionIndex);
     if (questionFormGroup) {
       const questionType = questionFormGroup.get('type')?.value;
-      if (questionType === 'oneChoice') {
+      if ((questionType === 'oneChoice' || questionType === 'trueFalse') && isTrueAnswer) {
         const answersFormArray = questionFormGroup.get('answers') as FormArray;
         if (answersFormArray) {
           for (let i = 0; i < answersFormArray.length; i++) {
@@ -282,7 +289,34 @@ export class CreateExamComponent implements OnInit {
         }
       }
     }
+
+    // Check if at least one answer is marked as correct
+    const answersArray = this.getAnswersForActiveQuestion();
+    if (answersArray && !answersArray.controls.some(control => control.get('isCorrect')?.value === true)) {
+      const questionFormGroup = this.getQuestionFormGroup(questionIndex);
+      if (questionFormGroup) {
+        const answersFormArray = questionFormGroup.get('answers') as FormArray;
+        if (answersFormArray) {
+          const errorMessageControl = answersFormArray.controls[selectedAnswerIndex].get('isCorrect');
+          if (errorMessageControl) {
+            errorMessageControl.setErrors({ 'atLeastOneTrueFalseRequired': true });
+          }
+        }
+      }
+    } else {
+      const questionFormGroup = this.getQuestionFormGroup(questionIndex);
+      if (questionFormGroup) {
+        const answersFormArray = questionFormGroup.get('answers') as FormArray;
+        if (answersFormArray) {
+          const errorMessageControl = answersFormArray.controls[selectedAnswerIndex].get('isCorrect');
+          if (errorMessageControl) {
+            errorMessageControl.setErrors(null);
+          }
+        }
+      }
+    }
   }
+
 
   onAddQuestionClicked(): void {
     const questionsFormArray = this.examForm.get('questions') as FormArray;
@@ -290,17 +324,55 @@ export class CreateExamComponent implements OnInit {
     this.examForm.markAsDirty();
   }
 
+  onSaveClicked(): void {
+    console.log(this.examForm.value);
+
+    this.examForm.markAllAsTouched();
+    this.formSubmitted = true;
+
+    if (this.isAnyValueMissing(this.examForm)) {
+      this.openSnackBar('الرجاء ملء جميع الحقول', 'حسناً');
+      return;
+    }
+
+    if (this.isStartDateAfterEndDate(this.examForm)) {
+      this.openSnackBar('تاريخ البدء يجب أن يكون قبل تاريخ الانتهاء', 'حسناً');
+      return;
+    }
+
+    if (this.isDurationValid(this.examForm)) {
+      this.openSnackBar('المدة يجب أن تكون أطول من مدة الامتحان', 'حسناً');
+      return;
+    }
+
+    if (this.isStartDatePast(this.examForm)) {
+      this.openSnackBar('تاريخ البدء يجب أن يكون بعد تاريخ اليوم', 'حسناً');
+      return;
+    }
+
+    if (this.examForm.valid) {
+      console.log('Form submitted successfully!');
+    } else {
+      console.log('Form validation failed.');
+      this.displayErrorMessages();
+    }
+  }
+
+
   //SnackBar
   displayErrorMessages(): void {
     Object.keys(this.examForm.controls).forEach(controlName => {
-      const control: AbstractControl | null = this.examForm.get(controlName);
+      const control = this.examForm.get(controlName);
       const errors = control?.errors;
+      // console.log(`Control Name: ${controlName}`);
+      // console.log(`Control Value: ${control?.value}`);
+      // console.log(`Errors: ${errors}`);
       if (errors) {
         Object.keys(errors).forEach(errorName => {
           let errorMessage = '';
           switch (errorName) {
             case 'required':
-              errorMessage = 'الرجاء ملء جميع الحقول';
+              errorMessage = 'هذا الحقل مطلوب';
               break;
             default:
               errorMessage = 'خطأ غير معروف';
@@ -311,16 +383,6 @@ export class CreateExamComponent implements OnInit {
     });
   }
 
-  openSnackBar(message: string, action: string): void {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-      verticalPosition: 'top',
-      horizontalPosition: 'center',
-      panelClass: ['snackbar']
-    });
-  }
-
-  // Separate validation functions
   isAnyValueMissing(control: AbstractControl): boolean {
     return !control.get('startDate')?.value || !control.get('startTime')?.value ||
       !control.get('endDate')?.value || !control.get('endTime')?.value ||
@@ -357,52 +419,12 @@ export class CreateExamComponent implements OnInit {
     return startDate <= today;
   }
 
-
-  onSaveClicked(): void {
-
-    console.log(this.examForm.value.questions);
-    this.examForm.markAllAsTouched();
-
-    const invalidQuestionIndex = this.activeQuestions.findIndex((active, index) => active && this.isQuestionInvalid(index));
-    if (invalidQuestionIndex !== -1) {
-      this.questionIndex = invalidQuestionIndex;
-      return;
-    }
-    if (this.examForm.invalid) {
-      this.displayErrorMessages();
-      return;
-    }
-
-    this.questionController.handleSubmit();
-
-    if (this.isAnyValueMissing(this.examForm)) {
-      this.openSnackBar('الرجاء ملء جميع الحقول', 'حسناً');
-      return;
-    }
-
-    if (this.isStartDateAfterEndDate(this.examForm)) {
-      this.openSnackBar('تاريخ البدء يجب أن يكون قبل تاريخ الانتهاء', 'حسناً');
-      return;
-    }
-
-    if (this.isDurationValid(this.examForm)) {
-      this.openSnackBar('المدة يجب أن تكون أطول من مدة الامتحان', 'حسناً');
-      return;
-    }
-
-    if (this.isStartDatePast(this.examForm)) {
-      this.openSnackBar('تاريخ البدء يجب أن يكون بعد تاريخ اليوم', 'حسناً');
-      return;
-    }
-
-    if (this.examForm.valid) {
-      console.log('Form submitted successfully!');
-    } else {
-      console.log('Form validation failed.');
-      this.displayErrorMessages();
-    }
-
+  openSnackBar(message: string, action: string): void {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center'
+    });
   }
-
 }
 

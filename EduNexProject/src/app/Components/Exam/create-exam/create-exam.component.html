@@ -2,12 +2,12 @@
   <div class="flex column flex-wrap gap-3 justify-content-center column-mobile mb-auto">
     <section class="section-header p-3 d-flex flex-column">
       <h5>{{courseTitle}}</h5>
-      <h6>{{grade}}</h6>
+      <h6>{{lessonTitle}}</h6>
     </section>
     <div class="flex column flex-wrap gap-3 justify-content-center column-mobile mb-auto">
-      <app-exam-controller (sectionChange)="activeSection = $event"
-        (saveClicked)="onSaveClicked()"></app-exam-controller>
-      <app-question-controller [examForm]="examForm" (questionIndexClicked)="handleQuestionIndexClicked($event)"
+      <app-exam-controller (sectionChange)="activeSection = $event"></app-exam-controller>
+      <app-question-controller [examForm]="examForm" [formSubmitted]="formSubmitted"
+        (questionIndexClicked)="handleQuestionIndexClicked($event)"
         (addQuestionClicked)="onAddQuestionClicked()"></app-question-controller>
     </div>
   </div>
@@ -42,6 +42,8 @@
                   </ng-container>
                 </mat-error>
               </mat-form-field>
+
+              <div id="book-mark-tail"></div>
             </div>
           </div>
           <div class="flex flex-column gap-2">
@@ -50,8 +52,12 @@
               <mat-label>نص السؤال</mat-label>
               <textarea matInput formControlName="header" required></textarea>
               <mat-error
-                *ngIf="examForm.get('header')?.errors?.['required'] && (examForm.get('header')?.dirty || examForm.get('header')?.touched)">
+                *ngIf="getQuestionFormGroup(i)?.get('header')?.hasError('required') && (getQuestionFormGroup(i)?.get('header')?.touched)">
                 هذا الحقل مطلوب
+              </mat-error>
+              <mat-error
+                *ngIf="getQuestionFormGroup(i)?.get('header')?.hasError('pattern') && (getQuestionFormGroup(i)?.get('header')?.touched)">
+                يجب أن يحتوي نص السؤال على أحرف وأرقاف فقط
               </mat-error>
             </mat-form-field>
           </div>
@@ -65,7 +71,7 @@
                 <mat-option value="trueFalse">صح أم خطأ</mat-option>
               </mat-select>
               <mat-error
-                *ngIf="examForm.get('type')?.errors?.['required'] && (examForm.get('type')?.dirty || examForm.get('type')?.touched)">
+                *ngIf="getQuestionFormGroup(i).get('type')?.invalid && (getQuestionFormGroup(i).get('type')?.dirty || getQuestionFormGroup(i).get('type')?.touched)">
                 هذا الحقل مطلوب
               </mat-error>
             </mat-form-field>
@@ -88,27 +94,35 @@
                 <button mat-icon-button type="button" class="close align-self-auto" (click)="removeAnswer(i, j)">
                   <mat-icon>delete</mat-icon>
                 </button>
-                <div class="flex flex-wrap gap-sm-2 align-items-baseline mb-sm-5 mb-md-0">
+                <div class="flex gap-sm-2 align-items-baseline mb-sm-5 mb-md-0 answer">
                   <mat-form-field appearance="outline">
                     <mat-label>نص الاجابة</mat-label>
-                    <input matInput type="text" formControlName="header" required>
+                    <input matInput type="text" formControlName="header"
+                      [readonly]="getQuestionFormGroup(i).get('type')?.value === 'trueFalse'" required>
                     <mat-error
                       *ngIf="answer.get('header')?.hasError('required') && (answer.get('header')?.dirty || answer.get('header')?.touched)">
                       هذا الحقل مطلوب
                     </mat-error>
                     <mat-icon matSuffix>library_add</mat-icon>
                   </mat-form-field>
-                  <div class="flex gap-1 me-auto truefalse">
+                  <div class="flex flex-wrap gap-1 me-auto truefalse">
                     <input type="radio" [id]="'true' + j" class="true" (change)="handleAnswerSelection(i, j, true)"
                       formControlName="isCorrect" [value]="true">
                     <label [for]="'true' + j">صح</label>
                     <input type="radio" [id]="'false' + j" class="false" (change)="handleAnswerSelection(i, j, false)"
                       formControlName="isCorrect" [value]="false">
                     <label [for]="'false' + j">خطأ</label>
-                    <mat-error
-                      *ngIf="answer.get('isCorrect')?.hasError('required') && (answer.get('isCorrect')?.dirty || answer.get('isCorrect')?.touched)">
-                      هذا الحقل مطلوب
-                    </mat-error>
+                    <div>
+                      <mat-error
+                        *ngIf="answer.get('isCorrect')?.hasError('required') && (answer.get('isCorrect')?.dirty || answer.get('isCorrect')?.touched)">
+                        هذا الحقل مطلوب
+                      </mat-error>
+                      <mat-error
+                        *ngIf="getAnswerFormGroup(i,j).get('isCorrect')?.invalid
+                     && (getAnswerFormGroup(i,j).get('isCorrect')?.dirty || getAnswerFormGroup(i,j).get('isCorrect')?.touched)">
+                        يجب اختيار إجابة واحدة صح على الأقل
+                      </mat-error>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -131,8 +145,9 @@
             <input matInput type="text" formControlName="title">
             <mat-icon matSuffix>library_add</mat-icon>
             <mat-error *ngIf="examForm.get('title')?.hasError('required')">العنوان مطلوب</mat-error>
-            <mat-error *ngIf="examForm.get('title')?.hasError('pattern')">العنوان يجب أن يحتوي على حروف عربية وأرقام
-              فقط</mat-error>
+            <mat-error *ngIf="examForm.get('title')?.hasError('pattern')">
+              يجب أن يحتوي العنوان على أحرف وأرقام فقط
+            </mat-error>
           </mat-form-field>
         </div>
 

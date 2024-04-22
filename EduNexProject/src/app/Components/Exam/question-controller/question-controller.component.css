@@ -35,10 +35,18 @@ div {
   color: var(--bgHeader);
 }
 
-.invalid{
-  background-color: brown;
+.invalid {
+  background-color: var(--wave5);
   color: white;
 }
+
+.invalid:hover {
+  background-color: #800000;
+}
+.selected.invalid {
+  background-color: #800000;
+}
+
 .add-question {
   outline: none;
   border: none;

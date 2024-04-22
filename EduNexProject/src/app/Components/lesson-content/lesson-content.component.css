@@ -1,0 +1,65 @@
+h5 {
+  font-weight: 700;
+}
+mat-accordion {
+  width: 40%;
+}
+.custom-expansion-panel {
+  box-shadow: var(--border) 0px 0px 0px 1px !important;
+  border-radius: 10px !important;
+  width: 100%;
+  background-image: var(--bg);
+}
+
+.custom-checkbox-container {
+  display: flex;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  /* width: 49%; */
+  padding-top: 0.75rem;
+  padding-bottom: 2.25rem;
+  background-color: rgba(204, 204, 204, 0.3);
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  color: rgba(var(--bgHeader), 0.75);
+}
+
+.custom-checkbox.checked {
+  background-color: rgba(204, 204, 204, 0.7);
+  border-bottom: 3px solid transparent;
+  border-image: var(--btn) 1;
+  color: var(--bgHeader);
+}
+.custom-checkbox span {
+  font-size: 14px;
+}
+
+.custom-expansion-panel {
+  box-shadow: var(--border) 0px 0px 0px 1px !important;
+  border-radius: 10px !important;
+  background-image: var(--bg);
+}
+
+::ng-deep .mdc-button__label {
+  margin-left: auto;
+}
+
+a button {
+  /* width: 200px; */
+  width: 100%;
+}
+@media (min-width: 990px) {
+  mat-accordion {
+    margin-top: 2.5rem;
+  }
+}
+@media (max-width: 990px) {
+  section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
