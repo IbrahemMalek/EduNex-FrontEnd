@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/Service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',

@@ -17,7 +17,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CoursesComponent } from './Components/courses/courses.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
@@ -42,7 +41,6 @@ import { AppearFromLeftDirective } from './Directive/appear-from-left.directive'
 import { AppearFromRightDirective } from './Directive/appear-from-right.directive';
 import { ScrollToTopButtonComponent } from './Components/SharedComponents/scroll-to-top-button/scroll-to-top-button.component';
 import { CourseDetailsComponent } from './Components/CourseDetails/course-details/course-details.component';
-import { HttpClientModule } from '@angular/common/http';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { CourseDetailsCardComponent } from './Components/CourseDetails/course-details-card/course-details-card.component';
@@ -59,8 +57,12 @@ import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.c
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
-import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './Components/footer/footer.component';
+import { DataTimePickerComponent } from './Components/Exam/data-time-picker/data-time-picker.component';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
