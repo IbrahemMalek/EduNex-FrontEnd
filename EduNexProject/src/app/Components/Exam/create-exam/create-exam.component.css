@@ -1,0 +1,92 @@
+body {
+  background-image: var(--btn);
+}
+
+section.container {
+  /* background: #33475B22; */
+  border-radius: 10px;
+  padding-bottom: 5rem;
+  box-shadow: var(--border) 0px 2px 8px 0px;
+}
+
+.ltr {
+  direction: ltr;
+}
+.ltr input {
+  direction: rtl;
+}
+
+h1,
+h3 {
+  font-weight: 700;
+}
+h1 {
+  color: var(--btn);
+  background-image: var(--btn);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 50% 2px;
+  transition: 0.5s;
+}
+h1:hover {
+  background-size: 100% 2px;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--bgHeader),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+mat-label {
+  color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__leading {
+  border-color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__notch {
+  border-color: var(--bgHeader) !important;
+}
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: var(--bgHeader) !important;
+}
+/* @media (min-width: 1200px) {
+  mat-form-field {
+    width: 500px;
+  }
+} */
+mat-form-field {
+  width: calc(25dvw + 150px);
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  background-image: var(--btn);
+  font-size: 16px;
+  font-weight: 300px;
+  color: white !important;
+  border-radius: 20px;
+  box-shadow: 0 9px var(--wave1);
+  transition: 0.3;
+}
+
+button:hover {
+  box-shadow: 0 4px var(--wave1);
+  top: 2px;
+}
+
+button:active {
+  box-shadow: none;
+  top: 6px;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

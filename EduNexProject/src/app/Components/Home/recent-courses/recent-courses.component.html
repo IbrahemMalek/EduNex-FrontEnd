@@ -1,0 +1,29 @@
+<section>
+  <div class="text-center flex justify-content-between flex-column">
+    <h6 style="color: orange;">تعرف علي</h6>
+    <h3 style="color:var(--btn); font-weight: 700;">أحدث الكورسات</h3>
+
+    <div class="custom-checkbox-container flex gap-3 my-3  flex-wrap">
+      <button mat-button *ngFor="let option of options; let i = index" class="custom-checkbox"
+        [class.checked]="option.selected" (click)="toggleOption(i)">
+        <span>{{ option.label }}</span>
+      </button>
+    </div>
+  </div>
+
+ <section>
+  <app-side-scroll-buttons [sectionName]="'scroll-section-r-courses'"></app-side-scroll-buttons>
+
+   <div class="flex scroll-section-r-courses hidden" AppearFromRight>
+     <ng-container *ngFor="let course of filteredCourses.slice(currentIndex, currentIndex + cardsToShow); let i = index">
+       <div class="card-container" [@fadeInOut]>
+         <app-course-card [course]="course"></app-course-card>
+       </div>
+     </ng-container>
+   </div>
+ </section>
+
+  <div class="flex justify-content-center">
+    <button mat-button class="custom-button my-3">مشاهدة الكورسات</button>
+  </div>
+</section>

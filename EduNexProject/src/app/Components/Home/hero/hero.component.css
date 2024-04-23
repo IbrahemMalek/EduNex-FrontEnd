@@ -1,0 +1,109 @@
+.hero {
+  /* background-color: var(--bg); */
+  /* overflow: hidden; */
+  min-height: calc(85dvh);
+}
+.main-btn {
+  padding: 0.4rem 1rem;
+  color: var(--bg);
+  background: linear-gradient(
+      90deg,
+      var(--wave1, #f6d365),
+      var(--wave2, #fda085) 51%,
+      var(--wave1, #f6d365)
+    )
+    var(--x, 0) / 200%;
+  scale: 1;
+  transition: 0.4s;
+}
+.main-btn:hover {
+  scale: 0.995;
+  --x: 100%;
+}
+.lh-base {
+  text-align: justify;
+  text-justify: inter-word;
+}
+a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  color: white !important;
+}
+a span:first-child {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--bg);
+  text-align: center;
+  line-height: 30px;
+  margin-right: 5px;
+  box-shadow: 3px 3px 6px var(--border1);
+}
+a span svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  transform: scaleX(-1);
+}
+
+.image img {
+  position: absolute;
+  top: 0;
+  right: 4rem;
+  transform: translateX(8%);
+  z-index: 1;
+}
+.text {
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.shape {
+  position: relative;
+  width: 70px;
+}
+.shape svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(150%, -50%);
+  opacity: 0.3;
+}
+.svg-1 {
+  height: 69.25dvh;
+}
+.shape2 {
+  position: relative;
+  width: 150px;
+}
+.shape2 svg {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  transform: translate(-50%, 20%);
+  opacity: 0.5;
+}
+
+.flipped {
+  flex-direction: row-reverse;
+}
+
+.flipped > span:first-child {
+  margin-right: 16px;
+}
+@media (max-width: 990px) {
+  .flex {
+    flex-direction: column;
+  }
+}

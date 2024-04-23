@@ -1,0 +1,68 @@
+.example-card {
+  width: 325px;
+  height: 405px;
+  margin: 15px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+.example-card:hover {
+  cursor: pointer;
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.44), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.example-card:hover .overlay {
+  opacity: 1;
+}
+
+.top-bottom-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.category,
+.name {
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transition: 0.3s;
+}
+.category {
+  bottom: 10px;
+  transform: translateX(-50%);
+  color: yellow;
+}
+.name {
+  font-size: 20px;
+  bottom: 50px;
+  transform: translateX(-50%);
+  font-weight: 700;
+  color: white;
+}
+.example-card:hover .category {
+  bottom: 80px;
+  color: red;
+}
+.example-card:hover .name {
+  bottom: 120px;
+}
+a {
+  all: unset;
+}

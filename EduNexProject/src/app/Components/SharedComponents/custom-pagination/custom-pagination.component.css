@@ -1,0 +1,22 @@
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right,
+.left {
+  direction: ltr;
+}
+button {
+  min-width: 36px;
+}
+button.box-shadow {
+  box-shadow: var(--border) 0px 0px 0px 1px !important;
+}
+
+button.active {
+  /* background-color: rgba(0, 0, 0, 0.04); */
+  /* background-color: var(--wave1); */
+  background-image: var(--btn);
+  color: white;
+}

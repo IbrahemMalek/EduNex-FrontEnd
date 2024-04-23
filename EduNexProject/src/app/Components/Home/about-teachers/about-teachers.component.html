@@ -1,0 +1,22 @@
+<section>
+  <div class="text-center flex justify-content-between flex-column">
+    <h6 style="color: orange;">تعرف علي</h6>
+    <h3 style="color:var(--btn); font-weight: 700;">المدرسين الموجودين بالأكاديمية</h3>
+  </div>
+
+  <section>
+    <app-side-scroll-buttons [sectionName]="'scroll-section-a-teachers'"></app-side-scroll-buttons>
+
+    <div class="flex scroll-section-a-teachers hidden" AppearFromRight>
+      <ng-container *ngFor="let teacher of teachers let i = index">
+        <div class="card-container">
+          <app-teacher-card [teacher]="teacher"></app-teacher-card>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+
+  <div class="flex justify-content-center">
+    <button mat-button class="custom-button my-3">كل المدرسين الأكاديمية</button>
+  </div>
+</section>

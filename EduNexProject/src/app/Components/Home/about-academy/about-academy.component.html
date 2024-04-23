@@ -1,0 +1,50 @@
+<!-- <img src="assets/image/BottomWave.png" alt="" class="w-100 img-about mt-5  fa-rotate-180"> -->
+<svg width="100%" height="100%" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg"
+  class="transition duration-300 ease-in-out delay-150">
+  <path
+    d="M 0,400 L 0,150 C 96.64285714285714,140.42857142857144 193.28571428571428,130.85714285714286 330,128 C 466.7142857142857,125.14285714285714 643.5,129 771,151 C 898.5,173 976.7142857142858,213.14285714285714 1080,216 C 1183.2857142857142,218.85714285714286 1311.642857142857,184.42857142857144 1440,150 L 1440,400 L 0,400 Z"
+    stroke="none" stroke-width="0" fill="#2d2d2d" fill-opacity="1"
+    class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
+</svg>
+
+<section>
+  <section class="container">
+    <div style="margin-left: auto;">
+      <h6 style="color: orange;">تعرف علي</h6>
+      <h3 style="color:white; font-weight: 700; font-size: 36px;">EduNex</h3>
+    </div>
+
+    <div class="custom-checkbox-container flex gap-3 my-3 flex-wrap" style="margin-left: auto;">
+      <button mat-button *ngFor="let option of options; let i = index" class="custom-checkbox"
+        [class.checked]="option.selected" (click)="toggleOption(i)">
+        <span>{{ option.label }}</span>
+      </button>
+    </div>
+    <section class="d-flex">
+      <!-- <section class="col-7"> -->
+      <app-side-scroll-buttons [sectionName]="'scroll-about-section'"></app-side-scroll-buttons>
+
+      <div class="flex scroll-about-section hidden" AppearFromRight>
+        <ng-container *ngFor="let card of chosenCards.slice(currentIndex, currentIndex + cardsToShow); let i = index">
+          <div class="card-container" [@fadeInOut]>
+            <ng-container *ngIf="isCourse(card)">
+              <app-course-card [course]="card"></app-course-card>
+            </ng-container>
+            <ng-container *ngIf="isTeacher(card)">
+              <app-teacher-card [teacher]="card"></app-teacher-card>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+  </section>
+</section>
+<!-- <img src="assets/image/BottomWave.png" alt="" class="w-100 img-about mb-5"> -->
+
+<svg width="100%" height="100%" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg"
+  class="transition duration-300 ease-in-out delay-150">
+  <path
+    d="M 0,400 L 0,150 C 143.46428571428572,124.71428571428572 286.92857142857144,99.42857142857143 417,106 C 547.0714285714286,112.57142857142857 663.75,151.00000000000003 765,174 C 866.25,196.99999999999997 952.0714285714284,204.57142857142858 1062,198 C 1171.9285714285716,191.42857142857142 1305.9642857142858,170.71428571428572 1440,150 L 1440,400 L 0,400 Z"
+    stroke="none" stroke-width="0" fill="#2d2d2d" fill-opacity="1"
+    class="transition-all duration-300 ease-in-out delay-150 path-0" transform="rotate(-180 720 200)"></path>
+</svg>

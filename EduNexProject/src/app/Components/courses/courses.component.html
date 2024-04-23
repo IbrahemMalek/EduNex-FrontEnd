@@ -1,0 +1,93 @@
+<div class="flex align-items-start parent container">
+  <div class="flex filter-container my-3 gap-3 flex-wrap">
+    <mat-accordion class="flex">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel" expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            المادة
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option" class="flex flex-column sub-radio">
+          <mat-radio-button value="1" color="accent">Option 1</mat-radio-button>
+          <mat-radio-button value="2" color="accent">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            نوع الكورس
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option" class="flex flex-column sub-radio">
+          <mat-radio-button value="1" color="accent">Option 1</mat-radio-button>
+          <mat-radio-button value="2" color="accent">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            الصف الدراسي
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option" class="flex flex-column sub-radio">
+          <mat-radio-button value="1" color="accent">Option 1</mat-radio-button>
+          <mat-radio-button value="2" color="accent">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            أدني السعر
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-slider min="0" max="3000" step="100" color="accent" showTickMarks discrete style="direction: ltr;">
+          <input matSliderThumb>
+        </mat-slider>
+        <div class="flex justify-content-between">
+          <span class="price-text">EGP 0</span>
+          <span class="price-text">EGP 3000</span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="flex">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;">
+            أعلي السعر
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-slider min="3000" max="6000" step="100" color="accent" showTickMarks discrete style="direction: ltr;">
+          <input matSliderThumb>
+        </mat-slider>
+        <div class="flex justify-content-between">
+          <span class="price-text">EGP 3000</span>
+          <span class="price-text">EGP 6000</span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="flex flex-wrap">
+    <ng-container *ngFor="let course of courses">
+      <app-course-card [course]="course"></app-course-card>
+    </ng-container>
+  </div>
+</div>
+
+
+<app-custom-pagination></app-custom-pagination>

@@ -1,0 +1,99 @@
+<mat-sidenav-container class="example-container">
+  <!-- Side nav goes here -->
+  <mat-sidenav #sidenav [opened]="isShowing" fixedTopGap="56" position="end"
+    [@openClose]="isShowing ? 'open' : 'closed'">
+    <!-- Side nav content -->
+    <div class="flex">
+      <div style="flex-grow: 1;"></div>
+      <button class="close-btn toggle-btn" mat-icon-button (click)="toggleRightSidenav()" style="color: red;">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div style="padding-top:1rem;" class="side-btns">
+      <button mat-button routerLink="/home" routerLinkActive="active">الرئيسية</button>
+      <button mat-button routerLink="/courses" routerLinkActive="active">الكورسات</button>
+      <!-- <button mat-button routerLink="/offers">العروض</button> -->
+      <button mat-button routerLink="/teachers" routerLinkActive="active">المدرسين</button>
+      <button mat-button routerLink="/about" routerLinkActive="active">عن المنصة</button>
+      <!-- <button mat-button routerLink="/exams">امتحانات عامة</button> -->
+      <button mat-button routerLink="/Parent" routerLinkActive="active">ولي الأمر</button>
+    </div>
+    <hr>
+    <div class="flex gap-2">
+      <button mat-button routerLink="/login" style="border-radius: 20rem;">
+        <div class="flex">
+          <i class="fa-regular fa-circle-user"></i>
+          &#160;
+          تسجيل الدخول
+        </div>
+      </button>
+      <button mat-button routerLink="/Parent" class="custom-button btn-gradient">اشترك الأن</button>
+    </div>
+  </mat-sidenav>
+
+  <!-- Header -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <header class="container-fluid flex justify-content-between">
+        <div>Logo</div>
+        <div></div>
+
+        <div class="nav-items flex gap-1">
+          <button routerLink="/home" color="title" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">الرئيسية</button>
+          <button routerLink="/courses" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">الكورسات</button>
+          <!-- <button  routerLink="/offers">العروض</button> -->
+          <button class="unset-button" routerLink="/teachers" routerLinkActive="active"
+            (click)="moveMarker($event.target)">المدرسين</button>
+          <button routerLink="/about" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">عن
+            المنصة</button>
+          <!-- <button  routerLink="/exams">امتحانات عامة</button> -->
+          <button routerLink="/Parent" class="unset-button" routerLinkActive="active"
+            (click)="moveMarker($event.target)">ولي
+            الأمر</button>
+          <div id="marker"></div>
+        </div>
+
+        <div class="flex" style="gap: 5px;">
+          <label>
+            <input #toggleCheckbox class='toggle-checkbox' type='checkbox' [formControl]="theme"
+              [checked]="theme.value" />
+            <div class='toggle-slot'>
+              <div class='sun-icon-wrapper'>
+                <i class="fa fa-sun sun-icon"></i>
+              </div>
+              <div class='toggle-button'></div>
+              <div class='moon-icon-wrapper'>
+                <i class="fa fa-moon moon-icon"></i>
+              </div>
+            </div>
+          </label>
+
+          <button mat-button routerLink="/login" class="disk" style="border-radius: 20rem;">
+            <div class="flex">
+              <i class="fa-regular fa-circle-user"></i>
+              &#160;
+              تسجيل الدخول
+            </div>
+          </button>
+
+          <button mat-button routerLink="/Parent" class="custom-button disk btn-gradient">طالب جديد</button>
+
+          <button mat-icon-button aria-label="Toggle Right Sidebar" class="menu-btn toggle-btn"
+            (click)="toggleRightSidenav()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+      </header>
+    </mat-toolbar>
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
+
+<div class="overlay" [class.active]="isShowing" (click)="toggleRightSidenav()"></div>
+
+<ngx-loading-bar [color]="'var(--btn)'" [height]="'3px'" [includeSpinner]="false"
+  [value]="(loader.value$ | async) ?? 0"></ngx-loading-bar>

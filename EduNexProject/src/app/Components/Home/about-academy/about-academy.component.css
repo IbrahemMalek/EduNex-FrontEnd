@@ -1,0 +1,113 @@
+section {
+  /* background-image: var(--btn); */
+  background-color: #2d2d2d;
+  position: relative;
+}
+svg:first-of-type {
+  margin-bottom: -12vw;
+}
+svg:last-of-type {
+  margin-top: -12vw;
+}
+.custom-checkbox {
+  display: inline-block;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  padding-top: 0.75rem;
+  padding-bottom: 2.25rem;
+  color: #ccc;
+  background-color: #cccccc0c;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.custom-checkbox.checked {
+  background-color: #cccccc4d;
+  border-bottom: 3px solid transparent;
+  border-image: var(--btn) 1;
+  color: white;
+}
+
+.carousel {
+  width: 100%;
+}
+.scroll-about-section {
+  overflow-x: auto !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  white-space: nowrap;
+}
+
+.scroll-about-section::-webkit-scrollbar {
+  display: none;
+}
+.scroll-btn {
+  color: white;
+}
+
+.custom-button {
+  color: #ffffff;
+  background-color: var(--btn);
+  border-radius: 20rem;
+  transition: 0.3s;
+  padding-inline: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  opacity: 1;
+  transition: 0.3s;
+}
+.custom-button:hover {
+  opacity: 0.75;
+}
+.imgs-containter {
+  position: relative;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.imgs-containter img:not(:first-child) {
+  position: absolute;
+  width: 20%;
+}
+.imgs-containter img:nth-of-type(2) {
+  top: -3rem;
+  left: 3rem;
+}
+.imgs-containter img:nth-of-type(3) {
+  top: 3rem;
+  right: 3rem;
+}
+.imgs-containter img:nth-of-type(4) {
+  top: 14rem;
+  right: -1rem;
+}
+.imgs-containter img:nth-of-type(5) {
+  bottom: 0;
+  right: 14rem;
+}
+.imgs-containter img:nth-of-type(6) {
+  bottom: 8rem;
+  left: 1rem;
+}
+
+@media (max-width: 460px) {
+  .custom-checkbox-container {
+    justify-content: center;
+  }
+  h3,
+  h6 {
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 460px) {
+  section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+@media (max-width: 920px) {
+  .imgs-containter {
+    display: none;
+  }
+}

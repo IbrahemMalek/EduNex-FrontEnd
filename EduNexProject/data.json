@@ -1,0 +1,316 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الإحصاء",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "منه جاد",
+      "description": "كورس مادة الاقتصاد",
+      "grade": "الصف الثالث الثانوي",
+      "price": 200,
+      "lesson": [
+        {
+          "id": "1",
+          "title": "مقدمة في الإحصاء",
+          "content": [
+            {
+              "id": "271998",
+              "title": "الحل",
+              "videoUrl": null,
+              "pdfUrl": "نظرية التطور.pdf"
+            },
+            {
+              "id": "95829",
+              "title": "dddd",
+              "videoUrl": null,
+              "pdfUrl": "نظرية التطور.pdf"
+            },
+            {
+              "id": "167134",
+              "title": "222",
+              "videoUrl": "RPReplayFinal1710633664.mp4",
+              "pdfUrl": null
+            }
+          ]
+        },
+        {
+          "id": "880418",
+          "title": "الحصه الاولي",
+          "content": [
+            {
+              "id": "303029",
+              "title": "الشرح",
+              "videoUrl": "RPReplayFinal1710633664.mp4",
+              "pdfUrl": "نظرية التطور.pdf"
+            },
+            {
+              "id": "906584",
+              "title": "ggg",
+              "videoUrl": "RPReplayFinal1710633664.mp4",
+              "pdfUrl": null
+            }
+          ]
+        },
+        {
+          "id": "620420",
+          "title": "الحصة الاخيرة",
+          "content": []
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الفيزياء",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "أحمد علي",
+      "description": "كورس مادة الفيزياء",
+      "grade": "الصف الثالث الثانوي",
+      "price": 250
+    },
+    {
+      "id": "3",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الكيمياء",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "محمد أحمد",
+      "description": "كورس مادة الكيمياء",
+      "grade": "الصف الثالث الثانوي",
+      "price": 220
+    },
+    {
+      "id": "4",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الرياضيات",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "سارة عمر",
+      "description": "كورس مادة الرياضيات",
+      "grade": "الصف الثالث الثانوي",
+      "price": 180
+    },
+    {
+      "id": "5",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "اللغة العربية",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "أحمد سعيد",
+      "description": "كورس مادة اللغة العربية",
+      "grade": "الصف الثالث الثانوي",
+      "price": 210
+    },
+    {
+      "id": "6",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الجغرافيا",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "ليلى محمود",
+      "description": "كورس مادة الجغرافيا",
+      "grade": "الصف الثالث الثانوي",
+      "price": 230
+    },
+    {
+      "id": "7",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "التاريخ",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "محمد خالد",
+      "description": "كورس مادة التاريخ",
+      "grade": "الصف الثالث الثانوي",
+      "price": 190
+    },
+    {
+      "id": "8",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "اللغة الإنجليزية",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "مريم يوسف",
+      "description": "كورس مادة اللغة الإنجليزية",
+      "grade": "الصف الثالث الثانوي",
+      "price": 240
+    },
+    {
+      "id": "9",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الفلسفة",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "فاطمة عبد الرحمن",
+      "description": "كورس مادة الفلسفة",
+      "grade": "الصف الثالث الثانوي",
+      "price": 210
+    },
+    {
+      "id": "10",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "علم النفس",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "عمر محمود",
+      "description": "كورس مادة علم النفس",
+      "grade": "الصف الثالث الثانوي",
+      "price": 230
+    },
+    {
+      "id": "11",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الفنون",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "سلمى علي",
+      "description": "كورس مادة الفنون",
+      "grade": "الصف الثالث الثانوي",
+      "price": 190
+    },
+    {
+      "id": "12",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "العلوم السياسية",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "علي خالد",
+      "description": "كورس مادة العلوم السياسية",
+      "grade": "الصف الثالث الثانوي",
+      "price": 240
+    },
+    {
+      "id": "13",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "علم الأحياء",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "نور أحمد",
+      "description": "كورس مادة علم الأحياء",
+      "grade": "الصف الثالث الثانوي",
+      "price": 220
+    },
+    {
+      "id": "14",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الإنجليزية",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "محمد علي",
+      "description": "كورس مادة الإنجليزية",
+      "grade": "الصف الثالث الثانوي",
+      "price": 260
+    },
+    {
+      "id": "15",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "العلوم الاجتماعية",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "أماني محمد",
+      "description": "كورس مادة العلوم الاجتماعية",
+      "grade": "الصف الثالث الثانوي",
+      "price": 200
+    },
+    {
+      "id": "16",
+      "imageUrl": "https://via.placeholder.com/325x225",
+      "subject": "الحاسب الآلي",
+      "profilePictureUrl": "https://via.placeholder.com/75",
+      "teacher": "يوسف عبد الرحمن",
+      "description": "كورس مادة الحاسب الآلي",
+      "grade": "الصف الثالث الثانوي",
+      "price": 250
+    }
+  ],
+  "teachers": [
+    {
+      "id": "1",
+      "name": "منه جاد",
+      "subject": "الإحصاء",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "2",
+      "name": "أحمد علي",
+      "subject": "الفيزياء",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "3",
+      "name": "محمد أحمد",
+      "subject": "الكيمياء",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "4",
+      "name": "سارة عمر",
+      "subject": "الرياضيات",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "5",
+      "name": "أحمد سعيد",
+      "subject": "اللغة العربية",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "6",
+      "name": "ليلى محمود",
+      "subject": "الجغرافيا",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "7",
+      "name": "محمد خالد",
+      "subject": "التاريخ",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "8",
+      "name": "مريم يوسف",
+      "subject": "اللغة الإنجليزية",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "9",
+      "name": "منه جاد",
+      "subject": "الإحصاء",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "10",
+      "name": "أحمد علي",
+      "subject": "الفيزياء",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "11",
+      "name": "محمد أحمد",
+      "subject": "الكيمياء",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "12",
+      "name": "سارة عمر",
+      "subject": "الرياضيات",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "13",
+      "name": "أحمد سعيد",
+      "subject": "اللغة العربية",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "14",
+      "name": "ليلى محمود",
+      "subject": "الجغرافيا",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "15",
+      "name": "محمد خالد",
+      "subject": "التاريخ",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    },
+    {
+      "id": "16",
+      "name": "مريم يوسف",
+      "subject": "اللغة الإنجليزية",
+      "imageUrl": "https://via.placeholder.com/325x405"
+    }
+  ],
+  "metadata": {
+    "total": 100,
+    "skip": 0,
+    "limit": 30
+  }
+}

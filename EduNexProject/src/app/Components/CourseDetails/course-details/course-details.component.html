@@ -1,0 +1,100 @@
+<app-course-details-header [course]="course"></app-course-details-header>
+
+<section class="container">
+
+  <div class="custom-checkbox-container flex flex-wrap gap-2 my-3">
+    <button mat-button *ngFor="let opt of options; let i = index" class="custom-checkbox" [class.checked]="opt.selected"
+      (click)="toggleOption(i)">
+      <span>{{ opt.label }}</span>
+    </button>
+  </div>
+
+  <div class="course" *ngIf="options[0].selected" [@fadeInOut]>
+    <div class="flex gap-1">
+      <h3 class="m-0" style="font-weight: 700;">محتوي الكورس</h3>
+      <button mat-icon-button (click)="openLessonDialog()"><mat-icon>note_add</mat-icon></button>
+    </div>
+
+    <mat-accordion class="flex my-2" *ngFor="let lesson of course?.lesson; let i = index">
+      <mat-expansion-panel class="custom-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 500;" class="flex container">
+            <span>{{lesson.title}}</span>
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="width-50">
+              <mat-icon>add_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" class="lesson-menu" AppearFromRight>
+
+              <button mat-menu-item (click)="addContentDialog('file', lesson.id)" style="direction: rtl;">
+                ملف
+              </button>
+              <button mat-menu-item (click)="addContentDialog('video', lesson.id)" style="direction: rtl;">
+                فيديو
+              </button>
+              <button mat-menu-item [routerLink]="['/course', courseID, 'lesson', lesson.id, 'exam', 1]"
+                style="direction: rtl;">
+                أمتحان
+              </button>
+              <button mat-menu-item [routerLink]="['/course', courseID, 'lesson', lesson.id, 'exam', 2]"
+                style="direction: rtl;">
+                واجب
+              </button>
+
+            </mat-menu>
+
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <ng-container *ngFor="let content of lesson.content">
+          <div class="flex">
+            <button mat-button class="d-flex justify-content-start gap-2">
+              <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+              <span>{{ content.title }}</span>
+            </button>
+
+            <div *ngIf="content" class="flex">
+              <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
+                (click)="openDeleteContentConfirmationDialog(lesson.id, content.id)">
+                <mat-icon>close</mat-icon>
+              </button>
+
+              <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
+                (click)="editContentDialog(lesson.id, content)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+
+
+      </mat-expansion-panel>
+      <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
+        (click)="openDeleteConfirmationDialog(lesson.id)">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
+        (click)="editLessonDialog(lesson.id, lesson.title)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-accordion>
+  </div>
+
+  <div class="teacher d-flex gap-3 mt-4" *ngIf="options[1].selected" [@fadeInOut]>
+    <!-- <img mat-card-image [src]="teacher?.imageUrl" alt="Sample Image" class="align-self-center"> -->
+    <img mat-card-image src="https://via.placeholder.com/225" alt="Sample Image" class="mt-4">
+    <div>
+      <h3 style="font-weight: 700;" class="mb-4">أ. {{course?.teacher}}</h3>
+      <p>
+        مدرّس متخصص في علوم الحاسوب وتطوير البرمجيات، لديه خبرة تزيد عن ١٥ عامًا في المجال. شارك في تأسيس العديد من
+        الشركات الناشئة وعمل في شركات تقنية عالمية بارزة. يحمل خبرة غنية في تدريس مواد علوم الحاسوب في الجامعات الرائدة
+        مثل جامعة القاهرة وجامعة النيل، وله مساهمات مهمة في البحث العلمي في مجال تطوير الذكاء الاصطناعي وتعلم الآلة.
+        يشغل
+        حاليًا منصب مدير تطوير البرمجيات في شركة عالمية رائدة في مجال تكنولوجيا المعلومات، وقد حصل على شهادات معتمدة من
+        شركات تقنية كبيرة مثل مايكروسوفت وأمازون وغيرها.
+      </p>
+    </div>
+  </div>
+
+  <app-course-details-card [course]="course"></app-course-details-card>
+
+</section>

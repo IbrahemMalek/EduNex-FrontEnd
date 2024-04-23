@@ -1,0 +1,14 @@
+.custom-button {
+  color: #ffffff;
+  background-color: var(--btn);
+  border-radius: 20rem;
+  transition: 0.3s;
+  padding-inline: 1.25rem;
+  padding-bottom: 0.65rem;
+  padding-top: 0.65rem;
+  opacity: 1;
+  transition: 0.3s;
+}
+.custom-button:hover {
+  opacity: 0.75;
+}
