@@ -93,9 +93,9 @@ export class SignUpComponent implements OnInit {
 
   errorMeg:string='';
   onSubmit() {
-    // if (this.signupForm.valid) {
-    //   // Save data in DB
-    //   console.log(this.signupForm.value);
+    if (this.signupForm.valid) {
+      // Save data in DB
+      console.log(this.signupForm.value);
     //  this.authService.signUp(this.signupForm.value).subscribe(
     //   {
     //     next:(data)=>{
@@ -111,7 +111,7 @@ export class SignUpComponent implements OnInit {
     //       console.log(err);
     //        }
     //     })
-    // }
+    }
 
     // if (this.signupForm.valid) {
     //   console.log(this.signupForm.value);
