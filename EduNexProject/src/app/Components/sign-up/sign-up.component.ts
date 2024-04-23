@@ -27,11 +27,28 @@ export class SignUpComponent implements OnInit {
       Governorate: ['', Validators.required],
       education: ['', Validators.required],
       address: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(8),this.passwordStrengthValidator]],
       ConfirmPassword: ['',],
       Rebot: [false, Validators.required],
       Rebot2: [false, Validators.required]
     },{validators: passwordMatched()}); // Apply custom validator here
+  }
+  passwordStrengthValidator(control: any) {
+    // Password strength 
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (control.value && !regex.test(control.value)) {
+      return { 'weakPassword': true };
+    }
+
+    return null;
+  }
+  get password()
+  {
+    return this.signupForm.get('password')
+  }
+    //check password is invalid
+   isPasswordInvalid() {
+    return this.password?.invalid && (this.password?.dirty || this.password?.touched);
   }
   
   get fullName()
@@ -70,10 +87,7 @@ export class SignUpComponent implements OnInit {
   {
     return this.signupForm.get('address')
   }
-  get password()
-  {
-    return this.signupForm.get('password')
-  }
+ 
   get ConfirmPassword()
   {
     return this.signupForm.get('ConfirmPassword')
@@ -150,7 +164,7 @@ export class SignUpComponent implements OnInit {
         dateOfBirth: "1990-01-01T00:00:00.000Z",
         address: "123 Main Street",
         nationalId: "12345678901234",
-        email: "Mo22Salah.doe@example.com",
+        email: "Moa22Salah.doe@example.com",
         password: "Pa$w$w0rd#",
         confirmPassword: "Pa$w$w0rd#"
        };

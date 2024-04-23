@@ -9,7 +9,7 @@ import { Router } from '@angular/router'; // Import Router
 })
 export class AuthService {
   baseUrl: string = 'base Url';
-  tokenKey: string = 'token'; // Added tokenKey property
+  tokenKey: string = 'token'; 
 
   constructor(private httpClient: HttpClient, private router: Router) {} // Combined constructor
 
@@ -31,7 +31,7 @@ export class AuthService {
           // Save token 
           localStorage.setItem(this.tokenKey, response.token);
         
-          // Navigate to about
+          
           this.router.navigate(['/about']);
         }
       })
