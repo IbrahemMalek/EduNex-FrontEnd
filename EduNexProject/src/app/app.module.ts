@@ -64,6 +64,8 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TeacherDashboardComponent } from './Components/teacher-dashboard/teacher-dashboard.component';
+import { SignupTeacherComponent } from './Components/signup-teacher/signup-teacher.component';
+
 
 
 @NgModule({
@@ -104,6 +106,8 @@ import { TeacherDashboardComponent } from './Components/teacher-dashboard/teache
     DataTimePickerComponent,
     FooterComponent,
     TeacherDashboardComponent,
+    SignupTeacherComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -138,7 +142,7 @@ import { TeacherDashboardComponent } from './Components/teacher-dashboard/teache
     MatMenuModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [
     OverlayContainer,

@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { passwordMatched } from 'src/app/CustomFormValidation/CrossfiledValidation';
 import { IuserUdateFormData } from 'src/app/Models/IuserUdateFormData';
 import { AuthService } from 'src/app/Service/auth.service';
 
-
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  selector: 'app-signup-teacher',
+  templateUrl: './signup-teacher.component.html',
+  styleUrls: ['./signup-teacher.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class SignupTeacherComponent {
+
   isInputFocused: boolean = false;
   signupForm!: FormGroup;
 
@@ -22,19 +22,15 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     this.signupForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.pattern('^(?!\d).{8,}$')]],
-      studentPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
-      fatherPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
-      religion: ['', Validators.required],
+      lastName: ['', Validators.required],
+      teacherPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
       birthday: ['', Validators.required],
       sex: ['', Validators.required],
       governorate: ['', Validators.required],
-      education: ['', Validators.required],
       address: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8),this.passwordStrengthValidator]],
       confirmPassword: ['',],
-      studentEmail: ['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]],
-      rebot: [false, Validators.required],
-      rebot2: [false, Validators.required]
+      teacherEmail: ['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]],
     },{validators: passwordMatched()}); // Apply custom validator here
   }
   passwordStrengthValidator(control: any) {
@@ -54,26 +50,19 @@ export class SignUpComponent implements OnInit {
    isPasswordInvalid() {
     return this.password?.invalid && (this.password?.dirty || this.password?.touched);
   }
-  get studentEmail()
+  get teacherEmail()
   {
-    return this.signupForm.get('studentEmail')
+    return this.signupForm.get('teacherEmail')
   }
   get fullName()
   {
     return this.signupForm.get('fullName')
   }
-  get studentPhoneNumber()
+  get teacherPhoneNumber()
   {
-    return this.signupForm.get('studentPhoneNumber')
+    return this.signupForm.get('teacherPhoneNumber')
   }
-  get fatherPhoneNumber()
-  {
-    return this.signupForm.get('fatherPhoneNumber')
-  }
-  get religion()
-  {
-    return this.signupForm.get('religion')
-  }
+
   get birthday()
   {
     return this.signupForm.get('birthday')
@@ -82,10 +71,7 @@ export class SignUpComponent implements OnInit {
   {
     return this.signupForm.get('sex')
   }
-  get education()
-  {
-    return this.signupForm.get('education')
-  }
+
   get governorate()
   {
     return this.signupForm.get('governorate')
@@ -99,13 +85,10 @@ export class SignUpComponent implements OnInit {
   {
     return this.signupForm.get('confirmPassword')
   }
-  get rebot()
+
+  get lastName()
   {
-    return this.signupForm.get('rebot')
-  }
-  get rebot2()
-  {
-    return this.signupForm.get('rebot2')
+    return this.signupForm.get('lastName')
   }
   
 
@@ -188,6 +171,3 @@ export class SignUpComponent implements OnInit {
       
     }
   }
-      // }
-    
-

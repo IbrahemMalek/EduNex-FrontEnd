@@ -1,44 +1,54 @@
-
-
+<div class="container d-flex justify-content-center mt-2" dir="rtl">
   
+  <div class="col-md-3  offset-md-1 border border-gray rounded-4 px-4" style="overflow: auto;height: 74vh;margin-top: 50px; box-shadow: 0px 0px 20px whitesmoke; margin-bottom: 60px;">
+    <div class="text-center mt-5 mb-5">
+      <button class="btn btn-custom" mat-raised-button color="primary" (click)="create()">
+        <mat-icon>add</mat-icon> أضافة كورس
+      </button>
+    </div>
 
-  <div class="container d-flex justify-content-center mt-2" dir="rtl">
-    <div class="col-md-10 border border-gray rounded-4 px-4" style="margin-top: 50px;box-shadow: 0px 0px 20px whitesmoke;margin-bottom: 60px;">
-        <div class="text-center mt-5 mb-5">
-            <button class="ms-3 py-3 px-5" mat-raised-button color="primary" (click)="create()">
-                <mat-icon>add</mat-icon> أضافة كورس
-              </button>
-              
-              <button class="ms-3 py-3 px-5" mat-raised-button color="accent" (click)="getAll()">
-                <mat-icon>visibility</mat-icon> عرض كل الكورسات
-              </button>
-              
-              <button class="ms-3 py-3 px-5" mat-raised-button color="dark" (click)="update()">
-                <mat-icon>edit</mat-icon> تعديل كورس
-              </button>
-              
-              <button class="ms-3 py-3 px-5" mat-raised-button color="warn" (click)="delete()">
-                <mat-icon>delete</mat-icon> حذف كورس
-              </button>
-        </div>
-        
-         <div  class="text-center mt-1 mb-5">
-          <div *ngIf="toCreate">
-            <p>Create</p>
-           </div>
-      
-           <div *ngIf="toGetAll">
-            <p>Get all</p>
-           </div>
-      
-           <div *ngIf="toUpdate">
-            <p>update</p>
-           </div>
-      
-          <div *ngIf="toDelete">
-            <p>delete</p>
-           </div>
-        </div>
-     </div>
+    <div class="text-center mt-5 mb-5">
+      <button class="btn btn-custom" mat-raised-button color="accent" (click)="getAll()">
+        <mat-icon>visibility</mat-icon> عرض الكورسات
+      </button>
+    </div>
+
+    <div class="text-center mt-5 mb-5">
+      <button class="btn btn-custom" mat-raised-button color="dark" (click)="update()">
+        <mat-icon>edit</mat-icon> تعديل كورس
+      </button>
+    </div>
+
+    <div class="text-center mt-5 mb-5">
+      <button class="btn btn-custom" mat-raised-button color="warn" (click)="delete()">
+        <mat-icon>delete</mat-icon> حذف كورس
+      </button>
+    </div>
+
+    <div class="text-center mt-5 mb-5">
+      <button class="btn btn-custom" mat-raised-button color="warn" (click)="delete()">
+        <mat-icon>delete</mat-icon> اختيار
+      </button>
+    </div>
+   
+   
 
   </div>
+
+  <div class="col-md-8 border border-gray rounded-4 px-4" style="overflow: auto;height: 74vh;margin-top: 50px; box-shadow: 0px 0px 20px whitesmoke; margin-bottom: 60px;">
+    
+    <div *ngIf="toCreate" style="height: 100%;">
+      <P>Create</P>
+    </div>
+    <div *ngIf="toGetAll" style="height: 100%;">
+      <P>GetAlld</P>
+    </div>
+    <div *ngIf="toUpdate">
+      <P>Update</P>
+    </div>
+    <div *ngIf="toDelete">
+      <P>Delete</P>
+    </div>
+  </div>
+
+</div>

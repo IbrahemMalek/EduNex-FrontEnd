@@ -8,6 +8,7 @@ import { MainComponent } from './Components/Home/main/main.component';
 import { CourseDetailsComponent } from './Components/CourseDetails/course-details/course-details.component';
 import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
 import { TeacherDashboardComponent } from './Components/teacher-dashboard/teacher-dashboard.component';
+import { SignupTeacherComponent } from './Components/signup-teacher/signup-teacher.component';
 
 const routes: Routes = [
   { path: "course/:id/lesson/:id/exam/:id", component: CreateExamComponent },
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: "home", component: MainComponent },
   { path: "tdash", component: TeacherDashboardComponent },
   { path: "home", component: MainComponent },
+  { path: "teacherSignup", component:SignupTeacherComponent },
+
   { path: "", component: LoginComponent },
   { path: "**", component: LoginComponent }
 ];
