@@ -15,7 +15,7 @@
       <button mat-button routerLink="/teachers">المدرسين</button>
       <button mat-button routerLink="/about">عن الاكادمية</button>
       <button mat-button routerLink="/exams">امتحانات عامة</button>
-      <button mat-button routerLink="/Parent">ولي الأمر</button>
+      <button mat-button routerLink="/signup">ولي الأمر</button>
     </div>
     <hr class="style-one">
     <div class="flex" style="gap: 10px;">
@@ -27,7 +27,7 @@
         </div>
       </button>
 
-      <button mat-button routerLink="/Parent" class="custom-button">اشترك الأن</button>
+      <button mat-button routerLink="//signup" class="custom-button">اشترك الأن</button>
     </div>
   </mat-sidenav>
 
@@ -61,7 +61,7 @@
           </div>
         </label>
 
-        <button mat-button routerLink="/login">
+        <button mat-button [routerLink]="['/login']">
           <div class="flex">
             <i class="fa-regular fa-circle-user"></i>
             &#160;
@@ -69,7 +69,7 @@
           </div>
         </button>
 
-        <button mat-button routerLink="/Parent" class="custom-button">طالب جديد</button>
+        <button mat-button [routerLink]="['/signup']" class="custom-button">طالب جديد</button>
 
         <button mat-icon-button aria-label="Toggle Right Sidebar" class="menu-btn toggle-btn" (click)="toggleRightSidenav()">
           <mat-icon>menu</mat-icon>

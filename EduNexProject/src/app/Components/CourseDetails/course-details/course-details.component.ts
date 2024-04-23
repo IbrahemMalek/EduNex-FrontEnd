@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
-import { ICourse } from 'src/app/Model/icourse';
+import { ICourse } from 'src/app/Model/iCourse';
 import { ILesson } from 'src/app/Model/ilesson';
 import { LessonDialogComponent } from '../Dialog/lesson-dialog/lesson-dialog.component';
 import { ILessonContent } from 'src/app/Model/ilesson-content';

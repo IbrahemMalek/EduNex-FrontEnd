@@ -50,6 +50,24 @@
                     <span *ngIf="fullName?.errors?.['required']" class="text-danger">الأسم مطلوب</span>
                 </mat-error>
             </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>عنوان البريد الإلكتروني</mat-label>
+              <input matInput
+                     type="email" 
+                     name="studentEmail" 
+                     formControlName="studentEmail"
+                     id="studentEmail"
+                     placeholder="البريد الإلكتروني"
+                     aria-label="عنوان البريد الإلكتروني"
+                     required>
+              <i class="fa-solid fa-envelope"></i>
+              <mat-error *ngIf="studentEmail?.touched && studentEmail?.invalid">
+                  <span *ngIf="studentEmail?.errors?.['pattern']" class="text-danger">البريد الإلكتروني غير صالح</span>
+                  <span *ngIf="studentEmail?.errors?.['required']" class="text-danger">البريد الإلكتروني مطلوب</span>
+              </mat-error>
+          </mat-form-field>
+          
           
             <mat-form-field appearance="fill" class="w-100">
                 <mat-label>رقم تليفون الطالب</mat-label>
@@ -217,6 +235,7 @@
                   </mat-error>
               </mat-form-field>
             </div>
+            <span *ngIf="password?.errors?.['required']" class="text-danger"> خطأ عنوان البريد أو كلمة المرور غير صحيحة </span>
           </div>
           
           

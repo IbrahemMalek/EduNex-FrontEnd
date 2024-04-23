@@ -63,6 +63,7 @@ import { DataTimePickerComponent } from './Components/Exam/data-time-picker/data
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TeacherDashboardComponent } from './Components/teacher-dashboard/teacher-dashboard.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     CreateExamComponent,
     DataTimePickerComponent,
     FooterComponent,
+    TeacherDashboardComponent,
   ],
   imports: [
     BrowserModule,

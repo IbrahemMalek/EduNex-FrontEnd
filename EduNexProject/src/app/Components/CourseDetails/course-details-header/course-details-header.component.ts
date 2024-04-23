@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ICourse } from 'src/app/Model/icourse';
+import { ICourse } from 'src/app/Model/iCourse';
 
 @Component({
   selector: 'app-course-details-header',

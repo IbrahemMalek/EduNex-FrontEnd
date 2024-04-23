@@ -32,6 +32,7 @@ export class SignUpComponent implements OnInit {
       address: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8),this.passwordStrengthValidator]],
       ConfirmPassword: ['',],
+      studentEmail: ['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]],
       Rebot: [false, Validators.required],
       Rebot2: [false, Validators.required]
     },{validators: passwordMatched()}); // Apply custom validator here
@@ -53,7 +54,10 @@ export class SignUpComponent implements OnInit {
    isPasswordInvalid() {
     return this.password?.invalid && (this.password?.dirty || this.password?.touched);
   }
-  
+  get studentEmail()
+  {
+    return this.signupForm.get('studentEmail')
+  }
   get fullName()
   {
     return this.signupForm.get('fullName')
@@ -110,78 +114,61 @@ export class SignUpComponent implements OnInit {
     if (this.signupForm.valid) {
       // Save data in DB
       console.log(this.signupForm.value);
-    //  this.authService.signUp(this.signupForm.value).subscribe(
-    //   {
-    //     next:(data)=>{
-    //       if(data.message==='success')
-    //         {
-    //           this.authService.signUp(this.signupForm.value);
-    //           //go to login
-    //           this.router.navigate(['/login'])
-    //         }
-    //     },
-    //     error:(err)=>{
-    //       this.errorMeg=err.error.errors.msg;
-    //       console.log(err);
-    //        }
-    //     })
+     this.authService.signUp(this.signupForm.value).subscribe(
+      {
+        next:(data)=>{
+          if(data.message==='success')
+            {
+              this.authService.signUp(this.signupForm.value);
+              //go to login
+              this.router.navigate(['/login'])
+              this._snackBar.open('تم تسجيل الدخول بنجاح', 'Close', {
+                duration: 5000, 
+                verticalPosition: 'top',
+              });
+            }
+        },
+        error:(err)=>{
+          this.errorMeg=err.error.errors.msg;
+          console.log(err);
+           }
+        })
     }
 
-    // if (this.signupForm.valid) {
-    //   console.log(this.signupForm.value);
-    //   this.authService.signUp(this.signupForm.value).subscribe({
-    //     next: (data) => {
-    //       if (data.message === 'success') {
-            
-    //           //go to login
-    //           this.router.navigate(['/login'])
-    //       }
-    //     },
-    //     error: (err) => {
-    //       this.errorMeg = err.error.errors.msg;
-    //       console.log(err);
-    //     }
-    //   });
-    // }
-    //  else {
-    //   this.signupForm.markAllAsTouched();
-    //   console.log("errorrrrr404");
-
-    // }
-      const defaultFormData: IuserUdateFormData = {
-        firstName: "Johns",
-        lastName: "Doqe",
-        phoneNumber: "0123456789",
-        gender: "Male",
-        parentPhoneNumber: "0123456785",
-        religion: "Islam",
-        dateOfBirth: "1990-01-01T00:00:00.000Z",
-        address: "123 Main Street",
-        nationalId: "12345678901234",
-        email: "MoSalah.doe@example.com",
-        password: "Pa$w$w0rd#",
-        confirmPassword: "Pa$w$w0rd#"
-      };
+      // const defaultFormData: IuserUdateFormData = {
+      //   firstName: "Johns",
+      //   lastName: "Doqe",
+      //   phoneNumber: "0123456789",
+      //   gender: "Male",
+      //   parentPhoneNumber: "0123456785",
+      //   religion: "Islam",
+      //   dateOfBirth: "1990-01-01T00:00:00.000Z",
+      //   address: "123 Main Street",
+      //   nationalId: "12345678901234",
+      //   email: "MoSalah.doe@example.com",
+      //   password: "Pa$w$w0rd#",
+      //   confirmPassword: "Pa$w$w0rd#"
+      // };
   
       
-      this.authService.signUp(defaultFormData).subscribe({
-        next: (data) => {
+      // this.authService.signUp(defaultFormData).subscribe({
+      //   next: (data) => {
 
-          if (data.token) {
-            // Redirect to login page
-            this.router.navigate(['/login']);
-            this._snackBar.open('Registered successfully!', 'Close', {
-              duration: 5000, 
-              verticalPosition: 'top',
-            });
-          }
-        },
-        error: (err) => {
-          this.errorMeg = err.error.errors.msg;
-          console.log(err);
-          console.log(err.error.errors);
-        }
-      });
+      //     if (data.token) {
+      //       // Redirect to login page
+      //       this.router.navigate(['/login']);
+      //       this._snackBar.open('Registered successfully!', 'Close', {
+      //         duration: 5000, 
+      //         verticalPosition: 'top',
+      //       });
+      //     }
+      //   },
+      //   error: (err) => {
+      //     this.errorMeg = err.error.errors.msg;
+      //     console.log(err);
+      //     console.log(err.error.errors);
+      //   }
+      // });
       
     }
   }

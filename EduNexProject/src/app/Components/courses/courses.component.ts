@@ -1,6 +1,6 @@
 // courses.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ICourse } from 'src/app/Model/icourse';
+import { ICourse } from 'src/app/Model/iCourse';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 
 @Component({

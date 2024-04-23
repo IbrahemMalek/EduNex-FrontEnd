@@ -39,7 +39,7 @@
          <form class="form-floating" action="" method="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="row mt-5">
                 <div class="col">
-                    <mat-form-field appearance="fill" class="w-100">
+                    <!-- <mat-form-field appearance="fill" class="w-100">
                         <mat-label>رقم تليفون الطالب</mat-label>
                         <input matInput
                                type="text"
@@ -54,7 +54,26 @@
                             <span *ngIf="studentPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب أن يكون من 11 رقم ويبدأ بـ 010 أو 011 أو 012 أو 015</span>
                             <span *ngIf="studentPhoneNumber?.errors?.['required']" class="text-danger">رقم الهاتف مطلوب</span>
                         </mat-error>
+                    </mat-form-field> -->
+              
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>عنوان البريد الإلكتروني</mat-label>
+                        <input matInput
+                               type="email" 
+                               name="studentEmail" 
+                               formControlName="studentEmail"
+                               id="studentEmail"
+                               placeholder="البريد الإلكتروني"
+                               aria-label="عنوان البريد الإلكتروني"
+                               required>
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="studentEmail?.touched && studentEmail?.invalid">
+                            <span *ngIf="studentEmail?.errors?.['pattern']" class="text-danger">البريد الإلكتروني غير صالح</span>
+                            <span *ngIf="studentEmail?.errors?.['required']" class="text-danger">البريد الإلكتروني مطلوب</span>
+                        </mat-error>
                     </mat-form-field>
+                    
+              
                 </div>
             </div>
             
@@ -77,6 +96,7 @@
                             <span *ngIf="password?.errors?.['minlength']" class="text-danger"> كلمة المرور يجب أن تكون أكثر من 8 أحرف</span>
                         </mat-error>
                     </mat-form-field>
+                    <!-- <span *ngIf="password?.errors?.['required']" class="text-danger"> خطأ عنوان البريد أو كلمة المرور غير صحيحة </span> -->
                 </div>
             </div>
 <!--     

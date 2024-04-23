@@ -17,20 +17,20 @@ export class LoginComponent {
   isInputFocused: boolean = false;
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder,private authService:AuthService,private router:Router) {}
+  constructor(private fb: FormBuilder,private authService:AuthService,private router:Router,private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      studentPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
+      studentEmail: ['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]],
      
       password: ['', [Validators.required,Validators.minLength(8)]],
      
     });
   }
   
-  get studentPhoneNumber()
+  get studentEmail()
   {
-    return this.loginForm.get('studentPhoneNumber')
+    return this.loginForm.get('studentEmail')
   }
  
   get password()
@@ -43,13 +43,16 @@ export class LoginComponent {
  
 
   onSubmit() {
-    const defaultFormData: any = {
-      email: "MoSalah.doe@example.com",
-      password: "Pa$w$w0rd#",
+    type DefaultFormData = {
+      email: string;
+      password: string;
     };
-  
+    const defaultFormData: DefaultFormData = {
+      email: this.loginForm.value.studentEmail,
+      password: this.loginForm.value.password,
+    };
+     
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
       this.authService.login(defaultFormData).subscribe({
         next: (data) => {
           // Handle success
@@ -58,6 +61,12 @@ export class LoginComponent {
         error: (err) => {
           // Handle error
           console.log(err);
+          this.snackBar.open('خطأ عنوان البريد أو كلمة المرور غير صحيحة', 'Close', {
+            duration: 3000, 
+            verticalPosition: 'bottom',
+            panelClass: ['red-snackbar']
+            
+          });
         }
       });
     } else {

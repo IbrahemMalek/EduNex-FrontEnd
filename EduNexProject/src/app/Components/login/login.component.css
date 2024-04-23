@@ -63,6 +63,16 @@ animation: upAndDown2 3s infinite linear;
 }
 }
 
+.red-snackbar {
+    background-color: red;
+    color: white;
+  }
+  
+  .green-snackbar {
+    background-color: green;
+    color: white;
+  }
+
 @keyframes upAndDown {
 10% {
     top: 35px; 

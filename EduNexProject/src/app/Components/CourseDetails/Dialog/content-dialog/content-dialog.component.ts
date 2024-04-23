@@ -1,7 +1,7 @@
 import { Component, Inject, ViewChild, ElementRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
-import { ICourse } from 'src/app/Model/icourse';
+import { ICourse } from 'src/app/Model/iCourse';
 
 @Component({
   selector: 'app-content-dialog',
