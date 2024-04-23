@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  
 
-  private baseUrl: string = 'http://localhost:5293';
-  private tokenKey: string = 'auth_token';
+   baseUrl: string = 'http://localhost:5293';
+   tokenKey: string = 'auth_token';
 
   constructor(private httpClient: HttpClient,private router: Router) {}
 
