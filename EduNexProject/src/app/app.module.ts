@@ -63,6 +63,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './Components/footer/footer.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
 
@@ -135,6 +136,7 @@ import { FooterComponent } from './Components/footer/footer.component';
     MatMenuModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatSnackBarModule
   ],
   providers: [
     OverlayContainer,
