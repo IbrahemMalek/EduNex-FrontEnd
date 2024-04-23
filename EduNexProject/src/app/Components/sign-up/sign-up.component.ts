@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { passwordMatched } from 'src/app/CustomFormValidation/CrossfiledValidation';
+import { IuserUdateFormData } from 'src/app/Models/IuserUdateFormData';
 import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
@@ -12,7 +14,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 export class SignUpComponent implements OnInit {
   isInputFocused: boolean = false;
   signupForm!: FormGroup;
-  constructor(private fb: FormBuilder,private authService:AuthService,private router:Router) {}
+  constructor(private fb: FormBuilder,private authService:AuthService,private router:Router,private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -117,6 +119,66 @@ export class SignUpComponent implements OnInit {
       this.signupForm.markAllAsTouched();
       console.log("errorrrrr404");
 
+    // if (this.signupForm.valid) {
+    //   console.log(this.signupForm.value);
+    //   this.authService.signUp(this.signupForm.value).subscribe({
+    //     next: (data) => {
+    //       if (data.message === 'success') {
+            
+    //           //go to login
+    //           this.router.navigate(['/login'])
+    //       }
+    //     },
+    //     error: (err) => {
+    //       this.errorMeg = err.error.errors.msg;
+    //       console.log(err);
+    //     }
+    //   });
+    // }
+    //  else {
+    //   this.signupForm.markAllAsTouched();
+    //   console.log("errorrrrr404");
+
+    // }
+       const defaultFormData: IuserUdateFormData = {
+        firstName: "Johns",
+        lastName: "Doqe",
+        phoneNumber: "0123456789",
+        gender: "Male",
+        parentPhoneNumber: "0123456785",
+        religion: "Islam",
+        dateOfBirth: "1990-01-01T00:00:00.000Z",
+        address: "123 Main Street",
+        nationalId: "12345678901234",
+        email: "Mo22Salah.doe@example.com",
+        password: "Pa$w$w0rd#",
+        confirmPassword: "Pa$w$w0rd#"
+       };
+  
+      
+      this.authService.signUp(defaultFormData).subscribe({
+        next: (data) => {
+
+          if (data.token) {
+            // Redirect to login page
+            this.router.navigate(['/login']);
+            this._snackBar.open('Registered successfully!', 'Close', {
+              duration: 5000, 
+              verticalPosition: 'top',
+            });
+          }
+        },
+        error: (err) => {
+          this.errorMeg = err.error.errors.msg;
+          console.log(err);
+          console.log(err.error.errors);
+          this._snackBar.open('Registration failed!', 'Close', {
+            duration: 2000, 
+            verticalPosition: 'top',
+          });
+        }
+      });
+      
     }
   }
 

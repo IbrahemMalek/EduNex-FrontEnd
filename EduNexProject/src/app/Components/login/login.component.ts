@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   isInputFocused: boolean = false;
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -46,6 +47,11 @@ export class LoginComponent {
   // }
 
   onSubmit() {
+    const defaultFormData: any = {
+      email: "Mo22Salah.doe@example.com",
+      password: "Pa$w$w0rd#",
+    };
+  
     if (this.loginForm.valid) {
       // use
       console.log(this.loginForm.value);
