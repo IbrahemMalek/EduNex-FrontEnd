@@ -102,7 +102,7 @@ export class ExamDialogComponent {
 
     const formData = this.contentForm.value;
     this.dialogRef.close();
-    this.router.navigate(['/course', this.data.courseID, 'lesson', this.data.lessonId], {
+    this.router.navigate(['/course', this.data.courseID, 'lesson', this.data.lessonId, 'create'], {
       queryParams: {
         type: this.data.examType,
         title: formData.title,

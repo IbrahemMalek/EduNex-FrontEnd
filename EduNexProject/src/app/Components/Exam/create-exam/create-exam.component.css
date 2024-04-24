@@ -127,6 +127,10 @@ label::after {
   color: #333; /* Adjust color as needed */
 }
 
+
+::ng-deep .mdc-button__label{
+  margin-inline:auto !important;
+}
 /* Change the border color */
 ::ng-deep
   .mdc-text-field--outlined:not(.mdc-text-field--disabled)

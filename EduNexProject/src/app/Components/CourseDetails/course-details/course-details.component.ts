@@ -25,6 +25,7 @@ export class CourseDetailsComponent implements OnInit {
   showDetails: boolean = false;
   lessons: ILesson[] = [];
   lessonContact: ILessonContent[] = [];
+  role: string = '';
 
   options = [
     { label: 'محتوي الكورس', selected: true },
@@ -33,7 +34,11 @@ export class CourseDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private dynamicData: DynamicDataService, public dialog: MatDialog, private router: Router) {
     this.courseID = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.role = 'teacher';
+  }
 
+  ngOnInit(): void {
+    this.getCourseById();
   }
 
   getCourseById() {
@@ -42,10 +47,9 @@ export class CourseDetailsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.getCourseById();
+  isTeacher(): boolean {
+    return this.role === 'teacher';
   }
-
 
   toggleOption(index: number) {
     this.options.forEach((option, i) => {

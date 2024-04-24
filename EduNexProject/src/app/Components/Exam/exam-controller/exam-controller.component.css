@@ -5,11 +5,7 @@ section {
   width: 250px;
   height: 300px;
 }
-:root {
-  --background-color: rgba(204, 204, 204, 0.7);
-  --feedback-secondary-color: #ffacac;
-  --feedback-primary-color: #53488d;
-}
+
 .form-button-1 {
   width: 100%;
   padding-top: 2rem;

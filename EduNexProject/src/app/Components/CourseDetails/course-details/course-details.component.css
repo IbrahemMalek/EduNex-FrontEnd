@@ -1,9 +1,15 @@
 section {
-  margin-top: -2vw;
+  margin-top: -6vw;
 }
+
+.content-container {
+  width: 60%;
+}
+
 .custom-checkbox-container {
   display: flex;
-  width: 60%;
+  /* justify-content: space-evenly; */
+  width: 93.5%;
 }
 
 .custom-checkbox {
@@ -25,8 +31,10 @@ section {
   border-image: var(--btn) 1;
   color: var(--bgHeader);
 }
-.custom-checkbox span {
-  font-size: 14px;
+
+.expanded .title {
+  color: orange;
+  transition: color 0.3s ease;
 }
 
 .custom-expansion-panel {
@@ -37,7 +45,16 @@ section {
 
 .custom-expansion-panel,
 .teacher p {
-  width: 60%;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.button-container button {
+  margin-left: auto;
 }
 
 .teacher p {
@@ -60,18 +77,34 @@ section {
   border-radius: 10px;
 }
 
-.width-50 {
-  width: 50px !important;
-}
-
-mat-panel-title span {
-  min-width: 150px;
-}
-
 .custom-icon-button {
   background-color: var(--active);
   border-radius: 50% !important;
 }
+
+.width-50 {
+  width: 50px !important;
+}
+
+.exam-button {
+  width: max-content !important;
+  font-weight: 500 !important;
+  color: var(--wave4);
+  border-radius: 10px !important;
+}
+/* .custom-expansion-panel ::ng-deep .mat-expansion-panel-body {
+  padding-inline:  0 !important;
+}
+.custom-expansion-panel ::ng-deep .mat-expansion-panel-header{
+  padding-inline:  1rem !important;
+} */
+.custom-expansion-panel ::ng-deep .mat-expansion-panel-header-title {
+  padding-inline: 0 !important;
+}
+/* ::ng-deep .mdc-button__label{
+  margin-inline:auto !important;
+} */
+
 @media (max-width: 460px) {
   .cards-container {
     flex-direction: column-reverse;
@@ -81,18 +114,37 @@ mat-panel-title span {
     text-align: center;
   }
 }
+
+@media (min-width: 460px) {
+  mat-panel-title span {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 570px) {
+  .crud-buttons {
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+  .custom-checkbox-container {
+    width: 100%;
+  }
+}
+
 @media (max-width: 720px) {
   .custom-checkbox-container {
     justify-content: center;
   }
 }
+
 @media (max-width: 990px) {
-  .custom-expansion-panel,
-  .teacher p {
+  .content-container {
     width: 100%;
+    flex-grow: 1;
   }
-  .custom-checkbox {
-    width: 45%;
+  section {
+    flex-wrap: nowrap;
+    flex-direction: column;
   }
   .teacher {
     flex-direction: column;
@@ -103,6 +155,7 @@ mat-panel-title span {
     margin-inline: auto;
   }
 }
+
 @media (min-width: 990px) {
   .teacher,
   .course {

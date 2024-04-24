@@ -1,14 +1,15 @@
 .example-card {
-  position: absolute;
-  left: 11vw;
-  top: 8rem;
+  /* position: absolute; */
+  /* left: 11vw;
+  top: 8rem; */
+  top: -18rem;
   box-shadow: var(--border) 0px 2px 8px 0px;
   background-color: var(--bg);
   transition: transform 0.5s, box-shadow 0.5s;
 }
-.example-card img {
+/* .example-card img {
   width: 100%;
-}
+} */
 
 .top-bottom-container {
   display: flex;

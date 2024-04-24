@@ -52,8 +52,7 @@ export class LessonDialogComponent {
           }
         );
       });
-    }
-    else {
+    } else {
       const courseId = this.data.courseId;
       this.dynamicData.getCourseById(courseId).subscribe((course: ICourse) => {
         const updatedCourse: ICourse = { ...course };

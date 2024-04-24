@@ -1,97 +1,114 @@
 <app-course-details-header [course]="course"></app-course-details-header>
 
-<section class="container">
-
-  <div class="custom-checkbox-container flex flex-wrap gap-2 my-3">
-    <button mat-button *ngFor="let opt of options; let i = index" class="custom-checkbox" [class.checked]="opt.selected"
-      (click)="toggleOption(i)">
-      <span>{{ opt.label }}</span>
-    </button>
-  </div>
-
-  <div class="course" *ngIf="options[0].selected">
-    <div class="flex gap-1">
-      <h3 class="m-0" style="font-weight: 700;">محتوي الكورس</h3>
-      <button mat-icon-button (click)="openLessonDialog()"><mat-icon>note_add</mat-icon></button>
+<section class="container flex gap-3 justify-content-between">
+  <div class="content-container flex-container">
+    <!-- Custom checkbox container -->
+    <div class="custom-checkbox-container flex-grow">
+      <div class="custom-checkbox-container flex flex-wrap gap-2 my-3">
+        <button mat-button *ngFor="let opt of options; let i = index" class="custom-checkbox"
+          [class.checked]="opt.selected" (click)="toggleOption(i)">
+          <span>{{ opt.label }}</span>
+        </button>
+      </div>
     </div>
 
-    <mat-accordion class="flex my-2" *ngFor="let lesson of course?.lesson; let i = index">
-      <mat-expansion-panel class="custom-expansion-panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title style="font-weight: 500;" class="flex container">
-            <span>{{lesson.title}}</span>
-            <button mat-icon-button [matMenuTriggerFor]="menu" class="width-50">
-              <mat-icon>add_circle</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" class="lesson-menu" AppearFromRight>
+    <div class="course" *ngIf="options[0].selected">
+      <div class="flex gap-1">
+        <h3 class="m-0" style="font-weight: 700;">محتوي الكورس</h3>
+        <button mat-icon-button *ngIf="isTeacher()" (click)="openLessonDialog()"><mat-icon>note_add</mat-icon></button>
+      </div>
 
-              <button mat-menu-item (click)="addContentDialog('file', lesson.id)" style="direction: rtl;">
-                ملف
-              </button>
-              <button mat-menu-item (click)="addContentDialog('video', lesson.id)" style="direction: rtl;">
-                فيديو
-              </button>
-              <button mat-menu-item (click)="openExamDialog('exam', course!, lesson, i)" style="direction: rtl;"
-                *ngIf="course">
-                امتحان
-              </button>
-              <button mat-menu-item (click)="openExamDialog('homeWork', course!, lesson, i)" style="direction: rtl;">
-                واجب
+      <mat-accordion class="flex crud-buttons my-2" *ngFor="let lesson of course?.lesson; let i = index">
+        <mat-expansion-panel class="custom-expansion-panel" #panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-weight: 700;" class="flex container" [class.expanded]="panel.expanded">
+              <div class="flex justify-content-between" style="width: 100%;">
+                <div class="flex gap-3">
+                  <span class="title">{{lesson.title}}</span>
+
+                  <button mat-icon-button *ngIf="isTeacher()" [matMenuTriggerFor]="menu" class="width-50 m-0">
+                    <mat-icon>add_circle</mat-icon>
+                  </button>
+                </div>
+
+                <button mat-menu-item [routerLink]="['/course', course?.id,'lesson' ,lesson.id ,'view']"
+                  class="flex px-2 mx-2 my-0 exam-button">
+                  <i class="fas fa-clipboard-list"></i>
+                  امتحان
+                </button>
+              </div>
+
+              <mat-menu #menu="matMenu" class="lesson-menu" AppearFromRight>
+
+                <button mat-menu-item (click)="addContentDialog('file', lesson.id)" style="direction: rtl;">
+                  ملف
+                </button>
+                <button mat-menu-item (click)="addContentDialog('video', lesson.id)" style="direction: rtl;">
+                  فيديو
+                </button>
+                <button mat-menu-item (click)="openExamDialog('exam', course!, lesson, i)" style="direction: rtl;">
+                  امتحان
+                </button>
+                <button mat-menu-item (click)="openExamDialog('homeWork', course!, lesson, i)" style="direction: rtl;">
+                  واجب
+                </button>
+
+              </mat-menu>
+
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <ng-container *ngFor="let content of lesson.content">
+            <div class="flex crud-buttons gap-2">
+              <button mat-button class="d-flex justify-content-start gap-2" [routerLink]="['/lesson', content.id]"
+                (click)="passLesson(lesson)">
+                <mat-icon style="color: var(--wave2);">airplay</mat-icon>
+                <span>{{ content.title }}</span>
               </button>
 
-            </mat-menu>
+              <div *ngIf="content" class="flex">
+                <button mat-icon-button *ngIf="isTeacher()" class="width-50 m-0 custom-icon-button" style="color: red;"
+                  (click)="openDeleteContentConfirmationDialog(lesson.id, content.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
 
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <ng-container *ngFor="let content of lesson.content">
-          <div class="flex">
-            <button mat-button class="d-flex justify-content-start gap-2" [routerLink]="['/lesson', content.id]"
-              (click)="passLesson(lesson)">
-              <mat-icon style="color: var(--wave2);">airplay</mat-icon>
-              <span>{{ content.title }}</span>
-            </button>
-
-            <div *ngIf="content" class="flex">
-              <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
-                (click)="openDeleteContentConfirmationDialog(lesson.id, content.id)">
-                <mat-icon>delete</mat-icon>
-              </button>
-
-              <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
-                (click)="editContentDialog(lesson.id, content)">
-                <mat-icon>edit</mat-icon>
-              </button>
+                <button mat-icon-button *ngIf="isTeacher()" class="width-50 m-0 custom-icon-button"
+                  style="color: green;" (click)="editContentDialog(lesson.id, content)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
             </div>
-          </div>
-        </ng-container>
+          </ng-container>
 
 
-      </mat-expansion-panel>
-      <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: red;"
-        (click)="openDeleteConfirmationDialog(lesson.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-      <button mat-icon-button class="width-50 m-0 custom-icon-button" style="color: green;"
-        (click)="editLessonDialog(lesson.id, lesson.title)">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </mat-accordion>
-  </div>
+        </mat-expansion-panel>
+        <button mat-icon-button *ngIf="isTeacher()" class="width-50 m-0 custom-icon-button" style="color: red;"
+          (click)="openDeleteConfirmationDialog(lesson.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="isTeacher()" class="width-50 m-0 custom-icon-button" style="color: green;"
+          (click)="editLessonDialog(lesson.id, lesson.title)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-accordion>
+    </div>
 
-  <div class="teacher d-flex gap-3 mt-4" *ngIf="options[1].selected">
-    <!-- <img mat-card-image [src]="teacher?.imageUrl" alt="Sample Image" class="align-self-center"> -->
-    <img mat-card-image src="https://via.placeholder.com/225" alt="Sample Image" class="mt-4">
-    <div>
-      <h3 style="font-weight: 700;" class="mb-4">أ. {{course?.teacher}}</h3>
-      <p>
-        مدرّس متخصص في علوم الحاسوب وتطوير البرمجيات، لديه خبرة تزيد عن ١٥ عامًا في المجال. شارك في تأسيس العديد من
-        الشركات الناشئة وعمل في شركات تقنية عالمية بارزة. يحمل خبرة غنية في تدريس مواد علوم الحاسوب في الجامعات الرائدة
-        مثل جامعة القاهرة وجامعة النيل، وله مساهمات مهمة في البحث العلمي في مجال تطوير الذكاء الاصطناعي وتعلم الآلة.
-        يشغل
-        حاليًا منصب مدير تطوير البرمجيات في شركة عالمية رائدة في مجال تكنولوجيا المعلومات، وقد حصل على شهادات معتمدة من
-        شركات تقنية كبيرة مثل مايكروسوفت وأمازون وغيرها.
-      </p>
+    <div class="teacher d-flex gap-3 mt-4" *ngIf="options[1].selected">
+      <!-- <img mat-card-image [src]="teacher?.imageUrl" alt="Sample Image" class="align-self-center"> -->
+      <img mat-card-image src="https://via.placeholder.com/225" alt="Sample Image" class="mt-4">
+      <div>
+        <h3 style="font-weight: 700;" class="mb-4">أ. {{course?.teacher}}</h3>
+        <p>
+          مدرّس متخصص في علوم الحاسوب وتطوير البرمجيات، لديه خبرة تزيد عن ١٥ عامًا في المجال. شارك في تأسيس العديد من
+          الشركات الناشئة وعمل في شركات تقنية عالمية بارزة. يحمل خبرة غنية في تدريس مواد علوم الحاسوب في الجامعات
+          الرائدة
+          مثل جامعة القاهرة وجامعة النيل، وله مساهمات مهمة في البحث العلمي في مجال تطوير الذكاء الاصطناعي وتعلم الآلة.
+          يشغل
+          حاليًا منصب مدير تطوير البرمجيات في شركة عالمية رائدة في مجال تكنولوجيا المعلومات، وقد حصل على شهادات معتمدة
+          من
+          شركات تقنية كبيرة مثل مايكروسوفت وأمازون وغيرها.
+        </p>
+      </div>
     </div>
   </div>
 

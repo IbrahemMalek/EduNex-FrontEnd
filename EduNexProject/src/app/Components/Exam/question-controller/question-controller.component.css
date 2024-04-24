@@ -5,9 +5,11 @@ section {
   width: 250px;
   height: 300px;
 }
-div {
+
+.questions-container {
   overflow-y: auto;
 }
+
 .circle-button {
   height: 2.75rem;
   width: 2.75rem;

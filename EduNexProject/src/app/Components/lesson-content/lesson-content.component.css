@@ -44,7 +44,7 @@ mat-accordion {
   background-image: var(--bg);
 }
 
-::ng-deep .mdc-button__label {
+.content-file ::ng-deep .mdc-button__label {
   margin-left: auto;
 }
 

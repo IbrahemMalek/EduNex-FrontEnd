@@ -358,7 +358,6 @@ export class CreateExamComponent implements OnInit {
     }
   }
 
-
   //SnackBar
   displayErrorMessages(): void {
     Object.keys(this.examForm.controls).forEach(controlName => {

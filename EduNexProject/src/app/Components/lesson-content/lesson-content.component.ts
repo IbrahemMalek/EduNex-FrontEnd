@@ -22,7 +22,7 @@ export class LessonContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.lesson = history.state.lesson;
-    console.log(this.lesson);
+    // console.log(this.lesson);
     this.initOptions();
   }
 

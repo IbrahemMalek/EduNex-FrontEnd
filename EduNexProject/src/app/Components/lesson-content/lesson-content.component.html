@@ -1,13 +1,13 @@
 <section class="d-flex align-items-start gap-3 container">
   <mat-accordion class="flex">
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" expanded="true"
       class="custom-expansion-panel">
       <mat-expansion-panel-header>
         <mat-panel-title style="font-weight: 700;">
           الملحقات
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <a *ngFor="let opt of fileOptions; let i = index" class="ms-auto" [href]="opt.pdfUrl" download>
+      <a *ngFor="let opt of fileOptions; let i = index" class="ms-auto content-file" [href]="opt.pdfUrl" download>
         <button mat-button class="ms-auto">
           <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24">
             <path fill="var(--bgHeader)"

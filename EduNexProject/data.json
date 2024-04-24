@@ -12,7 +12,7 @@
       "lesson": [
         {
           "id": "620420",
-          "title": "الحصة الاخيرة",
+          "title": "الحصة التمهيدية",
           "content": [
             {
               "id": "202279",
@@ -41,9 +41,31 @@
           ]
         },
         {
-          "id": "309239",
-          "title": "اي حاجه",
+          "id": "604356",
+          "title": "الحصه الأولي",
           "content": []
+        },
+        {
+          "id": "892792",
+          "title": "الحصه الثانيه",
+          "content": []
+        },
+        {
+          "id": "806246",
+          "title": "الحصة الثالثه",
+          "content": []
+        },
+        {
+          "id": "690330",
+          "title": "الحصه الرابعه",
+          "content": [
+            {
+              "id": "474184",
+              "title": "1",
+              "videoUrl": "P1.mp4",
+              "pdfUrl": null
+            }
+          ]
         }
       ]
     },
@@ -327,53 +349,179 @@
   "exams": [
     {
       "id": "1",
-      "title": "Exam 1",
-      "startDateTime": "2024-04-17T18:59:04.863Z",
-      "endDateTime": "2024-04-17T18:59:04.863Z",
+      "title": "واجب - الحصه الثالثه",
+      "startDateTime": "2024-03-30T18:37:45.709Z",
+      "endDateTime": "2024-04-16T05:37:45.709Z",
       "duration": 60,
       "type": "exam",
       "questions": [
         {
           "questionId": 1,
-          "header": "Question 1",
-          "type": "singleChoice",
+          "header": "هل لديك تجربة سابقة في العمل مع فرق دولية؟ هل لديك مهارات تواصل قوية تساعدك على التفاعل مع فرق متعددة الثقافات؟ كيف تتعامل مع التحديات التي تنشأ من تعدد الثقافات في بيئة العمل؟ هل يمكنك تقديم مثال على كيفية حل صراع ثقافي في العمل؟",
+          "type": "multipleChoice",
           "points": 10,
-          "answers": []
+          "answers": [
+            {
+              "answerId": 0,
+              "header": "tEcXNQqZSN",
+              "isCorrect": true
+            },
+            {
+              "answerId": 1,
+              "header": "jukItctBPI",
+              "isCorrect": false
+            },
+            {
+              "answerId": 2,
+              "header": "oFGoyYPlpv",
+              "isCorrect": false
+            },
+            {
+              "answerId": 3,
+              "header": "NLrDXAjJKW",
+              "isCorrect": false
+            }
+          ]
         },
         {
           "questionId": 2,
-          "header": "Question 2",
-          "type": "singleChoice",
+          "header": "هل يمكنك وصف مشروعًا صعبًا ومعقدًا كنت مسؤولا عن إدارته؟ ما هي التحديات التي واجهتك في هذا المشروع؟ كيف قمت بتنظيم الجدول الزمني وإدارة الموارد لضمان نجاح المشروع؟ هل كانت هناك أية مشكلات كبيرة وكيف تم التعامل معها؟ ما الدروس التي تعلمتها من هذه التجربة؟",
+          "type": "trueFalse",
           "points": 10,
-          "answers": []
+          "answers": [
+            {
+              "answerId": 0,
+              "header": "tEcXNQqZSN",
+              "isCorrect": true
+            },
+            {
+              "answerId": 1,
+              "header": "jukItctBPI",
+              "isCorrect": false
+            },
+            {
+              "answerId": 2,
+              "header": "oFGoyYPlpv",
+              "isCorrect": false
+            },
+            {
+              "answerId": 3,
+              "header": "NLrDXAjJKW",
+              "isCorrect": false
+            }
+          ]
         },
         {
           "questionId": 3,
-          "header": "Question 3",
+          "header": "ما هي أهمية الابتكار في بيئة العمل؟ كيف تعزز الابتكار في مجموعتك أو فريقك؟ هل يمكنك تقديم مثال على مرة قمت فيها بتطبيق فكرة جديدة أو غير تقليدية لحل مشكلة في العمل؟ كيف كان استقبال فكرتك وما كانت النتيجة النهائية؟ ما هي الخطوات التي تتخذها لتشجيع الابتكار في فريقك؟",
           "type": "multipleChoice",
           "points": 10,
-          "answers": []
+          "answers": [
+            {
+              "answerId": 0,
+              "header": "cXAXEgwvFN",
+              "isCorrect": true
+            },
+            {
+              "answerId": 1,
+              "header": "cXvkJmaXFr",
+              "isCorrect": false
+            },
+            {
+              "answerId": 2,
+              "header": "mWJhDTncJM",
+              "isCorrect": false
+            },
+            {
+              "answerId": 3,
+              "header": "rHmVheIdfA",
+              "isCorrect": false
+            }
+          ]
         },
         {
           "questionId": 4,
-          "header": "Question 4",
+          "header": "هل تستخدم تقنيات معينة لإدارة الوقت وزيادة الإنتاجية؟ كيف تنظم يومك العملي لتحقيق أقصى استفادة من وقتك؟ كيف تتعامل مع المهام الطارئة والضغط الزمني؟ هل لديك نصائح لتحسين إدارة الوقت للآخرين؟",
           "type": "multipleChoice",
           "points": 10,
-          "answers": []
+          "answers": [
+            {
+              "answerId": 0,
+              "header": "dYcfMnDWfo",
+              "isCorrect": false
+            },
+            {
+              "answerId": 1,
+              "header": "FyQYQkIeSc",
+              "isCorrect": false
+            },
+            {
+              "answerId": 2,
+              "header": "GOIEAEHgTV",
+              "isCorrect": true
+            },
+            {
+              "answerId": 3,
+              "header": "IOVtMVaUGy",
+              "isCorrect": false
+            }
+          ]
         },
         {
           "questionId": 5,
-          "header": "Question 5",
+          "header": "ما هي الصفات التي تعتقد أنها تجعلك مرشحًا جيدًا لهذه الوظيفة؟ هل لديك قدرة على العمل تحت الضغط وتحت المواعيد النهائية؟ كيف تتعامل مع الضغط في بيئة العمل؟ هل يمكنك تقديم مثال على موقف تحت الضغط وكيف تم التعامل معه؟",
           "type": "trueFalse",
           "points": 10,
-          "answers": []
+          "answers": [
+            {
+              "answerId": 0,
+              "header": "dYcfMnDWfo",
+              "isCorrect": false
+            },
+            {
+              "answerId": 1,
+              "header": "FyQYQkIeSc",
+              "isCorrect": false
+            },
+            {
+              "answerId": 2,
+              "header": "GOIEAEHgTV",
+              "isCorrect": true
+            },
+            {
+              "answerId": 3,
+              "header": "IOVtMVaUGy",
+              "isCorrect": false
+            }
+          ]
         },
         {
           "questionId": 6,
-          "header": "Question 6",
-          "type": "trueFalse",
+          "header": "ما هي نظرتك إلى التعلم المستمر وتطوير المهارات؟ هل تتبع أي استراتيجيات خاصة لتطوير نفسك مهنيًا؟ هل لديك أية تجارب سابقة في تحسين مهاراتك أو تعلم مهارات جديدة؟ كيف تعتقد أن يمكن لتعلم مستمر أن يؤثر على أدائك في العمل؟",
+          "type": "singleChoice",
           "points": 10,
-          "answers": []
+          "answers": [
+            {
+              "answerId": 0,
+              "header": "hLUMADGOlo",
+              "isCorrect": false
+            },
+            {
+              "answerId": 1,
+              "header": "DmZDfnboIx",
+              "isCorrect": false
+            },
+            {
+              "answerId": 2,
+              "header": "vGZfWWVEzF",
+              "isCorrect": true
+            },
+            {
+              "answerId": 3,
+              "header": "wXowzMOjFk",
+              "isCorrect": false
+            }
+          ]
         }
       ]
     }

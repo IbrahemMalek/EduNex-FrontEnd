@@ -8,9 +8,11 @@ import { MainComponent } from './Components/Home/main/main.component';
 import { CourseDetailsComponent } from './Components/CourseDetails/course-details/course-details.component';
 import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
 import { LessonContentComponent } from './Components/lesson-content/lesson-content.component';
+import { StudentExamComponent } from './Components/Exam/student-exam/student-exam.component';
 
 const routes: Routes = [
-  { path: "course/:courseId/lesson/:lessonId", component: CreateExamComponent },
+  { path: "course/:courseId/lesson/:lessonId/create", component: CreateExamComponent },
+  { path: "course/:courseId/lesson/:lessonId/view", component: StudentExamComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
   { path: "courses", component: CoursesComponent },
