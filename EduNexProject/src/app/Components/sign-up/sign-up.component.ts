@@ -22,6 +22,7 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     this.signupForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.pattern('^(?!\d).{8,}$')]],
+      lastName: ['', Validators.required],
       studentPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
       fatherPhoneNumber: ['',[Validators.required, Validators.pattern('^(010|015|011|012)\\d{8}$')]],
       religion: ['', Validators.required],
@@ -62,6 +63,11 @@ export class SignUpComponent implements OnInit {
   {
     return this.signupForm.get('fullName')
   }
+  get lastName()
+  {
+    return this.signupForm.get('lastName')
+  }
+  
   get studentPhoneNumber()
   {
     return this.signupForm.get('studentPhoneNumber')
@@ -111,34 +117,35 @@ export class SignUpComponent implements OnInit {
 
   errorMeg:string='';
   onSubmit() {
+   
     if (this.signupForm.valid) {
-
-
+      
       const defaultFormData: IuserUdateFormData = {
-        firstName: '',
-        lastName: '',
-        phoneNumber: '',
-        gender: '',
-        parentPhoneNumber: '',
-        religion: '',
-        dateOfBirth: '',
-        address: '',
-        nationalId: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
+        City: this.signupForm.value.governorate,
+        address: this.signupForm.value.address,
+        confirmPassword: this.signupForm.value.confirmPassword, 
+        dateOfBirth: this.signupForm.value.birthday,
+        Email: this.signupForm.value.studentEmail,
+        FirstName: this.signupForm.value.fullName,
+        gender: this.signupForm.value.sex,
+        lastName: this.signupForm.value.lastName,
+        ParentPhoneNumber: this.signupForm.value.fatherPhoneNumber,
+        Password: this.signupForm.value.password,
+        PhoneNumber: this.signupForm.value.studentPhoneNumber,
+        religion: this.signupForm.value.religion,
+        levelId: this.signupForm.value.education,
       };
+      
       // Save data in DB
-      console.log(this.signupForm.value);
-     this.authService.signUp(this.signupForm.value).subscribe(
+     this.authService.signUp(defaultFormData).subscribe(
       {
-        next:(data)=>{
-          if(data.message==='success')
+        next:(data)=>{  console.log(data)
+          if(data.token)
             {
               this.authService.signUp(this.signupForm.value);
               //go to login
               this.router.navigate(['/login'])
-              this._snackBar.open('تم تسجيل الدخول بنجاح', 'Close', {
+              this._snackBar.open('تم انشاء الحساب بنجاح', 'Close', {
                 duration: 5000, 
                 verticalPosition: 'top',
               });
@@ -149,45 +156,16 @@ export class SignUpComponent implements OnInit {
           console.log(err);
            }
         })
+    } else{
+
+      Object.keys(this.signupForm.controls).forEach(controlName => {
+        this.signupForm.get(controlName)?.markAsTouched();
+    });
+
     }
 
-      // const defaultFormData: IuserUdateFormData = {
-      //   firstName: "Johns",
-      //   lastName: "Doqe",
-      //   phoneNumber: "0123456789",
-      //   gender: "Male",
-      //   parentPhoneNumber: "0123456785",
-      //   religion: "Islam",
-      //   dateOfBirth: "1990-01-01T00:00:00.000Z",
-      //   address: "123 Main Street",
-      //   nationalId: "12345678901234",
-      //   email: "MoSalah.doe@example.com",
-      //   password: "Pa$w$w0rd#",
-      //   confirmPassword: "Pa$w$w0rd#"
-      // };
-  
-      
-      // this.authService.signUp(defaultFormData).subscribe({
-      //   next: (data) => {
-
-      //     if (data.token) {
-      //       // Redirect to login page
-      //       this.router.navigate(['/login']);
-      //       this._snackBar.open('Registered successfully!', 'Close', {
-      //         duration: 5000, 
-      //         verticalPosition: 'top',
-      //       });
-      //     }
-      //   },
-      //   error: (err) => {
-      //     this.errorMeg = err.error.errors.msg;
-      //     console.log(err);
-      //     console.log(err.error.errors);
-      //   }
-      // });
       
     }
   }
-      // }
     
 

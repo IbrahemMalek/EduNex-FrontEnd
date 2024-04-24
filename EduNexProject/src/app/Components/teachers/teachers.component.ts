@@ -20,8 +20,22 @@ export class TeachersComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getAll()
-    console.log(this.authService.getToken());
-  }
 
-  
+    console.log(this.authService.getToken());
+
+    console.log(this.authService.saveCurrentUserId())
+
+   this.authService.getUserData(this.authService.saveCurrentUserId()).subscribe({
+    next:(data)=>{
+                      console.log(data)
+    },
+    error:(err)=>{
+      console.log(err);
+       }
+   })
+
+
+  }
 }
+
+ 

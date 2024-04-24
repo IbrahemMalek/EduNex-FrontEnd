@@ -1,14 +1,16 @@
+
 export interface IuserUdateFormData {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  gender: string;
-  parentPhoneNumber: string;
-  religion: string;
-  dateOfBirth: string;
-  address: string;
-  nationalId: string;
-  email: string;
-  password: string;
+  address:string;
+  City: string;
   confirmPassword: string;
+  dateOfBirth:string;
+  Email: string;
+  FirstName: string;
+  gender: string;
+  lastName: string;
+  ParentPhoneNumber: string
+  Password: string;
+  PhoneNumber: string;
+  religion: string;
+  levelId: number;
 }

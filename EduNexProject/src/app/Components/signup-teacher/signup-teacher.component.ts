@@ -16,7 +16,6 @@ export class SignupTeacherComponent {
   isInputFocused: boolean = false;
   signupForm!: FormGroup;
 
-  
   constructor(private fb: FormBuilder,private authService:AuthService,private router:Router,private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
@@ -28,13 +27,15 @@ export class SignupTeacherComponent {
       sex: ['', Validators.required],
       governorate: ['', Validators.required],
       address: ['', Validators.required],
+      FacebookAccount: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8),this.passwordStrengthValidator]],
       confirmPassword: ['',],
       teacherEmail: ['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]],
     },{validators: passwordMatched()}); // Apply custom validator here
+   
   }
   passwordStrengthValidator(control: any) {
-    // Password strength 
+    // Password strength  
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (control.value && !regex.test(control.value)) {
       return { 'weakPassword': true };
@@ -62,7 +63,11 @@ export class SignupTeacherComponent {
   {
     return this.signupForm.get('teacherPhoneNumber')
   }
-
+  
+  get FacebookAccount()
+  {
+    return this.signupForm.get('FacebookAccount')
+  }
   get birthday()
   {
     return this.signupForm.get('birthday')
@@ -97,20 +102,9 @@ export class SignupTeacherComponent {
     if (this.signupForm.valid) {
 
 
-      const defaultFormData: IuserUdateFormData = {
-        firstName: '',
-        lastName: '',
-        phoneNumber: '',
-        gender: '',
-        parentPhoneNumber: '',
-        religion: '',
-        dateOfBirth: '',
-        address: '',
-        nationalId: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-      };
+      // const defaultFormData: IuserUdateFormData = {
+        
+      // };
       // Save data in DB
       console.log(this.signupForm.value);
      this.authService.signUp(this.signupForm.value).subscribe(
@@ -134,40 +128,5 @@ export class SignupTeacherComponent {
         })
     }
 
-      // const defaultFormData: IuserUdateFormData = {
-      //   firstName: "Johns",
-      //   lastName: "Doqe",
-      //   phoneNumber: "0123456789",
-      //   gender: "Male",
-      //   parentPhoneNumber: "0123456785",
-      //   religion: "Islam",
-      //   dateOfBirth: "1990-01-01T00:00:00.000Z",
-      //   address: "123 Main Street",
-      //   nationalId: "12345678901234",
-      //   email: "MoSalah.doe@example.com",
-      //   password: "Pa$w$w0rd#",
-      //   confirmPassword: "Pa$w$w0rd#"
-      // };
-  
-      
-      // this.authService.signUp(defaultFormData).subscribe({
-      //   next: (data) => {
-
-      //     if (data.token) {
-      //       // Redirect to login page
-      //       this.router.navigate(['/login']);
-      //       this._snackBar.open('Registered successfully!', 'Close', {
-      //         duration: 5000, 
-      //         verticalPosition: 'top',
-      //       });
-      //     }
-      //   },
-      //   error: (err) => {
-      //     this.errorMeg = err.error.errors.msg;
-      //     console.log(err);
-      //     console.log(err.error.errors);
-      //   }
-      // });
-      
     }
   }

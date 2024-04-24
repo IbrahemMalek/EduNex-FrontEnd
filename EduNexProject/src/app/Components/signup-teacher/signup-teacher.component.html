@@ -45,7 +45,7 @@
                                formControlName="fullName"
                                id="fullName"
                                placeholder="اسم المعلم"
-                               aria-label="رقم تليفون المعلم">
+                               aria-label=" اسم المعلم">
                                <i class="fa-regular fa-user"></i>
                         <mat-error *ngIf="fullName?.touched && fullName?.invalid">
                             <span *ngIf="fullName?.errors?.['pattern']" class="text-danger">الأسم يجب أن يكون 8 حروف على الأقل ولا يحتوي على أرقام</span>
@@ -62,14 +62,13 @@
                                formControlName="lastName"
                                id="lastName"
                                placeholder="اسم العائلة"
-                               aria-label="رقم تليفون المعلم">
+                               aria-label=" اسم المعلم">
                                <i class="fa-regular fa-user"></i>
                         <mat-error *ngIf="lastName?.touched && lastName?.invalid">
                             <span *ngIf="lastName?.errors?.['required']" class="text-danger">الأسم مطلوب</span>
                         </mat-error>
                     </mat-form-field>
                 </div>
-             
              </div>
         </div>
         <div class="row mt-2">
@@ -104,6 +103,21 @@
                 <mat-error *ngIf="teacherPhoneNumber?.touched && teacherPhoneNumber?.invalid">
                   <span *ngIf="teacherPhoneNumber?.errors?.['pattern']" class="text-danger">رقم الهاتف يجب أن يكون من 11 رقم يبدأ بـ 010 أو 011 أو 012 أو 015</span>
                   <span *ngIf="teacherPhoneNumber?.errors?.['required']" class="text-danger">رقم الهاتف مطلوب</span>
+                </mat-error>
+              </mat-form-field> 
+
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>  عنوان الفيسبوك</mat-label>
+                <input matInput
+                       type="text"
+                       name="FacebookAccount"
+                       formControlName="FacebookAccount"
+                       id="FacebookAccount"
+                       placeholder=" عنوان الفيسبوك"
+                       aria-label="رقم تليفون المدرس">
+                       <i class="fa-solid fa-mobile-screen-button"></i>
+                <mat-error *ngIf="FacebookAccount?.touched && FacebookAccount?.invalid">
+                  <span *ngIf="FacebookAccount?.errors?.['required']" class="text-danger"> عنوان الفيسبوك مطلوب</span>
                 </mat-error>
               </mat-form-field>
         </div>
