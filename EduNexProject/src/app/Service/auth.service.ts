@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { jwtDecode } from "jwt-decode";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomJwtPayload } from '../Models/CustomJwtPayload ';
+import { Iteacherdata } from '../Models/Iteacherdata';
 
 @Injectable({
   providedIn: 'root'
@@ -67,9 +68,39 @@ export class AuthService {
           // go to about
           this.router.navigate(['/teachers']);
         }
+      }),
+      catchError(error => {
+        // If an error occurs, handle it here
+        // You can log the error or perform any other error handling tasks
+        console.error('Error during sign up:', error);
+        this.snackBar.open(`${error.error.Email[0]}`, 'Close', {
+          duration: 5000, 
+          verticalPosition: 'bottom',
+        });
+        
+        // Return an observable that emits the error
+        return throwError(error);
       })
     );
   }
+  
+  signUpTeacher(data: Iteacherdata): Observable<any> {
+    return this.httpClient.post(`${this.baseUrl}/api/Teacher/register/teacher`, data).pipe(
+      map((response: any) => {
+        console.log(response);
+        return response;
+      }),
+      catchError(error => {
+        console.error('Error during sign up:', error);
+        this.snackBar.open(`${error.error.Email[0]}`, 'Close', {
+          duration: 5000, 
+          verticalPosition: 'bottom',
+        });
+        return throwError(error);
+      })
+    );
+  }
+  
 
   getUserData(id:any):Observable<any>
   {

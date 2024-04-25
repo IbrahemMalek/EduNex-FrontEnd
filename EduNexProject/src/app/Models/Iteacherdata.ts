@@ -1,16 +1,13 @@
-
 export interface Iteacherdata {
-    address:string;
-    City: string;
-    confirmPassword: string;
-    dateOfBirth:string;
-    Email: string;
-    FirstName: string;
-    gender: string;
-    lastName: string;
-    ParentPhoneNumber: string
-    Password: string;
-    PhoneNumber: string;
-    religion: string;
-    levelId: number;
-  }
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  facebookAccount: string;
+  dateOfBirth: string; 
+  gender: string;
+  address: string;
+  nationalId: string;
+  password: string;
+  confirmPassword: string;
+}

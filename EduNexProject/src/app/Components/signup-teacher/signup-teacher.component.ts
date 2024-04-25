@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { passwordMatched } from 'src/app/CustomFormValidation/CrossfiledValidation';
+import { Iteacherdata } from 'src/app/Models/Iteacherdata';
 import { IuserUdateFormData } from 'src/app/Models/IuserUdateFormData';
 import { AuthService } from 'src/app/Service/auth.service';
 
@@ -99,33 +100,50 @@ export class SignupTeacherComponent {
 
   errorMeg:string='';
   onSubmit() {
+    this.authService.removeToken();
     if (this.signupForm.valid) {
-
-
-      // const defaultFormData: IuserUdateFormData = {
-        
-      // };
+     
+      const teacherData: Iteacherdata = {
+        firstName: this.signupForm.value.fullName,
+        lastName: this.signupForm.value.lastName,
+        email:this.signupForm.value.teacherEmail,
+        phoneNumber: this.signupForm.value.teacherPhoneNumber,
+        facebookAccount: this.signupForm.value.FacebookAccount,
+        dateOfBirth: this.signupForm.value.birthday,
+        gender: this.signupForm.value.sex,
+        address: this.signupForm.value.governorate,
+        nationalId: "Not in form",
+        password: this.signupForm.value.password,
+        confirmPassword: this.signupForm.value.confirmPassword,
+      };
+      console.log(teacherData)
       // Save data in DB
-      console.log(this.signupForm.value);
-     this.authService.signUp(this.signupForm.value).subscribe(
-      {
-        next:(data)=>{
-          if(data.message==='success')
-            {
-              this.authService.signUp(this.signupForm.value);
-              //go to login
-              this.router.navigate(['/login'])
-              this._snackBar.open('تم تسجيل الدخول بنجاح', 'Close', {
-                duration: 5000, 
-                verticalPosition: 'top',
-              });
-            }
+      this.authService.signUpTeacher(teacherData).subscribe(
+        (data) => { 
+          console.log(data);
+          if (data.token) {
+            // Go to login
+            this.router.navigate(['/login']);
+            this._snackBar.open('تم انشاء الحساب بنجاح', 'Close', {
+              duration: 5000, 
+              verticalPosition: 'top',
+            });
+          }
         },
-        error:(err)=>{
-          this.errorMeg=err.error.errors.msg;
-          console.log(err);
-           }
-        })
+        (err) => {
+          // Handle error
+          console.error(err);
+          // Show error message
+          if (err.error && err.error.errors && err.error.errors.msg) {
+            this.errorMeg = err.error.errors.msg;
+          } else {
+            this.errorMeg = 'An unexpected error occurred.';
+          }
+        }
+      );
+      
+      
+
     }
 
     }

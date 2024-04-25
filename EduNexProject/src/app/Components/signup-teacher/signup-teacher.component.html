@@ -217,14 +217,14 @@
             <div class="col">
               <mat-form-field appearance="fill" style="width: 100%;">
                 <mat-label>تأكيد كلمة السر</mat-label>
-                <input matInput type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="تأكيد كلمة السر" aria-label="تأكيد كلمة السر" required>
+                <input matInput type="password" name="confirmPassword" formControlName="confirmPassword" placeholder="تأكيد كلمة السر" aria-label="تأكيد كلمة السر" required>
                 <i class="fa-solid fa-lock"></i>
-                <mat-error *ngIf="signupForm.get('ConfirmPassword')?.hasError('unMatchedPassword')">
+                <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('unMatchedPassword')">
                     <span class="text-danger">كلمة المرور غير متطابقة</span>
                   </mat-error>
               </mat-form-field>
             </div>
-            <span *ngIf="password?.errors?.['required']" class="text-danger"> خطأ عنوان البريد أو كلمة المرور غير صحيحة </span>
+            <!-- <span *ngIf="password?.errors?.['required']" class="text-danger"> خطأ عنوان البريد أو كلمة المرور غير صحيحة </span> -->
           </div>
           
           
