@@ -1,0 +1,39 @@
+.wallet-section,
+.course-card {
+  border-radius: 10px;
+  box-shadow: var(--border) 0px 1px 3px 0px, var(--border) 0px 0px 0px 1px;
+  background-color: var(--bg);
+  width: 230px;
+}
+
+p,
+h5 {
+  margin-bottom: 0;
+}
+
+h5 {
+  font-weight: 700;
+  color: orange;
+}
+
+.fa-wallet {
+  font-size: 3.5rem;
+}
+
+.wallet-section {
+  min-height: 100px;
+}
+
+.wallet-text p {
+  font-weight: 700;
+}
+
+.course-card h6 {
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .wallet-section {
+    width: 100%;
+  }
+}

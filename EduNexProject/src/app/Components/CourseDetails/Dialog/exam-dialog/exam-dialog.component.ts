@@ -1,8 +1,11 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { isAnyValueMissing, isDurationValid, isStartDateAfterEndDate, isStartDatePast } from 'src/app/Validator/exam-validators';
+
+
 
 @Component({
   selector: 'app-exam-dialog',
@@ -28,44 +31,14 @@ export class ExamDialogComponent {
       startDate: new FormControl('', Validators.required),
       endDate: new FormControl('', Validators.required),
       duration: new FormControl('', [Validators.required, Validators.min(5), Validators.max(180)]),
+    }, {
+      validators: [
+        isAnyValueMissing,
+        isStartDateAfterEndDate,
+        isStartDatePast,
+        isDurationValid,
+      ]
     });
-  }
-
-  // Separated validation functions
-  isAnyValueMissing(control: AbstractControl): boolean {
-    return !control.get('startDate')?.value || !control.get('startTime')?.value ||
-      !control.get('endDate')?.value || !control.get('endTime')?.value ||
-      !control.get('duration')?.value;
-  }
-
-  isStartDateAfterEndDate(control: AbstractControl): boolean {
-    const startDate = new Date(control.get('startDate')?.value);
-    const endDate = new Date(control.get('endDate')?.value);
-    return startDate > endDate;
-  }
-
-  isDurationValid(control: AbstractControl): boolean {
-    const startDate = new Date(control.get('startDate')?.value);
-    const startTime = control.get('startTime')?.value;
-    const endDate = new Date(control.get('endDate')?.value);
-    const endTime = control.get('endTime')?.value;
-
-    const startDateString = startDate.toISOString().split('T')[0];
-    const endDateString = endDate.toISOString().split('T')[0];
-
-    const startDateTime = new Date(`${startDateString}T${startTime}:00.000Z`);
-    const endDateTime = new Date(`${endDateString}T${endTime}:00.000Z`);
-
-    const durationInMinutes = parseInt(control.get('duration')?.value);
-    const differenceInMinutes = Math.floor((endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60));
-
-    return durationInMinutes > differenceInMinutes;
-  }
-
-  isStartDatePast(control: AbstractControl): boolean {
-    const startDate = new Date(control.get('startDate')?.value);
-    const today = new Date();
-    return startDate <= today;
   }
 
   onNoClick(): void {
@@ -73,30 +46,9 @@ export class ExamDialogComponent {
   }
 
   onYesClick(event: Event): void {
-    // event.preventDefault();
 
     if (this.contentForm.invalid) {
       this.displayErrorMessages();
-      return;
-    }
-
-    if (this.isAnyValueMissing(this.contentForm)) {
-      this.openSnackBar('الرجاء ملء جميع الحقول', 'حسناً');
-      return;
-    }
-
-    if (this.isStartDateAfterEndDate(this.contentForm)) {
-      this.openSnackBar('تاريخ البدء يجب أن يكون قبل تاريخ الانتهاء', 'حسناً');
-      return;
-    }
-
-    if (this.isDurationValid(this.contentForm)) {
-      this.openSnackBar('المدة يجب أن تكون أطول من مدة الامتحان', 'حسناً');
-      return;
-    }
-
-    if (this.isStartDatePast(this.contentForm)) {
-      this.openSnackBar('تاريخ البدء يجب أن يكون بعد تاريخ اليوم', 'حسناً');
       return;
     }
 
@@ -119,23 +71,31 @@ export class ExamDialogComponent {
   }
 
   displayErrorMessages(): void {
-    Object.keys(this.contentForm.controls).forEach(controlName => {
-      const control = this.contentForm.get(controlName);
-      const errors = control?.errors;
-      if (errors) {
-        Object.keys(errors).forEach(errorName => {
-          let errorMessage = '';
-          switch (errorName) {
-            case 'required':
-              errorMessage = 'هذا الحقل مطلوب';
-              break;
-            default:
-              errorMessage = 'خطأ غير معروف';
-          }
-          this.openSnackBar(errorMessage, 'حسناً');
-        });
+    const formErrors = this.contentForm.errors;
+
+    if (formErrors) {
+      if (formErrors['anyValueMissing']) {
+        this.openSnackBar('يرجى ملء جميع الحقول', 'حسناً');
       }
-    });
+      if (formErrors['startDateAfterEndDate']) {
+        this.openSnackBar('تاريخ البداية يجب أن يكون قبل تاريخ الانتهاء', 'حسناً');
+      }
+      if (formErrors['durationInvalid']) {
+        this.openSnackBar('المدة المحددة أطول من المدة الفعلية للامتحان', 'حسناً');
+      }
+      if (formErrors['startDatePast']) {
+        this.openSnackBar('يجب أن يكون تاريخ البداية في المستقبل', 'حسناً');
+      }
+    } else {
+      Object.keys(this.contentForm.controls).forEach(controlName => {
+        const control = this.contentForm.get(controlName);
+        if (control && control.errors) {
+          if (control.errors?.['required']) {
+            this.openSnackBar('هذا الحقل مطلوب', 'حسناً');
+          }
+        }
+      });
+    }
   }
 
   openSnackBar(message: string, action: string): void {

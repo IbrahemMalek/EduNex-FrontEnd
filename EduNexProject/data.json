@@ -398,16 +398,6 @@
               "answerId": 1,
               "header": "jukItctBPI",
               "isCorrect": false
-            },
-            {
-              "answerId": 2,
-              "header": "oFGoyYPlpv",
-              "isCorrect": false
-            },
-            {
-              "answerId": 3,
-              "header": "NLrDXAjJKW",
-              "isCorrect": false
             }
           ]
         },
@@ -482,23 +472,13 @@
               "answerId": 1,
               "header": "FyQYQkIeSc",
               "isCorrect": false
-            },
-            {
-              "answerId": 2,
-              "header": "GOIEAEHgTV",
-              "isCorrect": true
-            },
-            {
-              "answerId": 3,
-              "header": "IOVtMVaUGy",
-              "isCorrect": false
             }
           ]
         },
         {
           "questionId": 6,
           "header": "ما هي نظرتك إلى التعلم المستمر وتطوير المهارات؟ هل تتبع أي استراتيجيات خاصة لتطوير نفسك مهنيًا؟ هل لديك أية تجارب سابقة في تحسين مهاراتك أو تعلم مهارات جديدة؟ كيف تعتقد أن يمكن لتعلم مستمر أن يؤثر على أدائك في العمل؟",
-          "type": "singleChoice",
+          "type": "oneChoice",
           "points": 10,
           "answers": [
             {
@@ -526,6 +506,99 @@
       ]
     }
   ],
+  "examResult": {
+    "SubmitResult": "Submitted",
+    "ExamName": "امتحان العلوم",
+    "ExamType": "امتحان",
+    "ExamGrade": 80,
+    "StudentGrade": 75,
+    "StudentAnswersWithCorrectAnswers": [
+      {
+        "QuestionId": 1,
+        "QuestionHeader": "ما هو الاسم العلمي للعملية التي تقوم بها النباتات لإنتاج الطعام باستخدام الطاقة من الشمس وإطلاق الأكسجين وما هي الأهمية البيئية لهذه العملية؟",
+        "QuestionType": "اختيار متعدد",
+        "AnswerChoices": {
+          "1": "بكين",
+          "2": "طوكيو",
+          "3": "سيول",
+          "4": "بانكوك"
+        },
+        "StudentAnswerIds": [1,2,3],
+        "CorrectAnswerIds": [1,2,3],
+        "IsCorrect": true
+      },
+      {
+        "QuestionId": 2,
+        "QuestionHeader": "اشرح الفرق بين السرعة والسرعة، وكيف ترتبطان بالحركة الخطية والدورانية؟ كما اشرح كيفية قياس السرعة في كل من الحركتين؟",
+        "QuestionType": "املأ الفراغ",
+        "AnswerChoices": {
+          "1": "H2O",
+          "2": "HO",
+          "3": "H",
+          "4": "O"
+        },
+        "StudentAnswerIds": [1],
+        "CorrectAnswerIds": [1],
+        "IsCorrect": true
+      },
+      {
+        "QuestionId": 3,
+        "QuestionHeader": "صف عملية الانقسام الميوزي وأهميتها في الوراثة وتطور الكائنات الحية، وارتباطها بظاهرة التنوع البيولوجي.",
+        "QuestionType": "اختيار متعدد",
+        "AnswerChoices": {
+          "1": "الأرض",
+          "2": "المريخ",
+          "3": "المشتري",
+          "4": "زحل"
+        },
+        "StudentAnswerIds": [4],
+        "CorrectAnswerIds": [3],
+        "IsCorrect": false
+      },
+      {
+        "QuestionId": 4,
+        "QuestionHeader": "ما هي أنواع الروابط الكيميائية الرئيسية وكيفية تكوينها وتأثيرها على الخصائص الفيزيائية والكيميائية للمواد، وارتباطها بالظواهر الطبيعية والصناعية؟",
+        "QuestionType": "اختيار متعدد",
+        "AnswerChoices": {
+          "1": "إسحاق نيوتن",
+          "2": "ألكسندر فليمنج",
+          "3": "ألبرت أينشتاين",
+          "4": "ماري كوري"
+        },
+        "StudentAnswerIds": [1],
+        "CorrectAnswerIds": [2],
+        "IsCorrect": false
+      },
+      {
+        "QuestionId": 5,
+        "QuestionHeader": "ناقش دور الإنزيمات في العمليات البيولوجية مع الإشارة إلى تأثير درجة الحرارة والتركيز والpH على نشاطها، وكيف يمكن استخدام الإنزيمات في الصناعة والطب؟",
+        "QuestionType": "املأ الفراغ",
+        "AnswerChoices": {
+          "1": "98",
+          "2": "100",
+          "3": "50",
+          "4": "200"
+        },
+        "StudentAnswerIds": [1],
+        "CorrectAnswerIds": [2],
+        "IsCorrect": false
+      },
+      {
+        "QuestionId": 6,
+        "QuestionHeader": "ما هو مصدر الطاقة في الخلية؟",
+        "QuestionType": "اختيار متعدد",
+        "AnswerChoices": {
+          "1": "النواة",
+          "2": "الريبوسوم",
+          "3": "الميتوكوندريا",
+          "4": "الليزوسوم"
+        },
+        "StudentAnswerIds": [1],
+        "CorrectAnswerIds": [3],
+        "IsCorrect": false
+      }
+    ]
+  },
   "metadata": {
     "total": 100,
     "skip": 0,

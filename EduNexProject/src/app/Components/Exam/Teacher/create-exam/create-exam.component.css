@@ -127,10 +127,11 @@ label::after {
   color: #333; /* Adjust color as needed */
 }
 
-
+/*
 ::ng-deep .mdc-button__label{
   margin-inline:auto !important;
-}
+} */
+
 /* Change the border color */
 ::ng-deep
   .mdc-text-field--outlined:not(.mdc-text-field--disabled)
@@ -205,7 +206,7 @@ label::after {
 mat-form-field mat-label {
   color: var(--bgHeader);
 }
-mat-card-content {
+.section mat-card-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -60,11 +60,11 @@
 
           <ng-container *ngFor="let content of lesson.content">
             <div class="flex crud-buttons gap-2">
-              <button mat-button class="d-flex justify-content-start gap-2" [routerLink]="['/lesson', content.id]"
-                (click)="passLesson(lesson)">
+              <button mat-button class="d-flex justify-content-start gap-2" (click)="passLesson(lesson)">
                 <mat-icon style="color: var(--wave2);">airplay</mat-icon>
                 <span>{{ content.title }}</span>
               </button>
+
 
               <div *ngIf="content" class="flex">
                 <button mat-icon-button *ngIf="isTeacher()" class="width-50 m-0 custom-icon-button" style="color: red;"

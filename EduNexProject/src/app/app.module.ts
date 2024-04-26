@@ -28,6 +28,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,18 +62,24 @@ import { LessonDialogComponent } from './Components/CourseDetails/Dialog/lesson-
 import { ContentDialogComponent } from './Components/CourseDetails/Dialog/content-dialog/content-dialog.component';
 import { ConfirmationDialogComponent } from './Components/CourseDetails/Dialog/confirmation-dialog/confirmation-dialog.component';
 import { HeroComponent } from './Components/Home/hero/hero.component';
-import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
+import { CreateExamComponent } from './Components/Exam/Teacher/create-exam/create-exam.component';
 import { ExamDialogComponent } from './Components/CourseDetails/Dialog/exam-dialog/exam-dialog.component';
-import { QuestionControllerComponent } from './Components/Exam/question-controller/question-controller.component';
-import { ExamControllerComponent } from './Components/Exam/exam-controller/exam-controller.component';
+import { QuestionControllerComponent } from './Components/Exam/Teacher/question-controller/question-controller.component';
+import { ExamControllerComponent } from './Components/Exam/Teacher/exam-controller/exam-controller.component';
 import { LessonContentComponent } from './Components/lesson-content/lesson-content.component';
-import { StudentExamComponent } from './Components/Exam/student-exam/student-exam.component';
+import { StudentExamComponent } from './Components/Exam/Student/student-exam/student-exam.component';
+import { TimerComponent } from './Components/Exam/Student/timer/timer.component';
+import { ExamResultComponent } from './Components/Exam/Student/exam-result/exam-result.component';
+import { ExamTimeOutComponent } from './Components/Exam/Student/exam-time-out/exam-time-out.component';
+import { StudentProfileComponent } from './Components/Profile/student-profile/student-profile.component';
+import { ProfileHomeComponent } from './Components/Profile/profile-home/profile-home.component';
+import { ProfileCourseComponent } from './Components/Profile/profile-course/profile-course.component';
+
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { TimerComponent } from './Components/Exam/timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +121,11 @@ import { TimerComponent } from './Components/Exam/timer/timer.component';
     LessonContentComponent,
     StudentExamComponent,
     TimerComponent,
+    ExamResultComponent,
+    ExamTimeOutComponent,
+    StudentProfileComponent,
+    ProfileHomeComponent,
+    ProfileCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -145,6 +157,7 @@ import { TimerComponent } from './Components/Exam/timer/timer.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatCheckboxModule,
+    MatTableModule,
     AppRoutingModule,
     LoadingBarModule,
     LoadingBarHttpClientModule,

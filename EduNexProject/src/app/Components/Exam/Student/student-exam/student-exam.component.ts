@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ICourse } from 'src/app/Model/icourse';
-import { IExam } from 'src/app/Model/iexam';
-import { IQuestion } from 'src/app/Model/iquestion';
+import { IExam, IQuestion } from 'src/app/Model/iexam';
+
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
+import { atLeastOneCheckboxChecked, atLeastOneRadioButtonChecked } from 'src/app/Validator/exam-validators';
 
 @Component({
   selector: 'app-student-exam',
@@ -25,7 +26,8 @@ export class StudentExamComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private dynamicData: DynamicDataService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.form = this.fb.group({});
   }
@@ -69,22 +71,28 @@ export class StudentExamComponent implements OnInit {
     this.exam.questions.forEach((question, i) => {
       const questionControls: { [key: string]: any } = {};
       question.answers.forEach((answer, j) => {
-        questionControls['answer_' + i + '_' + j] = new FormControl(false);
+        if (question.type === 'multipleChoice') {
+          questionControls['answer_' + i + '_' + j] = new FormControl(false);
+        } else {
+          questionControls['answer_' + i] = new FormControl(null);
+        }
       });
       formControls['question_' + i] = new FormGroup(questionControls);
-      // Apply custom validator for each question
-      formControls['question_' + i].setValidators(this.atLeastOneCheckboxChecked());
+      if (question.type === 'multipleChoice') {
+        formControls['question_' + i].setValidators(atLeastOneCheckboxChecked());
+      } else {
+        formControls['question_' + i].setValidators(atLeastOneRadioButtonChecked());
+      }
     });
-    // Set the form group with form controls
     this.form = this.fb.group(formControls);
   }
+
 
   selectQuestion(index: number) {
     if (index === 0 || this.visitedQuestions[index]) {
       this.selectedQuestionIndex = index;
     }
   }
-
 
   navigateBack() {
     if (this.selectedQuestionIndex > 0) {
@@ -93,6 +101,14 @@ export class StudentExamComponent implements OnInit {
   }
 
   navigateForward() {
+    if (this.selectedQuestionIndex === this.exam.questions.length - 1) {
+      const navigationExtras: NavigationExtras = {
+        replaceUrl: true
+      };
+      this.router.navigate(['/course', this.courseId, 'lesson', this.lessonId, 'result'], navigationExtras);
+      return;
+    }
+
     this.form.get('question_' + this.selectedQuestionIndex)?.markAllAsTouched();
     if (this.form.get('question_' + this.selectedQuestionIndex)?.invalid) {
       return;
@@ -107,6 +123,29 @@ export class StudentExamComponent implements OnInit {
     this.selectedQuestionIndex++;
 
     this.updateQuestionButtonClasses(this.selectedQuestionIndex - 1, 'solved', 'skipped');
+
+    if (this.selectedQuestionIndex === this.exam.questions.length) {
+      const formData: { questionId: number, selectedAnswersIds: number[] }[] = [];
+      this.exam.questions.forEach((question, i) => {
+        const selectedAnswersIds: number[] = [];
+        const questionFormGroup = this.form.get('question_' + i) as FormGroup;
+        if (questionFormGroup) {
+          Object.keys(questionFormGroup.controls).forEach(key => {
+            const control = questionFormGroup.get(key);
+            if (control?.value) {
+              selectedAnswersIds.push(parseInt(key.split('_').pop() || '0'));
+            }
+          });
+        }
+        formData.push({
+          questionId: i,
+          selectedAnswersIds: selectedAnswersIds
+        });
+      });
+      console.log('Formatted Form Data:', { answers: formData });
+      this.router.navigate(['/course', this.courseId, 'lesson', this.lessonId, 'result'])
+      // this.submitFormattedFormData({ answers: formData });
+    }
   }
 
   skipQuestion() {
@@ -123,20 +162,5 @@ export class StudentExamComponent implements OnInit {
         button.classList.remove(removeClass);
       }
     });
-  }
-
-  atLeastOneCheckboxChecked(): ValidatorFn {
-    return (formGroup: AbstractControl): ValidationErrors | null => {
-      let isAtLeastOneChecked = false;
-      if (formGroup instanceof FormGroup) {
-        Object.keys(formGroup.controls).forEach(key => {
-          const control = formGroup.get(key);
-          if (control instanceof FormControl && control.value === true) {
-            isAtLeastOneChecked = true;
-          }
-        });
-      }
-      return isAtLeastOneChecked ? null : { 'atLeastOneCheckboxChecked': true };
-    };
   }
 }

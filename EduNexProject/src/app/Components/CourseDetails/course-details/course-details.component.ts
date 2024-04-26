@@ -3,9 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
 import { ICourse } from 'src/app/Model/icourse';
-import { ILesson } from 'src/app/Model/ilesson';
+import { ILesson, ILessonContent } from 'src/app/Model/ilesson';
 import { LessonDialogComponent } from '../Dialog/lesson-dialog/lesson-dialog.component';
-import { ILessonContent } from 'src/app/Model/ilesson-content';
 import { ContentDialogComponent } from '../Dialog/content-dialog/content-dialog.component';
 import { ConfirmationDialogComponent } from '../Dialog/confirmation-dialog/confirmation-dialog.component';
 import { ExamDialogComponent } from '../Dialog/exam-dialog/exam-dialog.component';
@@ -170,8 +169,12 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   passLesson(lesson: any): void {
+    const queryParams = { courseId: this.course?.id };
+
     this.router.navigate(['/lesson', lesson.id], {
-      state: { lesson: lesson }
+      state: { lesson: lesson, courseId: this.course?.id },
+      queryParams: queryParams
     });
   }
+
 }

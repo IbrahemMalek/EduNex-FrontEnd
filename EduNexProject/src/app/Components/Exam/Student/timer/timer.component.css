@@ -43,7 +43,7 @@
   width: 150px;
   height: 150px;
   margin-top: -75px;
-  margin-left: -70px;
+  margin-left: -75px;
   border-radius: inherit;
   background-image: var(--btn);
   box-shadow: 0 0 15px var(--border), 0 0 3px var(--border2) inset;
@@ -52,8 +52,8 @@
 
 .count {
   color: var(--border2);
-  margin-top: 81px;
-  margin-right: 43px;
+  margin-top: 82px;
+  margin-right: 44px;
   font-size: 32px;
   font-weight: 700;
   line-height: 50px;
@@ -98,10 +98,10 @@
   stroke-dasharray: 0, 100;
   transition: stroke-dasharray 1s linear;
   margin-left: 2rem;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
-.clock-bar[_ngcontent-ng-c3743505146] {
+/* .clock-bar[_ngcontent-ng-c3743505146] {
   top: 1px;
   left: 9px;
-}
+} */

@@ -1,0 +1,53 @@
+<section>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Course Column -->
+    <ng-container matColumnDef="Course">
+      <th mat-header-cell *matHeaderCellDef> الكورس </th>
+      <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="Price">
+      <th mat-header-cell *matHeaderCellDef> السعر </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} ج.م </td>
+    </ng-container>
+
+    <!-- Purchase Date Column -->
+    <ng-container matColumnDef="PurchaseDate">
+      <th mat-header-cell *matHeaderCellDef> تاريخ الشراء </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <!-- Level Column -->
+    <ng-container matColumnDef="Level">
+      <th mat-header-cell *matHeaderCellDef> المستوى </th>
+      <td mat-cell *matCellDef="let element"
+        [ngClass]="{'failed': element.level === 'راسب', 'passed': element.level === 'ناجح'}">
+        <span>{{ element.level}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> الإجراءات </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="d-flex flex-column buttons">
+          <button mat-button>
+            <mat-icon class="mx-2">remove_red_eye</mat-icon>
+            المهام والامتحانات
+          </button>
+
+          <button mat-button>
+            <mat-icon class="mx-2">remove_red_eye</mat-icon>
+            كل أخطائي
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Row definition -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>

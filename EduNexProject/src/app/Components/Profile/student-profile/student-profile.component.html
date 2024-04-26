@@ -1,0 +1,19 @@
+<section class="container flex gap-5 flex-md-row flex-column align-items-start">
+  <div class="flex flex-column gap-3 navigation-container">
+    <div class="d-flex flex-column justify-content-center header-section p-3">
+      <h5>محمد علاء</h5>
+      <h6>الصف الثالث الثانوي</h6>
+    </div>
+    <div class="navigation-section">
+      <button mat-button *ngFor="let option of options; let i = index" class="form-button-1"
+        (click)="setActiveSection(i)" [ngClass]="{ 'active': option.selected }">
+        <i class="fa fa-{{ option.icon }} px-2"></i>
+        {{ option.label }}
+      </button>
+    </div>
+  </div>
+  <div>
+    <app-profile-home *ngIf="selectedOptionIndex === 0"></app-profile-home>
+    <app-profile-course *ngIf="selectedOptionIndex === 1"></app-profile-course>
+  </div>
+</section>

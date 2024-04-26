@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ILesson } from 'src/app/Model/ilesson';
-import { ILessonContent } from 'src/app/Model/ilesson-content';
+import { ILesson, ILessonContent } from 'src/app/Model/ilesson';
 
 @Component({
   selector: 'app-lesson-content',
@@ -10,6 +9,7 @@ import { ILessonContent } from 'src/app/Model/ilesson-content';
 })
 export class LessonContentComponent implements OnInit {
   lesson!: ILesson;
+  courseId!: number;
   contentIndex: number = 0;
   panelOpenState = false;
   selected?: boolean;
@@ -21,13 +21,16 @@ export class LessonContentComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.lesson = history.state.lesson;
-    // console.log(this.lesson);
-    this.initOptions();
+    this.route.queryParams.subscribe(params => {
+      this.courseId = params['courseId'];
+      this.lesson = history.state.lesson;
+      this.initOptions();
+    });
   }
 
   initOptions() {
     if (this.lesson && this.lesson.content) {
+
       this.lesson.content.forEach((content: ILessonContent, index: number) => {
         if (content.videoUrl) {
           const isSelected = index === 0;

@@ -1,5 +1,3 @@
-import { IQuestion } from "./iquestion";
-
 export interface IExam {
   id: number;
   title: string;
@@ -8,4 +6,19 @@ export interface IExam {
   duration: number;
   type: string;
   questions: IQuestion[];
+}
+
+export interface IQuestion {
+  questionId: number;
+  header: string;
+  type: string;
+  points: number;
+  answers: IAnswer[];
+}
+
+
+export interface IAnswer {
+  answerId: number;
+  header: string;
+  isCorrect: boolean;
 }

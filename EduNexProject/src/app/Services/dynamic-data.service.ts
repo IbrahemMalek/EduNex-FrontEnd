@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ILesson } from '../Model/ilesson';
 import { ICourse } from '../Model/icourse';
 import { IExam } from '../Model/iexam';
+import { IExamResult } from '../Model/iexam-result';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +75,12 @@ export class DynamicDataService {
 
   editExam(examId: number, updatedExam: IExam): Observable<void> {
     return this.httpClient.put<void>(`http://localhost:2000/exams/${examId}`, updatedExam);
+  }
+
+
+  // exam
+  getExamResult(): Observable<IExamResult> {
+    return this.httpClient.get<IExamResult>("http://localhost:2000/examResult");
   }
 
 }

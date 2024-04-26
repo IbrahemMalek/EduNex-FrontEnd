@@ -1,5 +1,4 @@
-export interface IuserData {
-
+export interface IUserData {
     fullName: string;
     studentPhoneNumber:number ;
     fatherPhoneNumber:number;

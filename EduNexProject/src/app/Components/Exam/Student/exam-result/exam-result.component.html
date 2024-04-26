@@ -1,0 +1,63 @@
+<section class="container d-flex flex-wrap  align-items-start gap-3" *ngIf="result">
+  <div class="d-flex flex-column col-md-3 result-section p-3 col-12">
+    <h5>نتيجة الامتحان <span> - </span> {{ result.ExamName }}</h5>
+    <div class="grade">
+      <p>درجة الامتحان: {{ result.ExamGrade }}</p>
+      <p>درجة الطالب: {{ result.StudentGrade }}</p>
+    </div>
+  </div>
+  <div class="col-md-7 col-12 flex-grow-1 question-section p-3">
+    <div class="exam-questions">
+      <div *ngFor="let question of result.StudentAnswersWithCorrectAnswers; let i = index; let last = last"
+        class="question">
+        <div class="d-flex flex-column gap-3">
+          <div class="flex gap-2 ms-auto">
+            <div class="book-mark">
+              <div id="triangle-topleft"></div>
+              <div id="triangle-topright"></div>
+            </div>
+
+            <h5>السؤال رقم : <span>{{i + 1}}</span></h5>
+          </div>
+
+          <h6 class="pb-3 question-header">{{ question.QuestionHeader }}</h6>
+        </div>
+        <ul class="d-flex flex-column gap-3 p-0">
+          <div *ngFor="let choice of getAnswerChoices(question.AnswerChoices); let j = index;" class="flex"
+            [ngClass]="{'answer':!question.StudentAnswerIds.includes(j + 1)}">
+            <span *ngIf="question.StudentAnswerIds.includes(j + 1)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 128 128"
+                class="fa-rotate-90">
+                <defs>
+                  <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:var(--wave1);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:var(--wave2);stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#grad)" d="M64 105.05L32.86 62.58h19.42V22.95h23.23v39.63h19.62z" />
+              </svg>
+            </span>
+            <li [ngClass]="{
+                  'correct-choice': question.CorrectAnswerIds.includes(j + 1),
+                  'student-answer': question.StudentAnswerIds.includes(j + 1),
+                  'wrong-choice':!question.CorrectAnswerIds.includes(j + 1)
+                }">
+              {{ choice }}
+
+            </li>
+          </div>
+        </ul>
+        <div class="correct-wrong-answer">
+          <p [ngClass]="{'correct-answer': isAnswerCorrect(parseIds(question.StudentAnswerIds), parseIds(question.CorrectAnswerIds)), 'wrong-answer': !isAnswerCorrect(parseIds(question.StudentAnswerIds), parseIds(question.CorrectAnswerIds))}"
+            style="margin-right: -1.75rem;">
+            إجابة الطالب : {{ getStudentAnswers(parseIds(question.StudentAnswerIds), question.AnswerChoices) }}
+          </p>
+          <p>
+            الإجابة الصحيحة : {{ getCorrectAnswers(parseIds(question.CorrectAnswerIds), question.AnswerChoices) }}
+          </p>
+        </div>
+        <hr *ngIf="!last" class="my-5">
+      </div>
+    </div>
+  </div>
+</section>

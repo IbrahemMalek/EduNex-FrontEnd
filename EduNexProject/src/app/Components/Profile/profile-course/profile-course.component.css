@@ -1,0 +1,57 @@
+table {
+  box-shadow: var(--border) 0px 0px 0px 1px !important;
+  border-radius: 10px !important;
+  /* min-width: 900px; */
+  background-image: var(--bg);
+  overflow-x: scroll;
+}
+
+th,
+td {
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  text-align: start;
+  width: max-content;
+}
+
+th {
+  font-weight: 700;
+}
+
+.passed span,
+.failed span {
+  padding-inline: 15px;
+  border-radius: 10rem;
+}
+
+.passed span {
+  color: var(--wave4);
+  background-color: rgba(144, 238, 144, 0.3);
+}
+
+.failed span {
+  color: var(--wave6);
+  background-color: rgba(240, 128, 128, 0.3);
+}
+
+.buttons button {
+  text-align: start;
+  margin-left: auto;
+}
+
+.buttons button:first-child {
+  color: var(--wave4);
+}
+
+.buttons button:last-child {
+  color: var(--wave6);
+}
+/*
+@media only screen and (max-width: 600px) {
+  .table-container {
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+} */

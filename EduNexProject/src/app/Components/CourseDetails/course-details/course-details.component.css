@@ -92,18 +92,10 @@ section {
   color: var(--wave4);
   border-radius: 10px !important;
 }
-/* .custom-expansion-panel ::ng-deep .mat-expansion-panel-body {
-  padding-inline:  0 !important;
-}
-.custom-expansion-panel ::ng-deep .mat-expansion-panel-header{
-  padding-inline:  1rem !important;
-} */
+
 .custom-expansion-panel ::ng-deep .mat-expansion-panel-header-title {
   padding-inline: 0 !important;
 }
-/* ::ng-deep .mdc-button__label{
-  margin-inline:auto !important;
-} */
 
 @media (max-width: 460px) {
   .cards-container {
