@@ -517,26 +517,50 @@
         "QuestionId": 1,
         "QuestionHeader": "ما هو الاسم العلمي للعملية التي تقوم بها النباتات لإنتاج الطعام باستخدام الطاقة من الشمس وإطلاق الأكسجين وما هي الأهمية البيئية لهذه العملية؟",
         "QuestionType": "اختيار متعدد",
-        "AnswerChoices": {
-          "1": "بكين",
-          "2": "طوكيو",
-          "3": "سيول",
-          "4": "بانكوك"
-        },
-        "StudentAnswerIds": [1,2,3],
-        "CorrectAnswerIds": [1,2,3],
+        "AnswerChoices": [
+          {
+            "AnswerId": 1,
+            "AnswerHeader": "بكين"
+          },
+          {
+            "AnswerId": 2,
+            "AnswerHeader": "طوكيو"
+          },
+          {
+            "AnswerId": 3,
+            "AnswerHeader": "سيول"
+          },
+          {
+            "AnswerId": 4,
+            "AnswerHeader": "بانكوك"
+          }
+        ],
+        "StudentAnswerIds": [1, 2, 3],
+        "CorrectAnswerIds": [1, 2, 3],
         "IsCorrect": true
       },
       {
         "QuestionId": 2,
         "QuestionHeader": "اشرح الفرق بين السرعة والسرعة، وكيف ترتبطان بالحركة الخطية والدورانية؟ كما اشرح كيفية قياس السرعة في كل من الحركتين؟",
         "QuestionType": "املأ الفراغ",
-        "AnswerChoices": {
-          "1": "H2O",
-          "2": "HO",
-          "3": "H",
-          "4": "O"
-        },
+        "AnswerChoices": [
+          {
+            "AnswerId": 1,
+            "AnswerHeader": "H2O"
+          },
+          {
+            "AnswerId": 2,
+            "AnswerHeader": "HO"
+          },
+          {
+            "AnswerId": 3,
+            "AnswerHeader": "H"
+          },
+          {
+            "AnswerId": 4,
+            "AnswerHeader": "O"
+          }
+        ],
         "StudentAnswerIds": [1],
         "CorrectAnswerIds": [1],
         "IsCorrect": true
@@ -545,12 +569,12 @@
         "QuestionId": 3,
         "QuestionHeader": "صف عملية الانقسام الميوزي وأهميتها في الوراثة وتطور الكائنات الحية، وارتباطها بظاهرة التنوع البيولوجي.",
         "QuestionType": "اختيار متعدد",
-        "AnswerChoices": {
-          "1": "الأرض",
-          "2": "المريخ",
-          "3": "المشتري",
-          "4": "زحل"
-        },
+        "AnswerChoices": [
+          { "AnswerId": 1, "AnswerHeader": "الأرض" },
+          { "AnswerId": 2, "AnswerHeader": "المريخ" },
+          { "AnswerId": 3, "AnswerHeader": "المشتري" },
+          { "AnswerId": 4, "AnswerHeader": "زحل" }
+        ],
         "StudentAnswerIds": [4],
         "CorrectAnswerIds": [3],
         "IsCorrect": false
@@ -559,12 +583,12 @@
         "QuestionId": 4,
         "QuestionHeader": "ما هي أنواع الروابط الكيميائية الرئيسية وكيفية تكوينها وتأثيرها على الخصائص الفيزيائية والكيميائية للمواد، وارتباطها بالظواهر الطبيعية والصناعية؟",
         "QuestionType": "اختيار متعدد",
-        "AnswerChoices": {
-          "1": "إسحاق نيوتن",
-          "2": "ألكسندر فليمنج",
-          "3": "ألبرت أينشتاين",
-          "4": "ماري كوري"
-        },
+        "AnswerChoices": [
+          { "AnswerId": 1, "AnswerHeader": "إسحاق نيوتن" },
+          { "AnswerId": 2, "AnswerHeader": "ألكسندر فليمنج" },
+          { "AnswerId": 3, "AnswerHeader": "ألبرت أينشتاين" },
+          { "AnswerId": 4, "AnswerHeader": "ماري كوري" }
+        ],
         "StudentAnswerIds": [1],
         "CorrectAnswerIds": [2],
         "IsCorrect": false
@@ -573,12 +597,12 @@
         "QuestionId": 5,
         "QuestionHeader": "ناقش دور الإنزيمات في العمليات البيولوجية مع الإشارة إلى تأثير درجة الحرارة والتركيز والpH على نشاطها، وكيف يمكن استخدام الإنزيمات في الصناعة والطب؟",
         "QuestionType": "املأ الفراغ",
-        "AnswerChoices": {
-          "1": "98",
-          "2": "100",
-          "3": "50",
-          "4": "200"
-        },
+        "AnswerChoices": [
+          { "AnswerId": 1, "AnswerHeader": "98" },
+          { "AnswerId": 2, "AnswerHeader": "100" },
+          { "AnswerId": 3, "AnswerHeader": "50" },
+          { "AnswerId": 4, "AnswerHeader": "200" }
+        ],
         "StudentAnswerIds": [1],
         "CorrectAnswerIds": [2],
         "IsCorrect": false
@@ -587,12 +611,12 @@
         "QuestionId": 6,
         "QuestionHeader": "ما هو مصدر الطاقة في الخلية؟",
         "QuestionType": "اختيار متعدد",
-        "AnswerChoices": {
-          "1": "النواة",
-          "2": "الريبوسوم",
-          "3": "الميتوكوندريا",
-          "4": "الليزوسوم"
-        },
+        "AnswerChoices": [
+          { "AnswerId": 1, "AnswerHeader": "النواة" },
+          { "AnswerId": 2, "AnswerHeader": "الريبوسوم" },
+          { "AnswerId": 3, "AnswerHeader": "الميتوكوندريا" },
+          { "AnswerId": 4, "AnswerHeader": "الليزوسوم" }
+        ],
         "StudentAnswerIds": [1],
         "CorrectAnswerIds": [3],
         "IsCorrect": false

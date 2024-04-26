@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class StudentProfileComponent {
   activeSection: string = '';
-  selectedOptionIndex: number = 1;
+  selectedOptionIndex: number = 0;
 
   options = [
     { label: 'الرئيسية', icon: 'home', selected: true },

@@ -11,12 +11,13 @@ export interface Question {
   QuestionId: number;
   QuestionHeader: string;
   QuestionType: string;
-  AnswerChoices: AnswerChoices;
+  AnswerChoices: AnswerChoices[];
   StudentAnswerIds: (number | string)[];
   CorrectAnswerIds: (number | string)[];
   IsCorrect: boolean;
 }
 
 export interface AnswerChoices {
-  [key: string]: string;
+  AnswerId: number;
+  AnswerHeader: string;
 }

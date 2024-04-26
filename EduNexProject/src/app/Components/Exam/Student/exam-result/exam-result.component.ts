@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IExamResult } from 'src/app/Model/iexam-result';
+import { AnswerChoices, IExamResult } from 'src/app/Model/iexam-result';
 import { DynamicDataService } from 'src/app/Services/dynamic-data.service';
-
 @Component({
   selector: 'app-exam-result',
   templateUrl: './exam-result.component.html',
@@ -22,17 +21,17 @@ export class ExamResultComponent {
     this.getAll();
   }
 
-  getAnswerChoices(answerChoices: { [key: string]: string }): string[] {
-    return Object.values(answerChoices);
+  getAnswerChoices(answerChoices: AnswerChoices[]): string[] {
+    return answerChoices.map(choice => choice.AnswerHeader);
   }
 
-  getStudentAnswers(studentAnswerIds: number[], answerChoices: { [key: string]: string }): string {
-    const selectedAnswers = studentAnswerIds.map(id => answerChoices[id.toString()]);
+  getStudentAnswers(studentAnswerIds: number[], answerChoices: AnswerChoices[]): string {
+    const selectedAnswers = studentAnswerIds.map(id => answerChoices[id - 1].AnswerHeader);
     return selectedAnswers.join(', ');
   }
 
-  getCorrectAnswers(correctAnswerIds: number[], answerChoices: { [key: string]: string }): string {
-    const correctAnswers = correctAnswerIds.map(id => answerChoices[id.toString()]);
+  getCorrectAnswers(correctAnswerIds: number[], answerChoices: AnswerChoices[]): string {
+    const correctAnswers = correctAnswerIds.map(id => answerChoices[id - 1].AnswerHeader);
     return correctAnswers.join(', ');
   }
 
@@ -47,5 +46,4 @@ export class ExamResultComponent {
   isCorrectChoice(choice: string, correctAnswerIds: number[]): boolean {
     return correctAnswerIds.includes(parseInt(choice, 10));
   }
-
 }
