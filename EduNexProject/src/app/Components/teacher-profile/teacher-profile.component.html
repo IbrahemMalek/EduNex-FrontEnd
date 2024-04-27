@@ -1,0 +1,61 @@
+<app-custom-cloud-navbar></app-custom-cloud-navbar>
+
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                        <div class="row align-items-center">
+                            <div class="mb-4 mb-lg-0">
+                               <h3 >جاري مراجعة بياناتك....</h3>
+                               <!-- <h3>جاري مراجعة بياناتك....</h3> -->
+                            </div>
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <img [src]="selectedImage" alt="..." id="avatarImage" style="max-width: 400px; max-height: 450px;">
+                                <input type="file" #uploadInput style="display: none;" accept="image/*" (change)="previewImage($event)">
+                                <button type="button" (click)="openFileInput()">Upload Photo</button>
+                              </div>
+                            <div class="col-lg-6 px-xl-10">
+                                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                    <h3 class="h2 text-white mb-0">رمضان مبروك ابو العلميين</h3>
+                                    <span class="text-primary">مدرس</span>
+                                </div>
+                                <ul class="list-unstyled mb-1-9" dir="rtl">
+                                    <span class="display-26 text-secondary me-2 font-weight-600">الوظيفة:  <li [attr.contenteditable]="edittext1?'false':'true' " [style.background-color]="edittext1 ? 'transparent':'#ccc'" style="color: black; font-size: 18px;" class="me-3 mb-2 mb-xl-3 display-28"> مدرس فيزياء</li></span >
+                                    <span  class="display-26 text-secondary me-2 font-weight-600">الخبرة: <li [attr.contenteditable]="edittext1?'false':'true' " [style.background-color]="edittext1 ? 'transparent':'#ccc'" style="color: black; font-size: 18px;" class="me-3 mb-2 mb-xl-3 display-28"> 5 سنوات تعليم حكومي</li></span> 
+                                    <span  class="display-26 text-secondary me-2 font-weight-600">المادة التعليمية: <li [attr.contenteditable]="edittext1?'false':'true' " [style.background-color]="edittext1 ? 'transparent':'#ccc'" style="color: black; font-size: 18px;" class="me-3 mb-2 mb-xl-3 display-28"> فيزياء </li></span> 
+                                    <span  class="display-26 text-secondary me-2 font-weight-600">الايميل: <li [attr.contenteditable]="edittext1?'false':'true' "[style.background-color]="edittext1 ? 'transparent':'#ccc'" style="color: black; font-size: 18px;" class="me-3 mb-2 mb-xl-3 display-28"> www.example.com</li></span> 
+                                    <span class="display-26 text-secondary me-2 font-weight-600">رقم الهاتف: <li [attr.contenteditable]="edittext1?'false':'true' " [style.background-color]="edittext1 ? 'transparent':'#ccc'" style="color: black; font-size: 18px;" class="me-3 mb-2 mb-xl-3 display-28"> 507 - 541 - 4567</li></span> 
+                                </ul>
+                                <button (click)="toggleEditp()" *ngIf="edittext1" class="btn btn-outline-warning"> تعديل البيانات</button>
+                                <button (click)="toggleEditp()" *ngIf ="!edittext1" class="btn btn-outline-primary">حفظ البيانات</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div>
+                    <span class="section-title text-primary mb-3 mb-sm-4">نبذة عن المعلم </span>
+                    <p [attr.contenteditable]="edittext ? 'false' : 'true'" [style.background-color]="edittext ? 'transparent':'#ccc'" #teacherHintValue [textContent]="teacherHint==='' ? 'اضف نبذة عن حياتك المهنية':''">{{teacherHint}}</p>
+                </div>
+                <button (click)="toggleEdit()" *ngIf="edittext" class="btn btn-outline-warning">تعديل</button>
+                <button (click)="toggleEdit(); saveupdate((teacherHintValue?.textContent ?? ''))" *ngIf="!edittext" class="btn btn-outline-primary">حفظ</button>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12 mb-4 mb-sm-5">
+                        <div>
+                            <span class="section-title text-primary mb-3 mb-sm-4">الخبرة العملية</span><br>
+                            <!-- <p [attr.contenteditable]="edittext2?'false':'true' " [style.background-color]="edittext2 ? 'transparent':'#ccc'">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p> -->
+                            <textarea [attr.contenteditable]="edittext2?'false':'true' " style="width: 450px;height: 200px;" ></textarea>
+                        </div>
+                        <button (click)="toggleEdit2()" *ngIf="edittext2" class="btn btn-outline-warning">تعديل</button>
+                        <button (click)="toggleEdit2()" *ngIf ="!edittext2" class="btn btn-outline-primary">حفظ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

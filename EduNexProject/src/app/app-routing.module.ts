@@ -9,6 +9,8 @@ import { CourseDetailsComponent } from './Components/CourseDetails/course-detail
 import { CreateExamComponent } from './Components/Exam/create-exam/create-exam.component';
 import { TeacherDashboardComponent } from './Components/teacher-dashboard/teacher-dashboard.component';
 import { SignupTeacherComponent } from './Components/signup-teacher/signup-teacher.component';
+import { AdminDashBoardComponent } from './Components/admin-dash-board/admin-dash-board.component';
+import { TeacherProfileComponent } from './Components/teacher-profile/teacher-profile.component';
 
 const routes: Routes = [
   { path: "course/:id/lesson/:id/exam/:id", component: CreateExamComponent },
@@ -21,7 +23,8 @@ const routes: Routes = [
   { path: "tdash", component: TeacherDashboardComponent },
   { path: "home", component: MainComponent },
   { path: "teacherSignup", component:SignupTeacherComponent },
-
+  { path: "teacherprofile", component:TeacherProfileComponent },
+  { path: "admindash", component:AdminDashBoardComponent },
   { path: "", component: LoginComponent },
   { path: "**", component: LoginComponent }
 ];

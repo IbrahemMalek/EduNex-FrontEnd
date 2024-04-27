@@ -65,7 +65,10 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TeacherDashboardComponent } from './Components/teacher-dashboard/teacher-dashboard.component';
 import { SignupTeacherComponent } from './Components/signup-teacher/signup-teacher.component';
-
+import { AdminDashBoardComponent } from './Components/admin-dash-board/admin-dash-board.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { TeacherProfileComponent } from './Components/teacher-profile/teacher-profile.component';
+import { CustomCloudNavbarComponent } from './Components/SharedComponents/custom-cloud-navbar/custom-cloud-navbar.component';
 
 
 @NgModule({
@@ -107,10 +110,14 @@ import { SignupTeacherComponent } from './Components/signup-teacher/signup-teach
     FooterComponent,
     TeacherDashboardComponent,
     SignupTeacherComponent,
+    AdminDashBoardComponent,
+    TeacherProfileComponent,
+    CustomCloudNavbarComponent,
    
   ],
   imports: [
     BrowserModule,
+    MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     AppRoutingModule,

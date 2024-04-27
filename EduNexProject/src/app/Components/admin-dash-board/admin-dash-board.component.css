@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+}
+.btn-custom {
+    width: 100%; 
+  }
+  .row{
+    margin: 0px 10px;
+  }
+  .slider{
+  
+     overflow: auto;
+     margin-top: 20px;
+     box-shadow: 0px 0px 5px #628ee6;
+     background-color: #152036;
+    height: 85vh;
+  }
+  .slider button{
+    background-color: #00afef7c;
+    color: white;
+  }
+  .slider button:hover{
+    background-color: white;
+    color: black;
+  }
+  /* ww---------------------------------------- */
+  .maincard{
+
+    margin-top: 20px;
+    box-shadow: 0px 0px 20px whitesmoke;
+    background-color: #152036;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 0px 0px 5px #628ee6;
+
+  }
+.card{
+    margin-bottom: 10px !important;
+    max-height: 150px;
+    text-align: center;
+    background: linear-gradient(to right, #afc3eaeb, white);
+
+   
+}
+.card .card-body{
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ /*////////////////////////////teacher*/
+
+ .example-card {
+  width: 325px;
+  height: 405px;
+  margin: 15px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+.example-card:hover {
+  cursor: pointer;
+}
+.image-container img {
+  width: 100%;
+  height: 100% ;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.44), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.example-card:hover .overlay {
+  opacity: 1;
+}
+
+.top-bottom-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.category,
+.name {
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transition: 0.3s;
+}
+.category {
+  bottom: 10px;
+  transform: translateX(-50%);
+  color: yellow;
+}
+.name {
+  font-size: 20px;
+  bottom: 50px;
+  transform: translateX(-50%);
+  font-weight: 700;
+  color: white;
+}
+.example-card:hover .category {
+  bottom: 80px;
+  color: red;
+}
+.example-card:hover .name {
+  bottom: 120px;
+}
+a {
+  all: unset;
+}

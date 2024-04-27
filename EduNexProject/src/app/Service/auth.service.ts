@@ -17,7 +17,7 @@ export class AuthService {
 
    baseUrl: string = 'http://localhost:5293';
    tokenKey: string = 'auth_token';
-
+   teacherId:any='';
   constructor(private httpClient: HttpClient,private router: Router,private snackBar: MatSnackBar) {
     if(localStorage.getItem("tokenKey") !==null)
       {
@@ -51,7 +51,7 @@ export class AuthService {
 
     console.log(data);
 
-    return this.httpClient.post(`${this.baseUrl}/api/Student/login/student`, data).pipe(
+    return this.httpClient.post(`${this.baseUrl}/api/Auth/login`, data).pipe(
       tap((response: any) => {
         if (response && response.token) {
           // Save token 
@@ -70,13 +70,11 @@ export class AuthService {
         }
       }),
       catchError(error => {
-        // If an error occurs, handle it here
-        // You can log the error or perform any other error handling tasks
-        console.error('Error during sign up:', error);
-        this.snackBar.open(`${error.error.Email[0]}`, 'Close', {
-          duration: 5000, 
-          verticalPosition: 'bottom',
-        });
+             
+        // this.snackBar.open(`${error.error.Email[0]}`, 'Close', {
+        //   duration: 5000, 
+        //   verticalPosition: 'bottom',
+        // });
         
         // Return an observable that emits the error
         return throwError(error);

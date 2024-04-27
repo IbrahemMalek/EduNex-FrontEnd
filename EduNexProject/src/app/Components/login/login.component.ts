@@ -60,13 +60,21 @@ export class LoginComponent {
         },
         error: (err) => {
           // Handle error
-          console.log(err);
-          this.snackBar.open('خطأ عنوان البريد أو كلمة المرور غير صحيحة', 'Close', {
+          
+          if(err.error.errorMessage=="Your account is pending approval. Please wait for admin approval.")
+            {
+              // console.log(err.error)
+              this.authService.teacherId=err.error.teacher;//send id
+              this.router.navigate(['/teacherprofile']);
+
+            }
+            else if(err.error['']){
+           this.snackBar.open(err.error[''], 'Close', {
             duration: 3000, 
             verticalPosition: 'bottom',
             panelClass: ['red-snackbar']
-            
           });
+         }
         }
       });
     } else {

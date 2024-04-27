@@ -1,0 +1,211 @@
+<div class="container-fluid">
+
+<div class="row d-flex justify-content-center mt-2" dir="rtl">
+  
+    <div class="slider col-md-2 offset-md-1 border border-gray rounded-4 px-4">
+      <div class="text-center mt-5 mb-5">
+        <button class="btn btn-custom" mat-raised-button color="primary" (click)="create()" style="min-height: 50px;">
+          <mat-icon>bar_chart</mat-icon> الاحصائيات
+        </button>
+      </div>
+  
+      <div class="text-center mt-5 mb-5">
+        <button class="btn btn-custom" mat-raised-button (click)="getAll()" style="min-height: 50px;">
+          <mat-icon>visibility</mat-icon> عرض المدرسين
+        </button>
+      </div>
+  
+      <div class="text-center mt-5 mb-5">
+        <button class="btn btn-custom" mat-raised-button  (click)="update()" style="min-height: 50px;">
+          <mat-icon>edit</mat-icon> طلب دخول مدرس 
+        </button>
+      </div>
+  
+      <div class="text-center mt-5 mb-5">
+        <button class="btn btn-custom" mat-raised-button  (click)="delete()" style="min-height: 50px;">
+          <mat-icon>delete</mat-icon> حذف كورس
+        </button>
+      </div>
+  
+      <div class="text-center mt-5 mb-5">
+        <button class="btn btn-custom" mat-raised-button  (click)="delete()" style="min-height: 50px;">
+          <mat-icon>delete</mat-icon> اختيار
+        </button>
+      </div>
+  
+    </div>
+  
+    <div class=" maincard col-md-9 border border-gray rounded-4 p-2 ">
+                <div *ngIf="toCreate" class="card mt-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <div>
+                          <i class="fa-solid fa-school" style="font-size: 35px;"></i>
+                        </div>
+                     <div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary mt-4">عدد الطلاب</h6>
+                        <h3 class="card-text">500</h3>
+                     </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="toCreate" class="card mt-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <div>
+                            <i class="fa-solid fa-person-chalkboard" style="font-size: 35px;"></i>
+                        </div>
+                     <div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary mt-4">عدد المدرسين</h6>
+                        <h3 class="card-text">20</h3>
+                     </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="toCreate" class="card mt-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <div>
+                            <i class="fa-solid fa-book-open-reader" style="font-size: 35px;"></i>
+                        </div>
+                     <div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary mt-4">عدد الكورسات</h6>
+                        <h3 class="card-text">60</h3>
+                     </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="toCreate" class="card mt-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <div>
+                           <i class="fa-solid fa-graduation-cap" style="font-size: 35px;"></i>
+                           <i class="fa-solid fa-1"></i>
+                        </div>
+                     <div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary mt-4">عدد طلبة الصف الاول الثانوي</h6>
+                        <h3 class="card-text">100</h3>
+                     </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="toCreate" class="card mt-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <div>
+                           <i class="fa-solid fa-graduation-cap" style="font-size: 35px;"></i>
+                           <i class="fa-solid fa-2"></i>
+                        </div>
+                     <div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary mt-4">عدد طلبة الصف الثاني الثانوي</h6>
+                        <h3 class="card-text">120</h3>
+                     </div>
+                    </div>
+                  </div>
+                  <div *ngIf="toCreate" class="card mt-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <div>
+                           <i class="fa-solid fa-graduation-cap" style="font-size: 35px;"></i>
+                           <i class="fa-solid fa-3"></i>
+                        </div>
+                     <div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary mt-4">عدد طلبة الصف الثالث الثانوي</h6>
+                        <h3 class="card-text">280</h3>
+                     </div>
+                    </div>
+                  </div>
+                  <div *ngIf="toCreate" class="card mt-4" style="width: 18rem;visibility:hidden;">
+                    <div class="card-body">
+                        <div>
+                           <i class="fa-solid fa-graduation-cap" style="font-size: 35px;"></i>
+                           <i class="fa-solid fa-3"></i>
+                        </div>
+                     <div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary mt-4">عدد طلبة الصف الثالث الثانوي</h6>
+                        <h3 class="card-text">280</h3>
+                     </div>
+                    </div>
+                  </div>
+
+                  
+
+                  
+                 
+            
+
+           
+            
+
+<!-- //----get all -->
+      <div *ngIf="toGetAll" class="d-flex" style="height: 100%; flex-wrap: wrap;">
+
+        <div class="mat-card-wrapper" #cardWrapper>
+          <mat-card class="example-card">
+            <div class="image-container">
+              <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScEec3jrgqt9saVD4WrCLKqXhijnWJQXdJb3Gxr2OmotvQ6YJgxsl2DBGDOrxqid5f5-Y&usqp=CAU" alt="Sample Image">
+            </div>
+            <div class="overlay"></div>
+            <div class="top-bottom-container">
+              <p class="name">خلف الدهشوري</p>
+              <p class="category mt-0">فيزياء</p>
+            </div>
+          </mat-card>
+        </div>
+        <div class="mat-card-wrapper" #cardWrapper>
+          <mat-card class="example-card">
+            <div class="image-container">
+              <img mat-card-image src="https://i.ytimg.com/vi/5YEi5wAS_0c/maxresdefault.jpg" alt="Sample Image">
+            </div>
+            <div class="overlay"></div>
+            <div class="top-bottom-container">
+              <p class="name">   خضر كرويته</p>
+              <p class="category mt-0">كمياء</p>
+            </div>
+          </mat-card>
+        </div>
+        <div class="mat-card-wrapper" #cardWrapper>
+          <mat-card class="example-card">
+            <div class="image-container">
+              <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqNV-hmx1uVa0Lf2nOkLtmGp4FD_Wfc5v-dmQ44wpHVvjBrFlcGch2jfsMk1EQ6ApJWk&usqp=CAU" alt="Sample Image">
+            </div>
+            <div class="overlay"></div>
+            <div class="top-bottom-container">
+              <p class="name">رمضان مبروك</p>
+              <p class="category mt-0">رياضيات</p>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    
+            <!-- cardADDEDTeaher---------------------------------------------------------------------------------- -->
+
+          <div *ngFor="let pTeach of teacherPendingData"> 
+            <div  *ngIf="toUpdate" class="mat-card mt-3" style="width: 18rem;color: white; box-shadow:0px 0px 10px gray; border-radius: 10px;height:480px;text-align: center;padding: 0px 5px;">
+              <img style="width: 100%; max-height: 200px;border-radius: 12px;padding-top: 5px;" mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqNV-hmx1uVa0Lf2nOkLtmGp4FD_Wfc5v-dmQ44wpHVvjBrFlcGch2jfsMk1EQ6ApJWk&usqp=CAU" alt="...">
+              <div class="mat-card-content">
+                <h5 class="mat-card-title mt-2">{{pTeach.firstName}}</h5>
+                <p class="mat-card-subtitle">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <ul class="mat-list-group">
+                <li class="mat-list-item">{{pTeach.lastName}}</li>
+                <li class="mat-list-item">{{pTeach.email}}</li>
+                <li class="mat-list-item">{{pTeach.phoneNumber}}</li>
+              </ul>
+              <div class="mat-card-actions d-flex" style="justify-content: space-between;">
+                <button type="button" (click)="Approve(pTeach.id)" class="btn btn-primary"><i class="fa-solid fa-person-walking-arrow-right"></i>قبول المدرس</button>
+                <button type="button" (click)="Reject(pTeach.id)" class="btn btn-danger"><i class="fa-solid fa-user-xmark"></i>رفض المدرس</button>
+              </div>
+             </div>
+          </div>
+
+            
+
+             
+
+
+       
+
+      <div *ngIf="toDelete">
+        <P>Delete</P>
+      </div>
+    </div>
+  
+  </div>
+</div>
+  
+
